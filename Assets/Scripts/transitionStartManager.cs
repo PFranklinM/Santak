@@ -6,7 +6,7 @@ public class transitionStartManager : MonoBehaviour {
 	float doorTimer = 0.0f;
 	bool transitionIsCounting = false;
 
-	public doorMove meleeDoorScript;
+	public doorMove doorScript;
 
 	// Use this for initialization
 	void Start () {
@@ -20,10 +20,10 @@ public class transitionStartManager : MonoBehaviour {
 			doorTimer += Time.deltaTime;
 		}
 
-		if (doorTimer >= 0.65f) {
+		if (doorTimer >= 0.95f) {
 			transitionIsCounting = false;
 
-			meleeDoorScript.timeToClose ();
+			doorScript.timeToClose ();
 
 
 			doorTimer = 0.0f;

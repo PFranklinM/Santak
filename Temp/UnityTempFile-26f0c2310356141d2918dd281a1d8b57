@@ -112,7 +112,6 @@
 'Assets/Scripts/cameraFollow.cs'
 'Assets/Scripts/doorMove.cs'
 'Assets/Scripts/mainCharacterTextBoxManager.cs'
-'Assets/Scripts/playerGetsStick.cs'
 'Assets/Scripts/playerLosesFlight.cs'
 'Assets/Scripts/playerMove.cs'
 'Assets/Scripts/playerWentWhereTheyShouldntBoolScript.cs'

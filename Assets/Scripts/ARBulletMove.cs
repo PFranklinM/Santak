@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class bulletMove : MonoBehaviour {
+public class ARBulletMove : MonoBehaviour {
 
-	float moveSpeed = 75f;
+	float moveSpeed;
 
 	public GameObject target;
 	public GameObject Bullet;
@@ -14,6 +14,8 @@ public class bulletMove : MonoBehaviour {
 
 		target = GameObject.Find("Target");
 		player = GameObject.Find("Player");
+
+		moveSpeed = 500f;
 	
 	}
 	
@@ -26,7 +28,7 @@ public class bulletMove : MonoBehaviour {
 
 		if (GameObject.Find ("Target").GetComponent<targetControl> ().AREquipped) {
 
-			if (Vector3.Distance (transform.position, player.transform.position) >= 20) {
+			if (Vector3.Distance (transform.position, player.transform.position) >= 95) {
 				Destroy (Bullet);
 			}
 

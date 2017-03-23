@@ -6,7 +6,7 @@ public class playerMove : MonoBehaviour {
 
 	public GameObject player;
 
-	public GameObject playerShadow;
+//	public GameObject playerShadow;
 
 	Rigidbody2D rb;
 
@@ -17,8 +17,6 @@ public class playerMove : MonoBehaviour {
 	float moveSpeed;
 
 	public bool screenTransition;
-
-	public bool walkAwayFromHouse;
 
 	float shadowMoveAmount = 0.5f;
 	float shadowMoveTimer = 0;
@@ -62,14 +60,12 @@ public class playerMove : MonoBehaviour {
 
 		screenTransition = false;
 
-		walkAwayFromHouse = false;
-
-		moveSpeed = 25f;
+		moveSpeed = 750f;
 
 		health = 10;
 
 		playerHasFlight = false;
-		playerHasDoubleJump = false;
+		playerHasDoubleJump = true;
 
 		playerHasShadow = false;
 	
@@ -78,99 +74,80 @@ public class playerMove : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (canMove == false) {
-			return;
-		}
+//		if (canMove == false) {
+//			return;
+//		}
 
 		Vector3 playerPos = new Vector3 (player.transform.position.x,
 			player.transform.position.y,
 			player.transform.position.z);
 
-		Vector3 shadowPos = new Vector3 (playerShadow.transform.position.x,
-			playerShadow.transform.position.y,
-			playerShadow.transform.position.z);
+//		Vector3 shadowPos = new Vector3 (playerShadow.transform.position.x,
+//			playerShadow.transform.position.y,
+//			playerShadow.transform.position.z);
 
-		if (screenTransition == false && walkAwayFromHouse == false) {
+//		if (playerHasShadow == true) {
+//			if (facingLeft == true) {
+//				shadowPos.x = playerPos.x + 3.5f;
+//			}
+//
+//			if (facingRight == true) {
+//				shadowPos.x = playerPos.x - 3.5f;
+//			}
+//		}
+//
+//		shadowPos.y -= shadowMoveAmount * Time.deltaTime;
 
-			if (Input.GetKey (KeyCode.A)) {
-				playerPos.x -= moveSpeed * Time.deltaTime;
-				facingLeft = true;
-				facingRight = false;
-			}
+//		shadowMoveTimer += Time.deltaTime;
+//
+//		if(shadowMoveTimer >= 1) {
+//			shadowMoveAmount = -shadowMoveAmount;
+//			shadowMoveTimer = 0;
+//		}
 
-			if (Input.GetKey (KeyCode.D)) {
-				playerPos.x += moveSpeed * Time.deltaTime;
-				facingLeft = false;
-				facingRight = true;
+//		if (screenTransition == false) {
+//
+//			if (playerHasShadow == true) {
+//				if (playerIsAirborn == true) {
+//					shadowPos.y = playerPos.y + 0.5f;
+//				}
+//			}
+//
+//		}
+
+		if (Input.GetKeyDown (KeyCode.Space) && playerIsFlying == false && playerHasDoubleJump == true) {
+
+			jumpCounter++;
+
+			if (jumpCounter <= 2) {
+
+				player.GetComponent<Rigidbody2D> ().AddForce (player.transform.up * 15000f);
 			}
 		}
 
-		if (playerHasShadow == true) {
-			if (facingLeft == true) {
-				shadowPos.x = playerPos.x + 3.5f;
-			}
+		if (Input.GetKeyDown (KeyCode.Space) && playerIsFlying == false && playerHasDoubleJump == false) {
+			jumpCounter++;
 
-			if (facingRight == true) {
-				shadowPos.x = playerPos.x - 3.5f;
+			if (jumpCounter <= 1) {
+
+				player.GetComponent<Rigidbody2D> ().AddForce (player.transform.up * 15000f);
 			}
 		}
 
-		shadowPos.y -= shadowMoveAmount * Time.deltaTime;
-
-		shadowMoveTimer += Time.deltaTime;
-
-		if(shadowMoveTimer >= 1) {
-			shadowMoveAmount = -shadowMoveAmount;
-			shadowMoveTimer = 0;
-		}
-
-		if (screenTransition == false && walkAwayFromHouse == false) {
-
-			if (Input.GetKeyDown (KeyCode.Space) && playerIsFlying == false && playerHasDoubleJump == true) {
-
-				jumpCounter++;
-
-				if (jumpCounter <= 2) {
-
-					rb.velocity = new Vector3 (0, 75, 0);
-				}
-			}
-
-			if (Input.GetKeyDown (KeyCode.Space) && playerIsFlying == false && playerHasDoubleJump == false) {
-				jumpCounter++;
-
-				if (jumpCounter <= 1) {
-
-					rb.velocity = new Vector3 (0, 75, 0);
-				}
-			}
-
-			if (Input.GetKey (KeyCode.Space)) {
-				playerIsAirborn = true;
-			}
-
-			if (playerHasShadow == true) {
-				if (playerIsAirborn == true) {
-					shadowPos.y = playerPos.y + 0.5f;
-				}
-			}
-
+		if (Input.GetKey (KeyCode.Space)) {
+			playerIsAirborn = true;
 		}
 
 		//screen transitions
 		if (screenTransition == true && facingRight == true) {
-			playerPos.x += 15 * Time.deltaTime;
+			playerPos.x += 50 * Time.deltaTime;
 		}
 
 		if(screenTransition == true && facingLeft == true) {
-			playerPos.x -= 15 * Time.deltaTime;
+			playerPos.x -= 50 * Time.deltaTime;
 		}
 
-		if (walkAwayFromHouse == true) {
-			playerPos.x += 15 * Time.deltaTime;
-		}
-
-		playerShadow.transform.position = shadowPos;
+//		playerShadow.transform.position = shadowPos;
 
 		player.transform.position = playerPos;
 
@@ -186,36 +163,56 @@ public class playerMove : MonoBehaviour {
 
 	void FixedUpdate () {
 
-		if (canMove == false) {
-			return;
-		}
+//		if (canMove == false) {
+//			return;
+//		}
 
 		if (screenTransition == false) {
 
-			if (playerHasFlight == true) {
-				if (Input.GetKey (KeyCode.W)) {
-					player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
-					player.GetComponent<Rigidbody2D> ().drag = 10.0f;
-					playerIsFlying = true;
-					playerIsAirborn = true;
+			if (Input.GetKey (KeyCode.A)) {
+					
+				facingLeft = true;
+				facingRight = false;
 
-					if (playerIsFlying == true) {
-						player.GetComponent<Rigidbody2D> ().AddForce (player.transform.up * 250f);
-					}
-				}
 
-				if (Input.GetKey (KeyCode.S) && playerIsFlying == true) {
-					player.GetComponent<Rigidbody2D> ().AddForce (player.transform.up * -250f);
-				}
+				player.GetComponent<Rigidbody2D> ().AddForce (player.transform.right * -moveSpeed);
 
 			}
 
-			if (playerHasFlight == false) {
-				player.GetComponent<Rigidbody2D> ().drag = 1.0f;
-				player.GetComponent<Rigidbody2D> ().gravityScale = 15.0f;
+			if (Input.GetKey (KeyCode.D)) {
+
+				facingLeft = false;
+				facingRight = true;
+
+
+				player.GetComponent<Rigidbody2D> ().AddForce (player.transform.right * moveSpeed);
+
 			}
+
+//			if (playerHasFlight == true) {
+//				if (Input.GetKey (KeyCode.W)) {
+//					player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
+//					player.GetComponent<Rigidbody2D> ().drag = 10.0f;
+//					playerIsFlying = true;
+//					playerIsAirborn = true;
+//
+//					if (playerIsFlying == true) {
+//						player.GetComponent<Rigidbody2D> ().AddForce (player.transform.up * 250f);
+//					}
+//				}
+//
+//				if (Input.GetKey (KeyCode.S) && playerIsFlying == true) {
+//					player.GetComponent<Rigidbody2D> ().AddForce (player.transform.up * -250f);
+//				}
+//
+//			}
+//
+//			if (playerHasFlight == false) {
+//				player.GetComponent<Rigidbody2D> ().drag = 1.0f;
+//				player.GetComponent<Rigidbody2D> ().gravityScale = 50.0f;
+//			}
+//		}
 		}
-
 	}
 
 	void OnCollisionEnter2D(Collision2D coll){
@@ -225,25 +222,25 @@ public class playerMove : MonoBehaviour {
 				player.transform.position.y,
 				player.transform.position.z);
 
-			Vector3 shadowPos = new Vector3 (playerShadow.transform.position.x,
-				playerShadow.transform.position.y,
-				playerShadow.transform.position.z);
+//			Vector3 shadowPos = new Vector3 (playerShadow.transform.position.x,
+//				playerShadow.transform.position.y,
+//				playerShadow.transform.position.z);
 
 			jumpCounter = 0;
 			playerIsFlying = false;
 			playerIsAirborn = false;
 
-			moveSpeed = 25f;
+			moveSpeed = 750f;
 
 
-			if (playerHasShadow == true) {
-				shadowPos.y = playerPos.y + 0.5f;
-			}
+//			if (playerHasShadow == true) {
+//				shadowPos.y = playerPos.y + 0.5f;
+//			}
 
-			player.GetComponent<Rigidbody2D> ().drag = 1.0f;
-			player.GetComponent<Rigidbody2D> ().gravityScale = 15.0f;
+//			player.GetComponent<Rigidbody2D> ().drag = 1.0f;
+//			player.GetComponent<Rigidbody2D> ().gravityScale = 50.0f;
 
-			playerShadow.transform.position = shadowPos;
+//			playerShadow.transform.position = shadowPos;
 
 			player.transform.position = playerPos;
 

@@ -31,8 +31,6 @@ public class activateText1 : MonoBehaviour {
 			textBox.endAtLine = endLine;
 			textBox.enableTextBox ();
 
-			GameObject.Find ("Player").GetComponent<playerMove> ().walkAwayFromHouse = true;
-
 			textHasPlayed = true;
 		}
 	}

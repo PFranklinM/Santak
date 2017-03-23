@@ -22,13 +22,13 @@ public class doorMove : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D coll){
-		if (coll.gameObject.tag == "melee") {
+		if (coll.gameObject.tag == "ARbullet") {
 			Vector3 doorPos = new Vector3 (transform.position.x,
 				transform.position.y,
 				transform.position.z);
 
 			if (doorIsHittable == true) {
-				doorPos.y += 15f;
+				doorPos.y += 85f;
 				doorIsHittable = false;
 			}
 
@@ -42,7 +42,7 @@ public class doorMove : MonoBehaviour {
 			transform.position.z);
 
 		if (transform.position.y > originalPos.y) {
-			doorPos.y -= 15f;
+			doorPos.y -= 85f;
 		}
 
 		doorIsHittable = true;

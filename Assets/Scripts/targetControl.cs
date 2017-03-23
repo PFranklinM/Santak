@@ -9,8 +9,10 @@ public class targetControl : MonoBehaviour {
 
 	public GameObject bullet;
 
-	public GameObject meleeColliderRight;
-	public GameObject meleeColliderLeft;
+	public GameObject squareWorld;
+	public GameObject circleWorld;
+
+	bool squareWorldActive;
 
 	public Vector2 pos;
 
@@ -24,8 +26,6 @@ public class targetControl : MonoBehaviour {
 	public bool RLEquipped;
 	public bool MLEquipped;
 
-	public bool playerHasMeleeAttack;
-
 	public bool playerFacingLeft;
 	public bool playerFacingRight;
 
@@ -36,19 +36,19 @@ public class targetControl : MonoBehaviour {
 
 		thePlayer = FindObjectOfType<playerMove> ();
 
-		AREquipped = false;
+		AREquipped = true;
 		SGEquipped = false;
 		HCEquipped = false;
 		RLEquipped = false;
 		MLEquipped = false;
 
-		playerHasMeleeAttack = false;
-
 		playerFacingLeft = false;
 		playerFacingRight = true;
 
-		meleeColliderRight.SetActive(false);
-		meleeColliderLeft.SetActive(false);
+		squareWorld.SetActive (true);
+		circleWorld.SetActive (false);
+
+		squareWorldActive = true;
 	
 	}
 	
@@ -62,14 +62,6 @@ public class targetControl : MonoBehaviour {
 		Vector3 playerPos = new Vector3 (player.transform.position.x,
 			player.transform.position.y,
 			player.transform.position.z);
-
-		Vector3 meleeColliderRightPos = new Vector3 (meleeColliderRight.transform.position.x,
-			meleeColliderRight.transform.position.y,
-			meleeColliderRight.transform.position.z);
-
-		Vector3 meleeColliderLeftPos = new Vector3 (meleeColliderLeft.transform.position.x,
-			meleeColliderLeft.transform.position.y,
-			meleeColliderLeft.transform.position.z);
 
 		pos = Input.mousePosition;
 
@@ -91,7 +83,7 @@ public class targetControl : MonoBehaviour {
 
 		if (Input.GetMouseButton(0) && (Time.time > ROF) && AREquipped == true) {
 
-			shotDelay = 0.05f;
+			shotDelay = 0.1f;
 
 			ROF = Time.time + shotDelay;
 
@@ -102,56 +94,25 @@ public class targetControl : MonoBehaviour {
 			bulletClone.transform.position = player.transform.position;
 		}
 
-//Melee Behavior
+//World Switching Behavior
 
-		meleeColliderRightPos.x = playerPos.x + 4;
-		meleeColliderRightPos.y = playerPos.y;
+		if (Input.GetMouseButtonDown (1) && squareWorldActive == true) {
 
-		meleeColliderLeftPos.x = playerPos.x - 4;
-		meleeColliderLeftPos.y = playerPos.y;
+			circleWorld.SetActive (true);
+			squareWorld.SetActive (false);
 
-		meleeColliderRight.transform.position = meleeColliderRightPos;
-
-		meleeColliderLeft.transform.position = meleeColliderLeftPos;
-
-		if (Input.GetMouseButton (1) && playerHasMeleeAttack == true && playerFacingRight == true) {
-			StartCoroutine(meleeRight());
+			squareWorldActive = false;
 		}
 
-		if (Input.GetMouseButton (1) && playerHasMeleeAttack == true && playerFacingLeft == true) {
-			StartCoroutine(meleeLeft());
-		}
+		else if (Input.GetMouseButtonDown (1) && squareWorldActive == false) {
+			
+			squareWorld.SetActive (true);
+			circleWorld.SetActive (false);
 
-		Physics2D.IgnoreCollision(meleeColliderRight.GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
-		Physics2D.IgnoreCollision(meleeColliderLeft.GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
+			squareWorldActive = true;
+		}
 
 		player.transform.position = playerPos;
 
-	}
-
-	IEnumerator meleeRight(){
-		float meleeCounter = 0.0f;
-
-		while (meleeCounter < 0.15f) {
-			meleeCounter += Time.deltaTime;
-			meleeColliderRight.SetActive (true);
-
-			yield return null;
-		}
-
-		meleeColliderRight.SetActive (false);
-	}
-
-	IEnumerator meleeLeft(){
-		float meleeCounter = 0.0f;
-
-		while (meleeCounter < 0.15f) {
-			meleeCounter += Time.deltaTime;
-			meleeColliderLeft.SetActive (true);
-
-			yield return null;
-		}
-
-		meleeColliderLeft.SetActive (false);
 	}
 }

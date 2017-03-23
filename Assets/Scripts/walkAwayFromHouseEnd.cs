@@ -15,8 +15,6 @@ public class walkAwayFromHouseEnd : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D coll) {
 		if (coll.gameObject.tag == "player") {
-
-			GameObject.Find ("Player").GetComponent<playerMove> ().walkAwayFromHouse = false;
 		}
 	}
 }
