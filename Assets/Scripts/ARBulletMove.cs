@@ -28,7 +28,7 @@ public class ARBulletMove : MonoBehaviour {
 
 		if (GameObject.Find ("Target").GetComponent<targetControl> ().AREquipped) {
 
-			if (Vector3.Distance (transform.position, player.transform.position) >= 95) {
+			if (Vector3.Distance (transform.position, player.transform.position) >= 150) {
 				Destroy (Bullet);
 			}
 

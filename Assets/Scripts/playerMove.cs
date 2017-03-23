@@ -42,6 +42,13 @@ public class playerMove : MonoBehaviour {
 	//player has met shadow bool
 	public bool playerHasShadow;
 
+	//player checkpoint bools
+	public bool RM1Checkpoint;
+	public bool RM2CheckpointL;
+	public bool RM2CheckpointR;
+	public bool RM3CheckpointL;
+	public bool RM3CheckpointR;
+
 	// Use this for initialization
 	void Start () {
 
@@ -60,7 +67,7 @@ public class playerMove : MonoBehaviour {
 
 		screenTransition = false;
 
-		moveSpeed = 750f;
+		moveSpeed = 2000f;
 
 		health = 10;
 
@@ -68,6 +75,13 @@ public class playerMove : MonoBehaviour {
 		playerHasDoubleJump = true;
 
 		playerHasShadow = false;
+
+		//player checkpoint bools
+		RM1Checkpoint = false;
+		RM2CheckpointL = false;
+		RM2CheckpointR = false;
+		RM3CheckpointL = false;
+		RM3CheckpointR = false;
 	
 	}
 	
@@ -121,7 +135,7 @@ public class playerMove : MonoBehaviour {
 
 			if (jumpCounter <= 2) {
 
-				player.GetComponent<Rigidbody2D> ().AddForce (player.transform.up * 15000f);
+				player.GetComponent<Rigidbody2D> ().AddForce (player.transform.up * 45000f);
 			}
 		}
 
@@ -130,7 +144,7 @@ public class playerMove : MonoBehaviour {
 
 			if (jumpCounter <= 1) {
 
-				player.GetComponent<Rigidbody2D> ().AddForce (player.transform.up * 15000f);
+				player.GetComponent<Rigidbody2D> ().AddForce (player.transform.up * 45000f);
 			}
 		}
 
@@ -149,8 +163,6 @@ public class playerMove : MonoBehaviour {
 
 //		playerShadow.transform.position = shadowPos;
 
-		player.transform.position = playerPos;
-
 		//health and dying
 //		Text playerHealthText = healthText.GetComponent<Text>();
 //		playerHealthText.text = "Health: " + health;
@@ -158,6 +170,30 @@ public class playerMove : MonoBehaviour {
 		if (health <= 0) {
 			Application.LoadLevel ("Dead");
 		}
+
+		if (Input.GetKeyDown (KeyCode.Return)) {
+			if (RM1Checkpoint == true) {
+				playerPos.x = 505;
+				playerPos.y = 20;
+			}
+
+			if (RM2CheckpointL == true) {
+				playerPos.x = 630;
+				playerPos.y = 20;
+			}
+
+			if (RM2CheckpointR == true) {
+				playerPos.x = 1162;
+				playerPos.y = 170;
+			}
+
+			if (RM3CheckpointL == true) {
+				playerPos.x = 1264;
+				playerPos.y = 170;
+			}
+		}
+
+		player.transform.position = playerPos;
 	
 	}
 
@@ -191,7 +227,6 @@ public class playerMove : MonoBehaviour {
 
 //			if (playerHasFlight == true) {
 //				if (Input.GetKey (KeyCode.W)) {
-//					player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 //					player.GetComponent<Rigidbody2D> ().drag = 10.0f;
 //					playerIsFlying = true;
 //					playerIsAirborn = true;
@@ -209,7 +244,6 @@ public class playerMove : MonoBehaviour {
 //
 //			if (playerHasFlight == false) {
 //				player.GetComponent<Rigidbody2D> ().drag = 1.0f;
-//				player.GetComponent<Rigidbody2D> ().gravityScale = 50.0f;
 //			}
 //		}
 		}
@@ -230,7 +264,7 @@ public class playerMove : MonoBehaviour {
 			playerIsFlying = false;
 			playerIsAirborn = false;
 
-			moveSpeed = 750f;
+			moveSpeed = 2000f;
 
 
 //			if (playerHasShadow == true) {
@@ -238,7 +272,6 @@ public class playerMove : MonoBehaviour {
 //			}
 
 //			player.GetComponent<Rigidbody2D> ().drag = 1.0f;
-//			player.GetComponent<Rigidbody2D> ().gravityScale = 50.0f;
 
 //			playerShadow.transform.position = shadowPos;
 
