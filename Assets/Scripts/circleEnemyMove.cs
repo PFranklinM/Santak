@@ -44,8 +44,37 @@ public class circleEnemyMove : MonoBehaviour {
 
 //			enemyPos.z = 0f;
 
-			transform.position += dir * Time.deltaTime * 4f;
+			transform.position += dir * Time.deltaTime * 3f;
 		}
+
+		if (health <= 0) {
+			Destroy (this.gameObject);
+		}
+
+		if (GameObject.Find("transitionStart1").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
+			Destroy (this.gameObject);
+		}
+
+		if (GameObject.Find("transitionStart2").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
+			Destroy (this.gameObject);
+		}
+
+//		if (GameObject.Find("transitionStart3").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
+//			Destroy (this.gameObject);
+//		}
 	
+	}
+
+	void OnCollisionEnter2D(Collision2D coll){
+
+		if (coll.gameObject.tag == "ARbullet") {
+			health -= 10;
+		}
+	}
+
+	void OnTriggerEnter2D(Collider2D coll){
+		if (coll.gameObject.tag == "transitionEnd") {
+			Destroy (this.gameObject);
+		}
 	}
 }

@@ -86,9 +86,9 @@ public class squareEnemyMove : MonoBehaviour {
 			Destroy (this.gameObject);
 		}
 
-		if (GameObject.Find("transitionStart3").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
-			Destroy (this.gameObject);
-		}
+//		if (GameObject.Find("transitionStart3").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
+//			Destroy (this.gameObject);
+//		}
 
 
 	}
@@ -101,10 +101,6 @@ public class squareEnemyMove : MonoBehaviour {
 		if (coll.gameObject.tag == "ARbullet") {
 			health -= 10;
 		}
-
-//		if (coll.gameObject.tag == "player") {
-//			Destroy (this.gameObject);
-//		}
 	}
 
 	void OnTriggerEnter2D(Collider2D coll){

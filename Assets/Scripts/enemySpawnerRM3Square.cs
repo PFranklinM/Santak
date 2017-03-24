@@ -15,43 +15,55 @@ public class enemySpawnerRM3Square : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM3CheckpointL == true ||
-		   GameObject.Find ("Player").GetComponent<playerMove> ().RM3CheckpointR == true) {
+		if (GameObject.Find ("CircleWorld") == null) {
 
-			if (spawnCounter < 1) {
+			if (GameObject.Find ("Player").GetComponent<playerMove> ().RM3CheckpointL == true ||
+			   GameObject.Find ("Player").GetComponent<playerMove> ().RM3CheckpointR == true) {
 
-				GameObject squareEnemyClone = (GameObject)Instantiate (squareEnemy);
+				if (spawnCounter < 1) {
 
-				squareEnemyClone.transform.parent = GameObject.Find("spawnerS1").transform;
+					GameObject squareEnemyClone = (GameObject)Instantiate (squareEnemy);
 
-				Vector3 clonePos = new Vector3 (squareEnemyClone.transform.position.x,
-					                  squareEnemyClone.transform.position.y,
-					                  squareEnemyClone.transform.position.z);
+					squareEnemyClone.transform.parent = GameObject.Find ("enemiesS").transform;
 
-				clonePos.x = 1495;
-				clonePos.y = 140;
+					Vector3 clonePos = new Vector3 (squareEnemyClone.transform.position.x,
+						                  squareEnemyClone.transform.position.y,
+						                  squareEnemyClone.transform.position.z);
 
-				squareEnemyClone.transform.position = clonePos;
+					clonePos.x = 1495;
+					clonePos.y = 140;
 
-				spawnCounter++;
+					squareEnemyClone.transform.position = clonePos;
+
+					spawnCounter++;
+				}
+
 			}
-
 		}
-
+			
 		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM2CheckpointR == true ||
 		   GameObject.Find ("Player").GetComponent<playerMove> ().RM4CheckpointL == true) {
 
-			spawnCounter = 0;
+			if (GameObject.Find ("squareEnemy(Clone)") == null) {
+				spawnCounter = 0;
+			}
 		}
 	
 	}
 
 	void OnEnable() {
 
-		foreach (Transform child in transform) {
-			GameObject.Destroy(child.gameObject);
+		if (GameObject.Find ("squareEnemy(Clone)") == null) {
+
+			if (GameObject.Find ("Player").GetComponent<playerMove> ().RM2CheckpointR == true ||
+			    GameObject.Find ("Player").GetComponent<playerMove> ().RM4CheckpointL == true) {
+
+				spawnCounter = 0;
+			}
 		}
 
-		spawnCounter = 0;
+//		foreach (Transform child in transform) {
+//			GameObject.Destroy(child.gameObject);
+//		}
 	}
 }
