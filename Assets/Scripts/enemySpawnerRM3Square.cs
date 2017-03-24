@@ -20,21 +20,38 @@ public class enemySpawnerRM3Square : MonoBehaviour {
 
 			if (spawnCounter < 1) {
 
-				GameObject jumpingEnemyClone = (GameObject)Instantiate (squareEnemy);
+				GameObject squareEnemyClone = (GameObject)Instantiate (squareEnemy);
 
-				Vector3 clonePos = new Vector3 (jumpingEnemyClone.transform.position.x,
-					                  jumpingEnemyClone.transform.position.y,
-					                  jumpingEnemyClone.transform.position.z);
+				squareEnemyClone.transform.parent = GameObject.Find("spawnerS1").transform;
 
-				clonePos.x = 1450;
+				Vector3 clonePos = new Vector3 (squareEnemyClone.transform.position.x,
+					                  squareEnemyClone.transform.position.y,
+					                  squareEnemyClone.transform.position.z);
+
+				clonePos.x = 1495;
 				clonePos.y = 140;
 
-				jumpingEnemyClone.transform.position = clonePos;
+				squareEnemyClone.transform.position = clonePos;
 
 				spawnCounter++;
 			}
 
 		}
+
+		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM2CheckpointR == true ||
+		   GameObject.Find ("Player").GetComponent<playerMove> ().RM4CheckpointL == true) {
+
+			spawnCounter = 0;
+		}
 	
+	}
+
+	void OnEnable() {
+
+		foreach (Transform child in transform) {
+			GameObject.Destroy(child.gameObject);
+		}
+
+		spawnCounter = 0;
 	}
 }

@@ -48,6 +48,8 @@ public class playerMove : MonoBehaviour {
 	public bool RM2CheckpointR;
 	public bool RM3CheckpointL;
 	public bool RM3CheckpointR;
+	public bool RM4CheckpointL;
+	public bool RM4CheckpointR;
 
 	// Use this for initialization
 	void Start () {
@@ -82,6 +84,8 @@ public class playerMove : MonoBehaviour {
 		RM2CheckpointR = false;
 		RM3CheckpointL = false;
 		RM3CheckpointR = false;
+		RM4CheckpointL = false;
+		RM4CheckpointR = false;
 	
 	}
 	

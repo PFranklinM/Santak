@@ -8,8 +8,12 @@ public class transitionStartManager : MonoBehaviour {
 
 	public doorMove doorScript;
 
+	public bool playerTouchedTransition;
+
 	// Use this for initialization
 	void Start () {
+
+		playerTouchedTransition = false;
 	
 	}
 	
@@ -38,7 +42,17 @@ public class transitionStartManager : MonoBehaviour {
 			GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition = true;
 
 			transitionIsCounting = true;
+
+			playerTouchedTransition = true;
 		}
 
+	}
+
+	void OnTriggerExit2D(Collider2D coll) {
+
+		if (coll.gameObject.tag == "player") {
+			
+			playerTouchedTransition = false;
+		}
 	}
 }

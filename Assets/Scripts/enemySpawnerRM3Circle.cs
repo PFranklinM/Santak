@@ -20,16 +20,16 @@ public class enemySpawnerRM3Circle : MonoBehaviour {
 
 			if (spawnCounter < 1) {
 
-				GameObject jumpingEnemyClone = (GameObject)Instantiate (circleEnemy);
+				GameObject circleEnemyClone = (GameObject)Instantiate (circleEnemy);
 
-				Vector3 clonePos = new Vector3 (jumpingEnemyClone.transform.position.x,
-					jumpingEnemyClone.transform.position.y,
-					jumpingEnemyClone.transform.position.z);
+				Vector3 clonePos = new Vector3 (circleEnemyClone.transform.position.x,
+					circleEnemyClone.transform.position.y,
+					circleEnemyClone.transform.position.z);
 
-				clonePos.x = 1450;
+				clonePos.x = 1495;
 				clonePos.y = 140;
 
-				jumpingEnemyClone.transform.position = clonePos;
+				circleEnemyClone.transform.position = clonePos;
 
 				spawnCounter++;
 			}

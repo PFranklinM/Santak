@@ -12,7 +12,7 @@ public class targetControl : MonoBehaviour {
 	public GameObject squareWorld;
 	public GameObject circleWorld;
 
-	bool squareWorldActive;
+	public bool squareWorldActive;
 
 	public Vector2 pos;
 

@@ -64,6 +64,7 @@
      <Compile Include="Assets\Scripts\audioManager.cs" />
      <Compile Include="Assets\Scripts\bouncingEnemySpawner.cs" />
      <Compile Include="Assets\Scripts\cameraFollow.cs" />
+     <Compile Include="Assets\Scripts\circleEnemyMove.cs" />
      <Compile Include="Assets\Scripts\doorMove.cs" />
      <Compile Include="Assets\Scripts\enemySpawnerRM3Circle.cs" />
      <Compile Include="Assets\Scripts\enemySpawnerRM3Square.cs" />

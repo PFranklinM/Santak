@@ -1,16 +1,16 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/playerMove.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/enemySpawnerRM3Square.cs">
     <Files>
-      <File FileName="Assets/Scripts/playerMove.cs" Line="132" Column="38" />
-      <File FileName="Assets/Scripts/targetControl.cs" Line="117" Column="3" />
+      <File FileName="Assets/Scripts/playerMove.cs" Line="52" Column="29" />
+      <File FileName="Assets/Scripts/targetControl.cs" Line="99" Column="35" />
       <File FileName="Assets/Scripts/doorMove.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/transitionStartManager.cs" Line="9" Column="29" />
+      <File FileName="Assets/Scripts/transitionStartManager.cs" Line="51" Column="1" />
       <File FileName="Assets/Scripts/transitionEndManagerRM3L.cs" Line="25" Column="82" />
-      <File FileName="Assets/Scripts/bouncingEnemySpawner.cs" Line="55" Column="5" />
-      <File FileName="Assets/Scripts/enemySpawnerRM3Square.cs" Line="4" Column="35" />
-      <File FileName="Assets/Scripts/enemySpawnerRM3Circle.cs" Line="23" Column="67" />
-      <File FileName="Assets/Scripts/squareEnemyMove.cs" Line="40" Column="82" />
+      <File FileName="Assets/Scripts/enemySpawnerRM3Square.cs" Line="53" Column="4" />
+      <File FileName="Assets/Scripts/enemySpawnerRM3Circle.cs" Line="19" Column="84" />
+      <File FileName="Assets/Scripts/squareEnemyMove.cs" Line="89" Column="40" />
+      <File FileName="Assets/Scripts/circleEnemyMove.cs" Line="45" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

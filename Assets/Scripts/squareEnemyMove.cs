@@ -11,18 +11,22 @@ public class squareEnemyMove : MonoBehaviour {
 
 	float jumpCounter = 0f;
 
-	public playerMove thePlayer;
+	int health;
+
+//	public playerMove thePlayer;
 
 	// Use this for initialization
 	void Start () {
 
-		thePlayer = FindObjectOfType<playerMove> ();
+//		thePlayer = FindObjectOfType<playerMove> ();
 
 		rb = GetComponent<Rigidbody2D>();
 
 		touchingGround = false;
 
-		player =  GameObject.Find("Player");
+		player =  GameObject.Find ("Player");
+
+		health = 100;
 
 	}
 
@@ -37,7 +41,7 @@ public class squareEnemyMove : MonoBehaviour {
 			transform.position.y,
 			transform.position.z);
 
-		if (Vector3.Distance (this.transform.position, player.transform.position) < 500f) {
+		if (Vector3.Distance (this.transform.position, player.transform.position) < 400f) {
 
 			if (player.transform.position.x < enemyPos.x && touchingGround == true) {
 
@@ -45,7 +49,7 @@ public class squareEnemyMove : MonoBehaviour {
 
 				if (jumpCounter > 0.25f) {
 
-					rb.velocity = new Vector3 (-10, 90, 0);
+					rb.velocity = new Vector3 (-400, 1500, 0);
 
 					touchingGround = false;
 
@@ -59,7 +63,7 @@ public class squareEnemyMove : MonoBehaviour {
 
 				if (jumpCounter > 0.25f) {
 
-					rb.velocity = new Vector3 (10, 90, 0);
+					rb.velocity = new Vector3 (400, 1500, 0);
 
 					touchingGround = false;
 
@@ -68,7 +72,24 @@ public class squareEnemyMove : MonoBehaviour {
 			}
 		}
 
+		if (health <= 0) {
+			Destroy (this.gameObject);
+		}
+
 		transform.position = enemyPos;
+
+		if (GameObject.Find("transitionStart1").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
+			Destroy (this.gameObject);
+		}
+
+		if (GameObject.Find("transitionStart2").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
+			Destroy (this.gameObject);
+		}
+
+		if (GameObject.Find("transitionStart3").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
+			Destroy (this.gameObject);
+		}
+
 
 	}
 
@@ -77,13 +98,13 @@ public class squareEnemyMove : MonoBehaviour {
 			touchingGround = true;
 		}
 
-		if (coll.gameObject.tag == "bullet") {
-			Destroy (this.gameObject);
+		if (coll.gameObject.tag == "ARbullet") {
+			health -= 10;
 		}
 
-		if (coll.gameObject.tag == "player") {
-			Destroy (this.gameObject);
-		}
+//		if (coll.gameObject.tag == "player") {
+//			Destroy (this.gameObject);
+//		}
 	}
 
 	void OnTriggerEnter2D(Collider2D coll){
