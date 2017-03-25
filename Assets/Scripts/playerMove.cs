@@ -277,6 +277,16 @@ public class playerMove : MonoBehaviour {
 				playerPos.x = 1879;
 				playerPos.y = 170;
 			}
+
+			if (RM4CheckpointR == true) {
+				playerPos.x = 2419;
+				playerPos.y = 170;
+			}
+
+			if (RM5CheckpointL == true) {
+				playerPos.x = 2513;
+				playerPos.y = 170;
+			}
 		}
 
 		player.transform.position = playerPos;

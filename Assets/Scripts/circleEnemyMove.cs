@@ -63,9 +63,9 @@ public class circleEnemyMove : MonoBehaviour {
 			Destroy (this.gameObject);
 		}
 
-//		if (GameObject.Find("transitionStart4").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
-//			Destroy (this.gameObject);
-//		}
+		if (GameObject.Find("transitionStart4").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
+			Destroy (this.gameObject);
+		}
 //
 //		if (GameObject.Find("transitionStart5").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
 //			Destroy (this.gameObject);
