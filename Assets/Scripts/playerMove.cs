@@ -44,12 +44,48 @@ public class playerMove : MonoBehaviour {
 
 	//player checkpoint bools
 	public bool RM1Checkpoint;
+
 	public bool RM2CheckpointL;
 	public bool RM2CheckpointR;
+
 	public bool RM3CheckpointL;
 	public bool RM3CheckpointR;
+
 	public bool RM4CheckpointL;
 	public bool RM4CheckpointR;
+
+	public bool RM5CheckpointL;
+	public bool RM5CheckpointR;
+
+	public bool RM6CheckpointL;
+	public bool RM6CheckpointR;
+
+	public bool RM7CheckpointL;
+	public bool RM7CheckpointR;
+
+	public bool RM8CheckpointL;
+	public bool RM8CheckpointR;
+
+	public bool RM9CheckpointL;
+	public bool RM9CheckpointR;
+
+	public bool RM10CheckpointL;
+	public bool RM10CheckpointR;
+
+	public bool RM11CheckpointL;
+	public bool RM11CheckpointR;
+
+	public bool RM12CheckpointL;
+	public bool RM12CheckpointR;
+
+	public bool RM13CheckpointL;
+	public bool RM13CheckpointR;
+
+	public bool RM14CheckpointL;
+	public bool RM14CheckpointR;
+
+	public bool RM15CheckpointL;
+	public bool RM15CheckpointR;
 
 	// Use this for initialization
 	void Start () {
@@ -80,12 +116,48 @@ public class playerMove : MonoBehaviour {
 
 		//player checkpoint bools
 		RM1Checkpoint = false;
+
 		RM2CheckpointL = false;
 		RM2CheckpointR = false;
+
 		RM3CheckpointL = false;
 		RM3CheckpointR = false;
+
 		RM4CheckpointL = false;
 		RM4CheckpointR = false;
+
+		RM5CheckpointL = false;
+		RM5CheckpointR = false;
+
+		RM6CheckpointL = false;
+		RM6CheckpointR = false;
+
+		RM7CheckpointL = false;
+		RM7CheckpointR = false;
+
+		RM8CheckpointL = false;
+		RM8CheckpointR = false;
+
+		RM9CheckpointL = false;
+		RM9CheckpointR = false;
+
+		RM10CheckpointL = false;
+		RM10CheckpointR = false;
+
+		RM11CheckpointL = false;
+		RM11CheckpointR = false;
+
+		RM12CheckpointL = false;
+		RM12CheckpointR = false;
+
+		RM13CheckpointL = false;
+		RM13CheckpointR = false;
+
+		RM14CheckpointL = false;
+		RM14CheckpointR = false;
+
+		RM15CheckpointL = false;
+		RM15CheckpointR = false;
 	
 	}
 	
@@ -193,6 +265,16 @@ public class playerMove : MonoBehaviour {
 
 			if (RM3CheckpointL == true) {
 				playerPos.x = 1264;
+				playerPos.y = 170;
+			}
+
+			if (RM3CheckpointR == true) {
+				playerPos.x = 1762;
+				playerPos.y = 170;
+			}
+
+			if (RM4CheckpointL == true) {
+				playerPos.x = 1879;
 				playerPos.y = 170;
 			}
 		}

@@ -51,19 +51,14 @@ public class enemySpawnerRM3Square : MonoBehaviour {
 	
 	}
 
-	void OnEnable() {
-
-		if (GameObject.Find ("squareEnemy(Clone)") == null) {
-
-			if (GameObject.Find ("Player").GetComponent<playerMove> ().RM2CheckpointR == true ||
-			    GameObject.Find ("Player").GetComponent<playerMove> ().RM4CheckpointL == true) {
-
-				spawnCounter = 0;
-			}
-		}
-
-//		foreach (Transform child in transform) {
-//			GameObject.Destroy(child.gameObject);
+//	void OnEnable() {
+//
+//		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM2CheckpointR == true ||
+//		    GameObject.Find ("Player").GetComponent<playerMove> ().RM4CheckpointL == true) {
+//
+//			if (GameObject.Find ("squareEnemy(Clone)") == null) {
+//				spawnCounter = 0;
+//			}
 //		}
-	}
+//	}
 }

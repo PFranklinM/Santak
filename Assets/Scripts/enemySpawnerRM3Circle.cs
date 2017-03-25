@@ -51,14 +51,14 @@ public class enemySpawnerRM3Circle : MonoBehaviour {
 	
 	}
 
-	void OnEnable() {
-
-		if (GameObject.Find ("circleEnemy(Clone)") == null) {
-			if (GameObject.Find ("Player").GetComponent<playerMove> ().RM2CheckpointR == true ||
-				GameObject.Find ("Player").GetComponent<playerMove> ().RM4CheckpointL == true) {
-
-				spawnCounter = 0;
-			}
-		}
-	}
+//	void OnEnable() {
+//		
+//		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM2CheckpointR == true ||
+//			GameObject.Find ("Player").GetComponent<playerMove> ().RM4CheckpointL == true) {
+//
+//			if (GameObject.Find ("circleEnemy(Clone)") == null) {
+//				spawnCounter = 0;
+//			}
+//		}
+//	}
 }
