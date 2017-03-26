@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\ARBulletMove.cs" />
+     <Compile Include="Assets\Scripts\HPBlink.cs" />
      <Compile Include="Assets\Scripts\activateHappyText1.cs" />
      <Compile Include="Assets\Scripts\activateHappyText2.cs" />
      <Compile Include="Assets\Scripts\activateHappyText3.cs" />
@@ -78,7 +79,6 @@
      <Compile Include="Assets\Scripts\mainCharacterTextBoxManager.cs" />
      <Compile Include="Assets\Scripts\playerLosesFlight.cs" />
      <Compile Include="Assets\Scripts\playerMove.cs" />
-     <Compile Include="Assets\Scripts\restart.cs" />
      <Compile Include="Assets\Scripts\shadowCharacterTextBoxManager.cs" />
      <Compile Include="Assets\Scripts\squareEnemyMove.cs" />
      <Compile Include="Assets\Scripts\stringBreak.cs" />

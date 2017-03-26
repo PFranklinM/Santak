@@ -47,11 +47,11 @@ public class hangingBoxReturnToNormal : MonoBehaviour {
 			this.GetComponent<HingeJoint2D>().enabled = true;
 		}
 
-//		if (GameObject.Find("transitionStart6").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
-//
-//			this.transform.position = originalPos;
-//			this.GetComponent<HingeJoint2D>().enabled = true;
-//		}
+		if (GameObject.Find("transitionStart6").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
+
+			this.transform.position = originalPos;
+			this.GetComponent<HingeJoint2D>().enabled = true;
+		}
 //
 //		if (GameObject.Find("transitionStart7").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
 //

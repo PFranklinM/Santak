@@ -35,7 +35,8 @@ public class circleEnemyMove : MonoBehaviour {
 			transform.position.y,
 			transform.position.z);
 
-		if (Vector3.Distance (this.transform.position, player.transform.position) < 400f) {
+		if (Vector3.Distance (this.transform.position, player.transform.position) < 400f &&
+			GameObject.Find("Player").GetComponent<playerMove> ().playerInvulnerable == false) {
 
 			dir.Normalize ();
 
@@ -49,6 +50,12 @@ public class circleEnemyMove : MonoBehaviour {
 //			enemyPos.z = 0f;
 
 			transform.position += dir * Time.deltaTime * 2f;
+		}
+
+		if (GameObject.Find ("Player").GetComponent<playerMove> ().playerInvulnerable == true) {
+			Physics2D.IgnoreCollision (this.GetComponent<Collider2D> (), player.GetComponent<Collider2D> ());
+		} else {
+			Physics2D.IgnoreCollision (this.GetComponent<Collider2D> (), player.GetComponent<Collider2D> (), false);
 		}
 
 		if (health <= 0) {
@@ -74,14 +81,14 @@ public class circleEnemyMove : MonoBehaviour {
 		if (GameObject.Find("transitionStart5").GetComponent<lockedTransitionStartManager> ().playerTouchedTransition == true) {
 			Destroy (this.gameObject);
 		}
-//
-//		if (GameObject.Find("transitionStart5").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
-//			Destroy (this.gameObject);
-//		}
-//
-//		if (GameObject.Find("transitionStart6").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
-//			Destroy (this.gameObject);
-//		}
+
+		if (GameObject.Find("transitionStart5").GetComponent<lockedTransitionStartManager> ().playerTouchedTransition == true) {
+			Destroy (this.gameObject);
+		}
+
+		if (GameObject.Find("transitionStart6").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
+			Destroy (this.gameObject);
+		}
 //
 //		if (GameObject.Find("transitionStart7").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
 //			Destroy (this.gameObject);

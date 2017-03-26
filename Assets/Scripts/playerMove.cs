@@ -26,13 +26,15 @@ public class playerMove : MonoBehaviour {
 
 	bool playerIsAirborn;
 
-	bool playerInvulnerable;
+	public bool playerInvulnerable;
 
 	int health;
 
 	public bool playerHasKey;
 
-//	public GameObject healthText;
+	public GameObject HP1;
+	public GameObject HP2;
+	public GameObject HP3;
 
 	//textBoxMovement
 	public bool canMove;
@@ -109,7 +111,11 @@ public class playerMove : MonoBehaviour {
 
 		moveSpeed = 2000f;
 
-		health = 10;
+		health = 4;
+
+		HP1.SetActive (false);
+		HP2.SetActive (false);
+		HP3.SetActive (false);
 
 		playerHasFlight = false;
 		playerHasDoubleJump = true;
@@ -250,7 +256,7 @@ public class playerMove : MonoBehaviour {
 //		playerHealthText.text = "Health: " + health;
 
 		if (health <= 0) {
-			Application.LoadLevel ("Dead");
+			
 		}
 
 		if (Input.GetKeyDown (KeyCode.Return)) {
@@ -302,6 +308,16 @@ public class playerMove : MonoBehaviour {
 			if (RM6CheckpointL == true) {
 				playerPos.x = 3326;
 				playerPos.y = 170;
+			}
+
+			if (RM6CheckpointR == true) {
+				playerPos.x = 3615;
+				playerPos.y = 771;
+			}
+
+			if (RM7CheckpointL == true) {
+				playerPos.x = 3712;
+				playerPos.y = 771;
 			}
 		}
 
@@ -404,11 +420,11 @@ public class playerMove : MonoBehaviour {
 			if (playerInvulnerable == false) {
 
 				if (facingLeft == true) {
-					rb.velocity = new Vector3 (30, 30, 0);
+					rb.velocity = new Vector3 (1500, 1500, 0);
 				}
 
 				if (facingRight == true) {
-					rb.velocity = new Vector3 (-30, 30, 0);
+					rb.velocity = new Vector3 (-1500, 1500, 0);
 				}
 
 				playerIsAirborn = true;
@@ -443,6 +459,11 @@ public class playerMove : MonoBehaviour {
 			if (RM6CheckpointL == true) {
 				playerPos.x = 3326;
 				playerPos.y = 170;
+			}
+
+			if (RM6CheckpointR == true) {
+				playerPos.x = 3615;
+				playerPos.y = 771;
 			}
 		}
 
