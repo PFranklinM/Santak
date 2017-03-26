@@ -69,6 +69,8 @@
      <Compile Include="Assets\Scripts\doorMove.cs" />
      <Compile Include="Assets\Scripts\enemySpawnerRM3Circle.cs" />
      <Compile Include="Assets\Scripts\enemySpawnerRM3Square.cs" />
+     <Compile Include="Assets\Scripts\enemySpawnerRM5C.cs" />
+     <Compile Include="Assets\Scripts\enemySpawnerRM5S.cs" />
      <Compile Include="Assets\Scripts\hangingBoxReturnToNormal.cs" />
      <Compile Include="Assets\Scripts\keyBehavior.cs" />
      <Compile Include="Assets\Scripts\lockedDoorMove.cs" />

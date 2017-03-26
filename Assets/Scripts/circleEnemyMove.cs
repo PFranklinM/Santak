@@ -4,6 +4,7 @@ using System.Collections;
 public class circleEnemyMove : MonoBehaviour {
 
 	public GameObject player;
+	public GameObject key1;
 
 	public Vector3 startPos;
 	public Vector3 endPos;
@@ -14,7 +15,8 @@ public class circleEnemyMove : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		player =  GameObject.Find("Player");
+		player = GameObject.Find("Player");
+		key1 = GameObject.Find("Key1");
 
 		health = 100;
 	
@@ -26,6 +28,8 @@ public class circleEnemyMove : MonoBehaviour {
 		//		if (thePlayer.canMove == false) {
 		//			return;
 		//		}
+
+		Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), key1.GetComponent<Collider2D>());
 
 		Vector3 enemyPos = new Vector3 (transform.position.x,
 			transform.position.y,
@@ -134,14 +138,6 @@ public class circleEnemyMove : MonoBehaviour {
 		}
 
 		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM4CheckpointR == true) {
-			Destroy (this.gameObject);
-		}
-
-		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM5CheckpointL == true) {
-			Destroy (this.gameObject);
-		}
-
-		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM5CheckpointR == true) {
 			Destroy (this.gameObject);
 		}
 

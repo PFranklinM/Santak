@@ -399,6 +399,8 @@ public class playerMove : MonoBehaviour {
 
 		if (coll.gameObject.tag == "enemy") {
 
+			playerHasKey = false;
+
 			if (playerInvulnerable == false) {
 
 				if (facingLeft == true) {
