@@ -30,6 +30,8 @@ public class playerMove : MonoBehaviour {
 
 	int health;
 
+	public bool playerHasKey;
+
 //	public GameObject healthText;
 
 	//textBoxMovement
@@ -113,6 +115,8 @@ public class playerMove : MonoBehaviour {
 		playerHasDoubleJump = true;
 
 		playerHasShadow = false;
+
+		playerHasKey = false;
 
 		//player checkpoint bools
 		RM1Checkpoint = false;
@@ -231,10 +235,12 @@ public class playerMove : MonoBehaviour {
 		//screen transitions
 		if (screenTransition == true && facingRight == true) {
 			playerPos.x += 50 * Time.deltaTime;
+			playerHasKey = false;
 		}
 
 		if(screenTransition == true && facingLeft == true) {
 			playerPos.x -= 50 * Time.deltaTime;
+			playerHasKey = false;
 		}
 
 //		playerShadow.transform.position = shadowPos;
@@ -285,6 +291,16 @@ public class playerMove : MonoBehaviour {
 
 			if (RM5CheckpointL == true) {
 				playerPos.x = 2513;
+				playerPos.y = 170;
+			}
+
+			if (RM5CheckpointR == true) {
+				playerPos.x = 3212;
+				playerPos.y = 170;
+			}
+
+			if (RM6CheckpointL == true) {
+				playerPos.x = 3326;
 				playerPos.y = 170;
 			}
 		}
@@ -376,6 +392,11 @@ public class playerMove : MonoBehaviour {
 			playerInvulnerable = false;
 		}
 
+		if (coll.gameObject.tag == "key") {
+			
+			playerHasKey = true;
+		}
+
 		if (coll.gameObject.tag == "enemy") {
 
 			if (playerInvulnerable == false) {
@@ -398,5 +419,31 @@ public class playerMove : MonoBehaviour {
 			playerInvulnerable = true;
 		}
 
+	}
+
+	void OnTriggerEnter2D(Collider2D coll) {
+
+		Vector3 playerPos = new Vector3 (player.transform.position.x,
+			player.transform.position.y,
+			player.transform.position.z);
+
+		if (coll.gameObject.tag == "wall") {
+			if (RM5CheckpointL == true) {
+				playerPos.x = 2513;
+				playerPos.y = 170;
+			}
+
+			if (RM5CheckpointR == true) {
+				playerPos.x = 3212;
+				playerPos.y = 170;
+			}
+
+			if (RM6CheckpointL == true) {
+				playerPos.x = 3326;
+				playerPos.y = 170;
+			}
+		}
+
+		player.transform.position = playerPos;
 	}
 }

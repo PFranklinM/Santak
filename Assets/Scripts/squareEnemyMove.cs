@@ -93,10 +93,10 @@ public class squareEnemyMove : MonoBehaviour {
 		if (GameObject.Find("transitionStart4").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
 			Destroy (this.gameObject);
 		}
-//
-//		if (GameObject.Find("transitionStart5").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
-//			Destroy (this.gameObject);
-//		}
+
+		if (GameObject.Find("transitionStart5").GetComponent<lockedTransitionStartManager> ().playerTouchedTransition == true) {
+			Destroy (this.gameObject);
+		}
 //
 //		if (GameObject.Find("transitionStart6").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
 //			Destroy (this.gameObject);
