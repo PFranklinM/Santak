@@ -30,7 +30,7 @@ public class enemySpawnerRM5C : MonoBehaviour {
 						                   circleEnemyClone.transform.position.y,
 						                   circleEnemyClone.transform.position.z);
 
-					clonePos.x = 2810;
+					clonePos.x = 2810 + Random.Range (-50, 50);
 					clonePos.y = 201;
 
 					circleEnemyClone.transform.position = clonePos;
