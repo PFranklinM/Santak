@@ -107,26 +107,35 @@ public class targetControl : MonoBehaviour {
 
 			circleWorld.SetActive (true);
 
-
+			circleWorldPos.z = -100;
 		}
 
 		if(GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == true &&
 			squareWorldActive == false){
 
 			squareWorld.SetActive (true);
+
+			squareWorldPos.z = -100;
 		}
 
 		if (GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == false &&
 			squareWorldActive == true) {
 
 			circleWorld.SetActive (false);
+
+			circleWorldPos.z = 0;
 		}
 
 		if(GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == false &&
 			squareWorldActive == false){
 
 			squareWorld.SetActive (false);
+
+			squareWorldPos.z = 0;
 		}
+
+		squareWorld.transform.position = squareWorldPos;
+		circleWorld.transform.position = circleWorldPos;
 
 		player.transform.position = playerPos;
 
