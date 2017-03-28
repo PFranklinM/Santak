@@ -32,6 +32,8 @@ public class playerMove : MonoBehaviour {
 
 	public int health;
 
+	bool healthRecovery;
+
 	public bool normalProgress;
 
 	public bool playerHasKey;
@@ -118,6 +120,8 @@ public class playerMove : MonoBehaviour {
 		moveSpeed = 2000f;
 
 		health = 4;
+
+		healthRecovery = false;
 
 		normalProgress = true;
 
@@ -251,12 +255,14 @@ public class playerMove : MonoBehaviour {
 			playerPos.x += 50 * Time.deltaTime;
 			playerHasKey = false;
 			playerjustDied = false;
+			healthRecovery = true;
 		}
 
 		if(screenTransition == true && facingLeft == true) {
 			playerPos.x -= 50 * Time.deltaTime;
 			playerHasKey = false;
 			playerjustDied = false;
+			healthRecovery = true;
 		}
 
 //		playerShadow.transform.position = shadowPos;
@@ -274,18 +280,21 @@ public class playerMove : MonoBehaviour {
 		}
 
 		if (health == 3) {
+
 			HP1.SetActive (true);
 			HP2.SetActive (false);
 			HP3.SetActive (false);
 		}
 
 		if (health == 2) {
+
 			HP1.SetActive (true);
 			HP2.SetActive (true);
 			HP3.SetActive (false);
 		}
 
 		if (health == 1) {
+
 			HP1.SetActive (true);
 			HP2.SetActive (true);
 			HP3.SetActive (true);
@@ -361,6 +370,11 @@ public class playerMove : MonoBehaviour {
 			}
 
 			playerjustDied = true;
+
+			health = 4;
+		}
+
+		if (healthRecovery == true) {
 
 			health = 4;
 		}
@@ -450,6 +464,8 @@ public class playerMove : MonoBehaviour {
 //		}
 
 		if (screenTransition == false) {
+
+			healthRecovery = false;
 
 			if (Input.GetKey (KeyCode.A)) {
 					

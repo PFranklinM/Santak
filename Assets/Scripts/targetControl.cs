@@ -86,7 +86,8 @@ public class targetControl : MonoBehaviour {
 			                         circleWorld.transform.position.y,
 			                         circleWorld.transform.position.z);
 
-		if (Input.GetMouseButtonDown (1) && squareWorldActive == true) {
+		if (Input.GetMouseButtonDown (1) && squareWorldActive == true &&
+			GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == false) {
 
 			circleWorld.SetActive (true);
 			squareWorld.SetActive (false);
@@ -94,7 +95,8 @@ public class targetControl : MonoBehaviour {
 			squareWorldActive = false;
 		}
 
-		else if (Input.GetMouseButtonDown (1) && squareWorldActive == false) {
+		else if (Input.GetMouseButtonDown (1) && squareWorldActive == false &&
+			GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == false) {
 			
 			squareWorld.SetActive (true);
 			circleWorld.SetActive (false);
