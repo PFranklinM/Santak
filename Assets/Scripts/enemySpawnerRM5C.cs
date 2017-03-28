@@ -42,7 +42,7 @@ public class enemySpawnerRM5C : MonoBehaviour {
 		}
 
 		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM4CheckpointR == true ||
-			GameObject.Find ("Player").GetComponent<playerMove> ().RM6CheckpointL == true) {
+		    GameObject.Find ("Player").GetComponent<playerMove> ().RM6CheckpointL == true) {
 
 			if (GameObject.Find ("circleEnemy(Clone)") == null) {
 				spawnCounter = 0;

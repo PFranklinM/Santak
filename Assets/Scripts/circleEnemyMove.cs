@@ -228,6 +228,9 @@ public class circleEnemyMove : MonoBehaviour {
 			Destroy (this.gameObject);
 		}
 
+		if (Vector3.Distance (this.transform.position, player.transform.position) < 100f) {
+			GameObject.Find ("Player").GetComponent<playerMove> ().playerjustDied = false;
+		}
 	
 	}
 

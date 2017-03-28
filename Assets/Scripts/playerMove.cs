@@ -28,7 +28,11 @@ public class playerMove : MonoBehaviour {
 
 	public bool playerInvulnerable;
 
-	int health;
+	public bool playerjustDied;
+
+	public int health;
+
+	public bool normalProgress;
 
 	public bool playerHasKey;
 
@@ -107,11 +111,15 @@ public class playerMove : MonoBehaviour {
 
 		playerInvulnerable = false;
 
+		playerjustDied = false;
+
 		screenTransition = false;
 
 		moveSpeed = 2000f;
 
 		health = 4;
+
+		normalProgress = true;
 
 		HP1.SetActive (false);
 		HP2.SetActive (false);
@@ -242,11 +250,13 @@ public class playerMove : MonoBehaviour {
 		if (screenTransition == true && facingRight == true) {
 			playerPos.x += 50 * Time.deltaTime;
 			playerHasKey = false;
+			playerjustDied = false;
 		}
 
 		if(screenTransition == true && facingLeft == true) {
 			playerPos.x -= 50 * Time.deltaTime;
 			playerHasKey = false;
+			playerjustDied = false;
 		}
 
 //		playerShadow.transform.position = shadowPos;
@@ -255,70 +265,178 @@ public class playerMove : MonoBehaviour {
 //		Text playerHealthText = healthText.GetComponent<Text>();
 //		playerHealthText.text = "Health: " + health;
 
-		if (health <= 0) {
-			
+		if (health == 4) {
+			HP1.SetActive (false);
+			HP2.SetActive (false);
+			HP3.SetActive (false);
+
+			rb.isKinematic = false;
 		}
 
-		if (Input.GetKeyDown (KeyCode.Return)) {
+		if (health == 3) {
+			HP1.SetActive (true);
+			HP2.SetActive (false);
+			HP3.SetActive (false);
+		}
+
+		if (health == 2) {
+			HP1.SetActive (true);
+			HP2.SetActive (true);
+			HP3.SetActive (false);
+		}
+
+		if (health == 1) {
+			HP1.SetActive (true);
+			HP2.SetActive (true);
+			HP3.SetActive (true);
+		}
+
+		if (health <= 0) {
+
+			rb.isKinematic = true;
+
 			if (RM1Checkpoint == true) {
 				playerPos.x = 505;
 				playerPos.y = 20;
 			}
 
 			if (RM2CheckpointL == true) {
-				playerPos.x = 630;
+				playerPos.x = 505;
 				playerPos.y = 20;
 			}
 
 			if (RM2CheckpointR == true) {
+				playerPos.x = 505;
+				playerPos.y = 20;
+			}
+
+			if (RM3CheckpointL == true) {
 				playerPos.x = 1162;
 				playerPos.y = 170;
 			}
 
-			if (RM3CheckpointL == true) {
-				playerPos.x = 1264;
-				playerPos.y = 170;
-			}
-
 			if (RM3CheckpointR == true) {
-				playerPos.x = 1762;
+				playerPos.x = 1162;
 				playerPos.y = 170;
 			}
 
 			if (RM4CheckpointL == true) {
-				playerPos.x = 1879;
+				playerPos.x = 1762;
 				playerPos.y = 170;
 			}
 
 			if (RM4CheckpointR == true) {
-				playerPos.x = 2419;
+				playerPos.x = 1762;
 				playerPos.y = 170;
 			}
 
 			if (RM5CheckpointL == true) {
-				playerPos.x = 2513;
+				playerPos.x = 2419;
 				playerPos.y = 170;
 			}
 
 			if (RM5CheckpointR == true) {
-				playerPos.x = 3212;
+				playerPos.x = 2419;
 				playerPos.y = 170;
 			}
 
 			if (RM6CheckpointL == true) {
-				playerPos.x = 3326;
+				playerPos.x = 3212;
 				playerPos.y = 170;
 			}
 
 			if (RM6CheckpointR == true) {
+				playerPos.x = 3212;
+				playerPos.y = 170;
+			}
+
+			if (RM7CheckpointL == true) {
 				playerPos.x = 3615;
 				playerPos.y = 771;
 			}
 
-			if (RM7CheckpointL == true) {
-				playerPos.x = 3712;
+			if (RM7CheckpointR == true) {
+				playerPos.x = 3615;
 				playerPos.y = 771;
 			}
+
+			playerjustDied = true;
+
+			health = 4;
+		}
+
+		if (Input.GetKeyDown (KeyCode.Return)) {
+
+			if (RM1Checkpoint == true) {
+				playerPos.x = 505;
+				playerPos.y = 20;
+			}
+
+			if (RM2CheckpointL == true) {
+				playerPos.x = 505;
+				playerPos.y = 20;
+			}
+
+			if (RM2CheckpointR == true) {
+				playerPos.x = 505;
+				playerPos.y = 20;
+			}
+
+			if (RM3CheckpointL == true) {
+				playerPos.x = 1162;
+				playerPos.y = 170;
+			}
+
+			if (RM3CheckpointR == true) {
+				playerPos.x = 1162;
+				playerPos.y = 170;
+			}
+
+			if (RM4CheckpointL == true) {
+				playerPos.x = 1762;
+				playerPos.y = 170;
+			}
+
+			if (RM4CheckpointR == true) {
+				playerPos.x = 1762;
+				playerPos.y = 170;
+			}
+
+			if (RM5CheckpointL == true) {
+				playerPos.x = 2419;
+				playerPos.y = 170;
+			}
+
+			if (RM5CheckpointR == true) {
+				playerPos.x = 2419;
+				playerPos.y = 170;
+			}
+
+			if (RM6CheckpointL == true) {
+				playerPos.x = 3212;
+				playerPos.y = 170;
+			}
+
+			if (RM6CheckpointR == true) {
+				playerPos.x = 3212;
+				playerPos.y = 170;
+			}
+
+			if (RM7CheckpointL == true) {
+				playerPos.x = 3615;
+				playerPos.y = 771;
+			}
+
+			if (RM7CheckpointR == true) {
+				playerPos.x = 3615;
+				playerPos.y = 771;
+			}
+
+			playerjustDied = true;
+		}
+
+		if (playerjustDied == true) {
+			playerInvulnerable = true;
 		}
 
 		player.transform.position = playerPos;
@@ -405,7 +523,9 @@ public class playerMove : MonoBehaviour {
 
 			player.transform.position = playerPos;
 
-			playerInvulnerable = false;
+			if (playerjustDied == false) {
+				playerInvulnerable = false;
+			}
 		}
 
 		if (coll.gameObject.tag == "key") {
@@ -420,11 +540,11 @@ public class playerMove : MonoBehaviour {
 			if (playerInvulnerable == false) {
 
 				if (facingLeft == true) {
-					rb.velocity = new Vector3 (1500, 1500, 0);
+					rb.velocity = new Vector3 (750, 750, 0);
 				}
 
 				if (facingRight == true) {
-					rb.velocity = new Vector3 (-1500, 1500, 0);
+					rb.velocity = new Vector3 (-750, 750, 0);
 				}
 
 				playerIsAirborn = true;

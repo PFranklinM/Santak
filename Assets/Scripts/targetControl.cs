@@ -26,9 +26,6 @@ public class targetControl : MonoBehaviour {
 	public bool RLEquipped;
 	public bool MLEquipped;
 
-	public bool playerFacingLeft;
-	public bool playerFacingRight;
-
 	public playerMove thePlayer;
 
 	// Use this for initialization
@@ -38,12 +35,7 @@ public class targetControl : MonoBehaviour {
 
 		AREquipped = true;
 		SGEquipped = false;
-		HCEquipped = false;
-		RLEquipped = false;
 		MLEquipped = false;
-
-		playerFacingLeft = false;
-		playerFacingRight = true;
 
 		squareWorld.SetActive (true);
 		circleWorld.SetActive (false);
@@ -69,16 +61,6 @@ public class targetControl : MonoBehaviour {
 
 		transform.position = pos;
 
-		if (target.transform.position.x > player.transform.position.x) {
-			playerFacingRight = true;
-			playerFacingLeft = false;
-		}
-
-		if (target.transform.position.x < player.transform.position.x) {
-			playerFacingRight = false;
-			playerFacingLeft = true;
-		}
-
 //Shooting
 
 		if (Input.GetMouseButton(0) && (Time.time > ROF) && AREquipped == true) {
@@ -96,6 +78,14 @@ public class targetControl : MonoBehaviour {
 
 //World Switching Behavior
 
+		Vector3 squareWorldPos = new Vector3 (squareWorld.transform.position.x,
+			                         squareWorld.transform.position.y,
+			                         squareWorld.transform.position.z);
+
+		Vector3 circleWorldPos = new Vector3 (circleWorld.transform.position.x,
+			                         circleWorld.transform.position.y,
+			                         circleWorld.transform.position.z);
+
 		if (Input.GetMouseButtonDown (1) && squareWorldActive == true) {
 
 			circleWorld.SetActive (true);
@@ -110,6 +100,32 @@ public class targetControl : MonoBehaviour {
 			circleWorld.SetActive (false);
 
 			squareWorldActive = true;
+		}
+
+		if (GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == true &&
+			squareWorldActive == true) {
+
+			circleWorld.SetActive (true);
+
+
+		}
+
+		if(GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == true &&
+			squareWorldActive == false){
+
+			squareWorld.SetActive (true);
+		}
+
+		if (GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == false &&
+			squareWorldActive == true) {
+
+			circleWorld.SetActive (false);
+		}
+
+		if(GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == false &&
+			squareWorldActive == false){
+
+			squareWorld.SetActive (false);
 		}
 
 		player.transform.position = playerPos;
