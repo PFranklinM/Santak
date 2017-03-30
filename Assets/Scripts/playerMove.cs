@@ -17,7 +17,22 @@ public class playerMove : MonoBehaviour {
 	Mesh playerSquareMesh;
 	Mesh playerCircleMesh;
 
-//	public GameObject playerShadow;
+	bool finalKey1;
+	bool finalKey2;
+	bool finalKey3;
+
+	public GameObject finalKey;
+
+	public GameObject finalLock1;
+	public GameObject finalLock2;
+	public GameObject finalLock3;
+
+	public GameObject finalDoorL;
+
+	public GameObject finalDoorR;
+
+	public Material unlockedDoorLight;
+	public Material unlockedDoor;
 
 	Rigidbody2D rb;
 
@@ -29,13 +44,8 @@ public class playerMove : MonoBehaviour {
 
 	public bool screenTransition;
 
-	float shadowMoveAmount = 0.5f;
-	float shadowMoveTimer = 0;
-
 	public bool facingLeft;
 	public bool facingRight;
-
-	bool playerIsAirborn;
 
 	public bool playerInvulnerable;
 
@@ -59,9 +69,6 @@ public class playerMove : MonoBehaviour {
 	//player ability bools
 	public bool playerHasFlight;
 	public bool playerHasDoubleJump;
-
-	//player has met shadow bool
-	public bool playerHasShadow;
 
 	//player checkpoint bools
 	public bool RM1Checkpoint;
@@ -120,8 +127,6 @@ public class playerMove : MonoBehaviour {
 		facingLeft = false;
 		facingRight = true;
 
-		playerIsAirborn = false;
-
 		playerInvulnerable = false;
 
 		playerjustDied = false;
@@ -140,12 +145,14 @@ public class playerMove : MonoBehaviour {
 		HP2.SetActive (false);
 		HP3.SetActive (false);
 
-		playerHasFlight = false;
+		playerHasFlight = true;
 		playerHasDoubleJump = true;
 
-		playerHasShadow = false;
-
 		playerHasKey = false;
+
+		finalKey1 = false;
+		finalKey2 = false;
+		finalKey3 = false;
 
 		//player checkpoint bools
 		RM1Checkpoint = true;
@@ -205,39 +212,6 @@ public class playerMove : MonoBehaviour {
 			player.transform.position.y,
 			player.transform.position.z);
 
-//		Vector3 shadowPos = new Vector3 (playerShadow.transform.position.x,
-//			playerShadow.transform.position.y,
-//			playerShadow.transform.position.z);
-
-//		if (playerHasShadow == true) {
-//			if (facingLeft == true) {
-//				shadowPos.x = playerPos.x + 3.5f;
-//			}
-//
-//			if (facingRight == true) {
-//				shadowPos.x = playerPos.x - 3.5f;
-//			}
-//		}
-//
-//		shadowPos.y -= shadowMoveAmount * Time.deltaTime;
-
-//		shadowMoveTimer += Time.deltaTime;
-//
-//		if(shadowMoveTimer >= 1) {
-//			shadowMoveAmount = -shadowMoveAmount;
-//			shadowMoveTimer = 0;
-//		}
-
-//		if (screenTransition == false) {
-//
-//			if (playerHasShadow == true) {
-//				if (playerIsAirborn == true) {
-//					shadowPos.y = playerPos.y + 0.5f;
-//				}
-//			}
-//
-//		}
-
 		if (Input.GetKeyDown (KeyCode.Space) && playerIsFlying == false && playerHasDoubleJump == true) {
 
 			jumpCounter++;
@@ -257,10 +231,6 @@ public class playerMove : MonoBehaviour {
 			}
 		}
 
-		if (Input.GetKey (KeyCode.Space)) {
-			playerIsAirborn = true;
-		}
-
 		//screen transitions
 		if (screenTransition == true && facingRight == true) {
 			playerPos.x += 50 * Time.deltaTime;
@@ -276,13 +246,10 @@ public class playerMove : MonoBehaviour {
 			healthRecovery = true;
 		}
 
-//		playerShadow.transform.position = shadowPos;
-
 		//health and dying
-//		Text playerHealthText = healthText.GetComponent<Text>();
-//		playerHealthText.text = "Health: " + health;
 
 		if (health == 4) {
+			
 			HP1.SetActive (false);
 			HP2.SetActive (false);
 			HP3.SetActive (false);
@@ -489,6 +456,13 @@ public class playerMove : MonoBehaviour {
 			player.GetComponent<MeshFilter>().mesh = playerTriangleMesh;
 		}
 
+		if (RM1Checkpoint == true) {
+
+			playerTriangleMesh = playerModelTriangle.GetComponent<MeshFilter>().sharedMesh;
+
+			player.GetComponent<MeshFilter>().mesh = playerTriangleMesh;
+		}
+
 		player.transform.position = playerPos;
 	
 	}
@@ -523,55 +497,31 @@ public class playerMove : MonoBehaviour {
 
 			}
 
-//			if (playerHasFlight == true) {
-//				if (Input.GetKey (KeyCode.W)) {
-//					player.GetComponent<Rigidbody2D> ().drag = 10.0f;
-//					playerIsFlying = true;
-//					playerIsAirborn = true;
-//
-//					if (playerIsFlying == true) {
-//						player.GetComponent<Rigidbody2D> ().AddForce (player.transform.up * 250f);
-//					}
-//				}
-//
-//				if (Input.GetKey (KeyCode.S) && playerIsFlying == true) {
-//					player.GetComponent<Rigidbody2D> ().AddForce (player.transform.up * -250f);
-//				}
-//
-//			}
-//
-//			if (playerHasFlight == false) {
-//				player.GetComponent<Rigidbody2D> ().drag = 1.0f;
-//			}
-//		}
+			if (playerHasFlight == true) {
+				if (Input.GetKey (KeyCode.W)) {
+					playerIsFlying = true;
+
+					if (playerIsFlying == true) {
+						player.GetComponent<Rigidbody2D> ().AddForce (player.transform.up * 4000f);
+					}
+				}
+
+			}
 		}
 	}
 
 	void OnCollisionEnter2D(Collision2D coll){
+
+		Vector3 playerPos = new Vector3 (player.transform.position.x,
+			player.transform.position.y,
+			player.transform.position.z);
+
 		if (coll.gameObject.tag == "ground") {
-
-			Vector3 playerPos = new Vector3 (player.transform.position.x,
-				player.transform.position.y,
-				player.transform.position.z);
-
-//			Vector3 shadowPos = new Vector3 (playerShadow.transform.position.x,
-//				playerShadow.transform.position.y,
-//				playerShadow.transform.position.z);
 
 			jumpCounter = 0;
 			playerIsFlying = false;
-			playerIsAirborn = false;
 
 			moveSpeed = 2000f;
-
-
-//			if (playerHasShadow == true) {
-//				shadowPos.y = playerPos.y + 0.5f;
-//			}
-
-//			player.GetComponent<Rigidbody2D> ().drag = 1.0f;
-
-//			playerShadow.transform.position = shadowPos;
 
 			player.transform.position = playerPos;
 
@@ -599,14 +549,59 @@ public class playerMove : MonoBehaviour {
 					rb.velocity = new Vector3 (-750, 750, 0);
 				}
 
-				playerIsAirborn = true;
-
 				moveSpeed = 0;
 
 				health -= 1;
 			}
 
 			playerInvulnerable = true;
+		}
+
+		if (coll.gameObject.tag == "finalKey" && finalKey1 == false) {
+
+			playerPos.x = -40;
+			playerPos.y = 19.35f;
+
+			finalKey1 = true;
+
+			RM1Checkpoint = true;
+
+			playerHasFlight = false;
+
+			finalLock1.GetComponent<Renderer> ().material = unlockedDoorLight;
+
+			player.transform.position = playerPos;
+
+		} else if (coll.gameObject.tag == "finalKey" && finalKey2 == false) {
+
+			playerPos.x = -40;
+			playerPos.y = 19.35f;
+
+			finalKey2 = true;
+
+			RM1Checkpoint = true;
+
+			finalLock2.GetComponent<Renderer> ().material = unlockedDoorLight;
+
+			player.transform.position = playerPos;
+
+		} else if (coll.gameObject.tag == "finalKey" && finalKey3 == false) {
+
+			playerPos.x = -40;
+			playerPos.y = 19.35f;
+
+			finalKey3 = true;
+
+			RM1Checkpoint = true;
+
+			finalLock3.GetComponent<Renderer> ().material = unlockedDoorLight;
+
+			finalDoorL.GetComponent<Renderer> ().material = unlockedDoor;
+
+			finalDoorR.GetComponent<Renderer> ().material = unlockedDoor;
+
+			player.transform.position = playerPos;
+
 		}
 
 	}
@@ -639,6 +634,12 @@ public class playerMove : MonoBehaviour {
 			}
 		}
 
+		if (coll.gameObject.tag == "teleportToBoss") {
+			playerPos.x = 56;
+			playerPos.y = -2977;
+		}
+
 		player.transform.position = playerPos;
+
 	}
 }

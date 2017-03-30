@@ -14,6 +14,8 @@ public class squareEnemyMove : MonoBehaviour {
 
 	int health;
 
+	float timerFlash = 0.0f;
+
 //	public playerMove thePlayer;
 
 	// Use this for initialization
@@ -264,6 +266,13 @@ public class squareEnemyMove : MonoBehaviour {
 
 		if (coll.gameObject.tag == "ARbullet") {
 			health -= 10;
+
+			Renderer renderer = GetComponent<Renderer> ();
+			Material mat = renderer.material;
+
+			mat.SetColor ("_EmissionColor", Color.white);
+
+			Invoke("changeBackToPurple", 0.15f);
 		}
 	}
 
@@ -272,5 +281,12 @@ public class squareEnemyMove : MonoBehaviour {
 //			Destroy (this.gameObject);
 //		}
 //	}
+
+	void changeBackToPurple(){
+		Renderer renderer = GetComponent<Renderer> ();
+		Material mat = renderer.material;
+
+		mat.SetColor ("_EmissionColor", Color.magenta);
+	}
 }
 

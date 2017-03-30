@@ -49,7 +49,7 @@ public class circleEnemyMove : MonoBehaviour {
 
 //			enemyPos.z = 0f;
 
-			transform.position += dir * Time.deltaTime * 2f;
+			transform.position += dir * Time.deltaTime * 1f;
 		}
 
 		if (GameObject.Find ("Player").GetComponent<playerMove> ().playerInvulnerable == true) {
@@ -238,6 +238,13 @@ public class circleEnemyMove : MonoBehaviour {
 
 		if (coll.gameObject.tag == "ARbullet") {
 			health -= 10;
+
+			Renderer renderer = GetComponent<Renderer> ();
+			Material mat = renderer.material;
+
+			mat.SetColor ("_EmissionColor", Color.white);
+
+			Invoke("changeBackToPurple", 0.15f);
 		}
 	}
 
@@ -246,4 +253,11 @@ public class circleEnemyMove : MonoBehaviour {
 //			Destroy (this.gameObject);
 //		}
 //	}
+
+	void changeBackToPurple(){
+		Renderer renderer = GetComponent<Renderer> ();
+		Material mat = renderer.material;
+
+		mat.SetColor ("_EmissionColor", Color.magenta);
+	}
 }

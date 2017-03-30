@@ -63,11 +63,13 @@
      <Compile Include="Assets\Scripts\activateText6.cs" />
      <Compile Include="Assets\Scripts\activateText7.cs" />
      <Compile Include="Assets\Scripts\audioManager.cs" />
+     <Compile Include="Assets\Scripts\boss1Move.cs" />
      <Compile Include="Assets\Scripts\bouncingEnemySpawner.cs" />
      <Compile Include="Assets\Scripts\buttonMove.cs" />
      <Compile Include="Assets\Scripts\cameraFollow.cs" />
      <Compile Include="Assets\Scripts\circleEnemyMove.cs" />
      <Compile Include="Assets\Scripts\doorMove.cs" />
+     <Compile Include="Assets\Scripts\enemySpawnerBoss1.cs" />
      <Compile Include="Assets\Scripts\enemySpawnerRM3Circle.cs" />
      <Compile Include="Assets\Scripts\enemySpawnerRM3Square.cs" />
      <Compile Include="Assets\Scripts\enemySpawnerRM5C.cs" />
@@ -113,6 +115,8 @@
      <Compile Include="Assets\Scripts\transitionEndManagerRM9L.cs" />
      <Compile Include="Assets\Scripts\transitionEndManagerRM9R.cs" />
      <Compile Include="Assets\Scripts\transitionStartManager.cs" />
+     <Compile Include="Assets\Scripts\triangleWorldCameraFollow.cs" />
+     <Compile Include="Assets\Scripts\triangleWorldPlayerMove.cs" />
      <None Include="Assets\Dialog\MeetingShadowCharacterDialog5.txt" />
      <None Include="Assets\Dialog\meetingShadowDialog2.txt" />
      <None Include="Assets\Dialog\IntroDialog.txt" />

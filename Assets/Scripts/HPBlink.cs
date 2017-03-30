@@ -17,8 +17,6 @@ public class HPBlink : MonoBehaviour {
 		Renderer renderer = GetComponent<Renderer> ();
 		Material mat = renderer.material;
 
-		mat.SetColor ("_EmissionColor", Color.red);
-
 		timerFlash += Time.deltaTime * 5;
 
 
