@@ -2,9 +2,20 @@
 using System.Collections;
 using UnityEngine.UI;
 
+//What am I trying to say. Write a pitch. Santak is a game where...
+//Write my own interview questions. What would other people ask and how would I answer them?
+
 public class playerMove : MonoBehaviour {
 
 	public GameObject player;
+
+	public GameObject playerModelTriangle;
+	public GameObject playerModelSquare;
+	public GameObject playerModelCircle;
+
+	Mesh playerTriangleMesh;
+	Mesh playerSquareMesh;
+	Mesh playerCircleMesh;
 
 //	public GameObject playerShadow;
 
@@ -137,7 +148,7 @@ public class playerMove : MonoBehaviour {
 		playerHasKey = false;
 
 		//player checkpoint bools
-		RM1Checkpoint = false;
+		RM1Checkpoint = true;
 
 		RM2CheckpointL = false;
 		RM2CheckpointR = false;
@@ -451,6 +462,31 @@ public class playerMove : MonoBehaviour {
 
 		if (playerjustDied == true) {
 			playerInvulnerable = true;
+		}
+
+
+		//DIFFERENT PLAYER MODELS
+		if(GameObject.Find ("Target").GetComponent<targetControl> ().squareWorldActive == true &&
+			screenTransition == false && RM1Checkpoint == false){
+
+			playerSquareMesh = playerModelSquare.GetComponent<MeshFilter>().sharedMesh;
+
+			player.GetComponent<MeshFilter>().mesh = playerSquareMesh;
+		}
+
+		if(GameObject.Find ("Target").GetComponent<targetControl> ().squareWorldActive == false &&
+			screenTransition == false && RM1Checkpoint == false){
+
+			playerCircleMesh = playerModelCircle.GetComponent<MeshFilter>().sharedMesh;
+
+			player.GetComponent<MeshFilter>().mesh = playerCircleMesh;
+		}
+
+		if (screenTransition == true) {
+
+			playerTriangleMesh = playerModelTriangle.GetComponent<MeshFilter>().sharedMesh;
+
+			player.GetComponent<MeshFilter>().mesh = playerTriangleMesh;
 		}
 
 		player.transform.position = playerPos;
