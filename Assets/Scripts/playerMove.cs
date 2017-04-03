@@ -2,9 +2,6 @@
 using System.Collections;
 using UnityEngine.UI;
 
-//What am I trying to say. Write a pitch. Santak is a game where...
-//Write my own interview questions. What would other people ask and how would I answer them?
-
 public class playerMove : MonoBehaviour {
 
 	public GameObject player;
@@ -555,6 +552,14 @@ public class playerMove : MonoBehaviour {
 			}
 
 			playerInvulnerable = true;
+		}
+
+		if (coll.gameObject.tag == "deathWall") {
+
+			playerHasKey = false;
+
+			health = 0;
+
 		}
 
 		if (coll.gameObject.tag == "finalKey" && finalKey1 == false) {

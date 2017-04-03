@@ -45,6 +45,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\2DLightAsset\Examples\RigidBodyInterpolationSolution\FollowLight2d.cs" />
+     <Compile Include="Assets\2DLightAsset\Scripts\2DLight\DynamicLight.cs" />
+     <Compile Include="Assets\2DLightAsset\Scripts\Helpers\TablaSenoCoseno.cs" />
+     <Compile Include="Assets\2DLightAsset\Scripts\Helpers\interface_touch.cs" />
+     <Compile Include="Assets\2DLightAsset\Scripts\Helpers\interface_touch2.cs" />
+     <Compile Include="Assets\2DLightAsset\Scripts\rotate.cs" />
      <Compile Include="Assets\Scripts\ARBulletMove.cs" />
      <Compile Include="Assets\Scripts\HPBlink.cs" />
      <Compile Include="Assets\Scripts\activateHappyText1.cs" />
@@ -123,14 +129,17 @@
      <None Include="Assets\Dialog\firstSacrificeDialog.txt" />
      <None Include="Assets\Dialog\happyText4.txt" />
      <None Include="Assets\Dialog\MeetingShadowDialog4.txt" />
+     <None Include="Assets\2DLightAsset\Shaders\Gradient-NoTexture-Radial-SingleColor-ToTransparent-RegularUV-AlphaBlend.shader" />
      <None Include="Assets\Dialog\seeingTheTree.txt" />
      <None Include="Assets\Dialog\ShadowReminderDialog1.txt" />
+     <None Include="Assets\2DLightAsset\Shaders\NoTexture.shader" />
      <None Include="Assets\Dialog\meetingShadowDialog1.txt" />
      <None Include="Assets\Dialog\happyText3.txt" />
      <None Include="Assets\Dialog\meetingShadowDialog6.txt" />
      <None Include="Assets\Dialog\MeetingShadowDialog3.txt" />
      <None Include="Assets\Dialog\ShadowReminderDialog2.txt" />
      <None Include="Assets\Dialog\boulder.txt" />
+     <None Include="Assets\2DLightAsset\Shaders\Gradient-ZFighting.shader" />
      <None Include="Assets\Dialog\findingStickDialog.txt" />
      <None Include="Assets\Dialog\homeDialog.txt" />
      <None Include="Assets\Dialog\UsingStick.txt" />
