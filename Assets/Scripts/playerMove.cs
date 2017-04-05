@@ -275,7 +275,7 @@ public class playerMove : MonoBehaviour {
 			HP3.SetActive (true);
 		}
 
-		if (health <= 0) {
+		if (health <= 0 && normalProgress == true) {
 
 			rb.isKinematic = true;
 
@@ -354,7 +354,7 @@ public class playerMove : MonoBehaviour {
 			health = 4;
 		}
 
-		if (Input.GetKeyDown (KeyCode.Return)) {
+		if (Input.GetKeyDown (KeyCode.Return) && normalProgress == true) {
 
 			if (RM1Checkpoint == true) {
 				playerPos.x = 505;

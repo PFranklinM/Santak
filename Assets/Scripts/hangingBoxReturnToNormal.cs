@@ -52,60 +52,60 @@ public class hangingBoxReturnToNormal : MonoBehaviour {
 			this.transform.position = originalPos;
 			this.GetComponent<HingeJoint2D>().enabled = true;
 		}
-//
-//		if (GameObject.Find("transitionStart7").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
-//
-//			this.transform.position = originalPos;
-//			this.GetComponent<HingeJoint2D>().enabled = true;
-//		}
-//
-//		if (GameObject.Find("transitionStart8").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
-//
-//			this.transform.position = originalPos;
-//			this.GetComponent<HingeJoint2D>().enabled = true;
-//		}
-//
-//		if (GameObject.Find("transitionStart9").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
-//
-//			this.transform.position = originalPos;
-//			this.GetComponent<HingeJoint2D>().enabled = true;
-//		}
-//
-//		if (GameObject.Find("transitionStart10").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
-//
-//			this.transform.position = originalPos;
-//			this.GetComponent<HingeJoint2D>().enabled = true;
-//		}
-//
-//		if (GameObject.Find("transitionStart11").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
-//
-//			this.transform.position = originalPos;
-//			this.GetComponent<HingeJoint2D>().enabled = true;
-//		}
-//
-//		if (GameObject.Find("transitionStart12").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
-//
-//			this.transform.position = originalPos;
-//			this.GetComponent<HingeJoint2D>().enabled = true;
-//		}
-//
-//		if (GameObject.Find("transitionStart13").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
-//
-//			this.transform.position = originalPos;
-//			this.GetComponent<HingeJoint2D>().enabled = true;
-//		}
-//
-//		if (GameObject.Find("transitionStart14").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
-//
-//			this.transform.position = originalPos;
-//			this.GetComponent<HingeJoint2D>().enabled = true;
-//		}
-//
-//		if (GameObject.Find("transitionStart15").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
-//
-//			this.transform.position = originalPos;
-//			this.GetComponent<HingeJoint2D>().enabled = true;
-//		}
+
+		if (GameObject.Find("transitionStart7").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
+
+			this.transform.position = originalPos;
+			this.GetComponent<HingeJoint2D>().enabled = true;
+		}
+
+		if (GameObject.Find("transitionStart8").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
+
+			this.transform.position = originalPos;
+			this.GetComponent<HingeJoint2D>().enabled = true;
+		}
+
+		if (GameObject.Find("transitionStart9").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
+
+			this.transform.position = originalPos;
+			this.GetComponent<HingeJoint2D>().enabled = true;
+		}
+
+		if (GameObject.Find("transitionStart10").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
+
+			this.transform.position = originalPos;
+			this.GetComponent<HingeJoint2D>().enabled = true;
+		}
+
+		if (GameObject.Find("transitionStart11").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
+
+			this.transform.position = originalPos;
+			this.GetComponent<HingeJoint2D>().enabled = true;
+		}
+
+		if (GameObject.Find("transitionStart12").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
+
+			this.transform.position = originalPos;
+			this.GetComponent<HingeJoint2D>().enabled = true;
+		}
+
+		if (GameObject.Find("transitionStart13").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
+
+			this.transform.position = originalPos;
+			this.GetComponent<HingeJoint2D>().enabled = true;
+		}
+
+		if (GameObject.Find("transitionStart14").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
+
+			this.transform.position = originalPos;
+			this.GetComponent<HingeJoint2D>().enabled = true;
+		}
+
+		if (GameObject.Find("transitionStart15").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
+
+			this.transform.position = originalPos;
+			this.GetComponent<HingeJoint2D>().enabled = true;
+		}
 	
 	}
 }

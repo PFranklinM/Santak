@@ -114,42 +114,42 @@ public class squareEnemyMove : MonoBehaviour {
 		if (GameObject.Find("transitionStart6").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
 			Destroy (this.gameObject);
 		}
-//
-//		if (GameObject.Find("transitionStart7").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
-//			Destroy (this.gameObject);
-//		}
-//
-//		if (GameObject.Find("transitionStart8").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
-//			Destroy (this.gameObject);
-//		}
-//
-//		if (GameObject.Find("transitionStart9").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
-//			Destroy (this.gameObject);
-//		}
-//
-//		if (GameObject.Find("transitionStart10").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
-//			Destroy (this.gameObject);
-//		}
-//
-//		if (GameObject.Find("transitionStart11").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
-//			Destroy (this.gameObject);
-//		}
-//
-//		if (GameObject.Find("transitionStart12").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
-//			Destroy (this.gameObject);
-//		}
-//
-//		if (GameObject.Find("transitionStart13").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
-//			Destroy (this.gameObject);
-//		}
-//
-//		if (GameObject.Find("transitionStart14").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
-//			Destroy (this.gameObject);
-//		}
-//
-//		if (GameObject.Find("transitionStart15").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
-//			Destroy (this.gameObject);
-//		}
+
+		if (GameObject.Find("transitionStart7").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
+			Destroy (this.gameObject);
+		}
+
+		if (GameObject.Find("transitionStart8").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
+			Destroy (this.gameObject);
+		}
+
+		if (GameObject.Find("transitionStart9").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
+			Destroy (this.gameObject);
+		}
+
+		if (GameObject.Find("transitionStart10").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
+			Destroy (this.gameObject);
+		}
+
+		if (GameObject.Find("transitionStart11").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
+			Destroy (this.gameObject);
+		}
+
+		if (GameObject.Find("transitionStart12").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
+			Destroy (this.gameObject);
+		}
+
+		if (GameObject.Find("transitionStart13").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
+			Destroy (this.gameObject);
+		}
+
+		if (GameObject.Find("transitionStart14").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
+			Destroy (this.gameObject);
+		}
+
+		if (GameObject.Find("transitionStart15").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
+			Destroy (this.gameObject);
+		}
 
 
 
