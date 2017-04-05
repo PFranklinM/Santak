@@ -21,90 +21,120 @@ public class hangingBoxReturnToNormal : MonoBehaviour {
 			
 			this.transform.position = originalPos;
 			this.GetComponent<HingeJoint2D>().enabled = true;
+			GameObject.Find ("button1").GetComponent<buttonMoveRM4> ().boxOnButton = false;
+			GameObject.Find ("button2").GetComponent<buttonMoveRM8> ().boxOnButton = false;
 		}
 
 		if (GameObject.Find("transitionStart2").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
 			
 			this.transform.position = originalPos;
 			this.GetComponent<HingeJoint2D>().enabled = true;
+			GameObject.Find ("button1").GetComponent<buttonMoveRM4> ().boxOnButton = false;
+			GameObject.Find ("button2").GetComponent<buttonMoveRM8> ().boxOnButton = false;
 		}
 
 		if (GameObject.Find("transitionStart3").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
 
 			this.transform.position = originalPos;
 			this.GetComponent<HingeJoint2D>().enabled = true;
+			GameObject.Find ("button1").GetComponent<buttonMoveRM4> ().boxOnButton = false;
+			GameObject.Find ("button2").GetComponent<buttonMoveRM8> ().boxOnButton = false;
 		}
 
 		if (GameObject.Find("transitionStart4").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
 
 			this.transform.position = originalPos;
 			this.GetComponent<HingeJoint2D>().enabled = true;
+			GameObject.Find ("button1").GetComponent<buttonMoveRM4> ().boxOnButton = false;
+			GameObject.Find ("button2").GetComponent<buttonMoveRM8> ().boxOnButton = false;
 		}
 
 		if (GameObject.Find("transitionStart5").GetComponent<lockedTransitionStartManager> ().playerTouchedTransition == true) {
 
 			this.transform.position = originalPos;
 			this.GetComponent<HingeJoint2D>().enabled = true;
+			GameObject.Find ("button1").GetComponent<buttonMoveRM4> ().boxOnButton = false;
+			GameObject.Find ("button2").GetComponent<buttonMoveRM8> ().boxOnButton = false;
 		}
 
 		if (GameObject.Find("transitionStart6").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
 
 			this.transform.position = originalPos;
 			this.GetComponent<HingeJoint2D>().enabled = true;
+			GameObject.Find ("button1").GetComponent<buttonMoveRM4> ().boxOnButton = false;
+			GameObject.Find ("button2").GetComponent<buttonMoveRM8> ().boxOnButton = false;
 		}
 
 		if (GameObject.Find("transitionStart7").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
 
 			this.transform.position = originalPos;
 			this.GetComponent<HingeJoint2D>().enabled = true;
+			GameObject.Find ("button1").GetComponent<buttonMoveRM4> ().boxOnButton = false;
+			GameObject.Find ("button2").GetComponent<buttonMoveRM8> ().boxOnButton = false;
 		}
 
 		if (GameObject.Find("transitionStart8").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
 
 			this.transform.position = originalPos;
 			this.GetComponent<HingeJoint2D>().enabled = true;
+			GameObject.Find ("button1").GetComponent<buttonMoveRM4> ().boxOnButton = false;
+			GameObject.Find ("button2").GetComponent<buttonMoveRM8> ().boxOnButton = false;
 		}
 
 		if (GameObject.Find("transitionStart9").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
 
 			this.transform.position = originalPos;
 			this.GetComponent<HingeJoint2D>().enabled = true;
+			GameObject.Find ("button1").GetComponent<buttonMoveRM4> ().boxOnButton = false;
+			GameObject.Find ("button2").GetComponent<buttonMoveRM8> ().boxOnButton = false;
 		}
 
 		if (GameObject.Find("transitionStart10").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
 
 			this.transform.position = originalPos;
 			this.GetComponent<HingeJoint2D>().enabled = true;
+			GameObject.Find ("button1").GetComponent<buttonMoveRM4> ().boxOnButton = false;
+			GameObject.Find ("button2").GetComponent<buttonMoveRM8> ().boxOnButton = false;
 		}
 
 		if (GameObject.Find("transitionStart11").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
 
 			this.transform.position = originalPos;
 			this.GetComponent<HingeJoint2D>().enabled = true;
+			GameObject.Find ("button1").GetComponent<buttonMoveRM4> ().boxOnButton = false;
+			GameObject.Find ("button2").GetComponent<buttonMoveRM8> ().boxOnButton = false;
 		}
 
 		if (GameObject.Find("transitionStart12").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
 
 			this.transform.position = originalPos;
 			this.GetComponent<HingeJoint2D>().enabled = true;
+			GameObject.Find ("button1").GetComponent<buttonMoveRM4> ().boxOnButton = false;
+			GameObject.Find ("button2").GetComponent<buttonMoveRM8> ().boxOnButton = false;
 		}
 
 		if (GameObject.Find("transitionStart13").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
 
 			this.transform.position = originalPos;
 			this.GetComponent<HingeJoint2D>().enabled = true;
+			GameObject.Find ("button1").GetComponent<buttonMoveRM4> ().boxOnButton = false;
+			GameObject.Find ("button2").GetComponent<buttonMoveRM8> ().boxOnButton = false;
 		}
 
 		if (GameObject.Find("transitionStart14").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
 
 			this.transform.position = originalPos;
 			this.GetComponent<HingeJoint2D>().enabled = true;
+			GameObject.Find ("button1").GetComponent<buttonMoveRM4> ().boxOnButton = false;
+			GameObject.Find ("button2").GetComponent<buttonMoveRM8> ().boxOnButton = false;
 		}
 
 		if (GameObject.Find("transitionStart15").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
 
 			this.transform.position = originalPos;
 			this.GetComponent<HingeJoint2D>().enabled = true;
+			GameObject.Find ("button1").GetComponent<buttonMoveRM4> ().boxOnButton = false;
+			GameObject.Find ("button2").GetComponent<buttonMoveRM8> ().boxOnButton = false;
 		}
 	
 	}

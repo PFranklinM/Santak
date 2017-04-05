@@ -344,6 +344,16 @@ public class playerMove : MonoBehaviour {
 				playerPos.y = 771;
 			}
 
+			if (RM8CheckpointL == true) {
+				playerPos.x = 3714;
+				playerPos.y = 1119;
+			}
+
+			if (RM8CheckpointR == true) {
+				playerPos.x = 3714;
+				playerPos.y = 1119;
+			}
+
 			playerjustDied = true;
 
 			health = 4;
@@ -419,6 +429,16 @@ public class playerMove : MonoBehaviour {
 			if (RM7CheckpointR == true) {
 				playerPos.x = 3615;
 				playerPos.y = 771;
+			}
+
+			if (RM8CheckpointL == true) {
+				playerPos.x = 3714;
+				playerPos.y = 1119;
+			}
+
+			if (RM8CheckpointR == true) {
+				playerPos.x = 3714;
+				playerPos.y = 1119;
 			}
 
 			playerjustDied = true;

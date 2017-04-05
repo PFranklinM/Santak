@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class buttonMove : MonoBehaviour {
+public class buttonMoveRM4 : MonoBehaviour {
 
 	Vector3 originalPos;
 
@@ -12,6 +12,8 @@ public class buttonMove : MonoBehaviour {
 	bool somethingOnButton;
 
 	bool buttonActive;
+
+	public bool boxOnButton;
 
 	public GameObject barrier1;
 
@@ -28,6 +30,8 @@ public class buttonMove : MonoBehaviour {
 		somethingOnButton = false;
 
 		buttonActive = true;
+
+		boxOnButton = false;
 	
 	}
 	
@@ -81,10 +85,16 @@ public class buttonMove : MonoBehaviour {
 		}
 
 		buttonActive = false;
+
+		if (coll.gameObject.tag == "ground") {
+			boxOnButton = true;
+		}
 	}
 
 	void OnCollisionExit2D(Collision2D coll){
 
-		somethingOnButton = false;
+		if (boxOnButton == false) {
+			somethingOnButton = false;
+		}
 	}
 }

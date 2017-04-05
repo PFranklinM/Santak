@@ -71,7 +71,8 @@
      <Compile Include="Assets\Scripts\audioManager.cs" />
      <Compile Include="Assets\Scripts\boss1Move.cs" />
      <Compile Include="Assets\Scripts\bouncingEnemySpawner.cs" />
-     <Compile Include="Assets\Scripts\buttonMove.cs" />
+     <Compile Include="Assets\Scripts\buttonMoveRM4.cs" />
+     <Compile Include="Assets\Scripts\buttonMoveRM8.cs" />
      <Compile Include="Assets\Scripts\cameraFollow.cs" />
      <Compile Include="Assets\Scripts\circleEnemyMove.cs" />
      <Compile Include="Assets\Scripts\doorMove.cs" />
