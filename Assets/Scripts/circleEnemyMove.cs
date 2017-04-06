@@ -102,29 +102,29 @@ public class circleEnemyMove : MonoBehaviour {
 			Destroy (this.gameObject);
 		}
 
-		if (GameObject.Find("transitionStart10").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
+		if (GameObject.Find("transitionStart10").GetComponent<lockedTransitionStartManager> ().playerTouchedTransition == true) {
 			Destroy (this.gameObject);
 		}
 
-		if (GameObject.Find("transitionStart11").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
-			Destroy (this.gameObject);
-		}
-
-		if (GameObject.Find("transitionStart12").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
-			Destroy (this.gameObject);
-		}
-
-		if (GameObject.Find("transitionStart13").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
-			Destroy (this.gameObject);
-		}
-
-		if (GameObject.Find("transitionStart14").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
-			Destroy (this.gameObject);
-		}
-
-		if (GameObject.Find("transitionStart15").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
-			Destroy (this.gameObject);
-		}
+//		if (GameObject.Find("transitionStart11").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
+//			Destroy (this.gameObject);
+//		}
+//
+//		if (GameObject.Find("transitionStart12").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
+//			Destroy (this.gameObject);
+//		}
+//
+//		if (GameObject.Find("transitionStart13").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
+//			Destroy (this.gameObject);
+//		}
+//
+//		if (GameObject.Find("transitionStart14").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
+//			Destroy (this.gameObject);
+//		}
+//
+//		if (GameObject.Find("transitionStart15").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
+//			Destroy (this.gameObject);
+//		}
 
 
 

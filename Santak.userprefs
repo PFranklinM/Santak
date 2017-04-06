@@ -1,17 +1,20 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/playerMove.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/hangingBoxReturnToNormal.cs">
     <Files>
-      <File FileName="Assets/Scripts/playerMove.cs" Line="357" Column="69" />
+      <File FileName="Assets/Scripts/playerMove.cs" Line="433" Column="4" />
       <File FileName="Assets/Scripts/targetControl.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/squareEnemyMove.cs" Line="152" Column="4" />
-      <File FileName="Assets/Scripts/circleEnemyMove.cs" Line="91" Column="4" />
-      <File FileName="Assets/Scripts/enemySpawnerBoss1.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/squareEnemyMove.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/circleEnemyMove.cs" Line="231" Column="26" />
+      <File FileName="Assets/Scripts/enemySpawnerBoss1.cs" Line="34" Column="84" />
       <File FileName="Assets/Scripts/boss1Move.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/triangleWorldCameraFollow.cs" Line="44" Column="41" />
       <File FileName="Assets/Scripts/triangleWorldPlayerMove.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/enemySpawnerRM5C.cs" Line="63" Column="6" />
       <File FileName="Assets/Scripts/enemySpawnerRM7C.cs" Line="68" Column="6" />
+      <File FileName="Assets/Scripts/buttonMoveRM4.cs" Line="16" Column="26" />
+      <File FileName="Assets/Scripts/buttonMoveRM8.cs" Line="16" Column="26" />
+      <File FileName="Assets/Scripts/hangingBoxReturnToNormal.cs" Line="137" Column="83" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

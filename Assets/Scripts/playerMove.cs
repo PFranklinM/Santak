@@ -354,6 +354,26 @@ public class playerMove : MonoBehaviour {
 				playerPos.y = 1119;
 			}
 
+			if (RM9CheckpointL == true) {
+				playerPos.x = 3618;
+				playerPos.y = 1769;
+			}
+
+			if (RM9CheckpointR == true) {
+				playerPos.x = 3618;
+				playerPos.y = 1769;
+			}
+
+			if (RM10CheckpointL == true) {
+				playerPos.x = 4565;
+				playerPos.y = 1770;
+			}
+
+			if (RM10CheckpointR == true) {
+				playerPos.x = 4565;
+				playerPos.y = 1770;
+			}
+
 			playerjustDied = true;
 
 			health = 4;
@@ -439,6 +459,26 @@ public class playerMove : MonoBehaviour {
 			if (RM8CheckpointR == true) {
 				playerPos.x = 3714;
 				playerPos.y = 1119;
+			}
+
+			if (RM9CheckpointL == true) {
+				playerPos.x = 3618;
+				playerPos.y = 1769;
+			}
+
+			if (RM9CheckpointR == true) {
+				playerPos.x = 3618;
+				playerPos.y = 1769;
+			}
+
+			if (RM10CheckpointL == true) {
+				playerPos.x = 4565;
+				playerPos.y = 1770;
+			}
+
+			if (RM10CheckpointR == true) {
+				playerPos.x = 4565;
+				playerPos.y = 1770;
 			}
 
 			playerjustDied = true;
