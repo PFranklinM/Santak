@@ -121,69 +121,69 @@ public class boss1Move : MonoBehaviour {
 //			Destroy (this.gameObject);
 //		}
 
-		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM8CheckpointL == true) {
-			Destroy (this.gameObject);
-		}
-
-		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM8CheckpointR == true) {
-			Destroy (this.gameObject);
-		}
-
-		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM9CheckpointL == true) {
-			Destroy (this.gameObject);
-		}
-
-		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM9CheckpointR == true) {
-			Destroy (this.gameObject);
-		}
-
-		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM10CheckpointL == true) {
-			Destroy (this.gameObject);
-		}
-
-		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM10CheckpointR == true) {
-			Destroy (this.gameObject);
-		}
-
-		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM11CheckpointL == true) {
-			Destroy (this.gameObject);
-		}
-
-		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM11CheckpointR == true) {
-			Destroy (this.gameObject);
-		}
-
-		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM12CheckpointL == true) {
-			Destroy (this.gameObject);
-		}
-
-		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM12CheckpointR == true) {
-			Destroy (this.gameObject);
-		}
-
-		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM13CheckpointL == true) {
-			Destroy (this.gameObject);
-		}
-
-		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM13CheckpointR == true) {
-			Destroy (this.gameObject);
-		}
-
-		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM14CheckpointL == true) {
-			Destroy (this.gameObject);
-		}
-
-		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM14CheckpointR == true) {
-			Destroy (this.gameObject);
-		}
-
-		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM15CheckpointL == true) {
-			Destroy (this.gameObject);
-		}
-
-		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM15CheckpointR == true) {
-			Destroy (this.gameObject);
-		}
+//		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM8CheckpointL == true) {
+//			Destroy (this.gameObject);
+//		}
+//
+//		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM8CheckpointR == true) {
+//			Destroy (this.gameObject);
+//		}
+//
+//		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM9CheckpointL == true) {
+//			Destroy (this.gameObject);
+//		}
+//
+//		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM9CheckpointR == true) {
+//			Destroy (this.gameObject);
+//		}
+//
+//		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM10CheckpointL == true) {
+//			Destroy (this.gameObject);
+//		}
+//
+//		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM10CheckpointR == true) {
+//			Destroy (this.gameObject);
+//		}
+//
+//		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM11CheckpointL == true) {
+//			Destroy (this.gameObject);
+//		}
+//
+//		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM11CheckpointR == true) {
+//			Destroy (this.gameObject);
+//		}
+//
+//		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM12CheckpointL == true) {
+//			Destroy (this.gameObject);
+//		}
+//
+//		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM12CheckpointR == true) {
+//			Destroy (this.gameObject);
+//		}
+//
+//		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM13CheckpointL == true) {
+//			Destroy (this.gameObject);
+//		}
+//
+//		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM13CheckpointR == true) {
+//			Destroy (this.gameObject);
+//		}
+//
+//		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM14CheckpointL == true) {
+//			Destroy (this.gameObject);
+//		}
+//
+//		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM14CheckpointR == true) {
+//			Destroy (this.gameObject);
+//		}
+//
+//		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM15CheckpointL == true) {
+//			Destroy (this.gameObject);
+//		}
+//
+//		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM15CheckpointR == true) {
+//			Destroy (this.gameObject);
+//		}
 
 	}
 

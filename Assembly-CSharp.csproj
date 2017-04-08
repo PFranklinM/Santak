@@ -77,6 +77,7 @@
      <Compile Include="Assets\Scripts\circleEnemyMove.cs" />
      <Compile Include="Assets\Scripts\doorMove.cs" />
      <Compile Include="Assets\Scripts\enemySpawnerBoss1.cs" />
+     <Compile Include="Assets\Scripts\enemySpawnerRM10C.cs" />
      <Compile Include="Assets\Scripts\enemySpawnerRM3Circle.cs" />
      <Compile Include="Assets\Scripts\enemySpawnerRM3Square.cs" />
      <Compile Include="Assets\Scripts\enemySpawnerRM5C.cs" />

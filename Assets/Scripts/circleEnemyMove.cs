@@ -172,14 +172,6 @@ public class circleEnemyMove : MonoBehaviour {
 			Destroy (this.gameObject);
 		}
 
-		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM10CheckpointL == true) {
-			Destroy (this.gameObject);
-		}
-
-		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM10CheckpointR == true) {
-			Destroy (this.gameObject);
-		}
-
 		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM11CheckpointL == true) {
 			Destroy (this.gameObject);
 		}
