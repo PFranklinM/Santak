@@ -23,16 +23,15 @@ public class enemySpawnerBoss1 : MonoBehaviour {
 				Boss1Clone.transform.position.y,
 				Boss1Clone.transform.position.z);
 
-			clonePos.x = 307;
-			clonePos.y = -2939.4f;
+			clonePos.x = 7000;
+			clonePos.y = 3060.5f;
 
 			Boss1Clone.transform.position = clonePos;
 
 			spawnCounter++;
 		}
 
-		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM4CheckpointR == true ||
-			GameObject.Find ("Player").GetComponent<playerMove> ().RM6CheckpointL == true) {
+		if (GameObject.Find ("Player").GetComponent<playerMove> ().Boss3CheckpointL == true) {
 
 			if (GameObject.Find ("Boss(Clone)") == null) {
 				spawnCounter = 0;
@@ -40,4 +39,15 @@ public class enemySpawnerBoss1 : MonoBehaviour {
 		}
 	
 	}
+
+	//	void OnEnable() {
+	//		
+	//		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM2CheckpointR == true ||
+	//			GameObject.Find ("Player").GetComponent<playerMove> ().RM4CheckpointL == true) {
+	//
+	//			if (GameObject.Find ("circleEnemy(Clone)") == null) {
+	//				spawnCounter = 0;
+	//			}
+	//		}
+	//	}
 }
