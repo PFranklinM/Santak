@@ -28,7 +28,9 @@ public class playerMove : MonoBehaviour {
 	bool finalKey2;
 	bool finalKey3;
 
-	public GameObject finalKey;
+//	public GameObject finalKeyA;
+//	public GameObject finalKeyB;
+//	public GameObject finalKeyC;
 
 	public GameObject finalLock1;
 	public GameObject finalLock2;
@@ -40,6 +42,13 @@ public class playerMove : MonoBehaviour {
 
 	public Material unlockedDoorLight;
 	public Material unlockedDoor;
+
+	public GameObject bossBlocker1;
+	public GameObject bossBlocker2;
+	public GameObject bossBlocker3;
+
+	public GameObject bossBlocker2Z;
+	public GameObject bossBlocker1Z;
 
 	Rigidbody2D rb;
 
@@ -62,7 +71,9 @@ public class playerMove : MonoBehaviour {
 
 	bool healthRecovery;
 
-	public bool normalProgress;
+	public bool firstPlaythrough;
+	public bool secondPlaythrough;
+	public bool thirdPlaythrough;
 
 	public bool playerHasKey;
 
@@ -108,19 +119,15 @@ public class playerMove : MonoBehaviour {
 	public bool RM10CheckpointR;
 
 	public bool RM11CheckpointL;
-	public bool RM11CheckpointR;
 
-	public bool RM12CheckpointL;
-	public bool RM12CheckpointR;
+	public bool Boss1CheckpointL;
+	public bool Boss1CheckpointR;
 
-	public bool RM13CheckpointL;
-	public bool RM13CheckpointR;
+	public bool Boss2CheckpointL;
+	public bool Boss2CheckpointR;
 
-	public bool RM14CheckpointL;
-	public bool RM14CheckpointR;
-
-	public bool RM15CheckpointL;
-	public bool RM15CheckpointR;
+	public bool Boss3CheckpointL;
+	public bool Boss3CheckpointR;
 
 	// Use this for initialization
 	void Start () {
@@ -146,7 +153,9 @@ public class playerMove : MonoBehaviour {
 
 		healthRecovery = false;
 
-		normalProgress = true;
+		firstPlaythrough = true;
+		secondPlaythrough = false;
+		thirdPlaythrough = false;
 
 		HP1.SetActive (false);
 		HP2.SetActive (false);
@@ -160,6 +169,13 @@ public class playerMove : MonoBehaviour {
 		finalKey1 = false;
 		finalKey2 = false;
 		finalKey3 = false;
+
+		bossBlocker1.SetActive (false);
+		bossBlocker2.SetActive (false);
+		bossBlocker3.SetActive (false);
+
+		bossBlocker2Z.SetActive (true);
+		bossBlocker1Z.SetActive (true);
 
 		//player checkpoint bools
 		RM1Checkpoint = true;
@@ -192,19 +208,15 @@ public class playerMove : MonoBehaviour {
 		RM10CheckpointR = false;
 
 		RM11CheckpointL = false;
-		RM11CheckpointR = false;
 
-		RM12CheckpointL = false;
-		RM12CheckpointR = false;
+		Boss1CheckpointL = false;
+		Boss1CheckpointR = false;
 
-		RM13CheckpointL = false;
-		RM13CheckpointR = false;
+		Boss2CheckpointL = false;
+		Boss2CheckpointR = false;
 
-		RM14CheckpointL = false;
-		RM14CheckpointR = false;
-
-		RM15CheckpointL = false;
-		RM15CheckpointR = false;
+		Boss3CheckpointL = false;
+		Boss3CheckpointR = false;
 	
 	}
 	
@@ -285,7 +297,7 @@ public class playerMove : MonoBehaviour {
 			HP3.SetActive (true);
 		}
 
-		if (health <= 0 && normalProgress == true) {
+		if (health <= 0 && firstPlaythrough == true || secondPlaythrough == true) {
 
 			rb.isKinematic = true;
 
@@ -394,7 +406,7 @@ public class playerMove : MonoBehaviour {
 			health = 4;
 		}
 
-		if (Input.GetKeyDown (KeyCode.Return) && normalProgress == true) {
+		if (Input.GetKeyDown (KeyCode.Return) && firstPlaythrough == true || secondPlaythrough == true) {
 
 			if (RM1Checkpoint == true) {
 				playerPos.x = 505;
@@ -632,7 +644,7 @@ public class playerMove : MonoBehaviour {
 
 		}
 
-		if (coll.gameObject.tag == "finalKey" && finalKey1 == false) {
+		if (coll.gameObject.tag == "finalKey1" && finalKey1 == false) {
 
 			playerPos.x = -40;
 			playerPos.y = 19.35f;
@@ -643,11 +655,15 @@ public class playerMove : MonoBehaviour {
 
 			playerHasFlight = false;
 
+			bossBlocker2Z.SetActive (false);
+
 			finalLock1.GetComponent<Renderer> ().material = unlockedDoorLight;
 
 			player.transform.position = playerPos;
 
-		} else if (coll.gameObject.tag == "finalKey" && finalKey2 == false) {
+		} 
+
+		if (coll.gameObject.tag == "finalKey2" && finalKey2 == false) {
 
 			playerPos.x = -40;
 			playerPos.y = 19.35f;
@@ -656,11 +672,17 @@ public class playerMove : MonoBehaviour {
 
 			RM1Checkpoint = true;
 
+			playerHasDoubleJump = false;
+
+			bossBlocker1Z.SetActive (false);
+
 			finalLock2.GetComponent<Renderer> ().material = unlockedDoorLight;
 
 			player.transform.position = playerPos;
 
-		} else if (coll.gameObject.tag == "finalKey" && finalKey3 == false) {
+		} 
+
+		if (coll.gameObject.tag == "finalKey3" && finalKey3 == false) {
 
 			playerPos.x = -40;
 			playerPos.y = 19.35f;
@@ -709,9 +731,49 @@ public class playerMove : MonoBehaviour {
 			}
 		}
 
-		if (coll.gameObject.tag == "teleportToBoss") {
-			playerPos.x = 56;
-			playerPos.y = -2977;
+		if (coll.gameObject.tag == "teleportToBoss3") {
+			playerPos.x = 6605;
+			playerPos.y = 3020;
+		}
+
+		if (coll.gameObject.tag == "teleportBack3") {
+			playerPos.x = 6047;
+			playerPos.y = 2079;
+		}
+
+		if (coll.gameObject.tag == "Boss3") {
+
+			bossBlocker3.SetActive (true);
+		}
+
+		if (coll.gameObject.tag == "teleportToBoss2") {
+			playerPos.x = 6605;
+			playerPos.y = 2021;
+		}
+
+		if (coll.gameObject.tag == "teleportBack2") {
+			playerPos.x = 6047;
+			playerPos.y = 1924;
+		}
+
+		if (coll.gameObject.tag == "Boss2") {
+
+			bossBlocker2.SetActive (true);
+		}
+
+		if (coll.gameObject.tag == "teleportToBoss1") {
+			playerPos.x = 6605;
+			playerPos.y = 1020;
+		}
+
+		if (coll.gameObject.tag == "teleportBack1") {
+			playerPos.x = 6047;
+			playerPos.y = 1769;
+		}
+
+		if (coll.gameObject.tag == "Boss1") {
+
+			bossBlocker1.SetActive (true);
 		}
 
 		player.transform.position = playerPos;

@@ -48,19 +48,15 @@ public class transitionEndManagerRM10R : MonoBehaviour {
 			GameObject.Find ("Player").GetComponent<playerMove> ().RM10CheckpointR = true;
 
 			GameObject.Find ("Player").GetComponent<playerMove> ().RM11CheckpointL = false;
-			GameObject.Find ("Player").GetComponent<playerMove> ().RM11CheckpointR = false;
 
-			GameObject.Find ("Player").GetComponent<playerMove> ().RM12CheckpointL = false;
-			GameObject.Find ("Player").GetComponent<playerMove> ().RM12CheckpointR = false;
+			GameObject.Find ("Player").GetComponent<playerMove> ().Boss1CheckpointL = false;
+			GameObject.Find ("Player").GetComponent<playerMove> ().Boss1CheckpointR = false;
 
-			GameObject.Find ("Player").GetComponent<playerMove> ().RM13CheckpointL = false;
-			GameObject.Find ("Player").GetComponent<playerMove> ().RM13CheckpointR = false;
+			GameObject.Find ("Player").GetComponent<playerMove> ().Boss2CheckpointL = false;
+			GameObject.Find ("Player").GetComponent<playerMove> ().Boss2CheckpointR = false;
 
-			GameObject.Find ("Player").GetComponent<playerMove> ().RM14CheckpointL = false;
-			GameObject.Find ("Player").GetComponent<playerMove> ().RM14CheckpointR = false;
-
-			GameObject.Find ("Player").GetComponent<playerMove> ().RM15CheckpointL = false;
-			GameObject.Find ("Player").GetComponent<playerMove> ().RM15CheckpointR = false;
+			GameObject.Find ("Player").GetComponent<playerMove> ().Boss3CheckpointL = false;
+			GameObject.Find ("Player").GetComponent<playerMove> ().Boss3CheckpointR = false;
 
 
 		}
