@@ -86,6 +86,7 @@
      <Compile Include="Assets\Scripts\enemySpawnerRM7C.cs" />
      <Compile Include="Assets\Scripts\explosionColliderIgnoreCollisionWithPlayer.cs" />
      <Compile Include="Assets\Scripts\hangingBoxReturnToNormal.cs" />
+     <Compile Include="Assets\Scripts\ignoreBarrierCollision.cs" />
      <Compile Include="Assets\Scripts\keyBehavior.cs" />
      <Compile Include="Assets\Scripts\lockedDoorMove.cs" />
      <Compile Include="Assets\Scripts\lockedTransitionStartManager.cs" />

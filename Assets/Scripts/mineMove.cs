@@ -45,7 +45,7 @@ public class mineMove : MonoBehaviour {
 
 			playerExplosionDistance = (player.transform.position - explosionEffect.transform.position).magnitude;
 
-			playerPropulsionSpeed = playerExplosionDistance * 1500;
+			playerPropulsionSpeed = playerExplosionDistance * 9000;
 
 			if (Vector3.Distance (mine.transform.position, player.transform.position) < 85) {
 				player.GetComponent<Rigidbody2D> ().AddForce ((player.transform.position - mine.transform.position).normalized * playerPropulsionSpeed * Time.deltaTime);
