@@ -8,13 +8,14 @@ public class targetControl : MonoBehaviour {
 	public GameObject player;
 
 	public GameObject bullet;
+	public GameObject mine;
 
 	public GameObject squareWorld;
 	public GameObject circleWorld;
 
 	public bool squareWorldActive;
 
-	public Vector2 pos;
+	public Vector3 pos;
 
 	float ROF = 0f;
 
@@ -22,8 +23,6 @@ public class targetControl : MonoBehaviour {
 
 	public bool AREquipped;
 	public bool SGEquipped;
-	public bool HCEquipped;
-	public bool RLEquipped;
 	public bool MLEquipped;
 
 	public playerMove thePlayer;
@@ -33,9 +32,9 @@ public class targetControl : MonoBehaviour {
 
 		thePlayer = FindObjectOfType<playerMove> ();
 
-		AREquipped = true;
+		AREquipped = false;
 		SGEquipped = false;
-		MLEquipped = false;
+		MLEquipped = true;
 
 		squareWorld.SetActive (true);
 		circleWorld.SetActive (false);
@@ -59,6 +58,8 @@ public class targetControl : MonoBehaviour {
 
 		pos = Camera.main.ScreenToWorldPoint(pos);
 
+		pos.z = -5;
+
 		transform.position = pos;
 
 //Shooting
@@ -74,6 +75,21 @@ public class targetControl : MonoBehaviour {
 			Physics2D.IgnoreCollision(bulletClone.GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
 
 			bulletClone.transform.position = player.transform.position;
+		}
+
+		if (Input.GetMouseButton (0) && (Time.time > ROF) && MLEquipped == true &&
+			GameObject.Find ("Mine(Clone)") == null) {
+
+			shotDelay = 0.1f;
+
+			ROF = Time.time + shotDelay;
+
+			GameObject mineClone = (GameObject)Instantiate(mine);
+
+			Physics2D.IgnoreCollision(mineClone.GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
+
+			mineClone.transform.position = player.transform.position;
+
 		}
 
 //World Switching Behavior
