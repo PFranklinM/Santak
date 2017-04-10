@@ -17,11 +17,9 @@ public class ARBulletMove : MonoBehaviour {
 		target = GameObject.Find("Target");
 		player = GameObject.Find("Player");
 
-		moveSpeed = 500000f;
+		moveSpeed = 200f;
 
-//		targetPos = new Vector3 (target.transform.position.x,
-//			target.transform.position.y,
-//			target.transform.position.z);
+//		moveSpeed = 500f;
 
 		Bullet.GetComponent<Rigidbody2D> ().AddForce ((target.transform.position - Bullet.transform.position).normalized * moveSpeed * Time.smoothDeltaTime);
 	
@@ -29,10 +27,6 @@ public class ARBulletMove : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-//		transform.position = Vector3.MoveTowards (transform.position,
-//			targetPos,
-//			Time.deltaTime * moveSpeed);
 
 //		transform.position = Vector3.MoveTowards (transform.position,
 //			target.transform.position,

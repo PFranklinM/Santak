@@ -628,8 +628,6 @@ public class playerMove : MonoBehaviour {
 					rb.velocity = new Vector3 (-750, 750, 0);
 				}
 
-				moveSpeed = 0;
-
 				health -= 1;
 			}
 

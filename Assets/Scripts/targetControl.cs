@@ -32,9 +32,9 @@ public class targetControl : MonoBehaviour {
 
 		thePlayer = FindObjectOfType<playerMove> ();
 
-		AREquipped = false;
+		AREquipped = true;
 		SGEquipped = false;
-		MLEquipped = true;
+		MLEquipped = false;
 
 		squareWorld.SetActive (true);
 		circleWorld.SetActive (false);
@@ -90,6 +90,18 @@ public class targetControl : MonoBehaviour {
 
 			mineClone.transform.position = player.transform.position;
 
+		}
+
+		if(Input.GetKey(KeyCode.Alpha1)){
+
+			AREquipped = true;
+			MLEquipped = false;
+		}
+
+		if (Input.GetKey (KeyCode.Alpha3)) {
+			
+			AREquipped = false;
+			MLEquipped = true;
 		}
 
 //World Switching Behavior

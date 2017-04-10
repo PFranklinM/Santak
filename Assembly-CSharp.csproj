@@ -84,6 +84,7 @@
      <Compile Include="Assets\Scripts\enemySpawnerRM5C.cs" />
      <Compile Include="Assets\Scripts\enemySpawnerRM5S.cs" />
      <Compile Include="Assets\Scripts\enemySpawnerRM7C.cs" />
+     <Compile Include="Assets\Scripts\explosionColliderIgnoreCollisionWithPlayer.cs" />
      <Compile Include="Assets\Scripts\hangingBoxReturnToNormal.cs" />
      <Compile Include="Assets\Scripts\keyBehavior.cs" />
      <Compile Include="Assets\Scripts\lockedDoorMove.cs" />
