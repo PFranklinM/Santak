@@ -10,10 +10,11 @@
       <File FileName="Assets/Scripts/boss1Move.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/triangleWorldCameraFollow.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/triangleWorldPlayerMove.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/mineMove.cs" Line="48" Column="55" />
-      <File FileName="Assets/Scripts/doorMove.cs" Line="52" Column="4" />
-      <File FileName="Assets/Scripts/ARBulletMove.cs" Line="20" Column="16" />
-      <File FileName="Assets/Scripts/ignoreBarrierCollision.cs" Line="35" Column="85" />
+      <File FileName="Assets/Scripts/doorMove.cs" Line="38" Column="44" />
+      <File FileName="Assets/Scripts/mineMove.cs" Line="16" Column="33" />
+      <File FileName="Assets/Scripts/ARBulletMove.cs" Line="24" Column="149" />
+      <File FileName="Assets/Scripts/ignoreBarrierCollision.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/buttonMoveRM8.cs" Line="98" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
