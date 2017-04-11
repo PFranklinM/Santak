@@ -93,6 +93,11 @@ public class buttonMoveRM4 : MonoBehaviour {
 
 	void OnCollisionExit2D(Collision2D coll){
 
+		if (coll.gameObject.tag == "ground") {
+			boxOnButton = false;
+		}
+
+
 		if (boxOnButton == false) {
 			somethingOnButton = false;
 		}

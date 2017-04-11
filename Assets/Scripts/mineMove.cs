@@ -13,9 +13,7 @@ public class mineMove : MonoBehaviour {
 
 	float targetDistance;
 
-	float playerExplosionDistance;
-
-	float playerPropulsionSpeed;
+	float playerPropulsionSpeed = 3000000f;
 
 	// Use this for initialization
 	void Start () {
@@ -27,28 +25,22 @@ public class mineMove : MonoBehaviour {
 
 		moveSpeed = targetDistance * 450000f;
 
-		mine.GetComponent<Rigidbody2D> ().AddForce ((target.transform.position - mine.transform.position).normalized * moveSpeed * Time.smoothDeltaTime);
+
+//		this.GetComponent<Rigidbody2D> ().velocity = new Vector3 (0, 0, 0);
+		mine.GetComponent<Rigidbody2D> ().AddForce ((target.transform.position - mine.transform.position).normalized * moveSpeed * Time.fixedDeltaTime);
 	
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
-
-//		Debug.Log (targetDistance);
-
-//		Debug.Log (moveSpeed);
+	void Update () {
 
 		if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) 
 			&& GameObject.Find ("Mine(Clone)") != null) {
 
 			Instantiate (explosionEffect, mine.transform.position, mine.transform.rotation);
 
-			playerExplosionDistance = (player.transform.position - explosionEffect.transform.position).magnitude;
-
-			playerPropulsionSpeed = playerExplosionDistance * 9000;
-
 			if (Vector3.Distance (mine.transform.position, player.transform.position) < 85) {
-				player.GetComponent<Rigidbody2D> ().AddForce ((player.transform.position - mine.transform.position).normalized * playerPropulsionSpeed * Time.deltaTime);
+				player.GetComponent<Rigidbody2D> ().AddForce ((player.transform.position - mine.transform.position).normalized * playerPropulsionSpeed * Time.fixedDeltaTime);
 			}
 
 			Destroy (this.gameObject);

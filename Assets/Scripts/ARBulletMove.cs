@@ -21,7 +21,7 @@ public class ARBulletMove : MonoBehaviour {
 
 //		moveSpeed = 500f;
 
-		Bullet.GetComponent<Rigidbody2D> ().AddForce ((target.transform.position - Bullet.transform.position).normalized * moveSpeed * Time.smoothDeltaTime);
+		Bullet.GetComponent<Rigidbody2D> ().AddForce ((target.transform.position - Bullet.transform.position).normalized * moveSpeed * Time.fixedDeltaTime);
 	
 	}
 	
