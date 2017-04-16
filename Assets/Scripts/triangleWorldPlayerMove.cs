@@ -78,6 +78,18 @@ public class triangleWorldPlayerMove : MonoBehaviour {
 			playerPos.y -= moveSpeed * Time.deltaTime;
 		}
 
+		if (playerPos.x <= -220) {
+			playerPos.x = -220;
+		}
+
+		if (playerPos.x >= 220) {
+			playerPos.x = 220;
+		}
+
+		if (playerPos.y <= -131) {
+			playerPos.y = -131;
+		}
+
 		transform.position = playerPos;
 	
 	}

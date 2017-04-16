@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/2.0.unity
+- path: Assets/Scenes/TriangleWorld.unity
   isLoaded: 1
   isActive: 1
