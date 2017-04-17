@@ -14,14 +14,21 @@ public class mainCharacterTextBoxManager : MonoBehaviour {
 	public int currentLine;
 	public int endAtLine;
 
-	public playerMove thePlayer;
+	public triangleWorldPlayerMove thePlayer;
+
+	public bossFinalMove theBoss;
 
 	public bool isActive;
+
+	float textTimer;
 
 	// Use this for initialization
 	void Start () {
 
-		thePlayer = FindObjectOfType<playerMove> ();
+		thePlayer = FindObjectOfType<triangleWorldPlayerMove> ();
+		theBoss = FindObjectOfType<bossFinalMove> ();
+
+		textTimer = 0.0f;
 
 		if (textFile != null) {
 			textLines = (textFile.text.Split ('\n'));
@@ -46,12 +53,13 @@ public class mainCharacterTextBoxManager : MonoBehaviour {
 			return;
 		}
 
+		textTimer += Time.deltaTime;
+
 		theText.text = textLines [currentLine];
 	
-		if (Input.GetKeyDown (KeyCode.Return) 
-//			|| Input.GetMouseButton(0) || Input.GetMouseButton (1)
-		) {
+		if (textTimer >= 2f) {
 			currentLine += 1;
+			textTimer = 0.0f;
 		}
 
 		if (currentLine > endAtLine) {
@@ -65,6 +73,7 @@ public class mainCharacterTextBoxManager : MonoBehaviour {
 		textBox.SetActive (true);
 
 		thePlayer.canMove = false;
+		theBoss.canMove = false;
 	}
 
 	public void disableTextBox(){
@@ -73,6 +82,7 @@ public class mainCharacterTextBoxManager : MonoBehaviour {
 		textBox.SetActive (false);
 
 		thePlayer.canMove = true;
+		theBoss.canMove = true;
 	}
 
 	public void reloadScript(TextAsset theText){

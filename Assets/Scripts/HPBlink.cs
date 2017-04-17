@@ -22,10 +22,12 @@ public class HPBlink : MonoBehaviour {
 
 		if((int)timerFlash%2==1){
 			mat.SetColor ("_EmissionColor", Color.red);
+			mat.SetColor ("_Color", Color.red);
 		}
 
 		if((int)timerFlash%2==0){
 			mat.SetColor ("_EmissionColor", Color.white);
+			mat.SetColor ("_Color", Color.white);
 		}
 	
 	}

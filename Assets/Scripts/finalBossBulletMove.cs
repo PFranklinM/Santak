@@ -47,6 +47,7 @@ public class finalBossBulletMove : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D coll){
 		if (coll.gameObject.tag == "player") {
+
 			Destroy (this.gameObject);
 		}
 	}

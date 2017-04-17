@@ -87,6 +87,8 @@ public class squareEnemyMove : MonoBehaviour {
 
 		if (health <= 0) {
 			Destroy (this.gameObject);
+
+			GameObject.Find ("Player").GetComponent<playerMove> ().enemyDeaths++;
 		}
 
 		transform.position = enemyPos;

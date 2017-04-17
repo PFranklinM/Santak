@@ -28,7 +28,7 @@ public class NPCRunLeft : MonoBehaviour {
 
 		if (timeToRun == true) {
 
-			NPCPos.x -= 20;
+			NPCPos.x -= 250 * Time.deltaTime;
 		}
 
 		if (NPCPos.x >= 265 || NPCPos.x <= -265) {

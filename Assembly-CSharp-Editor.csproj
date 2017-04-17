@@ -48,28 +48,10 @@
      <Compile Include="Assets\2DLightAsset\Scripts\2DLight\Editor\DynamicLightEditor.cs" />
      <Compile Include="Assets\2DLightAsset\Scripts\2DLight\Editor\DynamicLightMenu.cs" />
      <Compile Include="Assets\2DLightAsset\Scripts\2DLight\Editor\EditorUtils.cs" />
-     <None Include="Assets\Dialog\MeetingShadowCharacterDialog5.txt" />
-     <None Include="Assets\Dialog\meetingShadowDialog2.txt" />
-     <None Include="Assets\Dialog\IntroDialog.txt" />
-     <None Include="Assets\Dialog\firstSacrificeDialog.txt" />
-     <None Include="Assets\Dialog\happyText4.txt" />
-     <None Include="Assets\Dialog\MeetingShadowDialog4.txt" />
      <None Include="Assets\2DLightAsset\Shaders\Gradient-NoTexture-Radial-SingleColor-ToTransparent-RegularUV-AlphaBlend.shader" />
-     <None Include="Assets\Dialog\seeingTheTree.txt" />
-     <None Include="Assets\Dialog\ShadowReminderDialog1.txt" />
      <None Include="Assets\2DLightAsset\Shaders\NoTexture.shader" />
-     <None Include="Assets\Dialog\meetingShadowDialog1.txt" />
-     <None Include="Assets\Dialog\happyText3.txt" />
-     <None Include="Assets\Dialog\meetingShadowDialog6.txt" />
-     <None Include="Assets\Dialog\MeetingShadowDialog3.txt" />
-     <None Include="Assets\Dialog\ShadowReminderDialog2.txt" />
-     <None Include="Assets\Dialog\boulder.txt" />
      <None Include="Assets\2DLightAsset\Shaders\Gradient-ZFighting.shader" />
-     <None Include="Assets\Dialog\findingStickDialog.txt" />
-     <None Include="Assets\Dialog\homeDialog.txt" />
-     <None Include="Assets\Dialog\UsingStick.txt" />
-     <None Include="Assets\Dialog\happyText1.txt" />
-     <None Include="Assets\Dialog\happyText2.txt" />
+     <None Include="Assets\Dialog\FinalBossDialog.txt" />
  <Reference Include="Assembly-UnityScript">
  <HintPath>/Users/paulmallon/Desktop/Santak/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
  </Reference>

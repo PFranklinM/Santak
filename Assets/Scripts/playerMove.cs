@@ -28,6 +28,8 @@ public class playerMove : MonoBehaviour {
 	bool finalKey2;
 	bool finalKey3;
 
+	bool playFinalDoorOpeningAnimation;
+
 //	public GameObject finalKeyA;
 //	public GameObject finalKeyB;
 //	public GameObject finalKeyC;
@@ -39,6 +41,9 @@ public class playerMove : MonoBehaviour {
 	public GameObject finalDoorL;
 
 	public GameObject finalDoorR;
+
+	bool showFinalPortal;
+	public GameObject finalPortal;
 
 	public Material unlockedDoorLight;
 	public Material unlockedDoor;
@@ -129,6 +134,9 @@ public class playerMove : MonoBehaviour {
 	public bool Boss3CheckpointL;
 	public bool Boss3CheckpointR;
 
+	//enemy death counter
+	public int enemyDeaths;
+
 	// Use this for initialization
 	void Start () {
 
@@ -169,6 +177,12 @@ public class playerMove : MonoBehaviour {
 		finalKey1 = false;
 		finalKey2 = false;
 		finalKey3 = false;
+
+		showFinalPortal = false;
+
+		playFinalDoorOpeningAnimation = false;
+
+		finalPortal.SetActive (false);
 
 		bossBlocker1.SetActive (false);
 		bossBlocker2.SetActive (false);
@@ -217,6 +231,8 @@ public class playerMove : MonoBehaviour {
 
 		Boss3CheckpointL = false;
 		Boss3CheckpointR = false;
+
+		enemyDeaths = 0;
 	
 	}
 	
@@ -510,6 +526,38 @@ public class playerMove : MonoBehaviour {
 			playerInvulnerable = true;
 		}
 
+		if (playFinalDoorOpeningAnimation == true) {
+
+			Vector3 finalDoorLeftPos = new Vector3 (finalDoorL.transform.position.x,
+				                        finalDoorL.transform.position.y,
+				                        finalDoorL.transform.position.z);
+
+			Vector3 finalDoorRightPos = new Vector3 (finalDoorR.transform.position.x,
+				                         finalDoorR.transform.position.y,
+				                         finalDoorR.transform.position.z);
+
+			if (finalDoorLeftPos.x >= -165) {
+				finalDoorLeftPos.x -= 10 * Time.deltaTime;
+			}
+
+			if (finalDoorRightPos.x <= -145) {
+				finalDoorRightPos.x += 10 * Time.deltaTime;
+			}
+
+			if (finalDoorLeftPos.x <= -165 && finalDoorRightPos.x >= -145) {
+
+				showFinalPortal = true;
+			}
+
+			finalDoorL.transform.position = finalDoorLeftPos;
+			finalDoorR.transform.position = finalDoorRightPos;
+		}
+
+		if (showFinalPortal == true) {
+
+			finalPortal.SetActive (true);
+		}
+
 
 		//DIFFERENT PLAYER MODELS
 		if(GameObject.Find ("Target").GetComponent<targetControl> ().squareWorldActive == true &&
@@ -772,6 +820,11 @@ public class playerMove : MonoBehaviour {
 		if (coll.gameObject.tag == "Boss1") {
 
 			bossBlocker1.SetActive (true);
+		}
+
+		if (coll.gameObject.tag == "finalDoorTrigger" && finalKey3 == true) {
+
+			playFinalDoorOpeningAnimation = true;
 		}
 
 		player.transform.position = playerPos;

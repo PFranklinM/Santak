@@ -28,7 +28,7 @@ public class NPCRunUp : MonoBehaviour {
 
 		if (timeToRun == true) {
 
-			NPCPos.y += 7.5f;
+			NPCPos.y += 175f * Time.deltaTime;
 		}
 
 		if (NPCPos.y >= 2150) {

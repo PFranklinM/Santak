@@ -15,8 +15,15 @@ public class triangleWorldPlayerMove : MonoBehaviour {
 
 	public bool cantGoBack;
 
+	bool playerWasHitByBullet;
+
+	public bool canMove;
+
 	// Use this for initialization
 	void Start () {
+
+		cantGoBack = false;
+		playerWasHitByBullet = false;
 
 		moveSpeed = 200;
 
@@ -25,11 +32,17 @@ public class triangleWorldPlayerMove : MonoBehaviour {
 		HP1.SetActive (false);
 		HP2.SetActive (false);
 		HP3.SetActive (false);
+
+		canMove = true;
 	
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (canMove == false) {
+			return;
+		}
 
 		Vector3 playerPos = new Vector3 (player.transform.position.x,
 			player.transform.position.y,
@@ -97,16 +110,35 @@ public class triangleWorldPlayerMove : MonoBehaviour {
 		}
 
 		if (cantGoBack == true) {
-			if (playerPos.y <= 1499) {
+			if (playerPos.y <= 1500) {
 				playerPos.y = 1500;
 			}
 
-			if (playerPos.y >= 1766) {
+			if (playerPos.y >= 1765) {
 				playerPos.y = 1765;
 			}
 		}
 
+		if (playerWasHitByBullet == true) {
+			
+			playerPos.y -= 700 * Time.deltaTime;
+		}
+
+		if (playerPos.x <= -210 || playerPos.x >= 210 || playerPos.y <= 1510 || playerPos.y >= 1755) {
+
+			playerWasHitByBullet = false;
+		}
+
 		transform.position = playerPos;
 	
+	}
+
+	void OnCollisionEnter2D(Collision2D coll){
+		if (coll.gameObject.tag == "enemyBullet") {
+
+			playerWasHitByBullet = true;
+
+			health -= 1;
+		}
 	}
 }

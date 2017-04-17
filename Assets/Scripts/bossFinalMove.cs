@@ -7,26 +7,49 @@ public class bossFinalMove : MonoBehaviour {
 	public GameObject bullet;
 
 	bool timeToMove;
+	bool moveIntoFrame;
 
 	float moveSpeed;
 
 	float shotTimer;
 
+	public bool canMove;
+
 	// Use this for initialization
 	void Start () {
 
 		timeToMove = false;
+		moveIntoFrame = false;
 
-		moveSpeed = 5;
+		moveSpeed = 85;
+
+		canMove = true;
 	
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
+		
 		Vector3 bossMove = new Vector3 (this.transform.position.x,
-			                   this.transform.position.y,
-			                   this.transform.position.z);
+			this.transform.position.y,
+			this.transform.position.z);
+
+		if (GameObject.Find ("Player").GetComponent<triangleWorldPlayerMove> ().cantGoBack == true) {
+
+			moveIntoFrame = true;
+		}
+
+		if (moveIntoFrame == true) {
+			if (bossMove.y >= 1700) {
+				bossMove.y -= moveSpeed * Time.deltaTime;
+			}
+		}
+
+		this.transform.position = bossMove;
+
+		if (canMove == false) {
+			return;
+		}
 
 		if (GameObject.Find ("Player").GetComponent<triangleWorldPlayerMove> ().cantGoBack == true) {
 
@@ -34,8 +57,8 @@ public class bossFinalMove : MonoBehaviour {
 		}
 
 		if (timeToMove == true) {
-			bossMove.x += moveSpeed;
-
+			
+			bossMove.x += moveSpeed * Time.deltaTime;
 			shotTimer += Time.deltaTime;
 		}
 
@@ -58,8 +81,6 @@ public class bossFinalMove : MonoBehaviour {
 
 			bossBulletClone.transform.position = this.transform.position;
 		}
-
-		Debug.Log (shotTimer);
 
 		this.transform.position = bossMove;
 	}
