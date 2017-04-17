@@ -53,6 +53,9 @@
      <Compile Include="Assets\2DLightAsset\Scripts\rotate.cs" />
      <Compile Include="Assets\Scripts\ARBulletMove.cs" />
      <Compile Include="Assets\Scripts\HPBlink.cs" />
+     <Compile Include="Assets\Scripts\NPCRunLeft.cs" />
+     <Compile Include="Assets\Scripts\NPCRunRight.cs" />
+     <Compile Include="Assets\Scripts\NPCRunUp.cs" />
      <Compile Include="Assets\Scripts\activateHappyText1.cs" />
      <Compile Include="Assets\Scripts\activateHappyText2.cs" />
      <Compile Include="Assets\Scripts\activateHappyText3.cs" />
@@ -70,6 +73,7 @@
      <Compile Include="Assets\Scripts\activateText7.cs" />
      <Compile Include="Assets\Scripts\audioManager.cs" />
      <Compile Include="Assets\Scripts\boss1Move.cs" />
+     <Compile Include="Assets\Scripts\bossFinalMove.cs" />
      <Compile Include="Assets\Scripts\bouncingEnemySpawner.cs" />
      <Compile Include="Assets\Scripts\buttonMoveRM4.cs" />
      <Compile Include="Assets\Scripts\buttonMoveRM8.cs" />
@@ -85,6 +89,7 @@
      <Compile Include="Assets\Scripts\enemySpawnerRM5S.cs" />
      <Compile Include="Assets\Scripts\enemySpawnerRM7C.cs" />
      <Compile Include="Assets\Scripts\explosionColliderIgnoreCollisionWithPlayer.cs" />
+     <Compile Include="Assets\Scripts\finalBossBulletMove.cs" />
      <Compile Include="Assets\Scripts\hangingBoxReturnToNormal.cs" />
      <Compile Include="Assets\Scripts\ignoreBarrierCollision.cs" />
      <Compile Include="Assets\Scripts\keyBehavior.cs" />

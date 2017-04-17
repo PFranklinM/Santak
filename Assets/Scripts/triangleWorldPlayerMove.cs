@@ -13,6 +13,8 @@ public class triangleWorldPlayerMove : MonoBehaviour {
 	public GameObject HP2;
 	public GameObject HP3;
 
+	public bool cantGoBack;
+
 	// Use this for initialization
 	void Start () {
 
@@ -88,6 +90,20 @@ public class triangleWorldPlayerMove : MonoBehaviour {
 
 		if (playerPos.y <= -131) {
 			playerPos.y = -131;
+		}
+
+		if (playerPos.y >= 1500) {
+			cantGoBack = true;
+		}
+
+		if (cantGoBack == true) {
+			if (playerPos.y <= 1499) {
+				playerPos.y = 1500;
+			}
+
+			if (playerPos.y >= 1766) {
+				playerPos.y = 1765;
+			}
 		}
 
 		transform.position = playerPos;

@@ -29,19 +29,22 @@ public class triangleWorldCameraFollow : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		Vector3 playerPos = new Vector3 (player.transform.position.x,
-			player.transform.position.y,
-			player.transform.position.z);
 
-		Vector3 cameraPos = new Vector3 (transform.position.x,
-			transform.position.y,
-			transform.position.z);
+		if (GameObject.Find ("Player").GetComponent<triangleWorldPlayerMove> ().cantGoBack == false) {
+			Vector3 playerPos = new Vector3 (player.transform.position.x,
+				                   player.transform.position.y,
+				                   player.transform.position.z);
 
-		cameraPos.y = playerPos.y + offset;
+			Vector3 cameraPos = new Vector3 (transform.position.x,
+				                   transform.position.y,
+				                   transform.position.z);
 
-		transform.position = cameraPos;
+			cameraPos.y = playerPos.y + offset;
 
-		player.transform.position = playerPos;
+			transform.position = cameraPos;
+
+			player.transform.position = playerPos;
+		}
 	
 	}
 }

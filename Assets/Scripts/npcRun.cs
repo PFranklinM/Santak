@@ -17,26 +17,24 @@ public class npcRun : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (Vector3.Distance (this.transform.position, player.transform.position) < 100f) {
+		if (Vector3.Distance (this.transform.position, player.transform.position) < 150f) {
 
 			timeToRun = true;
 		}
 
 		if (timeToRun == true) {
-			
-			Vector3 direction = this.transform.position - player.transform.position;
-			direction.Normalize();
 
-			transform.position = Vector3.MoveTowards(this.transform.position, direction, -10);
+			this.GetComponent<Rigidbody2D> ().AddForce ((this.transform.position - player.transform.position).normalized * 50000 * Time.deltaTime);
 		}
 
 		Vector3 NPCPos = new Vector3 (this.transform.position.x,
 			                 this.transform.position.y,
 			                 this.transform.position.z);
 
-		if (NPCPos.x >= 265 || NPCPos.x <= -265) {
+		if (NPCPos.x >= 265 || NPCPos.x <= -265 || NPCPos.y >= 2150) {
 			Destroy (this.gameObject);
 		}
-	
+
+		this.transform.position = NPCPos;
 	}
 }
