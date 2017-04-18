@@ -5,12 +5,8 @@ using UnityEngine.UI;
 public class playerMove : MonoBehaviour {
 
 	//indicate that pink death walls kill you
-	//test with a lot of people
-	//screen share on skype - test with people
 
 	//test with game club - email tonight about testing with game club on Friday
-
-	//"why am I changing?"
 
 	//make it more clear that you lose an ability - have the player lose a piece of themselves
 
