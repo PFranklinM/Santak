@@ -136,6 +136,8 @@ public class playerMove : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		Cursor.visible = false;
+
 		rb = GetComponent<Rigidbody2D>();
 
 		jumpCounter = 0;
@@ -532,15 +534,16 @@ public class playerMove : MonoBehaviour {
 				                         finalDoorR.transform.position.y,
 				                         finalDoorR.transform.position.z);
 
-			if (finalDoorLeftPos.x >= -165) {
+
+			if (finalDoorLeftPos.x >= -334) {
 				finalDoorLeftPos.x -= 10 * Time.deltaTime;
 			}
 
-			if (finalDoorRightPos.x <= -145) {
+			if (finalDoorRightPos.x <= -314) {
 				finalDoorRightPos.x += 10 * Time.deltaTime;
 			}
 
-			if (finalDoorLeftPos.x <= -165 && finalDoorRightPos.x >= -145) {
+			if (finalDoorLeftPos.x <= -334 && finalDoorRightPos.x >= -314) {
 
 				showFinalPortal = true;
 			}

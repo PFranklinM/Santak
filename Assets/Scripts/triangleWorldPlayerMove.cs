@@ -22,6 +22,8 @@ public class triangleWorldPlayerMove : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		Cursor.visible = false;
+
 		cantGoBack = false;
 		playerWasHitByBullet = false;
 
