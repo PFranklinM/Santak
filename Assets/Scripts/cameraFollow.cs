@@ -23,6 +23,8 @@ public class cameraFollow : MonoBehaviour {
 
 		transform.position = player.transform.position + offset;
 
+		transform.eulerAngles = new Vector3(0, 0, 0);
+
 	}
 		
 }

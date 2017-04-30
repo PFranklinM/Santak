@@ -19,6 +19,9 @@ public class triangleWorldPlayerMove : MonoBehaviour {
 
 	public bool canMove;
 
+	bool facingLeft;
+	bool facingRight;
+
 	// Use this for initialization
 	void Start () {
 
@@ -26,6 +29,9 @@ public class triangleWorldPlayerMove : MonoBehaviour {
 
 		cantGoBack = false;
 		playerWasHitByBullet = false;
+
+		facingLeft = true;
+		facingRight = false;
 
 		moveSpeed = 200;
 
@@ -44,6 +50,14 @@ public class triangleWorldPlayerMove : MonoBehaviour {
 
 		if (canMove == false) {
 			return;
+		}
+
+		if (facingLeft == true) {
+			transform.eulerAngles = new Vector3(0, 0, 0);
+		}
+
+		if (facingRight == true) {
+			transform.eulerAngles = new Vector3(0, 180, 0);
 		}
 
 		Vector3 playerPos = new Vector3 (player.transform.position.x,
@@ -80,10 +94,18 @@ public class triangleWorldPlayerMove : MonoBehaviour {
 
 
 		if (Input.GetKey (KeyCode.A)) {
+
+			facingLeft = true;
+			facingRight = false;
+
 			playerPos.x -= moveSpeed * Time.deltaTime;
 		}
 
 		if (Input.GetKey (KeyCode.D)) {
+
+			facingLeft = false;
+			facingRight = true;
+
 			playerPos.x += moveSpeed * Time.deltaTime;
 		}
 

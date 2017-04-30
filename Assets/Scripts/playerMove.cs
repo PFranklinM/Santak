@@ -12,13 +12,13 @@ public class playerMove : MonoBehaviour {
 
 	public GameObject player;
 
-	public GameObject playerModelTriangle;
-	public GameObject playerModelSquare;
-	public GameObject playerModelCircle;
-
-	Mesh playerTriangleMesh;
-	Mesh playerSquareMesh;
-	Mesh playerCircleMesh;
+//	public GameObject playerModelTriangle;
+//	public GameObject playerModelSquare;
+//	public GameObject playerModelCircle;
+//
+//	Mesh playerTriangleMesh;
+//	Mesh playerSquareMesh;
+//	Mesh playerCircleMesh;
 
 	bool finalKey1;
 	bool finalKey2;
@@ -244,6 +244,14 @@ public class playerMove : MonoBehaviour {
 		Vector3 playerPos = new Vector3 (player.transform.position.x,
 			player.transform.position.y,
 			player.transform.position.z);
+
+		if (facingLeft == true) {
+			transform.eulerAngles = new Vector3(0, 0, 0);
+		}
+
+		if (facingRight == true) {
+			transform.eulerAngles = new Vector3(0, 180, 0);
+		}
 
 		if (Input.GetKeyDown (KeyCode.Space) && playerIsFlying == false && playerHasDoubleJump == true) {
 
@@ -559,35 +567,35 @@ public class playerMove : MonoBehaviour {
 
 
 		//DIFFERENT PLAYER MODELS
-		if(GameObject.Find ("Target").GetComponent<targetControl> ().squareWorldActive == true &&
-			screenTransition == false && RM1Checkpoint == false){
-
-			playerSquareMesh = playerModelSquare.GetComponent<MeshFilter>().sharedMesh;
-
-			player.GetComponent<MeshFilter>().mesh = playerSquareMesh;
-		}
-
-		if(GameObject.Find ("Target").GetComponent<targetControl> ().squareWorldActive == false &&
-			screenTransition == false && RM1Checkpoint == false){
-
-			playerCircleMesh = playerModelCircle.GetComponent<MeshFilter>().sharedMesh;
-
-			player.GetComponent<MeshFilter>().mesh = playerCircleMesh;
-		}
-
-		if (screenTransition == true) {
-
-			playerTriangleMesh = playerModelTriangle.GetComponent<MeshFilter>().sharedMesh;
-
-			player.GetComponent<MeshFilter>().mesh = playerTriangleMesh;
-		}
-
-		if (RM1Checkpoint == true) {
-
-			playerTriangleMesh = playerModelTriangle.GetComponent<MeshFilter>().sharedMesh;
-
-			player.GetComponent<MeshFilter>().mesh = playerTriangleMesh;
-		}
+//		if(GameObject.Find ("Target").GetComponent<targetControl> ().squareWorldActive == true &&
+//			screenTransition == false && RM1Checkpoint == false){
+//
+//			playerSquareMesh = playerModelSquare.GetComponent<MeshFilter>().sharedMesh;
+//
+//			player.GetComponent<MeshFilter>().mesh = playerSquareMesh;
+//		}
+//
+//		if(GameObject.Find ("Target").GetComponent<targetControl> ().squareWorldActive == false &&
+//			screenTransition == false && RM1Checkpoint == false){
+//
+//			playerCircleMesh = playerModelCircle.GetComponent<MeshFilter>().sharedMesh;
+//
+//			player.GetComponent<MeshFilter>().mesh = playerCircleMesh;
+//		}
+//
+//		if (screenTransition == true) {
+//
+//			playerTriangleMesh = playerModelTriangle.GetComponent<MeshFilter>().sharedMesh;
+//
+//			player.GetComponent<MeshFilter>().mesh = playerTriangleMesh;
+//		}
+//
+//		if (RM1Checkpoint == true) {
+//
+//			playerTriangleMesh = playerModelTriangle.GetComponent<MeshFilter>().sharedMesh;
+//
+//			player.GetComponent<MeshFilter>().mesh = playerTriangleMesh;
+//		}
 
 		player.transform.position = playerPos;
 	
@@ -619,7 +627,7 @@ public class playerMove : MonoBehaviour {
 				facingRight = true;
 
 
-				player.GetComponent<Rigidbody2D> ().AddForce (player.transform.right * moveSpeed);
+				player.GetComponent<Rigidbody2D> ().AddForce (player.transform.right * -moveSpeed);
 
 			}
 
@@ -663,17 +671,36 @@ public class playerMove : MonoBehaviour {
 
 		if (coll.gameObject.tag == "enemy") {
 
+			Vector3 playerPosRN = new Vector3 (this.transform.position.x,
+				                      this.transform.position.y,
+				                      this.transform.position.z);
+
+			Vector3 enemyPosRN = new Vector3 (coll.gameObject.transform.position.x,
+				                     coll.gameObject.transform.position.y,
+				                     coll.gameObject.transform.position.z);
+
 			playerHasKey = false;
 
 			if (playerInvulnerable == false) {
 
-				if (facingLeft == true) {
+				if (facingLeft == true && enemyPosRN.x > playerPosRN.x) {
+					rb.velocity = new Vector3 (-750, 750, 0);
+				}
+
+				if (facingLeft == true && enemyPosRN.x < playerPosRN.x) {
 					rb.velocity = new Vector3 (750, 750, 0);
 				}
 
-				if (facingRight == true) {
+				if (facingRight == true && enemyPosRN.x > playerPosRN.x) {
 					rb.velocity = new Vector3 (-750, 750, 0);
 				}
+
+				if (facingRight == true && enemyPosRN.x < playerPosRN.x) {
+					rb.velocity = new Vector3 (750, 750, 0);
+				}
+
+				this.transform.position = playerPosRN;
+				coll.gameObject.transform.position = enemyPosRN;
 
 				health -= 1;
 			}
