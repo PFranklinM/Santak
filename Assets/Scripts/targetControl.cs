@@ -25,6 +25,8 @@ public class targetControl : MonoBehaviour {
 	public bool SGEquipped;
 	public bool MLEquipped;
 
+	public bool canShootCuzNotInCutscene;
+
 	public playerMove thePlayer;
 
 	// Use this for initialization
@@ -40,6 +42,8 @@ public class targetControl : MonoBehaviour {
 		circleWorld.SetActive (false);
 
 		squareWorldActive = true;
+
+		canShootCuzNotInCutscene = true;
 	
 	}
 	
@@ -64,7 +68,7 @@ public class targetControl : MonoBehaviour {
 
 //Shooting
 
-		if (Input.GetMouseButton(0) && (Time.time > ROF) && AREquipped == true) {
+		if (Input.GetMouseButton(0) && (Time.time > ROF) && AREquipped == true && canShootCuzNotInCutscene == true) {
 
 			shotDelay = 0.1f;
 
@@ -78,7 +82,7 @@ public class targetControl : MonoBehaviour {
 		}
 
 		if (Input.GetMouseButton (0) && (Time.time > ROF) && MLEquipped == true &&
-			GameObject.Find ("Mine(Clone)") == null) {
+			GameObject.Find ("Mine(Clone)") == null && canShootCuzNotInCutscene == true) {
 
 			shotDelay = 0.1f;
 
@@ -92,13 +96,13 @@ public class targetControl : MonoBehaviour {
 
 		}
 
-		if(Input.GetKey(KeyCode.Alpha1)){
+		if(Input.GetKey(KeyCode.Alpha1) && canShootCuzNotInCutscene == true){
 
 			AREquipped = true;
 			MLEquipped = false;
 		}
 
-		if (Input.GetKey (KeyCode.Alpha3)) {
+		if (Input.GetKey (KeyCode.Alpha3) && canShootCuzNotInCutscene == true) {
 			
 			AREquipped = false;
 			MLEquipped = true;
@@ -115,7 +119,7 @@ public class targetControl : MonoBehaviour {
 			                         circleWorld.transform.position.z);
 
 		if (Input.GetMouseButtonDown (1) && squareWorldActive == true &&
-			GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == false) {
+			GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == false && canShootCuzNotInCutscene == true) {
 
 			circleWorld.SetActive (true);
 			squareWorld.SetActive (false);
@@ -124,7 +128,7 @@ public class targetControl : MonoBehaviour {
 		}
 
 		else if (Input.GetMouseButtonDown (1) && squareWorldActive == false &&
-			GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == false) {
+			GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == false && canShootCuzNotInCutscene == true) {
 			
 			squareWorld.SetActive (true);
 			circleWorld.SetActive (false);
@@ -133,7 +137,7 @@ public class targetControl : MonoBehaviour {
 		}
 
 		if (GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == true &&
-			squareWorldActive == true) {
+			squareWorldActive == true && canShootCuzNotInCutscene == true) {
 
 			circleWorld.SetActive (true);
 
@@ -141,7 +145,7 @@ public class targetControl : MonoBehaviour {
 		}
 
 		if(GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == true &&
-			squareWorldActive == false){
+			squareWorldActive == false && canShootCuzNotInCutscene == true){
 
 			squareWorld.SetActive (true);
 
@@ -149,7 +153,7 @@ public class targetControl : MonoBehaviour {
 		}
 
 		if (GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == false &&
-			squareWorldActive == true) {
+			squareWorldActive == true && canShootCuzNotInCutscene == true) {
 
 			circleWorld.SetActive (false);
 
@@ -157,7 +161,7 @@ public class targetControl : MonoBehaviour {
 		}
 
 		if(GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == false &&
-			squareWorldActive == false){
+			squareWorldActive == false && canShootCuzNotInCutscene == true){
 
 			squareWorld.SetActive (false);
 

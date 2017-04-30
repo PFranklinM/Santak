@@ -81,12 +81,14 @@
      <Compile Include="Assets\Scripts\hangingBoxReturnToNormal.cs" />
      <Compile Include="Assets\Scripts\ignoreBarrierCollision.cs" />
      <Compile Include="Assets\Scripts\keyBehavior.cs" />
+     <Compile Include="Assets\Scripts\lightFollow.cs" />
      <Compile Include="Assets\Scripts\lockedDoorMove.cs" />
      <Compile Include="Assets\Scripts\lockedTransitionStartManager.cs" />
      <Compile Include="Assets\Scripts\mineMove.cs" />
      <Compile Include="Assets\Scripts\npcRun.cs" />
      <Compile Include="Assets\Scripts\openingCinematicBossMove.cs" />
      <Compile Include="Assets\Scripts\openingCinematicCameraFollow.cs" />
+     <Compile Include="Assets\Scripts\playerFadeIn.cs" />
      <Compile Include="Assets\Scripts\playerLosesFlight.cs" />
      <Compile Include="Assets\Scripts\playerMove.cs" />
      <Compile Include="Assets\Scripts\shadowCharacterTextBoxManager.cs" />

@@ -58,6 +58,7 @@ public class playerMove : MonoBehaviour {
 	bool playerIsFlying;
 
 	float moveSpeed;
+	public bool canMoveCuzNotInCutscene;
 
 	public bool screenTransition;
 
@@ -154,6 +155,7 @@ public class playerMove : MonoBehaviour {
 		screenTransition = false;
 
 		moveSpeed = 2000f;
+		canMoveCuzNotInCutscene = true;
 
 		health = 4;
 
@@ -611,7 +613,7 @@ public class playerMove : MonoBehaviour {
 
 			healthRecovery = false;
 
-			if (Input.GetKey (KeyCode.A)) {
+			if (Input.GetKey (KeyCode.A) && canMoveCuzNotInCutscene == true) {
 					
 				facingLeft = true;
 				facingRight = false;
@@ -621,7 +623,7 @@ public class playerMove : MonoBehaviour {
 
 			}
 
-			if (Input.GetKey (KeyCode.D)) {
+			if (Input.GetKey (KeyCode.D) && canMoveCuzNotInCutscene == true) {
 
 				facingLeft = false;
 				facingRight = true;
@@ -632,7 +634,7 @@ public class playerMove : MonoBehaviour {
 			}
 
 			if (playerHasFlight == true) {
-				if (Input.GetKey (KeyCode.W)) {
+				if (Input.GetKey (KeyCode.W) && canMoveCuzNotInCutscene == true) {
 					playerIsFlying = true;
 
 					if (playerIsFlying == true) {
