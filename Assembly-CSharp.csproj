@@ -84,6 +84,8 @@
      <Compile Include="Assets\Scripts\mainCharacterTextBoxManager.cs" />
      <Compile Include="Assets\Scripts\mineMove.cs" />
      <Compile Include="Assets\Scripts\npcRun.cs" />
+     <Compile Include="Assets\Scripts\openingCinematicBossMove.cs" />
+     <Compile Include="Assets\Scripts\openingCinematicCameraFollow.cs" />
      <Compile Include="Assets\Scripts\playerLosesFlight.cs" />
      <Compile Include="Assets\Scripts\playerMove.cs" />
      <Compile Include="Assets\Scripts\shadowCharacterTextBoxManager.cs" />
