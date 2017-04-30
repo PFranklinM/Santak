@@ -60,6 +60,8 @@
      <Compile Include="Assets\Scripts\audioManager.cs" />
      <Compile Include="Assets\Scripts\boss1Move.cs" />
      <Compile Include="Assets\Scripts\bossFinalMove.cs" />
+     <Compile Include="Assets\Scripts\bossTextBoxManagerEnding.cs" />
+     <Compile Include="Assets\Scripts\bossTextBoxManagerOpening.cs" />
      <Compile Include="Assets\Scripts\bouncingEnemySpawner.cs" />
      <Compile Include="Assets\Scripts\buttonMoveRM4.cs" />
      <Compile Include="Assets\Scripts\buttonMoveRM8.cs" />
@@ -81,7 +83,6 @@
      <Compile Include="Assets\Scripts\keyBehavior.cs" />
      <Compile Include="Assets\Scripts\lockedDoorMove.cs" />
      <Compile Include="Assets\Scripts\lockedTransitionStartManager.cs" />
-     <Compile Include="Assets\Scripts\mainCharacterTextBoxManager.cs" />
      <Compile Include="Assets\Scripts\mineMove.cs" />
      <Compile Include="Assets\Scripts\npcRun.cs" />
      <Compile Include="Assets\Scripts\openingCinematicBossMove.cs" />
@@ -121,6 +122,7 @@
      <Compile Include="Assets\Scripts\transitionStartManager.cs" />
      <Compile Include="Assets\Scripts\triangleWorldCameraFollow.cs" />
      <Compile Include="Assets\Scripts\triangleWorldPlayerMove.cs" />
+     <None Include="Assets\Dialog\OpeningCinematicDialog.txt" />
      <None Include="Assets\2DLightAsset\Shaders\Gradient-NoTexture-Radial-SingleColor-ToTransparent-RegularUV-AlphaBlend.shader" />
      <None Include="Assets\2DLightAsset\Shaders\NoTexture.shader" />
      <None Include="Assets\2DLightAsset\Shaders\Gradient-ZFighting.shader" />

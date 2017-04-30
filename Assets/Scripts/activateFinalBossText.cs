@@ -8,14 +8,14 @@ public class activateFinalBossText : MonoBehaviour {
 	public int startLine;
 	public int endLine;
 
-	public mainCharacterTextBoxManager textBox;
+	public bossTextBoxManagerEnding textBox;
 
 	bool textHasPlayed = false;
 
 	// Use this for initialization
 	void Start () {
 
-		textBox = FindObjectOfType<mainCharacterTextBoxManager> ();
+		textBox = FindObjectOfType<bossTextBoxManagerEnding> ();
 	
 	}
 	

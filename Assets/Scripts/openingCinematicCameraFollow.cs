@@ -33,7 +33,7 @@ public class openingCinematicCameraFollow : MonoBehaviour {
 
 	void LateUpdate () {
 
-		if (GameObject.Find ("FinalBoss").GetComponent<openingCinematicBossMove> ().timeToMoveRight == true) {
+		if (GameObject.Find ("FinalBoss").GetComponent<openingCinematicBossMove> ().cameraShouldFollow == true) {
 
 			Vector3 bossPos = new Vector3 (boss.transform.position.x,
 				boss.transform.position.y,

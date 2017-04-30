@@ -48,6 +48,7 @@
      <Compile Include="Assets\2DLightAsset\Scripts\2DLight\Editor\DynamicLightEditor.cs" />
      <Compile Include="Assets\2DLightAsset\Scripts\2DLight\Editor\DynamicLightMenu.cs" />
      <Compile Include="Assets\2DLightAsset\Scripts\2DLight\Editor\EditorUtils.cs" />
+     <None Include="Assets\Dialog\OpeningCinematicDialog.txt" />
      <None Include="Assets\2DLightAsset\Shaders\Gradient-NoTexture-Radial-SingleColor-ToTransparent-RegularUV-AlphaBlend.shader" />
      <None Include="Assets\2DLightAsset\Shaders\NoTexture.shader" />
      <None Include="Assets\2DLightAsset\Shaders\Gradient-ZFighting.shader" />

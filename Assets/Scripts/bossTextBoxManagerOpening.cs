@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class mainCharacterTextBoxManager : MonoBehaviour {
+public class bossTextBoxManagerOpening : MonoBehaviour {
 
 	public GameObject textBox;
 	public Text theText;
@@ -14,10 +14,6 @@ public class mainCharacterTextBoxManager : MonoBehaviour {
 	public int currentLine;
 	public int endAtLine;
 
-	public triangleWorldPlayerMove thePlayer;
-
-	public bossFinalMove theBoss;
-
 	public bool isActive;
 
 	float textTimer;
@@ -25,8 +21,7 @@ public class mainCharacterTextBoxManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		thePlayer = FindObjectOfType<triangleWorldPlayerMove> ();
-		theBoss = FindObjectOfType<bossFinalMove> ();
+		isActive = true;
 
 		textTimer = 0.0f;
 
@@ -56,8 +51,8 @@ public class mainCharacterTextBoxManager : MonoBehaviour {
 		textTimer += Time.deltaTime;
 
 		theText.text = textLines [currentLine];
-	
-		if (textTimer >= 2f) {
+
+		if (textTimer >= 2.45f) {
 			currentLine += 1;
 			textTimer = 0.0f;
 		}
@@ -65,24 +60,19 @@ public class mainCharacterTextBoxManager : MonoBehaviour {
 		if (currentLine > endAtLine) {
 			disableTextBox ();
 		}
+	
 	}
 
 	public void enableTextBox(){
 		isActive = true;
 
 		textBox.SetActive (true);
-
-		thePlayer.canMove = false;
-		theBoss.canMove = false;
 	}
 
 	public void disableTextBox(){
 		isActive = false;
 
 		textBox.SetActive (false);
-
-		thePlayer.canMove = true;
-		theBoss.canMove = true;
 	}
 
 	public void reloadScript(TextAsset theText){
@@ -92,6 +82,5 @@ public class mainCharacterTextBoxManager : MonoBehaviour {
 
 			textLines = (theText.text.Split ('\n'));
 		}
-
 	}
 }

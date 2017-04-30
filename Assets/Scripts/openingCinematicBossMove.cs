@@ -1,11 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class openingCinematicBossMove : MonoBehaviour {
 
+	public GameObject player;
+
 	float moveSpeed;
 
-	public bool timeToMoveRight;
+	bool timeToMoveRight;
+	bool realization;
+	bool timeToMoveLeft;
+
+	bool playerShouldStepForward;
+
+	bool timeToFade;
+
+	public bool cameraShouldFollow;
+
+	Material mat;
+	Color colorA;
 
 	// Use this for initialization
 	void Start () {
@@ -13,6 +27,16 @@ public class openingCinematicBossMove : MonoBehaviour {
 		moveSpeed = 85;
 
 		timeToMoveRight = false;
+		realization = false;
+		timeToMoveLeft = false;
+
+		playerShouldStepForward = false;
+
+		cameraShouldFollow = false;
+
+		timeToFade = false;
+
+		colorA.a = 1;
 	
 	}
 	
@@ -23,19 +47,92 @@ public class openingCinematicBossMove : MonoBehaviour {
 			                   transform.position.y,
 			                   transform.position.z);
 
+		Vector3 playerMove = new Vector3 (player.transform.position.x,
+								player.transform.position.y,
+								player.transform.position.z);
+
 		if (bossMove.y <= -90) {
 			bossMove.y += moveSpeed * Time.deltaTime;
 		}
 
-		if (bossMove.y >= -90) {
+		if (bossMove.y >= -90 && realization == false) {
 			timeToMoveRight = true;
+
+			cameraShouldFollow = true;
 		}
 
 		if (timeToMoveRight == true) {
 			bossMove.x += moveSpeed * Time.deltaTime;
 		}
 
+		if (realization == true) {
+			Invoke ("goBackLeft", 2f);
+		}
+
+		if(timeToMoveLeft == true && bossMove.x >= 621.5f) {
+
+			bossMove.x -= 500f * Time.deltaTime;
+		}
+
+		if (timeToMoveLeft == true && bossMove.x <= 622f) {
+			bossMove.x = 621;
+
+			Invoke ("playerStepForward", 1.75f);
+		}
+
+		if (playerShouldStepForward == true && playerMove.y >= 0f) {
+
+			playerMove.y -= moveSpeed * Time.deltaTime;
+		}
+
+		if (playerShouldStepForward == true && playerMove.y <= 0.5f) {
+			playerMove.y = 0;
+		}
+
+		if (GameObject.Find ("BossTextBoxManger").GetComponent<bossTextBoxManagerOpening> ().isActive == false) {
+			timeToFade = true;
+		}
+
+		if (timeToFade == true) {
+			mat = player.GetComponent<Renderer> ().material;
+
+			colorA = mat.color;
+			colorA.a -= 15f * Time.deltaTime;
+
+			//		mat.SetColor ("_EmissionColor", colorA);
+			mat.SetColor ("_Color", colorA);
+			mat.SetColor ("_TintColor", colorA);
+		}
+
+		if (colorA.a <= 0.0001) {
+
+			Invoke ("loadMainGame", 0.5f);
+		}
+
 		transform.position = bossMove;
+
+		player.transform.position = playerMove;
 	
+	}
+
+	void OnTriggerEnter2D(Collider2D coll) {
+
+		if (coll.gameObject.tag == "realizationTrigger") {
+			timeToMoveRight = false;
+			realization = true;
+		}
+	}
+
+	void goBackLeft() {
+		timeToMoveLeft = true;
+	}
+
+	void playerStepForward() {
+		playerShouldStepForward = true;
+	}
+
+	void loadMainGame() {
+
+		SceneManager.LoadSceneAsync("2.0", LoadSceneMode.Single);
 	}
 }
