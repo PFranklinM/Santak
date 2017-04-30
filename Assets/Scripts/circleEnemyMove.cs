@@ -213,6 +213,17 @@ public class circleEnemyMove : MonoBehaviour {
 
 			Invoke("changeBackToPurple", 0.15f);
 		}
+
+		if (coll.gameObject.tag == "explosion") {
+			health -= 50;
+
+			Renderer renderer = GetComponent<Renderer> ();
+			Material mat = renderer.material;
+
+			mat.SetColor ("_EmissionColor", Color.white);
+
+			Invoke("changeBackToPurple", 0.15f);
+		}
 	}
 
 //	void OnTriggerEnter2D(Collider2D coll){

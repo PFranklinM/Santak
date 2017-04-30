@@ -79,9 +79,9 @@ public class boss1Move : MonoBehaviour {
 
 
 
-		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM1Checkpoint == true) {
-			Destroy (this.gameObject);
-		}
+//		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM1Checkpoint == true) {
+//			Destroy (this.gameObject);
+//		}
 
 		if (GameObject.Find ("Player").GetComponent<playerMove> ().RM2CheckpointL == true) {
 			Destroy (this.gameObject);
@@ -148,6 +148,17 @@ public class boss1Move : MonoBehaviour {
 
 		if (coll.gameObject.tag == "ARbullet") {
 			health -= 10;
+
+			Renderer renderer = GetComponent<Renderer> ();
+			Material mat = renderer.material;
+
+			mat.SetColor ("_EmissionColor", Color.white);
+
+			Invoke("changeBackToPurple", 0.15f);
+		}
+
+		if (coll.gameObject.tag == "explosion") {
+			health -= 50;
 
 			Renderer renderer = GetComponent<Renderer> ();
 			Material mat = renderer.material;
