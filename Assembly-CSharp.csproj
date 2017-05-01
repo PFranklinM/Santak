@@ -56,6 +56,7 @@
      <Compile Include="Assets\Scripts\NPCRunLeft.cs" />
      <Compile Include="Assets\Scripts\NPCRunRight.cs" />
      <Compile Include="Assets\Scripts\NPCRunUp.cs" />
+     <Compile Include="Assets\Scripts\activateCompanionIntroText.cs" />
      <Compile Include="Assets\Scripts\activateFinalBossText.cs" />
      <Compile Include="Assets\Scripts\audioManager.cs" />
      <Compile Include="Assets\Scripts\boss1Move.cs" />
@@ -67,6 +68,7 @@
      <Compile Include="Assets\Scripts\buttonMoveRM8.cs" />
      <Compile Include="Assets\Scripts\cameraFollow.cs" />
      <Compile Include="Assets\Scripts\circleEnemyMove.cs" />
+     <Compile Include="Assets\Scripts\companionTextBoxManager.cs" />
      <Compile Include="Assets\Scripts\destroyExplosion.cs" />
      <Compile Include="Assets\Scripts\doorMove.cs" />
      <Compile Include="Assets\Scripts\enemySpawnerBoss1.cs" />
@@ -88,6 +90,7 @@
      <Compile Include="Assets\Scripts\npcRun.cs" />
      <Compile Include="Assets\Scripts\openingCinematicBossMove.cs" />
      <Compile Include="Assets\Scripts\openingCinematicCameraFollow.cs" />
+     <Compile Include="Assets\Scripts\playerCompanionIntroductionMove.cs" />
      <Compile Include="Assets\Scripts\playerFadeIn.cs" />
      <Compile Include="Assets\Scripts\playerLosesFlight.cs" />
      <Compile Include="Assets\Scripts\playerMove.cs" />
@@ -126,6 +129,7 @@
      <Compile Include="Assets\Scripts\triangleWorldPlayerMove.cs" />
      <None Include="Assets\Dialog\OpeningCinematicDialog.txt" />
      <None Include="Assets\2DLightAsset\Shaders\Gradient-NoTexture-Radial-SingleColor-ToTransparent-RegularUV-AlphaBlend.shader" />
+     <None Include="Assets\Dialog\companionIntroDialog.txt" />
      <None Include="Assets\2DLightAsset\Shaders\NoTexture.shader" />
      <None Include="Assets\2DLightAsset\Shaders\Gradient-ZFighting.shader" />
      <None Include="Assets\Dialog\FinalBossDialog.txt" />

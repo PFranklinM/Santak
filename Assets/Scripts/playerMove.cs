@@ -83,6 +83,8 @@ public class playerMove : MonoBehaviour {
 	public GameObject HP2;
 	public GameObject HP3;
 
+	public bool playerHasMetCompanion;
+
 	//textBoxMovement
 	public bool canMove;
 
@@ -155,7 +157,7 @@ public class playerMove : MonoBehaviour {
 		screenTransition = false;
 
 		moveSpeed = 2000f;
-		canMoveCuzNotInCutscene = true;
+		canMoveCuzNotInCutscene = false;
 
 		health = 4;
 
@@ -190,6 +192,8 @@ public class playerMove : MonoBehaviour {
 
 		bossBlocker2Z.SetActive (true);
 		bossBlocker1Z.SetActive (true);
+
+		playerHasMetCompanion = false;
 
 		//player checkpoint bools
 		RM1Checkpoint = true;
