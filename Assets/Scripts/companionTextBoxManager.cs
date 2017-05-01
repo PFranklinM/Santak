@@ -57,7 +57,7 @@ public class companionTextBoxManager : MonoBehaviour {
 
 		theText.text = textLines [currentLine];
 
-		if (textTimer >= 2f) {
+		if (textTimer >= 3f) {
 			currentLine += 1;
 			textTimer = 0.0f;
 		}

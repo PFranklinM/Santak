@@ -90,7 +90,9 @@
      <Compile Include="Assets\Scripts\npcRun.cs" />
      <Compile Include="Assets\Scripts\openingCinematicBossMove.cs" />
      <Compile Include="Assets\Scripts\openingCinematicCameraFollow.cs" />
+     <Compile Include="Assets\Scripts\playerCompanionBobUpAndDown.cs" />
      <Compile Include="Assets\Scripts\playerCompanionIntroductionMove.cs" />
+     <Compile Include="Assets\Scripts\playerCompanionMove.cs" />
      <Compile Include="Assets\Scripts\playerFadeIn.cs" />
      <Compile Include="Assets\Scripts\playerLosesFlight.cs" />
      <Compile Include="Assets\Scripts\playerMove.cs" />

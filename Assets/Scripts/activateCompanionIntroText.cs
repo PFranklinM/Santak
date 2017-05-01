@@ -10,7 +10,7 @@ public class activateCompanionIntroText : MonoBehaviour {
 
 	public companionTextBoxManager textBox;
 
-	bool textHasPlayed = false;
+	public bool textHasPlayed = false;
 
 	public bool playerHitTheTrigger;
 
