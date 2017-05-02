@@ -1,7 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class targetControl : MonoBehaviour {
+
+	public Text Weapon1;
+	public Text Weapon2;
+
+	public GameObject weaponText1;
+	public GameObject weaponText2;
+
+	public bool playerGotWeaponAdvice;
+
+	float textSizeTimer;
+
+	float textMoveAmount1;
+	float textMoveAmount2;
 
 	public GameObject target;
 
@@ -24,7 +38,6 @@ public class targetControl : MonoBehaviour {
 	float shotDelay = 0f;
 
 	public bool AREquipped;
-	public bool SGEquipped;
 	public bool MLEquipped;
 
 	public bool canShootCuzNotInCutscene;
@@ -34,10 +47,14 @@ public class targetControl : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		textSizeTimer = 0.0f;
+
+		textMoveAmount1 = 10.0f;
+		textMoveAmount2 = 10.0f;
+
 		thePlayer = FindObjectOfType<playerMove> ();
 
 		AREquipped = true;
-		SGEquipped = false;
 		MLEquipped = false;
 
 		squareWorld.SetActive (true);
@@ -46,6 +63,11 @@ public class targetControl : MonoBehaviour {
 		squareWorldActive = true;
 
 		canShootCuzNotInCutscene = true;
+
+		playerGotWeaponAdvice = false;
+
+		weaponText1.SetActive (false);
+		weaponText2.SetActive (false);
 	
 	}
 	
@@ -142,16 +164,83 @@ public class targetControl : MonoBehaviour {
 
 		}
 
-		if(Input.GetKey(KeyCode.Alpha1) && canShootCuzNotInCutscene == true){
+		if(Input.GetAxis("Mouse ScrollWheel") > 0 && canShootCuzNotInCutscene == true && AREquipped == false ||
+			Input.GetKeyDown(KeyCode.Alpha1) && canShootCuzNotInCutscene == true && AREquipped == false) {
 
 			AREquipped = true;
 			MLEquipped = false;
 		}
 
-		if (Input.GetKey (KeyCode.Alpha3) && canShootCuzNotInCutscene == true) {
-			
+		if(Input.GetAxis("Mouse ScrollWheel") < 0 && canShootCuzNotInCutscene == true && MLEquipped == false ||
+			Input.GetKeyDown(KeyCode.Alpha2) && canShootCuzNotInCutscene == true && MLEquipped == false) {
+
 			AREquipped = false;
 			MLEquipped = true;
+		}
+
+		if (playerGotWeaponAdvice == true) {
+			
+			weaponText1.SetActive (true);
+			weaponText2.SetActive (true);
+		}
+
+		if (AREquipped == true && MLEquipped == false) {
+
+			Vector2 textPos1 = new Vector2 (Weapon1.rectTransform.anchoredPosition.x,
+				                  Weapon1.rectTransform.anchoredPosition.y);
+
+			Vector2 textPos2 = new Vector2 (Weapon2.rectTransform.anchoredPosition.x,
+				                   Weapon2.rectTransform.anchoredPosition.y);
+
+			textPos1.y += textMoveAmount1 * Time.deltaTime;
+
+			textSizeTimer += Time.deltaTime;
+
+			if (textSizeTimer >= 1f) {
+				textMoveAmount1 = -textMoveAmount1;
+				textSizeTimer = 0.0f;
+			}
+
+			textPos2.y = -375;
+
+			Weapon1.fontStyle = FontStyle.Bold;
+			Weapon2.fontStyle = FontStyle.Normal;
+
+			Weapon1.color = new Color(1.0f, 1.0f, 0.0f);
+			Weapon2.color = new Color(1.0f, 1.0f, 1.0f);
+
+			Weapon1.rectTransform.anchoredPosition = textPos1;
+			Weapon2.rectTransform.anchoredPosition = textPos2;
+		}
+
+		if (AREquipped == false && MLEquipped == true) {
+			
+			Vector2 textPos1 = new Vector2 (Weapon1.rectTransform.anchoredPosition.x,
+				Weapon1.rectTransform.anchoredPosition.y);
+
+			Vector2 textPos2 = new Vector2 (Weapon2.rectTransform.anchoredPosition.x,
+				Weapon2.rectTransform.anchoredPosition.y);
+
+			textPos2.y += textMoveAmount2 * Time.deltaTime;
+
+			textSizeTimer += Time.deltaTime;
+
+			if (textSizeTimer >= 1f) {
+				textMoveAmount2 = -textMoveAmount2;
+				textSizeTimer = 0.0f;
+			}
+
+			textPos1.y = -375;
+
+
+			Weapon2.fontStyle = FontStyle.Bold;
+			Weapon1.fontStyle = FontStyle.Normal;
+
+			Weapon1.color = new Color(1.0f, 1.0f, 1.0f);
+			Weapon2.color = new Color(1.0f, 1.0f, 0.0f);
+
+			Weapon1.rectTransform.anchoredPosition = textPos1;
+			Weapon2.rectTransform.anchoredPosition = textPos2;
 		}
 
 //World Switching Behavior

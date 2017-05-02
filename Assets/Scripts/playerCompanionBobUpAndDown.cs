@@ -10,6 +10,8 @@ public class playerCompanionBobUpAndDown : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		companionMoveTimer = 0.0f;
+
 		companionMoveAmount = 10f;
 	
 	}
