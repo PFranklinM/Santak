@@ -34,7 +34,7 @@ public class mineMove : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) 
+		if (Input.GetMouseButtonDown(1) && GameObject.Find ("Mine(Clone)") != null || Input.GetMouseButtonDown(1)
 			&& GameObject.Find ("Mine(Clone)") != null) {
 
 			Instantiate (explosionEffect, mine.transform.position, mine.transform.rotation);

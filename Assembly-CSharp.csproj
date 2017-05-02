@@ -56,6 +56,8 @@
      <Compile Include="Assets\Scripts\NPCRunLeft.cs" />
      <Compile Include="Assets\Scripts\NPCRunRight.cs" />
      <Compile Include="Assets\Scripts\NPCRunUp.cs" />
+     <Compile Include="Assets\Scripts\SGBulletMove.cs" />
+     <Compile Include="Assets\Scripts\SGDummyMove.cs" />
      <Compile Include="Assets\Scripts\activateCompanionIntroText.cs" />
      <Compile Include="Assets\Scripts\activateFinalBossText.cs" />
      <Compile Include="Assets\Scripts\activateInstructions1Text.cs" />

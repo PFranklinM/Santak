@@ -35,6 +35,19 @@ public class doorMove : MonoBehaviour {
 			transform.position = doorPos;
 		}
 
+		if (coll.gameObject.tag == "SGbullet") {
+			Vector3 doorPos = new Vector3 (transform.position.x,
+				transform.position.y,
+				transform.position.z);
+
+			if (doorIsHittable == true) {
+				doorPos.y += 85f;
+				doorIsHittable = false;
+			}
+
+			transform.position = doorPos;
+		}
+
 		if (coll.gameObject.tag == "explosion") {
 
 			Vector3 doorPos = new Vector3 (transform.position.x,

@@ -8,6 +8,8 @@ public class targetControl : MonoBehaviour {
 	public GameObject player;
 
 	public GameObject bullet;
+	public GameObject shell;
+	public GameObject dummyShell;
 	public GameObject mine;
 
 	public GameObject squareWorld;
@@ -68,7 +70,7 @@ public class targetControl : MonoBehaviour {
 
 //Shooting
 
-		if (Input.GetMouseButton(0) && (Time.time > ROF) && AREquipped == true && canShootCuzNotInCutscene == true) {
+		if (Input.GetMouseButton (0) && (Time.time > ROF) && AREquipped == true && canShootCuzNotInCutscene == true) {
 
 			shotDelay = 0.1f;
 
@@ -79,6 +81,50 @@ public class targetControl : MonoBehaviour {
 			Physics2D.IgnoreCollision(bulletClone.GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
 
 			bulletClone.transform.position = player.transform.position;
+		}
+
+		if (Input.GetMouseButton (1) && (Time.time > ROF) && AREquipped == true && canShootCuzNotInCutscene == true) {
+
+			shotDelay = 1f;
+
+			ROF = Time.time + shotDelay;
+
+			GameObject shellClone1 = (GameObject)Instantiate(shell);
+			GameObject shellClone2 = (GameObject)Instantiate(dummyShell);
+			GameObject shellClone3 = (GameObject)Instantiate(dummyShell);
+
+			Vector3 shellPos1 = new Vector3 (shellClone1.transform.position.x,
+				shellClone1.transform.position.y,
+				shellClone1.transform.position.z);
+
+			Vector3 shellPos2 = new Vector3 (shellClone2.transform.position.x,
+				shellClone2.transform.position.y,
+				shellClone2.transform.position.z);
+
+			Vector3 shellPos3 = new Vector3 (shellClone3.transform.position.x,
+				shellClone3.transform.position.y,
+				shellClone3.transform.position.z);
+
+			Physics2D.IgnoreCollision(shellClone1.GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
+			Physics2D.IgnoreCollision(shellClone2.GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
+			Physics2D.IgnoreCollision(shellClone3.GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
+
+			Physics2D.IgnoreCollision(shellClone1.GetComponent<Collider2D>(), shellClone2.GetComponent<Collider2D>());
+			Physics2D.IgnoreCollision(shellClone1.GetComponent<Collider2D>(), shellClone3.GetComponent<Collider2D>());
+			Physics2D.IgnoreCollision(shellClone2.GetComponent<Collider2D>(), shellClone3.GetComponent<Collider2D>());
+
+			shellPos1.x = playerPos.x;
+			shellPos1.y = playerPos.y;
+
+			shellPos2.x = shellPos1.x;
+			shellPos2.y = shellPos1.y + Random.Range(9, 11);
+
+			shellPos3.x = shellPos1.x;
+			shellPos3.y = shellPos1.y - Random.Range(9, 11);
+
+			shellClone1.transform.position = shellPos1;
+			shellClone2.transform.position = shellPos2;
+			shellClone3.transform.position = shellPos3;
 		}
 
 		if (Input.GetMouseButton (0) && (Time.time > ROF) && MLEquipped == true &&
@@ -118,7 +164,9 @@ public class targetControl : MonoBehaviour {
 			                         circleWorld.transform.position.y,
 			                         circleWorld.transform.position.z);
 
-		if (Input.GetMouseButtonDown (1) && squareWorldActive == true &&
+		if (Input.GetKeyDown (KeyCode.LeftShift) && squareWorldActive == true &&
+			GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == false && canShootCuzNotInCutscene == true 
+			|| Input.GetKeyDown (KeyCode.RightShift) && squareWorldActive == true &&
 			GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == false && canShootCuzNotInCutscene == true) {
 
 			circleWorld.SetActive (true);
@@ -127,7 +175,9 @@ public class targetControl : MonoBehaviour {
 			squareWorldActive = false;
 		}
 
-		else if (Input.GetMouseButtonDown (1) && squareWorldActive == false &&
+		else if (Input.GetKeyDown (KeyCode.LeftShift) && squareWorldActive == false &&
+			GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == false && canShootCuzNotInCutscene == true 
+			|| Input.GetKeyDown (KeyCode.RightShift) && squareWorldActive == false &&
 			GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == false && canShootCuzNotInCutscene == true) {
 			
 			squareWorld.SetActive (true);
