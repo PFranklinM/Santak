@@ -14,19 +14,12 @@ public class companionTextBoxManager : MonoBehaviour {
 	public int currentLine;
 	public int endAtLine;
 
-//	public playerMove thePlayer;
-
-//	public companionMove theCompanion;
-
 	public bool isActive;
 
 	float textTimer;
 
 	// Use this for initialization
 	void Start () {
-
-//		thePlayer = FindObjectOfType<playerMove> ();
-//		theCompanion = FindObjectOfType<companionMove> ();
 
 		textTimer = 0.0f;
 
@@ -72,18 +65,12 @@ public class companionTextBoxManager : MonoBehaviour {
 		isActive = true;
 
 		textBox.SetActive (true);
-
-//		thePlayer.canMove = false;
-//		theCompanion.canMove = false;
 	}
 
 	public void disableTextBox() {
 		isActive = false;
 
 		textBox.SetActive (false);
-
-//		thePlayer.canMove = true;
-//		theCompanion.canMove = true;
 	}
 
 	public void reloadScript(TextAsset theText){

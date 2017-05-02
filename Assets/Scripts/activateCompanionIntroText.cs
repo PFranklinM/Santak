@@ -26,14 +26,15 @@ public class activateCompanionIntroText : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (GameObject.Find ("CompanionTextBoxManager").GetComponent<companionTextBoxManager> ().isActive == true) {
+		if (GameObject.Find ("CompanionTextBoxManager").GetComponent<companionTextBoxManager> ().isActive == true &&
+			playerHitTheTrigger == false) {
 
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
 			GameObject.Find ("Player").GetComponent<playerMove> ().canMoveCuzNotInCutscene = false;
 		}
 
 		if (GameObject.Find ("CompanionTextBoxManager").GetComponent<companionTextBoxManager> ().isActive == false &&
-			GameObject.Find ("Player").GetComponent<playerFadeIn> ().freezeOnlyOnce == true) {
+			playerHitTheTrigger == true) {
 
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
 			GameObject.Find ("Player").GetComponent<playerMove> ().canMoveCuzNotInCutscene = true;
@@ -51,7 +52,11 @@ public class activateCompanionIntroText : MonoBehaviour {
 
 			textHasPlayed = true;
 
-			playerHitTheTrigger = true;
+			Invoke ("delay", 1);
 		}
+	}
+
+	void delay() {
+		playerHitTheTrigger = true;
 	}
 }

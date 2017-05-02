@@ -15,21 +15,24 @@ public class playerCompanionBobUpAndDown : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void LateUpdate () {
 
 		Vector3 companionPos = new Vector3 (transform.position.x,
 			transform.position.y,
 			transform.position.z);
 
-		companionPos.y -= companionMoveAmount * Time.deltaTime;
+//		if (GameObject.Find ("Player").GetComponent<playerMove> ().playerHasMetCompanion == true) {
+
+			companionPos.y -= companionMoveAmount * Time.deltaTime;
 		
-		companionMoveTimer += Time.deltaTime;
+			companionMoveTimer += Time.deltaTime;
 		
-		if(companionMoveTimer >= 1) {
-			companionMoveAmount = -companionMoveAmount;
-			companionMoveTimer = 0;
-		}
+			if (companionMoveTimer >= 1) {
+				companionMoveAmount = -companionMoveAmount;
+				companionMoveTimer = 0;
+			}
+//		}
 	
-//		transform.position = companionPos;
+		transform.position = companionPos;
 	}
 }

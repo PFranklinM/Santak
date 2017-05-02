@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\NPCRunUp.cs" />
      <Compile Include="Assets\Scripts\activateCompanionIntroText.cs" />
      <Compile Include="Assets\Scripts\activateFinalBossText.cs" />
+     <Compile Include="Assets\Scripts\activateInstructions1Text.cs" />
      <Compile Include="Assets\Scripts\audioManager.cs" />
      <Compile Include="Assets\Scripts\boss1Move.cs" />
      <Compile Include="Assets\Scripts\bossFinalMove.cs" />
@@ -132,6 +133,7 @@
      <None Include="Assets\Dialog\OpeningCinematicDialog.txt" />
      <None Include="Assets\2DLightAsset\Shaders\Gradient-NoTexture-Radial-SingleColor-ToTransparent-RegularUV-AlphaBlend.shader" />
      <None Include="Assets\Dialog\companionIntroDialog.txt" />
+     <None Include="Assets\Dialog\companionInstructions1.txt" />
      <None Include="Assets\2DLightAsset\Shaders\NoTexture.shader" />
      <None Include="Assets\2DLightAsset\Shaders\Gradient-ZFighting.shader" />
      <None Include="Assets\Dialog\FinalBossDialog.txt" />
