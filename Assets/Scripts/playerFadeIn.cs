@@ -7,6 +7,8 @@ public class playerFadeIn : MonoBehaviour {
 	Material mat;
 	Color colorA;
 
+	public Material playerColor;
+
 	Rigidbody2D rb;
 
 	public bool freezeOnlyOnce;
@@ -46,8 +48,9 @@ public class playerFadeIn : MonoBehaviour {
 		if (colorA.a >= 0.99999 && freezeOnlyOnce == false) {
 
 			Color color = this.gameObject.GetComponent<Renderer>().material.color; 
-			Color newColor = new Color(color.r, color.g, color.b, 1.0f); 
-			this.gameObject.GetComponent<Renderer>().material.color = newColor;
+//			Color newColor = new Color(color.r, color.g, color.b, 1.0f); 
+			this.gameObject.GetComponent<Renderer>().material = playerColor;
+//			this.gameObject.GetComponent<Renderer>().material.mainTextureScale = new Vector2(0.1f, 0.1f);
 
 			rb.gravityScale = 175;
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;

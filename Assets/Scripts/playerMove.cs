@@ -12,12 +12,12 @@ public class playerMove : MonoBehaviour {
 
 	public GameObject player;
 
-//	public GameObject playerModelTriangle;
-//	public GameObject playerModelSquare;
+	public GameObject playerModelFacingLeft;
+	public GameObject playerModelFacingRight;
 //	public GameObject playerModelCircle;
 //
-//	Mesh playerTriangleMesh;
-//	Mesh playerSquareMesh;
+	Mesh playerMeshFacingLeft;
+	Mesh playerMeshFacingRight;
 //	Mesh playerCircleMesh;
 
 	bool finalKey1;
@@ -278,11 +278,38 @@ public class playerMove : MonoBehaviour {
 			player.transform.position.z);
 
 		if (facingLeft == true) {
-			transform.eulerAngles = new Vector3(0, 0, 0);
+				
+			playerMeshFacingLeft = playerModelFacingLeft.GetComponent<MeshFilter>().sharedMesh;
+				
+			player.GetComponent<MeshFilter>().mesh = playerMeshFacingLeft;
+
+			HP1.transform.eulerAngles = new Vector3(0, 0, 45);
+			HP2.transform.eulerAngles = new Vector3(0, 0, 90);
+			HP3.transform.eulerAngles = new Vector3(0, 0, 0);
+
+			HP1.transform.localPosition = new Vector3 (-0.15f, 0.11f, -2f);
+			HP2.transform.localPosition = new Vector3 (0.65f, -0.01999995f, -2f);
+			HP3.transform.localPosition = new Vector3 (0f, -0.65f, -2f);
 		}
 
 		if (facingRight == true) {
-			transform.eulerAngles = new Vector3(0, 180, 0);
+
+			playerMeshFacingRight = playerModelFacingRight.GetComponent<MeshFilter>().sharedMesh;
+
+			player.GetComponent<MeshFilter>().mesh = playerMeshFacingRight;
+
+//			HP1.transform.position = new Vector3 (playerPos.x + 0.15f, playerPos.y - 0.11f, playerPos.z - 2f);
+//			HP2.transform.position = new Vector3 (playerPos.x - 0.65f, playerPos.y + 0.02f, playerPos.z - 2f);
+//			HP3.transform.position = new Vector3 (playerPos.x + 0f, playerPos.y + 0.65f, playerPos.z - 2f);
+
+			HP1.transform.eulerAngles = new Vector3(0, 0, -45);
+			HP2.transform.eulerAngles = new Vector3(0, 0, -90);
+			HP3.transform.eulerAngles = new Vector3(0, 0, 0);
+
+			HP1.transform.localPosition = new Vector3 (0.15f, 0.11f, -2f);
+			HP2.transform.localPosition = new Vector3 (-0.65f, 0.01999995f, -2f);
+			HP3.transform.localPosition = new Vector3 (0f, -0.65f, -2f);
+
 		}
 
 		if (Input.GetKeyDown (KeyCode.Space) && playerIsFlying == false && playerHasDoubleJump == true) {
@@ -671,6 +698,8 @@ public class playerMove : MonoBehaviour {
 				facingLeft = true;
 				facingRight = false;
 
+//				this.gameObject.GetComponent<Renderer> ().material.SetFloat ("_RedrawRate", 10000);
+
 
 				player.GetComponent<Rigidbody2D> ().AddForce (player.transform.right * -moveSpeed);
 
@@ -682,7 +711,7 @@ public class playerMove : MonoBehaviour {
 				facingRight = true;
 
 
-				player.GetComponent<Rigidbody2D> ().AddForce (player.transform.right * -moveSpeed);
+				player.GetComponent<Rigidbody2D> ().AddForce (player.transform.right * moveSpeed);
 
 			}
 
@@ -738,19 +767,11 @@ public class playerMove : MonoBehaviour {
 
 			if (playerInvulnerable == false) {
 
-				if (facingLeft == true && enemyPosRN.x > playerPosRN.x) {
+				if (enemyPosRN.x > playerPosRN.x) {
 					rb.velocity = new Vector3 (-750, 750, 0);
 				}
 
-				if (facingLeft == true && enemyPosRN.x < playerPosRN.x) {
-					rb.velocity = new Vector3 (750, 750, 0);
-				}
-
-				if (facingRight == true && enemyPosRN.x > playerPosRN.x) {
-					rb.velocity = new Vector3 (-750, 750, 0);
-				}
-
-				if (facingRight == true && enemyPosRN.x < playerPosRN.x) {
+				if (enemyPosRN.x < playerPosRN.x) {
 					rb.velocity = new Vector3 (750, 750, 0);
 				}
 
