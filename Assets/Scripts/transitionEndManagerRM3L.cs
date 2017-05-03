@@ -24,12 +24,6 @@ public class transitionEndManagerRM3L : MonoBehaviour {
 			GameObject.Find ("Player").GetComponent<playerMove> ().RM2CheckpointR = false;
 
 			GameObject.Find ("Player").GetComponent<playerMove> ().RM3CheckpointL = true;
-			GameObject.Find ("Player").GetComponent<playerMove> ().player.GetComponent<Collider2D> ().isTrigger = false;
-			GameObject.Find ("Player").GetComponent<playerMove> ().player.GetComponent<Rigidbody2D> ().gravityScale = 175.0f;
-			GameObject.Find ("Player").GetComponent<playerMove> ().canMoveCuzNotInCutscene = true;
-			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
-			GameObject.Find ("Player").GetComponent<playerMove> ().timeToFlyToCP3L = false;
-
 			GameObject.Find ("Player").GetComponent<playerMove> ().RM3CheckpointR = false;
 
 			GameObject.Find ("Player").GetComponent<playerMove> ().RM4CheckpointL = false;

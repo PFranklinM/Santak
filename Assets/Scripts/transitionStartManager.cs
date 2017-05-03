@@ -24,7 +24,7 @@ public class transitionStartManager : MonoBehaviour {
 			doorTimer += Time.deltaTime;
 		}
 
-		if (doorTimer >= 0.95f) {
+		if (doorTimer >= 0.75f) {
 			transitionIsCounting = false;
 
 			doorScript.timeToClose ();

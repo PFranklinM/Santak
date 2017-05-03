@@ -3,6 +3,8 @@ using System.Collections;
 
 public class transitionEndManagerRM2L : MonoBehaviour {
 
+	public doorMove doorScript;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -21,12 +23,6 @@ public class transitionEndManagerRM2L : MonoBehaviour {
 			GameObject.Find ("Player").GetComponent<playerMove> ().RM1Checkpoint = false;
 
 			GameObject.Find ("Player").GetComponent<playerMove> ().RM2CheckpointL = true;
-			GameObject.Find ("Player").GetComponent<playerMove> ().player.GetComponent<Collider2D> ().isTrigger = false;
-			GameObject.Find ("Player").GetComponent<playerMove> ().player.GetComponent<Rigidbody2D> ().gravityScale = 175.0f;
-			GameObject.Find ("Player").GetComponent<playerMove> ().canMoveCuzNotInCutscene = true;
-			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
-			GameObject.Find ("Player").GetComponent<playerMove> ().timeToFlyToCP2L = false;
-
 			GameObject.Find ("Player").GetComponent<playerMove> ().RM2CheckpointR = false;
 
 			GameObject.Find ("Player").GetComponent<playerMove> ().RM3CheckpointL = false;

@@ -161,37 +161,12 @@ public class playerMove : MonoBehaviour {
 	public GameObject RM10CheckpointObjectL;
 	public GameObject RM10CheckpointObjectR;
 
-	public bool timeToFlyToCP1;
-
-	public bool timeToFlyToCP2L;
-	public bool timeToFlyToCP2R;
-
-	public bool timeToFlyToCP3L;
-	public bool timeToFlyToCP3R;
-
-	public bool timeToFlyToCP4L;
-	public bool timeToFlyToCP4R;
-
-	public bool timeToFlyToCP5L;
-	public bool timeToFlyToCP5R;
-
-	public bool timeToFlyToCP6L;
-	public bool timeToFlyToCP6R;
-
-	public bool timeToFlyToCP7L;
-	public bool timeToFlyToCP7R;
-
-	public bool timeToFlyToCP8L;
-	public bool timeToFlyToCP8R;
-
-	public bool timeToFlyToCP9L;
-	public bool timeToFlyToCP9R;
-
-	public bool timeToFlyToCP10L;
-	public bool timeToFlyToCP10R;
+	float startTime;
 
 	// Use this for initialization
 	void Start () {
+
+		startTime = Time.time;
 
 		Cursor.visible = false;
 
@@ -288,35 +263,6 @@ public class playerMove : MonoBehaviour {
 
 		Boss3CheckpointL = false;
 		Boss3CheckpointR = false;
-
-		timeToFlyToCP1 = false;
-
-		timeToFlyToCP2L = false;
-		timeToFlyToCP2R = false;
-
-		timeToFlyToCP3L = false;
-		timeToFlyToCP3R = false;
-
-		timeToFlyToCP4L = false;
-		timeToFlyToCP4R = false;
-
-		timeToFlyToCP5L = false;
-		timeToFlyToCP5R = false;
-
-		timeToFlyToCP6L = false;
-		timeToFlyToCP6R = false;
-
-		timeToFlyToCP7L = false;
-		timeToFlyToCP7R = false;
-
-		timeToFlyToCP8L = false;
-		timeToFlyToCP8R = false;
-
-		timeToFlyToCP9L = false;
-		timeToFlyToCP9R = false;
-
-		timeToFlyToCP10L = false;
-		timeToFlyToCP10R = false;
 	
 	}
 	
@@ -522,153 +468,115 @@ public class playerMove : MonoBehaviour {
 
 			if (RM1Checkpoint == true) {
 
-				timeToFlyToCP1 = true;
-
 				StartCoroutine ("FlyToCP1");
 
 			}
 
 			if (RM2CheckpointL == true) {
 
-				timeToFlyToCP2L = true;
-
-				StartCoroutine ("FlyToCP2L");
+				StartCoroutine ("FlyToCP1");
 
 			}
 
 			if (RM2CheckpointR == true) {
 
-				timeToFlyToCP2R = true;
-
-				StartCoroutine ("FlyToCP2R");
+				StartCoroutine ("FlyToCP1");
 
 			}
 
 			if (RM3CheckpointL == true) {
 
-				timeToFlyToCP3L = true;
-
-				StartCoroutine ("FlyToCP3L");
+				StartCoroutine ("FlyToCP2R");
 
 			}
 
 			if (RM3CheckpointR == true) {
 
-				timeToFlyToCP3R = true;
-
-				StartCoroutine ("FlyToCP3R");
+				StartCoroutine ("FlyToCP2R");
 
 			}
 
 			if (RM4CheckpointL == true) {
 
-				timeToFlyToCP4L = true;
-
-				StartCoroutine ("FlyToCP4L");
+				StartCoroutine ("FlyToCP3R");
 
 			}
 
 			if (RM4CheckpointR == true) {
 
-				timeToFlyToCP4R = true;
-
-				StartCoroutine ("FlyToCP4R");
+				StartCoroutine ("FlyToCP3R");
 
 			}
 
 			if (RM5CheckpointL == true) {
 
-				timeToFlyToCP5L = true;
-
-				StartCoroutine ("FlyToCP5L");
+				StartCoroutine ("FlyToCP4R");
 
 			}
 
 			if (RM5CheckpointR == true) {
 
-				timeToFlyToCP5R = true;
-
-				StartCoroutine ("FlyToCP5R");
+				StartCoroutine ("FlyToCP4R");
 
 			}
 
 			if (RM6CheckpointL == true) {
 
-				timeToFlyToCP6L = true;
-
-				StartCoroutine ("FlyToCP6L");
+				StartCoroutine ("FlyToCP5R");
 
 			}
 
 			if (RM6CheckpointR == true) {
 
-				timeToFlyToCP6R = true;
-
-				StartCoroutine ("FlyToCP6R");
+				StartCoroutine ("FlyToCP5R");
 
 			}
 
 			if (RM7CheckpointL == true) {
 
-				timeToFlyToCP7L = true;
-
-				StartCoroutine ("FlyToCP7L");
+				StartCoroutine ("FlyToCP6R");
 
 			}
 
 			if (RM7CheckpointR == true) {
 
-				timeToFlyToCP7R = true;
-
-				StartCoroutine ("FlyToCP7R");
+				StartCoroutine ("FlyToCP6R");
 
 			}
 
 			if (RM8CheckpointL == true) {
 
-				timeToFlyToCP8L = true;
-
-				StartCoroutine ("FlyToCP8L");
+				StartCoroutine ("FlyToCP7R");
 
 			}
 
 			if (RM8CheckpointR == true) {
 
-				timeToFlyToCP8R = true;
-
-				StartCoroutine ("FlyToCP8R");
+				StartCoroutine ("FlyToCP7R");
 
 			}
 
 			if (RM9CheckpointL == true) {
 
-				timeToFlyToCP9L = true;
-
-				StartCoroutine ("FlyToCP9L");
+				StartCoroutine ("FlyToCP8R");
 
 			}
 
 			if (RM9CheckpointR == true) {
 
-				timeToFlyToCP9R = true;
-
-				StartCoroutine ("FlyToCP9R");
+				StartCoroutine ("FlyToCP8R");
 
 			}
 
 			if (RM10CheckpointL == true) {
 
-				timeToFlyToCP10L = true;
-
-				StartCoroutine ("FlyToCP10L");
+				StartCoroutine ("FlyToCP9R");
 
 			}
 
 			if (RM10CheckpointR == true) {
 
-				timeToFlyToCP10R = true;
-
-				StartCoroutine ("FlyToCP10R");
+				StartCoroutine ("FlyToCP9R");
 
 			}
 
@@ -1024,305 +932,419 @@ public class playerMove : MonoBehaviour {
 
 	IEnumerator FlyToCP1 () {
 
-		while (timeToFlyToCP1 == true) {
+		while (Vector3.Distance(player.transform.position, RM1CheckpointObject.transform.position) > 1f) {
 			
 			canMoveCuzNotInCutscene = false;
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
 
-			player.GetComponent<Collider2D> ().isTrigger = true;
+			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
-			transform.position = Vector3.Slerp(transform.position, RM1CheckpointObject.transform.position, 0.2f * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, RM1CheckpointObject.transform.position, 70f * Time.deltaTime);
 
 			yield return null;
 		}
+
+		canMoveCuzNotInCutscene = true;
+		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
+
+		player.GetComponent<Collider2D> ().enabled = true;
+		player.GetComponent<Rigidbody2D> ().gravityScale = 175f;
 	}
 
 	IEnumerator FlyToCP2L () {
 
-		while (timeToFlyToCP2L == true) {
+		while (Vector3.Distance(player.transform.position, RM2CheckpointObjectL.transform.position) > 1f) {
 
 			canMoveCuzNotInCutscene = false;
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
 
-			player.GetComponent<Collider2D> ().isTrigger = true;
+			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
-			transform.position = Vector3.Slerp(transform.position, RM2CheckpointObjectL.transform.position, 0.2f * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, RM2CheckpointObjectL.transform.position, 70f * Time.deltaTime);
 
 			yield return null;
 		}
+
+		canMoveCuzNotInCutscene = true;
+		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
+
+		player.GetComponent<Collider2D> ().enabled = true;
+		player.GetComponent<Rigidbody2D> ().gravityScale = 175f;
 	}
 
 	IEnumerator FlyToCP2R () {
 
-		while (timeToFlyToCP2R == true) {
+		while (Vector3.Distance(player.transform.position, RM2CheckpointObjectR.transform.position) > 1f) {
 
 			canMoveCuzNotInCutscene = false;
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
 
-			player.GetComponent<Collider2D> ().isTrigger = true;
+			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
-			transform.position = Vector3.Slerp(transform.position, RM2CheckpointObjectR.transform.position, 0.2f * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, RM2CheckpointObjectR.transform.position, 70f * Time.deltaTime);
 
 			yield return null;
 		}
+
+		canMoveCuzNotInCutscene = true;
+		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
+
+		player.GetComponent<Collider2D> ().enabled = true;
+		player.GetComponent<Rigidbody2D> ().gravityScale = 175f;
 	}
 
 	IEnumerator FlyToCP3L () {
 
-		while (timeToFlyToCP3L == true) {
+		while (Vector3.Distance(player.transform.position, RM3CheckpointObjectL.transform.position) > 1f) {
 
 			canMoveCuzNotInCutscene = false;
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
 
-			player.GetComponent<Collider2D> ().isTrigger = true;
+			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
-			transform.position = Vector3.Slerp(transform.position, RM3CheckpointObjectL.transform.position, 0.2f * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, RM3CheckpointObjectL.transform.position, 70f * Time.deltaTime);
 
 			yield return null;
 		}
+
+		canMoveCuzNotInCutscene = true;
+		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
+
+		player.GetComponent<Collider2D> ().enabled = true;
+		player.GetComponent<Rigidbody2D> ().gravityScale = 175f;
 	}
 
 	IEnumerator FlyToCP3R () {
 
-		while (timeToFlyToCP3R == true) {
+		while (Vector3.Distance(player.transform.position, RM3CheckpointObjectR.transform.position) > 1f) {
 
 			canMoveCuzNotInCutscene = false;
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
 
-			player.GetComponent<Collider2D> ().isTrigger = true;
+			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
-			transform.position = Vector3.Slerp(transform.position, RM3CheckpointObjectR.transform.position, 0.2f * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, RM3CheckpointObjectR.transform.position, 70f * Time.deltaTime);
 
 			yield return null;
 		}
+
+		canMoveCuzNotInCutscene = true;
+		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
+
+		player.GetComponent<Collider2D> ().enabled = true;
+		player.GetComponent<Rigidbody2D> ().gravityScale = 175f;
 	}
 
 	IEnumerator FlyToCP4L () {
 
-		while (timeToFlyToCP4L == true) {
+		while (Vector3.Distance(player.transform.position, RM4CheckpointObjectL.transform.position) > 1f) {
 
 			canMoveCuzNotInCutscene = false;
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
 
-			player.GetComponent<Collider2D> ().isTrigger = true;
+			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
-			transform.position = Vector3.Slerp(transform.position, RM4CheckpointObjectL.transform.position, 0.2f * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, RM4CheckpointObjectL.transform.position, 70f * Time.deltaTime);
 
 			yield return null;
 		}
+
+		canMoveCuzNotInCutscene = true;
+		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
+
+		player.GetComponent<Collider2D> ().enabled = true;
+		player.GetComponent<Rigidbody2D> ().gravityScale = 175f;
 	}
 
 	IEnumerator FlyToCP4R () {
 
-		while (timeToFlyToCP4R == true) {
+		while (Vector3.Distance(player.transform.position, RM4CheckpointObjectR.transform.position) > 1f) {
 
 			canMoveCuzNotInCutscene = false;
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
 
-			player.GetComponent<Collider2D> ().isTrigger = true;
+			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
-			transform.position = Vector3.Slerp(transform.position, RM4CheckpointObjectR.transform.position, 0.2f * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, RM4CheckpointObjectR.transform.position, 70f * Time.deltaTime);
 
 			yield return null;
 		}
+
+		canMoveCuzNotInCutscene = true;
+		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
+
+		player.GetComponent<Collider2D> ().enabled = true;
+		player.GetComponent<Rigidbody2D> ().gravityScale = 175f;
 	}
 
 	IEnumerator FlyToCP5L () {
 
-		while (timeToFlyToCP5L == true) {
+		while (Vector3.Distance(player.transform.position, RM5CheckpointObjectL.transform.position) > 1f) {
 
 			canMoveCuzNotInCutscene = false;
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
 
-			player.GetComponent<Collider2D> ().isTrigger = true;
+			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
-			transform.position = Vector3.Slerp(transform.position, RM5CheckpointObjectL.transform.position, 0.2f * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, RM5CheckpointObjectL.transform.position, 70f * Time.deltaTime);
 
 			yield return null;
 		}
+
+		canMoveCuzNotInCutscene = true;
+		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
+
+		player.GetComponent<Collider2D> ().enabled = true;
+		player.GetComponent<Rigidbody2D> ().gravityScale = 175f;
 	}
 
 	IEnumerator FlyToCP5R () {
 
-		while (timeToFlyToCP5R == true) {
+		while (Vector3.Distance(player.transform.position, RM5CheckpointObjectR.transform.position) > 1f) {
 
 			canMoveCuzNotInCutscene = false;
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
 
-			player.GetComponent<Collider2D> ().isTrigger = true;
+			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
-			transform.position = Vector3.Slerp(transform.position, RM5CheckpointObjectR.transform.position, 0.2f * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, RM5CheckpointObjectR.transform.position, 70f * Time.deltaTime);
 
 			yield return null;
 		}
+
+		canMoveCuzNotInCutscene = true;
+		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
+
+		player.GetComponent<Collider2D> ().enabled = true;
+		player.GetComponent<Rigidbody2D> ().gravityScale = 175f;
 	}
 
 	IEnumerator FlyToCP6L () {
 
-		while (timeToFlyToCP6L == true) {
+		while (Vector3.Distance(player.transform.position, RM6CheckpointObjectL.transform.position) > 1f) {
 
 			canMoveCuzNotInCutscene = false;
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
 
-			player.GetComponent<Collider2D> ().isTrigger = true;
+			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
-			transform.position = Vector3.Slerp(transform.position, RM6CheckpointObjectL.transform.position, 0.2f * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, RM6CheckpointObjectL.transform.position, 70f * Time.deltaTime);
 
 			yield return null;
 		}
+
+		canMoveCuzNotInCutscene = true;
+		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
+
+		player.GetComponent<Collider2D> ().enabled = true;
+		player.GetComponent<Rigidbody2D> ().gravityScale = 175f;
 	}
 
 	IEnumerator FlyToCP6R () {
 
-		while (timeToFlyToCP6R == true) {
+		while (Vector3.Distance(player.transform.position, RM6CheckpointObjectR.transform.position) > 1f) {
 
 			canMoveCuzNotInCutscene = false;
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
 
-			player.GetComponent<Collider2D> ().isTrigger = true;
+			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
-			transform.position = Vector3.Slerp(transform.position, RM6CheckpointObjectR.transform.position, 0.2f * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, RM6CheckpointObjectR.transform.position, 70f * Time.deltaTime);
 
 			yield return null;
 		}
+
+		canMoveCuzNotInCutscene = true;
+		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
+
+		player.GetComponent<Collider2D> ().enabled = true;
+		player.GetComponent<Rigidbody2D> ().gravityScale = 175f;
 	}
 
 	IEnumerator FlyToCP7L () {
 
-		while (timeToFlyToCP7L == true) {
+		while (Vector3.Distance(player.transform.position, RM7CheckpointObjectL.transform.position) > 1f) {
 
 			canMoveCuzNotInCutscene = false;
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
 
-			player.GetComponent<Collider2D> ().isTrigger = true;
+			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
-			transform.position = Vector3.Slerp(transform.position, RM7CheckpointObjectL.transform.position, 0.2f * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, RM7CheckpointObjectL.transform.position, 70f * Time.deltaTime);
 
 			yield return null;
 		}
+
+		canMoveCuzNotInCutscene = true;
+		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
+
+		player.GetComponent<Collider2D> ().enabled = true;
+		player.GetComponent<Rigidbody2D> ().gravityScale = 175f;
 	}
 
 	IEnumerator FlyToCP7R () {
 
-		while (timeToFlyToCP7R == true) {
+		while (Vector3.Distance(player.transform.position, RM7CheckpointObjectR.transform.position) > 1f) {
 
 			canMoveCuzNotInCutscene = false;
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
 
-			player.GetComponent<Collider2D> ().isTrigger = true;
+			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
-			transform.position = Vector3.Slerp(transform.position, RM7CheckpointObjectR.transform.position, 0.2f * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, RM7CheckpointObjectR.transform.position, 70f * Time.deltaTime);
 
 			yield return null;
 		}
+
+		canMoveCuzNotInCutscene = true;
+		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
+
+		player.GetComponent<Collider2D> ().enabled = true;
+		player.GetComponent<Rigidbody2D> ().gravityScale = 175f;
 	}
 
 	IEnumerator FlyToCP8L () {
 
-		while (timeToFlyToCP8L == true) {
+		while (Vector3.Distance(player.transform.position, RM8CheckpointObjectL.transform.position) > 1f) {
 
 			canMoveCuzNotInCutscene = false;
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
 
-			player.GetComponent<Collider2D> ().isTrigger = true;
+			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
-			transform.position = Vector3.Slerp(transform.position, RM8CheckpointObjectL.transform.position, 0.2f * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, RM8CheckpointObjectL.transform.position, 70f * Time.deltaTime);
 
 			yield return null;
 		}
+
+		canMoveCuzNotInCutscene = true;
+		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
+
+		player.GetComponent<Collider2D> ().enabled = true;
+		player.GetComponent<Rigidbody2D> ().gravityScale = 175f;
 	}
 
 	IEnumerator FlyToCP8R () {
 
-		while (timeToFlyToCP8R == true) {
+		while (Vector3.Distance(player.transform.position, RM8CheckpointObjectR.transform.position) > 1f) {
 
 			canMoveCuzNotInCutscene = false;
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
 
-			player.GetComponent<Collider2D> ().isTrigger = true;
+			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
-			transform.position = Vector3.Slerp(transform.position, RM8CheckpointObjectR.transform.position, 0.2f * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, RM8CheckpointObjectR.transform.position, 70f * Time.deltaTime);
 
 			yield return null;
 		}
+
+		canMoveCuzNotInCutscene = true;
+		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
+
+		player.GetComponent<Collider2D> ().enabled = true;
+		player.GetComponent<Rigidbody2D> ().gravityScale = 175f;
 	}
 
 	IEnumerator FlyToCP9L () {
 
-		while (timeToFlyToCP9L == true) {
+		while (Vector3.Distance(player.transform.position, RM9CheckpointObjectL.transform.position) > 1f) {
 
 			canMoveCuzNotInCutscene = false;
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
 
-			player.GetComponent<Collider2D> ().isTrigger = true;
+			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
-			transform.position = Vector3.Slerp(transform.position, RM9CheckpointObjectL.transform.position, 0.2f * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, RM9CheckpointObjectL.transform.position, 70f * Time.deltaTime);
 
 			yield return null;
 		}
+
+		canMoveCuzNotInCutscene = true;
+		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
+
+		player.GetComponent<Collider2D> ().enabled = true;
+		player.GetComponent<Rigidbody2D> ().gravityScale = 175f;
 	}
 
 	IEnumerator FlyToCP9R () {
 
-		while (timeToFlyToCP9R == true) {
+		while (Vector3.Distance(player.transform.position, RM9CheckpointObjectR.transform.position) > 1f) {
 
 			canMoveCuzNotInCutscene = false;
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
 
-			player.GetComponent<Collider2D> ().isTrigger = true;
+			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
-			transform.position = Vector3.Slerp(transform.position, RM9CheckpointObjectR.transform.position, 0.2f * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, RM9CheckpointObjectR.transform.position, 70f * Time.deltaTime);
 
 			yield return null;
 		}
+
+		canMoveCuzNotInCutscene = true;
+		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
+
+		player.GetComponent<Collider2D> ().enabled = true;
+		player.GetComponent<Rigidbody2D> ().gravityScale = 175f;
 	}
 
 	IEnumerator FlyToCP10L () {
 
-		while (timeToFlyToCP10L == true) {
+		while (Vector3.Distance(player.transform.position, RM10CheckpointObjectL.transform.position) > 1f) {
 
 			canMoveCuzNotInCutscene = false;
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
 
-			player.GetComponent<Collider2D> ().isTrigger = true;
+			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
-			transform.position = Vector3.Slerp(transform.position, RM10CheckpointObjectL.transform.position, 0.2f * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, RM10CheckpointObjectL.transform.position, 70f * Time.deltaTime);
 
 			yield return null;
 		}
+
+		canMoveCuzNotInCutscene = true;
+		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
+
+		player.GetComponent<Collider2D> ().enabled = true;
+		player.GetComponent<Rigidbody2D> ().gravityScale = 175f;
 	}
 
 	IEnumerator FlyToCP10R () {
 
-		while (timeToFlyToCP10R == true) {
+		while (Vector3.Distance(player.transform.position, RM10CheckpointObjectR.transform.position) > 1f) {
 
 			canMoveCuzNotInCutscene = false;
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
 
-			player.GetComponent<Collider2D> ().isTrigger = true;
+			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
-			transform.position = Vector3.Slerp(transform.position, RM10CheckpointObjectR.transform.position, 0.2f * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, RM10CheckpointObjectR.transform.position, 70f * Time.deltaTime);
 
 			yield return null;
 		}
+
+		canMoveCuzNotInCutscene = true;
+		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
+
+		player.GetComponent<Collider2D> ().enabled = true;
+		player.GetComponent<Rigidbody2D> ().gravityScale = 175f;
 	}
 }
