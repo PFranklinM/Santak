@@ -8,21 +8,23 @@ public class activateInstructions1Text : MonoBehaviour {
 	public int startLine;
 	public int endLine;
 
-	public companionTextBoxManager textBox;
+	public playerTextBoxManager textBox;
 
 	public bool textHasPlayed = false;
-
 
 	// Use this for initialization
 	void Start () {
 
-		textBox = FindObjectOfType<companionTextBoxManager> ();
+		textBox = FindObjectOfType<playerTextBoxManager> ();
 	
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
+		if (GameObject.Find ("Player").GetComponent<playerMove> ().firstPlaythrough == false) {
+			textHasPlayed = true;
+		}
 	
 	}
 
@@ -33,8 +35,6 @@ public class activateInstructions1Text : MonoBehaviour {
 			textBox.currentLine = startLine;
 			textBox.endAtLine = endLine;
 			textBox.enableTextBox ();
-
-			textHasPlayed = true;
 		}
 	}
 }

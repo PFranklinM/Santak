@@ -51,7 +51,7 @@ public class SGDummyMove : MonoBehaviour {
 	// Update is called once per frame
 	void LateUpdate () {
 
-		if (GameObject.Find ("Target").GetComponent<targetControl> ().AREquipped) {
+		if (GameObject.Find ("Target").GetComponent<targetControl> ().AREquipped == true) {
 
 			if (Vector3.Distance (transform.position, player.transform.position) >= 125) {
 				Destroy (Bullet);

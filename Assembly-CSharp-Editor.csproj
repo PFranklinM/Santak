@@ -50,10 +50,13 @@
      <Compile Include="Assets\2DLightAsset\Scripts\2DLight\Editor\EditorUtils.cs" />
      <None Include="Assets\Dialog\OpeningCinematicDialog.txt" />
      <None Include="Assets\2DLightAsset\Shaders\Gradient-NoTexture-Radial-SingleColor-ToTransparent-RegularUV-AlphaBlend.shader" />
-     <None Include="Assets\Dialog\companionIntroDialog.txt" />
-     <None Include="Assets\Dialog\companionInstructions1.txt" />
+     <None Include="Assets\Dialog\homeDialog.txt" />
+     <None Include="Assets\Dialog\instructions1.txt" />
      <None Include="Assets\2DLightAsset\Shaders\NoTexture.shader" />
+     <None Include="Assets\Dialog\instructions2.txt" />
+     <None Include="Assets\Dialog\instructions4.txt" />
      <None Include="Assets\2DLightAsset\Shaders\Gradient-ZFighting.shader" />
+     <None Include="Assets\Dialog\instructions3.txt" />
      <None Include="Assets\Dialog\FinalBossDialog.txt" />
  <Reference Include="Assembly-UnityScript">
  <HintPath>/Users/paulmallon/Desktop/Santak/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>

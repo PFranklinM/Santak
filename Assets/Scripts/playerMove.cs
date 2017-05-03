@@ -76,14 +76,13 @@ public class playerMove : MonoBehaviour {
 	public bool firstPlaythrough;
 	public bool secondPlaythrough;
 	public bool thirdPlaythrough;
+	public bool lastPlaythrough;
 
 	public bool playerHasKey;
 
 	public GameObject HP1;
 	public GameObject HP2;
 	public GameObject HP3;
-
-	public bool playerHasMetCompanion;
 
 	//textBoxMovement
 	public bool canMove;
@@ -133,8 +132,63 @@ public class playerMove : MonoBehaviour {
 	public bool Boss3CheckpointL;
 	public bool Boss3CheckpointR;
 
-	//enemy death counter
-	public int enemyDeaths;
+	public GameObject RM1CheckpointObject;
+
+	public GameObject RM2CheckpointObjectL;
+	public GameObject RM2CheckpointObjectR;
+
+	public GameObject RM3CheckpointObjectL;
+	public GameObject RM3CheckpointObjectR;
+
+	public GameObject RM4CheckpointObjectL;
+	public GameObject RM4CheckpointObjectR;
+
+	public GameObject RM5CheckpointObjectL;
+	public GameObject RM5CheckpointObjectR;
+
+	public GameObject RM6CheckpointObjectL;
+	public GameObject RM6CheckpointObjectR;
+
+	public GameObject RM7CheckpointObjectL;
+	public GameObject RM7CheckpointObjectR;
+
+	public GameObject RM8CheckpointObjectL;
+	public GameObject RM8CheckpointObjectR;
+
+	public GameObject RM9CheckpointObjectL;
+	public GameObject RM9CheckpointObjectR;
+
+	public GameObject RM10CheckpointObjectL;
+	public GameObject RM10CheckpointObjectR;
+
+	public bool timeToFlyToCP1;
+
+	public bool timeToFlyToCP2L;
+	public bool timeToFlyToCP2R;
+
+	public bool timeToFlyToCP3L;
+	public bool timeToFlyToCP3R;
+
+	public bool timeToFlyToCP4L;
+	public bool timeToFlyToCP4R;
+
+	public bool timeToFlyToCP5L;
+	public bool timeToFlyToCP5R;
+
+	public bool timeToFlyToCP6L;
+	public bool timeToFlyToCP6R;
+
+	public bool timeToFlyToCP7L;
+	public bool timeToFlyToCP7R;
+
+	public bool timeToFlyToCP8L;
+	public bool timeToFlyToCP8R;
+
+	public bool timeToFlyToCP9L;
+	public bool timeToFlyToCP9R;
+
+	public bool timeToFlyToCP10L;
+	public bool timeToFlyToCP10R;
 
 	// Use this for initialization
 	void Start () {
@@ -166,6 +220,7 @@ public class playerMove : MonoBehaviour {
 		firstPlaythrough = true;
 		secondPlaythrough = false;
 		thirdPlaythrough = false;
+		lastPlaythrough = false;
 
 		HP1.SetActive (false);
 		HP2.SetActive (false);
@@ -192,8 +247,6 @@ public class playerMove : MonoBehaviour {
 
 		bossBlocker2Z.SetActive (true);
 		bossBlocker1Z.SetActive (true);
-
-		playerHasMetCompanion = false;
 
 		//player checkpoint bools
 		RM1Checkpoint = true;
@@ -236,7 +289,34 @@ public class playerMove : MonoBehaviour {
 		Boss3CheckpointL = false;
 		Boss3CheckpointR = false;
 
-		enemyDeaths = 0;
+		timeToFlyToCP1 = false;
+
+		timeToFlyToCP2L = false;
+		timeToFlyToCP2R = false;
+
+		timeToFlyToCP3L = false;
+		timeToFlyToCP3R = false;
+
+		timeToFlyToCP4L = false;
+		timeToFlyToCP4R = false;
+
+		timeToFlyToCP5L = false;
+		timeToFlyToCP5R = false;
+
+		timeToFlyToCP6L = false;
+		timeToFlyToCP6R = false;
+
+		timeToFlyToCP7L = false;
+		timeToFlyToCP7R = false;
+
+		timeToFlyToCP8L = false;
+		timeToFlyToCP8R = false;
+
+		timeToFlyToCP9L = false;
+		timeToFlyToCP9R = false;
+
+		timeToFlyToCP10L = false;
+		timeToFlyToCP10R = false;
 	
 	}
 	
@@ -325,7 +405,9 @@ public class playerMove : MonoBehaviour {
 			HP3.SetActive (true);
 		}
 
-		if (health <= 0 && firstPlaythrough == true || secondPlaythrough == true) {
+		if (health <= 0 && firstPlaythrough == true ||
+			health <= 0 && secondPlaythrough == true ||
+			health <= 0 && thirdPlaythrough == true) {
 
 			rb.isKinematic = true;
 
@@ -434,101 +516,160 @@ public class playerMove : MonoBehaviour {
 			health = 4;
 		}
 
-		if (Input.GetKeyDown (KeyCode.Return) && firstPlaythrough == true || secondPlaythrough == true) {
+		if (Input.GetKey (KeyCode.Return) && firstPlaythrough == true || 
+			Input.GetKey (KeyCode.Return) && secondPlaythrough == true ||
+			Input.GetKey (KeyCode.Return) && thirdPlaythrough == true) {
 
 			if (RM1Checkpoint == true) {
-				playerPos.x = 505;
-				playerPos.y = 20;
+
+				timeToFlyToCP1 = true;
+
+				StartCoroutine ("FlyToCP1");
+
 			}
 
 			if (RM2CheckpointL == true) {
-				playerPos.x = 505;
-				playerPos.y = 20;
+
+				timeToFlyToCP2L = true;
+
+				StartCoroutine ("FlyToCP2L");
+
 			}
 
 			if (RM2CheckpointR == true) {
-				playerPos.x = 505;
-				playerPos.y = 20;
+
+				timeToFlyToCP2R = true;
+
+				StartCoroutine ("FlyToCP2R");
+
 			}
 
 			if (RM3CheckpointL == true) {
-				playerPos.x = 1162;
-				playerPos.y = 170;
+
+				timeToFlyToCP3L = true;
+
+				StartCoroutine ("FlyToCP3L");
+
 			}
 
 			if (RM3CheckpointR == true) {
-				playerPos.x = 1162;
-				playerPos.y = 170;
+
+				timeToFlyToCP3R = true;
+
+				StartCoroutine ("FlyToCP3R");
+
 			}
 
 			if (RM4CheckpointL == true) {
-				playerPos.x = 1762;
-				playerPos.y = 170;
+
+				timeToFlyToCP4L = true;
+
+				StartCoroutine ("FlyToCP4L");
+
 			}
 
 			if (RM4CheckpointR == true) {
-				playerPos.x = 1762;
-				playerPos.y = 170;
+
+				timeToFlyToCP4R = true;
+
+				StartCoroutine ("FlyToCP4R");
+
 			}
 
 			if (RM5CheckpointL == true) {
-				playerPos.x = 2419;
-				playerPos.y = 170;
+
+				timeToFlyToCP5L = true;
+
+				StartCoroutine ("FlyToCP5L");
+
 			}
 
 			if (RM5CheckpointR == true) {
-				playerPos.x = 2419;
-				playerPos.y = 170;
+
+				timeToFlyToCP5R = true;
+
+				StartCoroutine ("FlyToCP5R");
+
 			}
 
 			if (RM6CheckpointL == true) {
-				playerPos.x = 3212;
-				playerPos.y = 170;
+
+				timeToFlyToCP6L = true;
+
+				StartCoroutine ("FlyToCP6L");
+
 			}
 
 			if (RM6CheckpointR == true) {
-				playerPos.x = 3212;
-				playerPos.y = 170;
+
+				timeToFlyToCP6R = true;
+
+				StartCoroutine ("FlyToCP6R");
+
 			}
 
 			if (RM7CheckpointL == true) {
-				playerPos.x = 3615;
-				playerPos.y = 771;
+
+				timeToFlyToCP7L = true;
+
+				StartCoroutine ("FlyToCP7L");
+
 			}
 
 			if (RM7CheckpointR == true) {
-				playerPos.x = 3615;
-				playerPos.y = 771;
+
+				timeToFlyToCP7R = true;
+
+				StartCoroutine ("FlyToCP7R");
+
 			}
 
 			if (RM8CheckpointL == true) {
-				playerPos.x = 3714;
-				playerPos.y = 1119;
+
+				timeToFlyToCP8L = true;
+
+				StartCoroutine ("FlyToCP8L");
+
 			}
 
 			if (RM8CheckpointR == true) {
-				playerPos.x = 3714;
-				playerPos.y = 1119;
+
+				timeToFlyToCP8R = true;
+
+				StartCoroutine ("FlyToCP8R");
+
 			}
 
 			if (RM9CheckpointL == true) {
-				playerPos.x = 3618;
-				playerPos.y = 1769;
+
+				timeToFlyToCP9L = true;
+
+				StartCoroutine ("FlyToCP9L");
+
 			}
 
 			if (RM9CheckpointR == true) {
-				playerPos.x = 3618;
-				playerPos.y = 1769;
+
+				timeToFlyToCP9R = true;
+
+				StartCoroutine ("FlyToCP9R");
+
 			}
 
 			if (RM10CheckpointL == true) {
-				playerPos.x = 4565;
-				playerPos.y = 1770;
+
+				timeToFlyToCP10L = true;
+
+				StartCoroutine ("FlyToCP10L");
+
 			}
 
 			if (RM10CheckpointR == true) {
-				playerPos.x = 4565;
-				playerPos.y = 1770;
+
+				timeToFlyToCP10R = true;
+
+				StartCoroutine ("FlyToCP10R");
+
 			}
 
 			playerjustDied = true;
@@ -733,6 +874,11 @@ public class playerMove : MonoBehaviour {
 
 			playerHasFlight = false;
 
+			firstPlaythrough = false;
+			secondPlaythrough = true;
+			thirdPlaythrough = false;
+			lastPlaythrough = false;
+
 			bossBlocker2Z.SetActive (false);
 
 			finalLock1.GetComponent<Renderer> ().material = unlockedDoorLight;
@@ -752,6 +898,13 @@ public class playerMove : MonoBehaviour {
 
 			playerHasDoubleJump = false;
 
+			GameObject.Find ("Target").GetComponent<targetControl> ().playerHasMG = false;
+
+			firstPlaythrough = false;
+			secondPlaythrough = false;
+			thirdPlaythrough = true;
+			lastPlaythrough = false;
+
 			bossBlocker1Z.SetActive (false);
 
 			finalLock2.GetComponent<Renderer> ().material = unlockedDoorLight;
@@ -762,12 +915,16 @@ public class playerMove : MonoBehaviour {
 
 		if (coll.gameObject.tag == "finalKey3" && finalKey3 == false) {
 
-			playerPos.x = -40;
-			playerPos.y = 19.35f;
-
 			finalKey3 = true;
 
-			RM1Checkpoint = true;
+			GameObject.Find ("Target").GetComponent<targetControl> ().playerCanSwitchWorlds = false;
+
+			moveSpeed = 20;
+
+			firstPlaythrough = false;
+			secondPlaythrough = false;
+			thirdPlaythrough = false;
+			lastPlaythrough = true;
 
 			finalLock3.GetComponent<Renderer> ().material = unlockedDoorLight;
 
@@ -861,5 +1018,311 @@ public class playerMove : MonoBehaviour {
 
 		player.transform.position = playerPos;
 
+	}
+
+	//RESPAWN COROUTINES
+
+	IEnumerator FlyToCP1 () {
+
+		while (timeToFlyToCP1 == true) {
+			
+			canMoveCuzNotInCutscene = false;
+			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
+
+			player.GetComponent<Collider2D> ().isTrigger = true;
+			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
+
+			transform.position = Vector3.Slerp(transform.position, RM1CheckpointObject.transform.position, 0.2f * Time.deltaTime);
+
+			yield return null;
+		}
+	}
+
+	IEnumerator FlyToCP2L () {
+
+		while (timeToFlyToCP2L == true) {
+
+			canMoveCuzNotInCutscene = false;
+			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
+
+			player.GetComponent<Collider2D> ().isTrigger = true;
+			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
+
+			transform.position = Vector3.Slerp(transform.position, RM2CheckpointObjectL.transform.position, 0.2f * Time.deltaTime);
+
+			yield return null;
+		}
+	}
+
+	IEnumerator FlyToCP2R () {
+
+		while (timeToFlyToCP2R == true) {
+
+			canMoveCuzNotInCutscene = false;
+			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
+
+			player.GetComponent<Collider2D> ().isTrigger = true;
+			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
+
+			transform.position = Vector3.Slerp(transform.position, RM2CheckpointObjectR.transform.position, 0.2f * Time.deltaTime);
+
+			yield return null;
+		}
+	}
+
+	IEnumerator FlyToCP3L () {
+
+		while (timeToFlyToCP3L == true) {
+
+			canMoveCuzNotInCutscene = false;
+			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
+
+			player.GetComponent<Collider2D> ().isTrigger = true;
+			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
+
+			transform.position = Vector3.Slerp(transform.position, RM3CheckpointObjectL.transform.position, 0.2f * Time.deltaTime);
+
+			yield return null;
+		}
+	}
+
+	IEnumerator FlyToCP3R () {
+
+		while (timeToFlyToCP3R == true) {
+
+			canMoveCuzNotInCutscene = false;
+			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
+
+			player.GetComponent<Collider2D> ().isTrigger = true;
+			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
+
+			transform.position = Vector3.Slerp(transform.position, RM3CheckpointObjectR.transform.position, 0.2f * Time.deltaTime);
+
+			yield return null;
+		}
+	}
+
+	IEnumerator FlyToCP4L () {
+
+		while (timeToFlyToCP4L == true) {
+
+			canMoveCuzNotInCutscene = false;
+			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
+
+			player.GetComponent<Collider2D> ().isTrigger = true;
+			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
+
+			transform.position = Vector3.Slerp(transform.position, RM4CheckpointObjectL.transform.position, 0.2f * Time.deltaTime);
+
+			yield return null;
+		}
+	}
+
+	IEnumerator FlyToCP4R () {
+
+		while (timeToFlyToCP4R == true) {
+
+			canMoveCuzNotInCutscene = false;
+			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
+
+			player.GetComponent<Collider2D> ().isTrigger = true;
+			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
+
+			transform.position = Vector3.Slerp(transform.position, RM4CheckpointObjectR.transform.position, 0.2f * Time.deltaTime);
+
+			yield return null;
+		}
+	}
+
+	IEnumerator FlyToCP5L () {
+
+		while (timeToFlyToCP5L == true) {
+
+			canMoveCuzNotInCutscene = false;
+			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
+
+			player.GetComponent<Collider2D> ().isTrigger = true;
+			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
+
+			transform.position = Vector3.Slerp(transform.position, RM5CheckpointObjectL.transform.position, 0.2f * Time.deltaTime);
+
+			yield return null;
+		}
+	}
+
+	IEnumerator FlyToCP5R () {
+
+		while (timeToFlyToCP5R == true) {
+
+			canMoveCuzNotInCutscene = false;
+			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
+
+			player.GetComponent<Collider2D> ().isTrigger = true;
+			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
+
+			transform.position = Vector3.Slerp(transform.position, RM5CheckpointObjectR.transform.position, 0.2f * Time.deltaTime);
+
+			yield return null;
+		}
+	}
+
+	IEnumerator FlyToCP6L () {
+
+		while (timeToFlyToCP6L == true) {
+
+			canMoveCuzNotInCutscene = false;
+			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
+
+			player.GetComponent<Collider2D> ().isTrigger = true;
+			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
+
+			transform.position = Vector3.Slerp(transform.position, RM6CheckpointObjectL.transform.position, 0.2f * Time.deltaTime);
+
+			yield return null;
+		}
+	}
+
+	IEnumerator FlyToCP6R () {
+
+		while (timeToFlyToCP6R == true) {
+
+			canMoveCuzNotInCutscene = false;
+			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
+
+			player.GetComponent<Collider2D> ().isTrigger = true;
+			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
+
+			transform.position = Vector3.Slerp(transform.position, RM6CheckpointObjectR.transform.position, 0.2f * Time.deltaTime);
+
+			yield return null;
+		}
+	}
+
+	IEnumerator FlyToCP7L () {
+
+		while (timeToFlyToCP7L == true) {
+
+			canMoveCuzNotInCutscene = false;
+			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
+
+			player.GetComponent<Collider2D> ().isTrigger = true;
+			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
+
+			transform.position = Vector3.Slerp(transform.position, RM7CheckpointObjectL.transform.position, 0.2f * Time.deltaTime);
+
+			yield return null;
+		}
+	}
+
+	IEnumerator FlyToCP7R () {
+
+		while (timeToFlyToCP7R == true) {
+
+			canMoveCuzNotInCutscene = false;
+			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
+
+			player.GetComponent<Collider2D> ().isTrigger = true;
+			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
+
+			transform.position = Vector3.Slerp(transform.position, RM7CheckpointObjectR.transform.position, 0.2f * Time.deltaTime);
+
+			yield return null;
+		}
+	}
+
+	IEnumerator FlyToCP8L () {
+
+		while (timeToFlyToCP8L == true) {
+
+			canMoveCuzNotInCutscene = false;
+			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
+
+			player.GetComponent<Collider2D> ().isTrigger = true;
+			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
+
+			transform.position = Vector3.Slerp(transform.position, RM8CheckpointObjectL.transform.position, 0.2f * Time.deltaTime);
+
+			yield return null;
+		}
+	}
+
+	IEnumerator FlyToCP8R () {
+
+		while (timeToFlyToCP8R == true) {
+
+			canMoveCuzNotInCutscene = false;
+			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
+
+			player.GetComponent<Collider2D> ().isTrigger = true;
+			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
+
+			transform.position = Vector3.Slerp(transform.position, RM8CheckpointObjectR.transform.position, 0.2f * Time.deltaTime);
+
+			yield return null;
+		}
+	}
+
+	IEnumerator FlyToCP9L () {
+
+		while (timeToFlyToCP9L == true) {
+
+			canMoveCuzNotInCutscene = false;
+			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
+
+			player.GetComponent<Collider2D> ().isTrigger = true;
+			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
+
+			transform.position = Vector3.Slerp(transform.position, RM9CheckpointObjectL.transform.position, 0.2f * Time.deltaTime);
+
+			yield return null;
+		}
+	}
+
+	IEnumerator FlyToCP9R () {
+
+		while (timeToFlyToCP9R == true) {
+
+			canMoveCuzNotInCutscene = false;
+			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
+
+			player.GetComponent<Collider2D> ().isTrigger = true;
+			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
+
+			transform.position = Vector3.Slerp(transform.position, RM9CheckpointObjectR.transform.position, 0.2f * Time.deltaTime);
+
+			yield return null;
+		}
+	}
+
+	IEnumerator FlyToCP10L () {
+
+		while (timeToFlyToCP10L == true) {
+
+			canMoveCuzNotInCutscene = false;
+			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
+
+			player.GetComponent<Collider2D> ().isTrigger = true;
+			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
+
+			transform.position = Vector3.Slerp(transform.position, RM10CheckpointObjectL.transform.position, 0.2f * Time.deltaTime);
+
+			yield return null;
+		}
+	}
+
+	IEnumerator FlyToCP10R () {
+
+		while (timeToFlyToCP10R == true) {
+
+			canMoveCuzNotInCutscene = false;
+			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
+
+			player.GetComponent<Collider2D> ().isTrigger = true;
+			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
+
+			transform.position = Vector3.Slerp(transform.position, RM10CheckpointObjectR.transform.position, 0.2f * Time.deltaTime);
+
+			yield return null;
+		}
 	}
 }

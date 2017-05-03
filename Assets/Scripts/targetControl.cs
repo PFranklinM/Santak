@@ -12,6 +12,10 @@ public class targetControl : MonoBehaviour {
 
 	public bool playerGotWeaponAdvice;
 
+	public bool playerHasMG;
+
+	public bool playerCanSwitchWorlds;
+
 	float textSizeTimer;
 
 	float textMoveAmount1;
@@ -64,6 +68,10 @@ public class targetControl : MonoBehaviour {
 
 		canShootCuzNotInCutscene = true;
 
+		playerHasMG = true;
+
+		playerCanSwitchWorlds = true;
+
 		playerGotWeaponAdvice = false;
 
 		weaponText1.SetActive (false);
@@ -79,12 +87,12 @@ public class targetControl : MonoBehaviour {
 //		}
 
 		Vector3 playerPos = new Vector3 (player.transform.position.x,
-			player.transform.position.y,
-			player.transform.position.z);
+			                    player.transform.position.y,
+			                    player.transform.position.z);
 
 		pos = Input.mousePosition;
 
-		pos = Camera.main.ScreenToWorldPoint(pos);
+		pos = Camera.main.ScreenToWorldPoint (pos);
 
 		pos.z = -5;
 
@@ -92,57 +100,57 @@ public class targetControl : MonoBehaviour {
 
 //Shooting
 
-		if (Input.GetMouseButton (0) && (Time.time > ROF) && AREquipped == true && canShootCuzNotInCutscene == true) {
+		if (Input.GetMouseButton (0) && (Time.time > ROF) && AREquipped == true && canShootCuzNotInCutscene == true && playerHasMG == true) {
 
 			shotDelay = 0.1f;
 
 			ROF = Time.time + shotDelay;
 
-			GameObject bulletClone = (GameObject)Instantiate(bullet);
+			GameObject bulletClone = (GameObject)Instantiate (bullet);
 
-			Physics2D.IgnoreCollision(bulletClone.GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
+			Physics2D.IgnoreCollision (bulletClone.GetComponent<Collider2D> (), player.GetComponent<Collider2D> ());
 
 			bulletClone.transform.position = player.transform.position;
 		}
 
-		if (Input.GetMouseButton (1) && (Time.time > ROF) && AREquipped == true && canShootCuzNotInCutscene == true) {
+		if (Input.GetMouseButton (1) && (Time.time > ROF) && AREquipped == true && canShootCuzNotInCutscene == true && playerHasMG == true) {
 
 			shotDelay = 1f;
 
 			ROF = Time.time + shotDelay;
 
-			GameObject shellClone1 = (GameObject)Instantiate(shell);
-			GameObject shellClone2 = (GameObject)Instantiate(dummyShell);
-			GameObject shellClone3 = (GameObject)Instantiate(dummyShell);
+			GameObject shellClone1 = (GameObject)Instantiate (shell);
+			GameObject shellClone2 = (GameObject)Instantiate (dummyShell);
+			GameObject shellClone3 = (GameObject)Instantiate (dummyShell);
 
 			Vector3 shellPos1 = new Vector3 (shellClone1.transform.position.x,
-				shellClone1.transform.position.y,
-				shellClone1.transform.position.z);
+				                    shellClone1.transform.position.y,
+				                    shellClone1.transform.position.z);
 
 			Vector3 shellPos2 = new Vector3 (shellClone2.transform.position.x,
-				shellClone2.transform.position.y,
-				shellClone2.transform.position.z);
+				                    shellClone2.transform.position.y,
+				                    shellClone2.transform.position.z);
 
 			Vector3 shellPos3 = new Vector3 (shellClone3.transform.position.x,
-				shellClone3.transform.position.y,
-				shellClone3.transform.position.z);
+				                    shellClone3.transform.position.y,
+				                    shellClone3.transform.position.z);
 
-			Physics2D.IgnoreCollision(shellClone1.GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
-			Physics2D.IgnoreCollision(shellClone2.GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
-			Physics2D.IgnoreCollision(shellClone3.GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
+			Physics2D.IgnoreCollision (shellClone1.GetComponent<Collider2D> (), player.GetComponent<Collider2D> ());
+			Physics2D.IgnoreCollision (shellClone2.GetComponent<Collider2D> (), player.GetComponent<Collider2D> ());
+			Physics2D.IgnoreCollision (shellClone3.GetComponent<Collider2D> (), player.GetComponent<Collider2D> ());
 
-			Physics2D.IgnoreCollision(shellClone1.GetComponent<Collider2D>(), shellClone2.GetComponent<Collider2D>());
-			Physics2D.IgnoreCollision(shellClone1.GetComponent<Collider2D>(), shellClone3.GetComponent<Collider2D>());
-			Physics2D.IgnoreCollision(shellClone2.GetComponent<Collider2D>(), shellClone3.GetComponent<Collider2D>());
+			Physics2D.IgnoreCollision (shellClone1.GetComponent<Collider2D> (), shellClone2.GetComponent<Collider2D> ());
+			Physics2D.IgnoreCollision (shellClone1.GetComponent<Collider2D> (), shellClone3.GetComponent<Collider2D> ());
+			Physics2D.IgnoreCollision (shellClone2.GetComponent<Collider2D> (), shellClone3.GetComponent<Collider2D> ());
 
 			shellPos1.x = playerPos.x;
 			shellPos1.y = playerPos.y;
 
 			shellPos2.x = shellPos1.x;
-			shellPos2.y = shellPos1.y + Random.Range(9, 11);
+			shellPos2.y = shellPos1.y + Random.Range (9, 11);
 
 			shellPos3.x = shellPos1.x;
-			shellPos3.y = shellPos1.y - Random.Range(9, 11);
+			shellPos3.y = shellPos1.y - Random.Range (9, 11);
 
 			shellClone1.transform.position = shellPos1;
 			shellClone2.transform.position = shellPos2;
@@ -150,29 +158,29 @@ public class targetControl : MonoBehaviour {
 		}
 
 		if (Input.GetMouseButton (0) && (Time.time > ROF) && MLEquipped == true &&
-			GameObject.Find ("Mine(Clone)") == null && canShootCuzNotInCutscene == true) {
+		    GameObject.Find ("Mine(Clone)") == null && canShootCuzNotInCutscene == true) {
 
 			shotDelay = 0.1f;
 
 			ROF = Time.time + shotDelay;
 
-			GameObject mineClone = (GameObject)Instantiate(mine);
+			GameObject mineClone = (GameObject)Instantiate (mine);
 
-			Physics2D.IgnoreCollision(mineClone.GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
+			Physics2D.IgnoreCollision (mineClone.GetComponent<Collider2D> (), player.GetComponent<Collider2D> ());
 
 			mineClone.transform.position = player.transform.position;
 
 		}
 
-		if(Input.GetAxis("Mouse ScrollWheel") > 0 && canShootCuzNotInCutscene == true && AREquipped == false ||
-			Input.GetKeyDown(KeyCode.Alpha1) && canShootCuzNotInCutscene == true && AREquipped == false) {
+		if (Input.GetAxis ("Mouse ScrollWheel") > 0 && canShootCuzNotInCutscene == true && AREquipped == false ||
+		   Input.GetKeyDown (KeyCode.Alpha1) && canShootCuzNotInCutscene == true && AREquipped == false) {
 
 			AREquipped = true;
 			MLEquipped = false;
 		}
 
-		if(Input.GetAxis("Mouse ScrollWheel") < 0 && canShootCuzNotInCutscene == true && MLEquipped == false ||
-			Input.GetKeyDown(KeyCode.Alpha2) && canShootCuzNotInCutscene == true && MLEquipped == false) {
+		if (Input.GetAxis ("Mouse ScrollWheel") < 0 && canShootCuzNotInCutscene == true && MLEquipped == false ||
+		   Input.GetKeyDown (KeyCode.Alpha2) && canShootCuzNotInCutscene == true && MLEquipped == false) {
 
 			AREquipped = false;
 			MLEquipped = true;
@@ -184,10 +192,10 @@ public class targetControl : MonoBehaviour {
 			weaponText2.SetActive (true);
 		}
 
-		if (AREquipped == true && MLEquipped == false) {
+		if (AREquipped == true && MLEquipped == false && playerHasMG == true) {
 
 			Vector2 textPos1 = new Vector2 (Weapon1.rectTransform.anchoredPosition.x,
-				                  Weapon1.rectTransform.anchoredPosition.y);
+				                   Weapon1.rectTransform.anchoredPosition.y);
 
 			Vector2 textPos2 = new Vector2 (Weapon2.rectTransform.anchoredPosition.x,
 				                   Weapon2.rectTransform.anchoredPosition.y);
@@ -206,8 +214,8 @@ public class targetControl : MonoBehaviour {
 			Weapon1.fontStyle = FontStyle.Bold;
 			Weapon2.fontStyle = FontStyle.Normal;
 
-			Weapon1.color = new Color(1.0f, 1.0f, 0.0f);
-			Weapon2.color = new Color(1.0f, 1.0f, 1.0f);
+			Weapon1.color = new Color (1.0f, 1.0f, 0.0f);
+			Weapon2.color = new Color (1.0f, 1.0f, 1.0f);
 
 			Weapon1.rectTransform.anchoredPosition = textPos1;
 			Weapon2.rectTransform.anchoredPosition = textPos2;
@@ -216,10 +224,10 @@ public class targetControl : MonoBehaviour {
 		if (AREquipped == false && MLEquipped == true) {
 			
 			Vector2 textPos1 = new Vector2 (Weapon1.rectTransform.anchoredPosition.x,
-				Weapon1.rectTransform.anchoredPosition.y);
+				                   Weapon1.rectTransform.anchoredPosition.y);
 
 			Vector2 textPos2 = new Vector2 (Weapon2.rectTransform.anchoredPosition.x,
-				Weapon2.rectTransform.anchoredPosition.y);
+				                   Weapon2.rectTransform.anchoredPosition.y);
 
 			textPos2.y += textMoveAmount2 * Time.deltaTime;
 
@@ -236,8 +244,8 @@ public class targetControl : MonoBehaviour {
 			Weapon2.fontStyle = FontStyle.Bold;
 			Weapon1.fontStyle = FontStyle.Normal;
 
-			Weapon1.color = new Color(1.0f, 1.0f, 1.0f);
-			Weapon2.color = new Color(1.0f, 1.0f, 0.0f);
+			Weapon1.color = new Color (1.0f, 1.0f, 1.0f);
+			Weapon2.color = new Color (1.0f, 1.0f, 0.0f);
 
 			Weapon1.rectTransform.anchoredPosition = textPos1;
 			Weapon2.rectTransform.anchoredPosition = textPos2;
@@ -245,70 +253,80 @@ public class targetControl : MonoBehaviour {
 
 //World Switching Behavior
 
-		Vector3 squareWorldPos = new Vector3 (squareWorld.transform.position.x,
-			                         squareWorld.transform.position.y,
-			                         squareWorld.transform.position.z);
+		if (playerCanSwitchWorlds == true) {
 
-		Vector3 circleWorldPos = new Vector3 (circleWorld.transform.position.x,
-			                         circleWorld.transform.position.y,
-			                         circleWorld.transform.position.z);
+			Vector3 squareWorldPos = new Vector3 (squareWorld.transform.position.x,
+				                        squareWorld.transform.position.y,
+				                        squareWorld.transform.position.z);
 
-		if (Input.GetKeyDown (KeyCode.LeftShift) && squareWorldActive == true &&
-			GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == false && canShootCuzNotInCutscene == true 
-			|| Input.GetKeyDown (KeyCode.RightShift) && squareWorldActive == true &&
-			GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == false && canShootCuzNotInCutscene == true) {
+			Vector3 circleWorldPos = new Vector3 (circleWorld.transform.position.x,
+				                        circleWorld.transform.position.y,
+				                        circleWorld.transform.position.z);
 
-			circleWorld.SetActive (true);
+
+			if (Input.GetKeyDown (KeyCode.LeftShift) && squareWorldActive == true &&
+			   GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == false && canShootCuzNotInCutscene == true
+			   || Input.GetKeyDown (KeyCode.RightShift) && squareWorldActive == true &&
+			   GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == false && canShootCuzNotInCutscene == true) {
+
+				circleWorld.SetActive (true);
+				squareWorld.SetActive (false);
+
+				squareWorldActive = false;
+			} else if (Input.GetKeyDown (KeyCode.LeftShift) && squareWorldActive == false &&
+			          GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == false && canShootCuzNotInCutscene == true
+			          || Input.GetKeyDown (KeyCode.RightShift) && squareWorldActive == false &&
+			          GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == false && canShootCuzNotInCutscene == true) {
+			
+				squareWorld.SetActive (true);
+				circleWorld.SetActive (false);
+
+				squareWorldActive = true;
+			}
+
+			if (GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == true &&
+			   squareWorldActive == true && canShootCuzNotInCutscene == true) {
+
+				circleWorld.SetActive (true);
+
+				circleWorldPos.z = -100;
+			}
+
+			if (GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == true &&
+			   squareWorldActive == false && canShootCuzNotInCutscene == true) {
+
+				squareWorld.SetActive (true);
+
+				squareWorldPos.z = -100;
+			}
+
+			if (GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == false &&
+			   squareWorldActive == true && canShootCuzNotInCutscene == true) {
+
+				circleWorld.SetActive (false);
+
+				circleWorldPos.z = 0;
+			}
+
+			if (GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == false &&
+			   squareWorldActive == false && canShootCuzNotInCutscene == true) {
+
+				squareWorld.SetActive (false);
+
+				squareWorldPos.z = 0;
+			}
+
+			squareWorld.transform.position = squareWorldPos;
+			circleWorld.transform.position = circleWorldPos;
+
+		}
+
+		if (playerCanSwitchWorlds == false) {
 			squareWorld.SetActive (false);
+			circleWorld.SetActive (true);
 
 			squareWorldActive = false;
 		}
-
-		else if (Input.GetKeyDown (KeyCode.LeftShift) && squareWorldActive == false &&
-			GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == false && canShootCuzNotInCutscene == true 
-			|| Input.GetKeyDown (KeyCode.RightShift) && squareWorldActive == false &&
-			GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == false && canShootCuzNotInCutscene == true) {
-			
-			squareWorld.SetActive (true);
-			circleWorld.SetActive (false);
-
-			squareWorldActive = true;
-		}
-
-		if (GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == true &&
-			squareWorldActive == true && canShootCuzNotInCutscene == true) {
-
-			circleWorld.SetActive (true);
-
-			circleWorldPos.z = -100;
-		}
-
-		if(GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == true &&
-			squareWorldActive == false && canShootCuzNotInCutscene == true){
-
-			squareWorld.SetActive (true);
-
-			squareWorldPos.z = -100;
-		}
-
-		if (GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == false &&
-			squareWorldActive == true && canShootCuzNotInCutscene == true) {
-
-			circleWorld.SetActive (false);
-
-			circleWorldPos.z = 0;
-		}
-
-		if(GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == false &&
-			squareWorldActive == false && canShootCuzNotInCutscene == true){
-
-			squareWorld.SetActive (false);
-
-			squareWorldPos.z = 0;
-		}
-
-		squareWorld.transform.position = squareWorldPos;
-		circleWorld.transform.position = circleWorldPos;
 
 		player.transform.position = playerPos;
 

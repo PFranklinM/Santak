@@ -1,0 +1,2 @@
+I can press the 'LEFT MOUSE BUTTON' to SHOOT.
+I can also press the 'RIGHT MOUSE BUTTON' for a SECONDARY FIRE MODE.

@@ -60,8 +60,6 @@ public class circleEnemyMove : MonoBehaviour {
 
 		if (health <= 0) {
 			Destroy (this.gameObject);
-
-			GameObject.Find ("Player").GetComponent<playerMove> ().enemyDeaths++;
 		}
 
 		if (GameObject.Find("transitionStart1").GetComponent<transitionStartManager> ().playerTouchedTransition == true) {
