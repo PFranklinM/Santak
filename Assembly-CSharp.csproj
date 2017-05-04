@@ -59,6 +59,7 @@
      <Compile Include="Assets\Scripts\NPCRunLeft.cs" />
      <Compile Include="Assets\Scripts\NPCRunRight.cs" />
      <Compile Include="Assets\Scripts\NPCRunUp.cs" />
+     <Compile Include="Assets\Scripts\RendererExtensions.cs.cs" />
      <Compile Include="Assets\Scripts\SGBulletMove.cs" />
      <Compile Include="Assets\Scripts\SGDummyMove.cs" />
      <Compile Include="Assets\Scripts\activateFinalBossText.cs" />
@@ -68,6 +69,7 @@
      <Compile Include="Assets\Scripts\activateInstructions3Text.cs" />
      <Compile Include="Assets\Scripts\activateInstructions4Text.cs" />
      <Compile Include="Assets\Scripts\audioManager.cs" />
+     <Compile Include="Assets\Scripts\backGroundScroll.cs" />
      <Compile Include="Assets\Scripts\boss1Move.cs" />
      <Compile Include="Assets\Scripts\bossFinalMove.cs" />
      <Compile Include="Assets\Scripts\bossTextBoxManagerEnding.cs" />
@@ -159,6 +161,7 @@
      <None Include="Assets\Hand-Drawn\Shaders\Fill\Fill_Diffuse_TexturedShadow.shader" />
      <None Include="Assets\Hand-Drawn\Shaders\Fill+Outline\TexturedOutline+QuantizedTexturedFill.shader" />
      <None Include="Assets\Hand-Drawn\Shaders\Fill\Fill_MultiTextured(Alpha).shader" />
+     <None Include="Assets\parallax-industrial-web\license.txt" />
      <None Include="Assets\Dialog\FinalBossDialog.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

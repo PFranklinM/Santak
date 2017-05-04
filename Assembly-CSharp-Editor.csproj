@@ -74,6 +74,7 @@
      <None Include="Assets\Hand-Drawn\Shaders\Fill\Fill_Diffuse_TexturedShadow.shader" />
      <None Include="Assets\Hand-Drawn\Shaders\Fill+Outline\TexturedOutline+QuantizedTexturedFill.shader" />
      <None Include="Assets\Hand-Drawn\Shaders\Fill\Fill_MultiTextured(Alpha).shader" />
+     <None Include="Assets\parallax-industrial-web\license.txt" />
      <None Include="Assets\Dialog\FinalBossDialog.txt" />
  <Reference Include="Assembly-UnityScript">
  <HintPath>/Users/paulmallon/Desktop/Santak/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
