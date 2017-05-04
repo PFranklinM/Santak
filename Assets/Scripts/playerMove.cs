@@ -163,6 +163,16 @@ public class playerMove : MonoBehaviour {
 
 	float startTime;
 
+//	public GameObject BG1;
+//	public GameObject BG2;
+//	public GameObject BG3;
+//	public GameObject BG4;
+//
+//	public GameObject BG5;
+//	public GameObject BG6;
+//	public GameObject BG7;
+//	public GameObject BG8;
+
 	// Use this for initialization
 	void Start () {
 
@@ -698,11 +708,31 @@ public class playerMove : MonoBehaviour {
 				facingLeft = true;
 				facingRight = false;
 
+				if (GameObject.Find ("BackgroundColorA") != null) {
+					GameObject.Find ("BackgroundColorA").GetComponent<backGroundScrollNoRepeat> ().speed.x = 50;
+					GameObject.Find ("BackgroundColorA").GetComponent<backGroundScrollNoRepeat> ().direction.x = -1;
+				}
+
+				if (GameObject.Find ("BackgroundA") != null) {
+					GameObject.Find ("BackgroundA").GetComponent<backGroundScrollNoRepeat> ().speed.x = 5;
+					GameObject.Find ("BackgroundA").GetComponent<backGroundScrollNoRepeat> ().direction.x = -1;
+				}
+
 //				this.gameObject.GetComponent<Renderer> ().material.SetFloat ("_RedrawRate", 10000);
 
 
 				player.GetComponent<Rigidbody2D> ().AddForce (player.transform.right * -moveSpeed);
 
+			} else {
+				if (GameObject.Find ("BackgroundColorA") != null) {
+					GameObject.Find ("BackgroundColorA").GetComponent<backGroundScrollNoRepeat> ().speed.x = 0;
+					GameObject.Find ("BackgroundColorA").GetComponent<backGroundScrollNoRepeat> ().direction.x = 0;
+				}
+
+				if (GameObject.Find ("BackgroundA") != null) {
+					GameObject.Find ("BackgroundA").GetComponent<backGroundScrollNoRepeat> ().speed.x = 0;
+					GameObject.Find ("BackgroundA").GetComponent<backGroundScrollNoRepeat> ().direction.x = 0;
+				}
 			}
 
 			if (Input.GetKey (KeyCode.D) && canMoveCuzNotInCutscene == true) {

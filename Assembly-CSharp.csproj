@@ -69,7 +69,8 @@
      <Compile Include="Assets\Scripts\activateInstructions3Text.cs" />
      <Compile Include="Assets\Scripts\activateInstructions4Text.cs" />
      <Compile Include="Assets\Scripts\audioManager.cs" />
-     <Compile Include="Assets\Scripts\backGroundScroll.cs" />
+     <Compile Include="Assets\Scripts\backGroundScrollNoRepeat.cs" />
+     <Compile Include="Assets\Scripts\backGroundScrollRepeat.cs" />
      <Compile Include="Assets\Scripts\boss1Move.cs" />
      <Compile Include="Assets\Scripts\bossFinalMove.cs" />
      <Compile Include="Assets\Scripts\bossTextBoxManagerEnding.cs" />

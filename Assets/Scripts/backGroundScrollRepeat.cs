@@ -4,11 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.Sprites;
 
-public class backGroundScroll : MonoBehaviour {
-
-	public Vector2 speed = new Vector2(10, 10);
-
-	public Vector2 direction = new Vector2(-1, 0);
+public class backGroundScrollRepeat : MonoBehaviour {
 
 	public bool isLooping = false;
 
@@ -40,11 +36,6 @@ public class backGroundScroll : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-		Vector3 movement = new Vector3(speed.x * direction.x, speed.y * direction.y, 0);
-
-		movement *= Time.deltaTime;
-		transform.Translate(movement);
 
 		if (isLooping == true) {
 
