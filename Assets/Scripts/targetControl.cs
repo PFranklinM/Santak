@@ -48,6 +48,8 @@ public class targetControl : MonoBehaviour {
 
 	public playerMove thePlayer;
 
+	public GameObject squareBackground;
+
 	// Use this for initialization
 	void Start () {
 
@@ -271,6 +273,7 @@ public class targetControl : MonoBehaviour {
 
 				circleWorld.SetActive (true);
 				squareWorld.SetActive (false);
+				squareBackground.SetActive (false);
 
 				squareWorldActive = false;
 			} else if (Input.GetKeyDown (KeyCode.LeftShift) && squareWorldActive == false &&
@@ -280,6 +283,7 @@ public class targetControl : MonoBehaviour {
 			
 				squareWorld.SetActive (true);
 				circleWorld.SetActive (false);
+				squareBackground.SetActive (true);
 
 				squareWorldActive = true;
 			}
