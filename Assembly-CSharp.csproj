@@ -45,12 +45,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\2DLightAsset\Examples\RigidBodyInterpolationSolution\FollowLight2d.cs" />
-     <Compile Include="Assets\2DLightAsset\Scripts\2DLight\DynamicLight.cs" />
-     <Compile Include="Assets\2DLightAsset\Scripts\Helpers\TablaSenoCoseno.cs" />
-     <Compile Include="Assets\2DLightAsset\Scripts\Helpers\interface_touch.cs" />
-     <Compile Include="Assets\2DLightAsset\Scripts\Helpers\interface_touch2.cs" />
-     <Compile Include="Assets\2DLightAsset\Scripts\rotate.cs" />
      <Compile Include="Assets\Hand-Drawn\Demo Assets\Scripts\Menu.cs" />
      <Compile Include="Assets\Hand-Drawn\Demo Assets\Scripts\Propellor.cs" />
      <Compile Include="Assets\Hand-Drawn\Demo Assets\Scripts\Turbulence.cs" />
@@ -94,6 +88,7 @@
      <Compile Include="Assets\Scripts\hangingBoxReturnToNormal.cs" />
      <Compile Include="Assets\Scripts\ignoreBarrierCollision.cs" />
      <Compile Include="Assets\Scripts\keyBehavior.cs" />
+     <Compile Include="Assets\Scripts\lavaMove.cs" />
      <Compile Include="Assets\Scripts\lockedDoorMove.cs" />
      <Compile Include="Assets\Scripts\lockedTransitionStartManager.cs" />
      <Compile Include="Assets\Scripts\mineMove.cs" />
@@ -141,13 +136,12 @@
      <None Include="Assets\Dialog\OpeningCinematicDialog.txt" />
      <None Include="Assets\Hand-Drawn\Shaders\Outline\Outline_AnimatedTextured.shader" />
      <None Include="Assets\Hand-Drawn\Shaders\Fill\Fill_SmoothedGreyscale.shader" />
-     <None Include="Assets\2DLightAsset\Shaders\Gradient-NoTexture-Radial-SingleColor-ToTransparent-RegularUV-AlphaBlend.shader" />
      <None Include="Assets\Hand-Drawn\Shaders\Fill\Fill_Textured.shader" />
+     <None Include="Assets\Urban-landscape-files\license.txt" />
      <None Include="Assets\Hand-Drawn\Shaders\Fill\Fill_Quantized.shader" />
      <None Include="Assets\Dialog\homeDialog.txt" />
      <None Include="Assets\Hand-Drawn\Shaders\Fill+Outline\SimpleOutline+BumpedDiffuseFill.shader" />
      <None Include="Assets\Dialog\instructions1.txt" />
-     <None Include="Assets\2DLightAsset\Shaders\NoTexture.shader" />
      <None Include="Assets\Hand-Drawn\Shaders\Fill+Outline\OverdrawnOutline+GreyscaleFill.shader" />
      <None Include="Assets\Dialog\instructions2.txt" />
      <None Include="Assets\Hand-Drawn\Shaders\Outline\Outline_Simple.shader" />
@@ -155,7 +149,6 @@
      <None Include="Assets\Dialog\instructions4.txt" />
      <None Include="Assets\Hand-Drawn\Shaders\Fill\Fill_MultiTextured(Multiply).shader" />
      <None Include="Assets\Hand-Drawn\Shaders\Outline\Outline_Overdrawn.shader" />
-     <None Include="Assets\2DLightAsset\Shaders\Gradient-ZFighting.shader" />
      <None Include="Assets\Hand-Drawn\Shaders\Fill\Fill_QuantizedTextured.shader" />
      <None Include="Assets\Dialog\instructions3.txt" />
      <None Include="Assets\Hand-Drawn\Shaders\Fill+Outline\SimpleOutline+QuantizedFill.shader" />

@@ -55,6 +55,7 @@
      <None Include="Assets\Hand-Drawn\Shaders\Fill\Fill_SmoothedGreyscale.shader" />
      <None Include="Assets\2DLightAsset\Shaders\Gradient-NoTexture-Radial-SingleColor-ToTransparent-RegularUV-AlphaBlend.shader" />
      <None Include="Assets\Hand-Drawn\Shaders\Fill\Fill_Textured.shader" />
+     <None Include="Assets\Urban-landscape-files\license.txt" />
      <None Include="Assets\Hand-Drawn\Shaders\Fill\Fill_Quantized.shader" />
      <None Include="Assets\Dialog\homeDialog.txt" />
      <None Include="Assets\Hand-Drawn\Shaders\Fill+Outline\SimpleOutline+BumpedDiffuseFill.shader" />

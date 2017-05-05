@@ -66,6 +66,7 @@ public class playerMove : MonoBehaviour {
 	public bool facingRight;
 
 	public bool playerInvulnerable;
+	float invulnerabilityCounter;
 
 	public bool playerjustDied;
 
@@ -190,6 +191,7 @@ public class playerMove : MonoBehaviour {
 		facingRight = true;
 
 		playerInvulnerable = false;
+		invulnerabilityCounter = 0.0f;
 
 		playerjustDied = false;
 
@@ -622,6 +624,17 @@ public class playerMove : MonoBehaviour {
 
 		if (playerjustDied == true) {
 			playerInvulnerable = true;
+		}
+
+		if (playerInvulnerable == true) {
+
+			invulnerabilityCounter += Time.deltaTime;
+		}
+
+		if (invulnerabilityCounter >= 1f) {
+			playerInvulnerable = false;
+
+			invulnerabilityCounter = 0.0f;
 		}
 
 		if (playFinalDoorOpeningAnimation == true) {

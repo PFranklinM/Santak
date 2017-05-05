@@ -63,5 +63,9 @@ public class SGBulletMove : MonoBehaviour {
 		if (coll.gameObject.tag == "door") {
 			Destroy (Bullet);
 		}
+
+		if (coll.gameObject.tag == "deathWall") {
+			Destroy (Bullet);
+		}
 	}
 }

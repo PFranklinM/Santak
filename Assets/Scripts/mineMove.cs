@@ -15,6 +15,8 @@ public class mineMove : MonoBehaviour {
 
 	float playerPropulsionSpeed = 3000000f;
 
+	float mineTimer;
+
 	// Use this for initialization
 	void Start () {
 
@@ -34,9 +36,21 @@ public class mineMove : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (Input.GetMouseButtonDown(1) && GameObject.Find ("Mine(Clone)") != null || Input.GetMouseButtonDown(1)
-			&& GameObject.Find ("Mine(Clone)") != null) {
+		mineTimer += Time.deltaTime;
 
+		if (Input.GetMouseButtonDown(1) && GameObject.Find ("Mine(Clone)") != null) {
+
+			Instantiate (explosionEffect, mine.transform.position, mine.transform.rotation);
+
+			if (Vector3.Distance (mine.transform.position, player.transform.position) < 85) {
+				player.GetComponent<Rigidbody2D> ().AddForce ((player.transform.position - mine.transform.position).normalized * playerPropulsionSpeed * Time.fixedDeltaTime);
+			}
+
+			Destroy (this.gameObject);
+		}
+
+		if (mineTimer >= 1.5f && GameObject.Find ("Mine(Clone)") != null) {
+			
 			Instantiate (explosionEffect, mine.transform.position, mine.transform.rotation);
 
 			if (Vector3.Distance (mine.transform.position, player.transform.position) < 85) {
