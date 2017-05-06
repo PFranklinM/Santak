@@ -98,6 +98,7 @@
      <Compile Include="Assets\Scripts\playerFadeIn.cs" />
      <Compile Include="Assets\Scripts\playerLosesFlight.cs" />
      <Compile Include="Assets\Scripts\playerMove.cs" />
+     <Compile Include="Assets\Scripts\playerOutlineTurn.cs" />
      <Compile Include="Assets\Scripts\playerTextBoxManager.cs" />
      <Compile Include="Assets\Scripts\squareEnemyMove.cs" />
      <Compile Include="Assets\Scripts\stringBreak.cs" />
@@ -136,6 +137,7 @@
      <None Include="Assets\Dialog\OpeningCinematicDialog.txt" />
      <None Include="Assets\Hand-Drawn\Shaders\Outline\Outline_AnimatedTextured.shader" />
      <None Include="Assets\Hand-Drawn\Shaders\Fill\Fill_SmoothedGreyscale.shader" />
+     <None Include="Assets\chibi-monsters-files\public-license.txt" />
      <None Include="Assets\Hand-Drawn\Shaders\Fill\Fill_Textured.shader" />
      <None Include="Assets\Urban-landscape-files\license.txt" />
      <None Include="Assets\Hand-Drawn\Shaders\Fill\Fill_Quantized.shader" />

@@ -310,10 +310,6 @@ public class playerMove : MonoBehaviour {
 
 			player.GetComponent<MeshFilter>().mesh = playerMeshFacingRight;
 
-//			HP1.transform.position = new Vector3 (playerPos.x + 0.15f, playerPos.y - 0.11f, playerPos.z - 2f);
-//			HP2.transform.position = new Vector3 (playerPos.x - 0.65f, playerPos.y + 0.02f, playerPos.z - 2f);
-//			HP3.transform.position = new Vector3 (playerPos.x + 0f, playerPos.y + 0.65f, playerPos.z - 2f);
-
 			HP1.transform.eulerAngles = new Vector3(0, 0, -45);
 			HP2.transform.eulerAngles = new Vector3(0, 0, -90);
 			HP3.transform.eulerAngles = new Vector3(0, 0, 0);
@@ -712,7 +708,8 @@ public class playerMove : MonoBehaviour {
 //			return;
 //		}
 
-		if (Input.GetKeyUp (KeyCode.A) && canMoveCuzNotInCutscene == true) {
+		if (Input.GetKey (KeyCode.A) == false || Input.GetKey (KeyCode.D) == false) {
+
 			if (GameObject.Find ("BackgroundColorA") != null) {
 				GameObject.Find ("BackgroundColorA").GetComponent<backGroundScrollNoRepeat> ().speed.x = 0;
 				GameObject.Find ("BackgroundColorA").GetComponent<backGroundScrollNoRepeat> ().direction.x = 0;
@@ -772,68 +769,43 @@ public class playerMove : MonoBehaviour {
 				GameObject.Find ("ForegroundC").GetComponent<backGroundScrollNoRepeat> ().speed.x = 0;
 				GameObject.Find ("ForegroundC").GetComponent<backGroundScrollNoRepeat> ().direction.x = 0;
 			}
+
+			if (GameObject.Find ("CBackgroundColorC") != null) {
+				GameObject.Find ("CBackgroundColorC").GetComponent<backGroundScrollNoRepeat> ().speed.x = 0;
+				GameObject.Find ("CBackgroundColorC").GetComponent<backGroundScrollNoRepeat> ().direction.x = 0;
+			}
+
+			if (GameObject.Find ("CForegroundC") != null) {
+				GameObject.Find ("CForegroundC").GetComponent<backGroundScrollNoRepeat> ().speed.x = 0;
+				GameObject.Find ("CForegroundC").GetComponent<backGroundScrollNoRepeat> ().direction.x = 0;
+			}
+
+			if (GameObject.Find ("CBackgroundColorA") != null) {
+				GameObject.Find ("CBackgroundColorA").GetComponent<backGroundScrollNoRepeat> ().speed.x = 0;
+				GameObject.Find ("CBackgroundColorA").GetComponent<backGroundScrollNoRepeat> ().direction.x = 0;
+			}
+
+			if (GameObject.Find ("CForegroundA") != null) {
+				GameObject.Find ("CForegroundA").GetComponent<backGroundScrollNoRepeat> ().speed.x = 0;
+				GameObject.Find ("CForegroundA").GetComponent<backGroundScrollNoRepeat> ().direction.x = 0;
+			}
+
+			if (GameObject.Find ("CBackgroundColorB") != null) {
+				GameObject.Find ("CBackgroundColorB").GetComponent<backGroundScrollNoRepeat> ().speed.x = 0;
+				GameObject.Find ("CBackgroundColorB").GetComponent<backGroundScrollNoRepeat> ().direction.x = 0;
+			}
+
+			if (GameObject.Find ("CForegroundB") != null) {
+				GameObject.Find ("CForegroundB").GetComponent<backGroundScrollNoRepeat> ().speed.x = 0;
+				GameObject.Find ("CForegroundB").GetComponent<backGroundScrollNoRepeat> ().direction.x = 0;
+			}
+
+			this.gameObject.GetComponent<Renderer> ().material.SetFloat ("_RedrawRate", 2);
 		}
 
-		if (Input.GetKeyUp (KeyCode.D) && canMoveCuzNotInCutscene == true) {
-			if (GameObject.Find ("BackgroundColorA") != null) {
-				GameObject.Find ("BackgroundColorA").GetComponent<backGroundScrollNoRepeat> ().speed.x = 0;
-				GameObject.Find ("BackgroundColorA").GetComponent<backGroundScrollNoRepeat> ().direction.x = 0;
-			}
+		if (Input.GetKeyUp (KeyCode.Space) || Input.GetKey(KeyCode.W) == false && playerHasFlight == true) {
 
-			if (GameObject.Find ("BackgroundA") != null) {
-				GameObject.Find ("BackgroundA").GetComponent<backGroundScrollNoRepeat> ().speed.x = 0;
-				GameObject.Find ("BackgroundA").GetComponent<backGroundScrollNoRepeat> ().direction.x = 0;
-			}
-
-			if (GameObject.Find ("MidgroundA") != null) {
-				GameObject.Find ("MidgroundA").GetComponent<backGroundScrollNoRepeat> ().speed.x = 0;
-				GameObject.Find ("MidgroundA").GetComponent<backGroundScrollNoRepeat> ().direction.x = 0;
-			}
-
-			if (GameObject.Find ("ForegroundA") != null) {
-				GameObject.Find ("ForegroundA").GetComponent<backGroundScrollNoRepeat> ().speed.x = 0;
-				GameObject.Find ("ForegroundA").GetComponent<backGroundScrollNoRepeat> ().direction.x = 0;
-			}
-
-			if (GameObject.Find ("BackgroundColorB") != null) {
-				GameObject.Find ("BackgroundColorB").GetComponent<backGroundScrollNoRepeat> ().speed.x = 0;
-				GameObject.Find ("BackgroundColorB").GetComponent<backGroundScrollNoRepeat> ().direction.x = 0;
-			}
-
-			if (GameObject.Find ("BackgroundB") != null) {
-				GameObject.Find ("BackgroundB").GetComponent<backGroundScrollNoRepeat> ().speed.x = 0;
-				GameObject.Find ("BackgroundB").GetComponent<backGroundScrollNoRepeat> ().direction.x = 0;
-			}
-
-			if (GameObject.Find ("MidgroundB") != null) {
-				GameObject.Find ("MidgroundB").GetComponent<backGroundScrollNoRepeat> ().speed.x = 0;
-				GameObject.Find ("MidgroundB").GetComponent<backGroundScrollNoRepeat> ().direction.x = 0;
-			}
-
-			if (GameObject.Find ("ForegroundB") != null) {
-				GameObject.Find ("ForegroundB").GetComponent<backGroundScrollNoRepeat> ().speed.x = 0;
-				GameObject.Find ("ForegroundB").GetComponent<backGroundScrollNoRepeat> ().direction.x = 0;
-			}
-
-			if (GameObject.Find ("BackgroundColorC") != null) {
-				GameObject.Find ("BackgroundColorC").GetComponent<backGroundScrollNoRepeat> ().speed.x = 0;
-				GameObject.Find ("BackgroundColorC").GetComponent<backGroundScrollNoRepeat> ().direction.x = 0;
-			}
-
-			if (GameObject.Find ("BackgroundC") != null) {
-				GameObject.Find ("BackgroundC").GetComponent<backGroundScrollNoRepeat> ().speed.x = 0;
-				GameObject.Find ("BackgroundC").GetComponent<backGroundScrollNoRepeat> ().direction.x = 0;
-			}
-
-			if (GameObject.Find ("MidgroundC") != null) {
-				GameObject.Find ("MidgroundC").GetComponent<backGroundScrollNoRepeat> ().speed.x = 0;
-				GameObject.Find ("MidgroundC").GetComponent<backGroundScrollNoRepeat> ().direction.x = 0;
-			}
-
-			if (GameObject.Find ("ForegroundC") != null) {
-				GameObject.Find ("ForegroundC").GetComponent<backGroundScrollNoRepeat> ().speed.x = 0;
-				GameObject.Find ("ForegroundC").GetComponent<backGroundScrollNoRepeat> ().direction.x = 0;
-			}
+			this.gameObject.GetComponent<Renderer> ().material.SetFloat ("_RedrawRate", 2);
 		}
 
 		if (screenTransition == false) {
@@ -905,7 +877,37 @@ public class playerMove : MonoBehaviour {
 					GameObject.Find ("ForegroundC").GetComponent<backGroundScrollNoRepeat> ().direction.x = -1;
 				}
 
-//				this.gameObject.GetComponent<Renderer> ().material.SetFloat ("_RedrawRate", 10000);
+				if (GameObject.Find ("CBackgroundColorC") != null) {
+					GameObject.Find ("CBackgroundColorC").GetComponent<backGroundScrollNoRepeat> ().speed.x = 5;
+					GameObject.Find ("CBackgroundColorC").GetComponent<backGroundScrollNoRepeat> ().direction.x = -1;
+				}
+
+				if (GameObject.Find ("CForegroundC") != null) {
+					GameObject.Find ("CForegroundC").GetComponent<backGroundScrollNoRepeat> ().speed.x = 7;
+					GameObject.Find ("CForegroundC").GetComponent<backGroundScrollNoRepeat> ().direction.x = -1;
+				}
+
+				if (GameObject.Find ("CBackgroundColorA") != null) {
+					GameObject.Find ("CBackgroundColorA").GetComponent<backGroundScrollNoRepeat> ().speed.x = 5;
+					GameObject.Find ("CBackgroundColorA").GetComponent<backGroundScrollNoRepeat> ().direction.x = -1;
+				}
+
+				if (GameObject.Find ("CForegroundA") != null) {
+					GameObject.Find ("CForegroundA").GetComponent<backGroundScrollNoRepeat> ().speed.x = 7;
+					GameObject.Find ("CForegroundA").GetComponent<backGroundScrollNoRepeat> ().direction.x = -1;
+				}
+
+				if (GameObject.Find ("CBackgroundColorB") != null) {
+					GameObject.Find ("CBackgroundColorB").GetComponent<backGroundScrollNoRepeat> ().speed.x = 5;
+					GameObject.Find ("CBackgroundColorB").GetComponent<backGroundScrollNoRepeat> ().direction.x = -1;
+				}
+
+				if (GameObject.Find ("CForegroundB") != null) {
+					GameObject.Find ("CForegroundB").GetComponent<backGroundScrollNoRepeat> ().speed.x = 7;
+					GameObject.Find ("CForegroundB").GetComponent<backGroundScrollNoRepeat> ().direction.x = -1;
+				}
+
+				this.gameObject.GetComponent<Renderer> ().material.SetFloat ("_RedrawRate", 30);
 
 
 				player.GetComponent<Rigidbody2D> ().AddForce (player.transform.right * -moveSpeed);
@@ -977,14 +979,52 @@ public class playerMove : MonoBehaviour {
 					GameObject.Find ("ForegroundC").GetComponent<backGroundScrollNoRepeat> ().direction.x = 1;
 				}
 
+				if (GameObject.Find ("CBackgroundColorC") != null) {
+					GameObject.Find ("CBackgroundColorC").GetComponent<backGroundScrollNoRepeat> ().speed.x = 5;
+					GameObject.Find ("CBackgroundColorC").GetComponent<backGroundScrollNoRepeat> ().direction.x = 1;
+				}
+
+				if (GameObject.Find ("CForegroundC") != null) {
+					GameObject.Find ("CForegroundC").GetComponent<backGroundScrollNoRepeat> ().speed.x = 7;
+					GameObject.Find ("CForegroundC").GetComponent<backGroundScrollNoRepeat> ().direction.x = 1;
+				}
+
+				if (GameObject.Find ("CBackgroundColorA") != null) {
+					GameObject.Find ("CBackgroundColorA").GetComponent<backGroundScrollNoRepeat> ().speed.x = 5;
+					GameObject.Find ("CBackgroundColorA").GetComponent<backGroundScrollNoRepeat> ().direction.x = 1;
+				}
+
+				if (GameObject.Find ("CForegroundA") != null) {
+					GameObject.Find ("CForegroundA").GetComponent<backGroundScrollNoRepeat> ().speed.x = 7;
+					GameObject.Find ("CForegroundA").GetComponent<backGroundScrollNoRepeat> ().direction.x = 1;
+				}
+
+				if (GameObject.Find ("CBackgroundColorB") != null) {
+					GameObject.Find ("CBackgroundColorB").GetComponent<backGroundScrollNoRepeat> ().speed.x = 5;
+					GameObject.Find ("CBackgroundColorB").GetComponent<backGroundScrollNoRepeat> ().direction.x = 1;
+				}
+
+				if (GameObject.Find ("CForegroundB") != null) {
+					GameObject.Find ("CForegroundB").GetComponent<backGroundScrollNoRepeat> ().speed.x = 7;
+					GameObject.Find ("CForegroundB").GetComponent<backGroundScrollNoRepeat> ().direction.x = 1;
+				}
+
+
+				this.gameObject.GetComponent<Renderer> ().material.SetFloat ("_RedrawRate", -30);
+
 
 				player.GetComponent<Rigidbody2D> ().AddForce (player.transform.right * moveSpeed);
 
 			}
 
+			if (Input.GetKeyDown (KeyCode.Space) && canMoveCuzNotInCutscene == true) {
+				this.gameObject.GetComponent<Renderer> ().material.SetFloat ("_RedrawRate", 30);
+			}
+
 			if (playerHasFlight == true) {
 				if (Input.GetKey (KeyCode.W) && canMoveCuzNotInCutscene == true) {
 					playerIsFlying = true;
+					this.gameObject.GetComponent<Renderer> ().material.SetFloat ("_RedrawRate", 30);
 
 					if (playerIsFlying == true) {
 						player.GetComponent<Rigidbody2D> ().AddForce (player.transform.up * 4000f);

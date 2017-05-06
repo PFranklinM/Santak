@@ -2,12 +2,15 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/playerMove.cs">
     <Files>
-      <File FileName="Assets/Scripts/playerMove.cs" Line="908" Column="1" />
-      <File FileName="Assets/Scripts/targetControl.cs" Line="286" Column="39" />
+      <File FileName="Assets/Scripts/playerMove.cs" Line="634" Column="34" />
+      <File FileName="Assets/Scripts/targetControl.cs" Line="118" Column="31" />
       <File FileName="Assets/Scripts/playerFadeIn.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/HPBlink.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/RendererExtensions.cs.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/backGroundScrollRepeat.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/backGroundScrollRepeat.cs" Line="65" Column="72" />
+      <File FileName="Assets/Scripts/lavaMove.cs" Line="18" Column="53" />
+      <File FileName="Assets/Scripts/mineMove.cs" Line="52" Column="37" />
+      <File FileName="Assets/Scripts/stringBreak.cs" Line="31" Column="61" />
+      <File FileName="Assets/Scripts/squareEnemyMove.cs" Line="82" Column="70" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
