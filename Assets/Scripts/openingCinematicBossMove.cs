@@ -19,6 +19,8 @@ public class openingCinematicBossMove : MonoBehaviour {
 
 	public bool cameraShouldFollow;
 
+	public Material newMat;
+
 	Material mat;
 	Color colorA;
 
@@ -95,14 +97,16 @@ public class openingCinematicBossMove : MonoBehaviour {
 		}
 
 		if (timeToFade == true) {
-			mat = player.GetComponent<Renderer> ().material;
+			player.gameObject.GetComponent<Renderer>().material = newMat;
 
-			colorA = mat.color;
-			colorA.a -= 15f * Time.deltaTime;
+			newMat = player.GetComponent<Renderer> ().material;
+
+			colorA = newMat.color;
+			colorA.a -= 0.75f * Time.deltaTime;
 
 			//		mat.SetColor ("_EmissionColor", colorA);
-			mat.SetColor ("_Color", colorA);
-			mat.SetColor ("_TintColor", colorA);
+			newMat.SetColor ("_Color", colorA);
+			newMat.SetColor ("_TintColor", colorA);
 		}
 
 		if (colorA.a <= 0.0001) {
