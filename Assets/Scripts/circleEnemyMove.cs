@@ -10,10 +10,21 @@ public class circleEnemyMove : MonoBehaviour {
 	public Vector3 endPos;
 	public Vector3 dir;
 
+	Rigidbody2D rb;
+
+	public Sprite standingLeft;
+	public Sprite standingRight;
+	public Sprite flyingLeft;
+	public Sprite flyingRight;
+
+	float spriteTimer = 0.0f;
+
 	int health;
 
 	// Use this for initialization
 	void Start () {
+
+		rb = GetComponent<Rigidbody2D>();
 
 		player = GameObject.Find("Player");
 		key1 = GameObject.Find("Key1");
@@ -31,16 +42,44 @@ public class circleEnemyMove : MonoBehaviour {
 
 		Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), key1.GetComponent<Collider2D>());
 
-		Vector3 enemyPos = new Vector3 (transform.position.x,
-			transform.position.y,
-			transform.position.z);
+		Vector3 enemyPos = new Vector3 (this.transform.position.x,
+								this.transform.position.y,
+								this.transform.position.z);
+
+		Vector3 playerPos = new Vector3 (player.transform.position.x,
+			                    player.transform.position.y,
+			                    player.transform.position.z);
 
 		if (Vector3.Distance (this.transform.position, player.transform.position) < 400f &&
 			GameObject.Find("Player").GetComponent<playerMove> ().playerInvulnerable == false) {
 
-			dir.Normalize ();
+			spriteTimer += Time.deltaTime * 5;
 
-			Vector3 playerPos = player.transform.position;
+			if (enemyPos.x < playerPos.x) {
+
+				if ((int)spriteTimer % 2 == 1) {
+					this.GetComponent<SpriteRenderer> ().sprite = standingRight;
+				}
+
+				if ((int)spriteTimer % 2 == 0) {
+					this.GetComponent<SpriteRenderer> ().sprite = flyingRight;
+				}
+
+			}
+
+			if (enemyPos.x > playerPos.x) {
+
+				if ((int)spriteTimer % 2 == 1) {
+					this.GetComponent<SpriteRenderer> ().sprite = standingLeft;
+				}
+
+				if ((int)spriteTimer % 2 == 0) {
+					this.GetComponent<SpriteRenderer> ().sprite = flyingLeft;
+				}
+
+			}
+
+			dir.Normalize ();
 
 			startPos = this.transform.position;
 			endPos = playerPos;
@@ -204,47 +243,76 @@ public class circleEnemyMove : MonoBehaviour {
 		if (coll.gameObject.tag == "ARbullet") {
 			health -= 10;
 
-			Renderer renderer = GetComponent<Renderer> ();
-			Material mat = renderer.material;
+			this.GetComponent<SpriteRenderer> ().color = Color.green;
 
-			mat.SetColor ("_EmissionColor", Color.white);
-
-			Invoke("changeBackToPurple", 0.15f);
+			Invoke("changeBackToWhite", 0.75f);
 		}
 
 		if (coll.gameObject.tag == "SGbullet") {
+
+			Vector3 bulletPos = new Vector3 (coll.gameObject.transform.position.x,
+				coll.gameObject.transform.position.y,
+				coll.gameObject.transform.position.z);
+
+			Vector3 enemyPos = new Vector3 (this.transform.position.x,
+				this.transform.position.y,
+				this.transform.position.z);
+
 			health -= 25;
 
-			Renderer renderer = GetComponent<Renderer> ();
-			Material mat = renderer.material;
+			this.GetComponent<SpriteRenderer> ().color = Color.green;
 
-			mat.SetColor ("_EmissionColor", Color.white);
+			if (bulletPos.x > enemyPos.x) {
 
-			Invoke("changeBackToPurple", 0.15f);
+				rb.velocity = new Vector3 (-500, 0, 0);
+
+				this.GetComponent<SpriteRenderer> ().sprite = standingRight;
+			}
+
+			if (bulletPos.x < enemyPos.x) {
+
+				rb.velocity = new Vector3 (500, 0, 0);
+
+				this.GetComponent<SpriteRenderer> ().sprite = standingLeft;
+			}
+
+			Invoke("changeBackToWhite", 0.75f);
 		}
 
 		if (coll.gameObject.tag == "explosion") {
+
+			Vector3 bulletPos = new Vector3 (coll.gameObject.transform.position.x,
+				coll.gameObject.transform.position.y,
+				coll.gameObject.transform.position.z);
+
+			Vector3 enemyPos = new Vector3 (this.transform.position.x,
+				this.transform.position.y,
+				this.transform.position.z);
+
 			health -= 50;
 
-			Renderer renderer = GetComponent<Renderer> ();
-			Material mat = renderer.material;
+			this.GetComponent<SpriteRenderer> ().color = Color.green;
 
-			mat.SetColor ("_EmissionColor", Color.white);
+			if (bulletPos.x > enemyPos.x) {
 
-			Invoke("changeBackToPurple", 0.15f);
+				rb.velocity = new Vector3 (-750, 0, 0);
+
+				this.GetComponent<SpriteRenderer> ().sprite = standingRight;
+			}
+
+			if (bulletPos.x < enemyPos.x) {
+
+				rb.velocity = new Vector3 (750, 0, 0);
+
+				this.GetComponent<SpriteRenderer> ().sprite = standingLeft;
+			}
+
+			Invoke("changeBackToWhite", 0.75f);
 		}
 	}
 
-//	void OnTriggerEnter2D(Collider2D coll){
-//		if (coll.gameObject.tag == "transitionEnd") {
-//			Destroy (this.gameObject);
-//		}
-//	}
-
-	void changeBackToPurple(){
-		Renderer renderer = GetComponent<Renderer> ();
-		Material mat = renderer.material;
-
-		mat.SetColor ("_EmissionColor", Color.magenta);
+	void changeBackToWhite(){
+		this.GetComponent<SpriteRenderer> ().color = Color.white;
+		rb.Sleep ();
 	}
 }

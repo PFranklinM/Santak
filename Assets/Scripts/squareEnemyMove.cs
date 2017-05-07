@@ -14,14 +14,13 @@ public class squareEnemyMove : MonoBehaviour {
 
 	int health;
 
-	float timerFlash = 0.0f;
-
-//	public playerMove thePlayer;
+	public Sprite standingLeft;
+	public Sprite standingRight;
+	public Sprite jumpingLeft;
+	public Sprite jumpingRight;
 
 	// Use this for initialization
 	void Start () {
-
-//		thePlayer = FindObjectOfType<playerMove> ();
 
 		rb = GetComponent<Rigidbody2D>();
 
@@ -56,11 +55,13 @@ public class squareEnemyMove : MonoBehaviour {
 
 				if (jumpCounter > 0.15f) {
 
-					rb.velocity = new Vector3 (-750, 1500, 0);
+					rb.velocity = new Vector3 (-750, 1200, 0);
 
 					touchingGround = false;
 
 					jumpCounter = 0.0f;
+
+					this.GetComponent<SpriteRenderer> ().sprite = jumpingLeft;
 				}
 			}
 
@@ -70,11 +71,13 @@ public class squareEnemyMove : MonoBehaviour {
 
 				if (jumpCounter > 0.15f) {
 
-					rb.velocity = new Vector3 (750, 1500, 0);
+					rb.velocity = new Vector3 (750, 1200, 0);
 
 					touchingGround = false;
 
 					jumpCounter = 0.0f;
+
+					this.GetComponent<SpriteRenderer> ().sprite = jumpingRight;
 				}
 			}
 		}
@@ -242,54 +245,92 @@ public class squareEnemyMove : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D coll){
 		if (coll.gameObject.tag == "ground") {
+
+			Vector3 playerPos = new Vector3 (player.transform.position.x,
+				player.transform.position.y,
+				player.transform.position.z);
+
+			Vector3 enemyPos = new Vector3 (this.transform.position.x,
+				this.transform.position.y,
+				this.transform.position.z);
+
+			if (playerPos.x > enemyPos.x) {
+				this.GetComponent<SpriteRenderer> ().sprite = standingRight;
+			}
+
+			if (playerPos.x < enemyPos.x) {
+				this.GetComponent<SpriteRenderer> ().sprite = standingLeft;
+			}
+
 			touchingGround = true;
 		}
 
 		if (coll.gameObject.tag == "ARbullet") {
 			health -= 10;
 
-			Renderer renderer = GetComponent<Renderer> ();
-			Material mat = renderer.material;
+			this.GetComponent<SpriteRenderer> ().color = Color.green;
 
-			mat.SetColor ("_EmissionColor", Color.white);
-
-			Invoke("changeBackToPurple", 0.15f);
+			Invoke("changeBackToWhite", 0.15f);
 		}
 
 		if (coll.gameObject.tag == "SGbullet") {
+
+			Vector3 bulletPos = new Vector3 (coll.gameObject.transform.position.x,
+				coll.gameObject.transform.position.y,
+				coll.gameObject.transform.position.z);
+
+			Vector3 enemyPos = new Vector3 (this.transform.position.x,
+				                   this.transform.position.y,
+				                   this.transform.position.z);
+
 			health -= 25;
 
-			Renderer renderer = GetComponent<Renderer> ();
-			Material mat = renderer.material;
+			this.GetComponent<SpriteRenderer> ().color = Color.green;
 
-			mat.SetColor ("_EmissionColor", Color.white);
+			if (bulletPos.x > enemyPos.x) {
 
-			Invoke("changeBackToPurple", 0.15f);
+				rb.velocity = new Vector3 (-500, 0, 0);
+			}
+
+			if (bulletPos.x < enemyPos.x) {
+
+				rb.velocity = new Vector3 (500, 0, 0);
+			}
+
+			Invoke("changeBackToWhite", 0.15f);
 		}
 
 		if (coll.gameObject.tag == "explosion") {
+
+			Vector3 bulletPos = new Vector3 (coll.gameObject.transform.position.x,
+				coll.gameObject.transform.position.y,
+				coll.gameObject.transform.position.z);
+
+			Vector3 enemyPos = new Vector3 (this.transform.position.x,
+				this.transform.position.y,
+				this.transform.position.z);
+
 			health -= 50;
 
-			Renderer renderer = GetComponent<Renderer> ();
-			Material mat = renderer.material;
+			this.GetComponent<SpriteRenderer> ().color = Color.green;
 
-			mat.SetColor ("_EmissionColor", Color.white);
+			if (bulletPos.x > enemyPos.x) {
 
-			Invoke("changeBackToPurple", 0.15f);
+				rb.velocity = new Vector3 (-750, 0, 0);
+			}
+
+			if (bulletPos.x < enemyPos.x) {
+
+				rb.velocity = new Vector3 (750, 0, 0);
+			}
+
+			Invoke("changeBackToWhite", 0.15f);
 		}
 	}
 
-//	void OnTriggerEnter2D(Collider2D coll){
-//		if (coll.gameObject.tag == "transitionEnd") {
-//			Destroy (this.gameObject);
-//		}
-//	}
+	void changeBackToWhite(){
 
-	void changeBackToPurple(){
-		Renderer renderer = GetComponent<Renderer> ();
-		Material mat = renderer.material;
-
-		mat.SetColor ("_EmissionColor", Color.magenta);
+		this.GetComponent<SpriteRenderer> ().color = Color.white;
 	}
 }
 
