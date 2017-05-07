@@ -49,7 +49,7 @@ public class circleEnemyMove : MonoBehaviour {
 
 //			enemyPos.z = 0f;
 
-			transform.position += dir * Time.deltaTime * 1f;
+			transform.position += dir * Time.deltaTime * 2.75f;
 		}
 
 		if (GameObject.Find ("Player").GetComponent<playerMove> ().playerInvulnerable == true) {

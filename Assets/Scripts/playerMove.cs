@@ -162,7 +162,10 @@ public class playerMove : MonoBehaviour {
 	public GameObject RM10CheckpointObjectL;
 	public GameObject RM10CheckpointObjectR;
 
-	float startTime;
+	public GameObject RM11CheckpointObjectL;
+
+	public GameObject playerDeathEffect;
+	public GameObject playerOutline;
 
 //	public GameObject BG1;
 //	public GameObject BG2;
@@ -176,8 +179,6 @@ public class playerMove : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
-		startTime = Time.time;
 
 		Cursor.visible = false;
 
@@ -361,8 +362,6 @@ public class playerMove : MonoBehaviour {
 			HP1.SetActive (false);
 			HP2.SetActive (false);
 			HP3.SetActive (false);
-
-			rb.isKinematic = false;
 		}
 
 		if (health == 3) {
@@ -387,104 +386,129 @@ public class playerMove : MonoBehaviour {
 		}
 
 		if (health <= 0 && firstPlaythrough == true ||
-			health <= 0 && secondPlaythrough == true ||
-			health <= 0 && thirdPlaythrough == true) {
-
-			rb.isKinematic = true;
+		    health <= 0 && secondPlaythrough == true ||
+		    health <= 0 && thirdPlaythrough == true) {
 
 			if (RM1Checkpoint == true) {
-				playerPos.x = 505;
-				playerPos.y = 20;
+
+				StartCoroutine ("FlyToCP1");
+
 			}
 
 			if (RM2CheckpointL == true) {
-				playerPos.x = 505;
-				playerPos.y = 20;
+
+				StartCoroutine ("FlyToCP1");
+
 			}
 
 			if (RM2CheckpointR == true) {
-				playerPos.x = 505;
-				playerPos.y = 20;
+
+				StartCoroutine ("FlyToCP1");
+
 			}
 
 			if (RM3CheckpointL == true) {
-				playerPos.x = 1162;
-				playerPos.y = 170;
+
+				StartCoroutine ("FlyToCP2R");
+
 			}
 
 			if (RM3CheckpointR == true) {
-				playerPos.x = 1162;
-				playerPos.y = 170;
+
+				StartCoroutine ("FlyToCP2R");
+
 			}
 
 			if (RM4CheckpointL == true) {
-				playerPos.x = 1762;
-				playerPos.y = 170;
+
+				StartCoroutine ("FlyToCP3R");
+
 			}
 
 			if (RM4CheckpointR == true) {
-				playerPos.x = 1762;
-				playerPos.y = 170;
+
+				StartCoroutine ("FlyToCP3R");
+
 			}
 
 			if (RM5CheckpointL == true) {
-				playerPos.x = 2419;
-				playerPos.y = 170;
+
+				StartCoroutine ("FlyToCP4R");
+
 			}
 
 			if (RM5CheckpointR == true) {
-				playerPos.x = 2419;
-				playerPos.y = 170;
+
+				StartCoroutine ("FlyToCP4R");
+
 			}
 
 			if (RM6CheckpointL == true) {
-				playerPos.x = 3212;
-				playerPos.y = 170;
+
+				StartCoroutine ("FlyToCP5R");
+
 			}
 
 			if (RM6CheckpointR == true) {
-				playerPos.x = 3212;
-				playerPos.y = 170;
+
+				StartCoroutine ("FlyToCP5R");
+
 			}
 
 			if (RM7CheckpointL == true) {
-				playerPos.x = 3615;
-				playerPos.y = 771;
+
+				StartCoroutine ("FlyToCP6R");
+
 			}
 
 			if (RM7CheckpointR == true) {
-				playerPos.x = 3615;
-				playerPos.y = 771;
+
+				StartCoroutine ("FlyToCP6R");
+
 			}
 
 			if (RM8CheckpointL == true) {
-				playerPos.x = 3714;
-				playerPos.y = 1119;
+
+				StartCoroutine ("FlyToCP7R");
+
 			}
 
 			if (RM8CheckpointR == true) {
-				playerPos.x = 3714;
-				playerPos.y = 1119;
+
+				StartCoroutine ("FlyToCP7R");
+
 			}
 
 			if (RM9CheckpointL == true) {
-				playerPos.x = 3618;
-				playerPos.y = 1769;
+
+				StartCoroutine ("FlyToCP8R");
+
 			}
 
 			if (RM9CheckpointR == true) {
-				playerPos.x = 3618;
-				playerPos.y = 1769;
+
+				StartCoroutine ("FlyToCP8R");
+
 			}
 
 			if (RM10CheckpointL == true) {
-				playerPos.x = 4565;
-				playerPos.y = 1770;
+
+				StartCoroutine ("FlyToCP9R");
+
 			}
 
 			if (RM10CheckpointR == true) {
-				playerPos.x = 4565;
-				playerPos.y = 1770;
+
+				StartCoroutine ("FlyToCP9R");
+
+			}
+
+			if (RM11CheckpointL == true ||
+			   Boss1CheckpointL == true || Boss1CheckpointR == true ||
+			   Boss2CheckpointL == true || Boss2CheckpointR == true ||
+			   Boss3CheckpointL == true || Boss3CheckpointR == true) {
+
+				StartCoroutine ("FlyToCP11L");
 			}
 
 			playerjustDied = true;
@@ -613,6 +637,14 @@ public class playerMove : MonoBehaviour {
 
 				StartCoroutine ("FlyToCP9R");
 
+			}
+
+			if (RM11CheckpointL == true ||
+				Boss1CheckpointL == true || Boss1CheckpointR == true ||
+				Boss2CheckpointL == true || Boss2CheckpointR == true ||
+				Boss3CheckpointL == true || Boss3CheckpointR == true) {
+
+				StartCoroutine ("FlyToCP11L");
 			}
 
 			playerjustDied = true;
@@ -1093,6 +1125,25 @@ public class playerMove : MonoBehaviour {
 
 		if (coll.gameObject.tag == "deathWall") {
 
+			Vector3 playerPosRN = new Vector3 (this.transform.position.x,
+				this.transform.position.y,
+				this.transform.position.z);
+
+			Vector3 deathWallPosRN = new Vector3 (coll.gameObject.transform.position.x,
+				coll.gameObject.transform.position.y,
+				coll.gameObject.transform.position.z);
+
+			if (deathWallPosRN.x > playerPosRN.x) {
+				rb.velocity = new Vector3 (-750, 750, 0);
+			}
+
+			if (deathWallPosRN.x < playerPosRN.x) {
+				rb.velocity = new Vector3 (750, 750, 0);
+			}
+
+			this.transform.position = playerPosRN;
+			coll.gameObject.transform.position = deathWallPosRN;
+
 			playerHasKey = false;
 
 			health = 0;
@@ -1261,6 +1312,12 @@ public class playerMove : MonoBehaviour {
 	IEnumerator FlyToCP1 () {
 
 		while (Vector3.Distance(player.transform.position, RM1CheckpointObject.transform.position) > 1f) {
+
+			player.GetComponent<Renderer> ().enabled = false;
+			playerOutline.GetComponent<Renderer> ().enabled = false;
+
+			Instantiate (playerDeathEffect, player.transform.position, player.transform.rotation);
+			playerDeathEffect.transform.position = player.transform.position;
 			
 			canMoveCuzNotInCutscene = false;
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
@@ -1268,10 +1325,13 @@ public class playerMove : MonoBehaviour {
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
-			transform.position = Vector3.MoveTowards(transform.position, RM1CheckpointObject.transform.position, 70f * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, RM1CheckpointObject.transform.position, 500f * Time.deltaTime);
 
 			yield return null;
 		}
+
+		player.GetComponent<Renderer> ().enabled = true;
+		playerOutline.GetComponent<Renderer> ().enabled = true;
 
 		canMoveCuzNotInCutscene = true;
 		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
@@ -1284,16 +1344,25 @@ public class playerMove : MonoBehaviour {
 
 		while (Vector3.Distance(player.transform.position, RM2CheckpointObjectL.transform.position) > 1f) {
 
+			player.GetComponent<Renderer> ().enabled = false;
+			playerOutline.GetComponent<Renderer> ().enabled = false;
+
+			Instantiate (playerDeathEffect, player.transform.position, player.transform.rotation);
+			playerDeathEffect.transform.position = player.transform.position;
+
 			canMoveCuzNotInCutscene = false;
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
 
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
-			transform.position = Vector3.MoveTowards(transform.position, RM2CheckpointObjectL.transform.position, 70f * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, RM2CheckpointObjectL.transform.position, 500f * Time.deltaTime);
 
 			yield return null;
 		}
+
+		player.GetComponent<Renderer> ().enabled = true;
+		playerOutline.GetComponent<Renderer> ().enabled = true;
 
 		canMoveCuzNotInCutscene = true;
 		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
@@ -1306,16 +1375,25 @@ public class playerMove : MonoBehaviour {
 
 		while (Vector3.Distance(player.transform.position, RM2CheckpointObjectR.transform.position) > 1f) {
 
+			player.GetComponent<Renderer> ().enabled = false;
+			playerOutline.GetComponent<Renderer> ().enabled = false;
+
+			Instantiate (playerDeathEffect, player.transform.position, player.transform.rotation);
+			playerDeathEffect.transform.position = player.transform.position;
+
 			canMoveCuzNotInCutscene = false;
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
 
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
-			transform.position = Vector3.MoveTowards(transform.position, RM2CheckpointObjectR.transform.position, 70f * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, RM2CheckpointObjectR.transform.position, 500f * Time.deltaTime);
 
 			yield return null;
 		}
+
+		player.GetComponent<Renderer> ().enabled = true;
+		playerOutline.GetComponent<Renderer> ().enabled = true;
 
 		canMoveCuzNotInCutscene = true;
 		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
@@ -1328,16 +1406,25 @@ public class playerMove : MonoBehaviour {
 
 		while (Vector3.Distance(player.transform.position, RM3CheckpointObjectL.transform.position) > 1f) {
 
+			player.GetComponent<Renderer> ().enabled = false;
+			playerOutline.GetComponent<Renderer> ().enabled = false;
+
+			Instantiate (playerDeathEffect, player.transform.position, player.transform.rotation);
+			playerDeathEffect.transform.position = player.transform.position;
+
 			canMoveCuzNotInCutscene = false;
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
 
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
-			transform.position = Vector3.MoveTowards(transform.position, RM3CheckpointObjectL.transform.position, 70f * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, RM3CheckpointObjectL.transform.position, 500f * Time.deltaTime);
 
 			yield return null;
 		}
+
+		player.GetComponent<Renderer> ().enabled = true;
+		playerOutline.GetComponent<Renderer> ().enabled = true;
 
 		canMoveCuzNotInCutscene = true;
 		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
@@ -1350,16 +1437,25 @@ public class playerMove : MonoBehaviour {
 
 		while (Vector3.Distance(player.transform.position, RM3CheckpointObjectR.transform.position) > 1f) {
 
+			player.GetComponent<Renderer> ().enabled = false;
+			playerOutline.GetComponent<Renderer> ().enabled = false;
+
+			Instantiate (playerDeathEffect, player.transform.position, player.transform.rotation);
+			playerDeathEffect.transform.position = player.transform.position;
+
 			canMoveCuzNotInCutscene = false;
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
 
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
-			transform.position = Vector3.MoveTowards(transform.position, RM3CheckpointObjectR.transform.position, 70f * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, RM3CheckpointObjectR.transform.position, 500f * Time.deltaTime);
 
 			yield return null;
 		}
+
+		player.GetComponent<Renderer> ().enabled = true;
+		playerOutline.GetComponent<Renderer> ().enabled = true;
 
 		canMoveCuzNotInCutscene = true;
 		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
@@ -1372,16 +1468,25 @@ public class playerMove : MonoBehaviour {
 
 		while (Vector3.Distance(player.transform.position, RM4CheckpointObjectL.transform.position) > 1f) {
 
+			player.GetComponent<Renderer> ().enabled = false;
+			playerOutline.GetComponent<Renderer> ().enabled = false;
+
+			Instantiate (playerDeathEffect, player.transform.position, player.transform.rotation);
+			playerDeathEffect.transform.position = player.transform.position;
+
 			canMoveCuzNotInCutscene = false;
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
 
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
-			transform.position = Vector3.MoveTowards(transform.position, RM4CheckpointObjectL.transform.position, 70f * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, RM4CheckpointObjectL.transform.position, 500f * Time.deltaTime);
 
 			yield return null;
 		}
+
+		player.GetComponent<Renderer> ().enabled = true;
+		playerOutline.GetComponent<Renderer> ().enabled = true;
 
 		canMoveCuzNotInCutscene = true;
 		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
@@ -1394,16 +1499,25 @@ public class playerMove : MonoBehaviour {
 
 		while (Vector3.Distance(player.transform.position, RM4CheckpointObjectR.transform.position) > 1f) {
 
+			player.GetComponent<Renderer> ().enabled = false;
+			playerOutline.GetComponent<Renderer> ().enabled = false;
+
+			Instantiate (playerDeathEffect, player.transform.position, player.transform.rotation);
+			playerDeathEffect.transform.position = player.transform.position;
+
 			canMoveCuzNotInCutscene = false;
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
 
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
-			transform.position = Vector3.MoveTowards(transform.position, RM4CheckpointObjectR.transform.position, 70f * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, RM4CheckpointObjectR.transform.position, 500f * Time.deltaTime);
 
 			yield return null;
 		}
+
+		player.GetComponent<Renderer> ().enabled = true;
+		playerOutline.GetComponent<Renderer> ().enabled = true;
 
 		canMoveCuzNotInCutscene = true;
 		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
@@ -1416,16 +1530,25 @@ public class playerMove : MonoBehaviour {
 
 		while (Vector3.Distance(player.transform.position, RM5CheckpointObjectL.transform.position) > 1f) {
 
+			player.GetComponent<Renderer> ().enabled = false;
+			playerOutline.GetComponent<Renderer> ().enabled = false;
+
+			Instantiate (playerDeathEffect, player.transform.position, player.transform.rotation);
+			playerDeathEffect.transform.position = player.transform.position;
+
 			canMoveCuzNotInCutscene = false;
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
 
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
-			transform.position = Vector3.MoveTowards(transform.position, RM5CheckpointObjectL.transform.position, 70f * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, RM5CheckpointObjectL.transform.position, 500f * Time.deltaTime);
 
 			yield return null;
 		}
+
+		player.GetComponent<Renderer> ().enabled = true;
+		playerOutline.GetComponent<Renderer> ().enabled = true;
 
 		canMoveCuzNotInCutscene = true;
 		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
@@ -1438,16 +1561,25 @@ public class playerMove : MonoBehaviour {
 
 		while (Vector3.Distance(player.transform.position, RM5CheckpointObjectR.transform.position) > 1f) {
 
+			player.GetComponent<Renderer> ().enabled = false;
+			playerOutline.GetComponent<Renderer> ().enabled = false;
+
+			Instantiate (playerDeathEffect, player.transform.position, player.transform.rotation);
+			playerDeathEffect.transform.position = player.transform.position;
+
 			canMoveCuzNotInCutscene = false;
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
 
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
-			transform.position = Vector3.MoveTowards(transform.position, RM5CheckpointObjectR.transform.position, 70f * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, RM5CheckpointObjectR.transform.position, 500f * Time.deltaTime);
 
 			yield return null;
 		}
+
+		player.GetComponent<Renderer> ().enabled = true;
+		playerOutline.GetComponent<Renderer> ().enabled = true;
 
 		canMoveCuzNotInCutscene = true;
 		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
@@ -1460,16 +1592,25 @@ public class playerMove : MonoBehaviour {
 
 		while (Vector3.Distance(player.transform.position, RM6CheckpointObjectL.transform.position) > 1f) {
 
+			player.GetComponent<Renderer> ().enabled = false;
+			playerOutline.GetComponent<Renderer> ().enabled = false;
+
+			Instantiate (playerDeathEffect, player.transform.position, player.transform.rotation);
+			playerDeathEffect.transform.position = player.transform.position;
+
 			canMoveCuzNotInCutscene = false;
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
 
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
-			transform.position = Vector3.MoveTowards(transform.position, RM6CheckpointObjectL.transform.position, 70f * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, RM6CheckpointObjectL.transform.position, 500f * Time.deltaTime);
 
 			yield return null;
 		}
+
+		player.GetComponent<Renderer> ().enabled = true;
+		playerOutline.GetComponent<Renderer> ().enabled = true;
 
 		canMoveCuzNotInCutscene = true;
 		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
@@ -1482,16 +1623,25 @@ public class playerMove : MonoBehaviour {
 
 		while (Vector3.Distance(player.transform.position, RM6CheckpointObjectR.transform.position) > 1f) {
 
+			player.GetComponent<Renderer> ().enabled = false;
+			playerOutline.GetComponent<Renderer> ().enabled = false;
+
+			Instantiate (playerDeathEffect, player.transform.position, player.transform.rotation);
+			playerDeathEffect.transform.position = player.transform.position;
+
 			canMoveCuzNotInCutscene = false;
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
 
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
-			transform.position = Vector3.MoveTowards(transform.position, RM6CheckpointObjectR.transform.position, 70f * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, RM6CheckpointObjectR.transform.position, 500f * Time.deltaTime);
 
 			yield return null;
 		}
+
+		player.GetComponent<Renderer> ().enabled = true;
+		playerOutline.GetComponent<Renderer> ().enabled = true;
 
 		canMoveCuzNotInCutscene = true;
 		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
@@ -1504,16 +1654,25 @@ public class playerMove : MonoBehaviour {
 
 		while (Vector3.Distance(player.transform.position, RM7CheckpointObjectL.transform.position) > 1f) {
 
+			player.GetComponent<Renderer> ().enabled = false;
+			playerOutline.GetComponent<Renderer> ().enabled = false;
+
+			Instantiate (playerDeathEffect, player.transform.position, player.transform.rotation);
+			playerDeathEffect.transform.position = player.transform.position;
+
 			canMoveCuzNotInCutscene = false;
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
 
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
-			transform.position = Vector3.MoveTowards(transform.position, RM7CheckpointObjectL.transform.position, 70f * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, RM7CheckpointObjectL.transform.position, 500f * Time.deltaTime);
 
 			yield return null;
 		}
+
+		player.GetComponent<Renderer> ().enabled = true;
+		playerOutline.GetComponent<Renderer> ().enabled = true;
 
 		canMoveCuzNotInCutscene = true;
 		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
@@ -1526,16 +1685,25 @@ public class playerMove : MonoBehaviour {
 
 		while (Vector3.Distance(player.transform.position, RM7CheckpointObjectR.transform.position) > 1f) {
 
+			player.GetComponent<Renderer> ().enabled = false;
+			playerOutline.GetComponent<Renderer> ().enabled = false;
+
+			Instantiate (playerDeathEffect, player.transform.position, player.transform.rotation);
+			playerDeathEffect.transform.position = player.transform.position;
+
 			canMoveCuzNotInCutscene = false;
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
 
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
-			transform.position = Vector3.MoveTowards(transform.position, RM7CheckpointObjectR.transform.position, 70f * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, RM7CheckpointObjectR.transform.position, 500f * Time.deltaTime);
 
 			yield return null;
 		}
+
+		player.GetComponent<Renderer> ().enabled = true;
+		playerOutline.GetComponent<Renderer> ().enabled = true;
 
 		canMoveCuzNotInCutscene = true;
 		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
@@ -1548,16 +1716,25 @@ public class playerMove : MonoBehaviour {
 
 		while (Vector3.Distance(player.transform.position, RM8CheckpointObjectL.transform.position) > 1f) {
 
+			player.GetComponent<Renderer> ().enabled = false;
+			playerOutline.GetComponent<Renderer> ().enabled = false;
+
+			Instantiate (playerDeathEffect, player.transform.position, player.transform.rotation);
+			playerDeathEffect.transform.position = player.transform.position;
+
 			canMoveCuzNotInCutscene = false;
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
 
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
-			transform.position = Vector3.MoveTowards(transform.position, RM8CheckpointObjectL.transform.position, 70f * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, RM8CheckpointObjectL.transform.position, 500f * Time.deltaTime);
 
 			yield return null;
 		}
+
+		player.GetComponent<Renderer> ().enabled = true;
+		playerOutline.GetComponent<Renderer> ().enabled = true;
 
 		canMoveCuzNotInCutscene = true;
 		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
@@ -1570,16 +1747,25 @@ public class playerMove : MonoBehaviour {
 
 		while (Vector3.Distance(player.transform.position, RM8CheckpointObjectR.transform.position) > 1f) {
 
+			player.GetComponent<Renderer> ().enabled = false;
+			playerOutline.GetComponent<Renderer> ().enabled = false;
+
+			Instantiate (playerDeathEffect, player.transform.position, player.transform.rotation);
+			playerDeathEffect.transform.position = player.transform.position;
+
 			canMoveCuzNotInCutscene = false;
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
 
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
-			transform.position = Vector3.MoveTowards(transform.position, RM8CheckpointObjectR.transform.position, 70f * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, RM8CheckpointObjectR.transform.position, 500f * Time.deltaTime);
 
 			yield return null;
 		}
+
+		player.GetComponent<Renderer> ().enabled = true;
+		playerOutline.GetComponent<Renderer> ().enabled = true;
 
 		canMoveCuzNotInCutscene = true;
 		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
@@ -1592,16 +1778,25 @@ public class playerMove : MonoBehaviour {
 
 		while (Vector3.Distance(player.transform.position, RM9CheckpointObjectL.transform.position) > 1f) {
 
+			player.GetComponent<Renderer> ().enabled = false;
+			playerOutline.GetComponent<Renderer> ().enabled = false;
+
+			Instantiate (playerDeathEffect, player.transform.position, player.transform.rotation);
+			playerDeathEffect.transform.position = player.transform.position;
+
 			canMoveCuzNotInCutscene = false;
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
 
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
-			transform.position = Vector3.MoveTowards(transform.position, RM9CheckpointObjectL.transform.position, 70f * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, RM9CheckpointObjectL.transform.position, 500f * Time.deltaTime);
 
 			yield return null;
 		}
+
+		player.GetComponent<Renderer> ().enabled = true;
+		playerOutline.GetComponent<Renderer> ().enabled = true;
 
 		canMoveCuzNotInCutscene = true;
 		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
@@ -1614,16 +1809,25 @@ public class playerMove : MonoBehaviour {
 
 		while (Vector3.Distance(player.transform.position, RM9CheckpointObjectR.transform.position) > 1f) {
 
+			player.GetComponent<Renderer> ().enabled = false;
+			playerOutline.GetComponent<Renderer> ().enabled = false;
+
+			Instantiate (playerDeathEffect, player.transform.position, player.transform.rotation);
+			playerDeathEffect.transform.position = player.transform.position;
+
 			canMoveCuzNotInCutscene = false;
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
 
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
-			transform.position = Vector3.MoveTowards(transform.position, RM9CheckpointObjectR.transform.position, 70f * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, RM9CheckpointObjectR.transform.position, 500f * Time.deltaTime);
 
 			yield return null;
 		}
+
+		player.GetComponent<Renderer> ().enabled = true;
+		playerOutline.GetComponent<Renderer> ().enabled = true;
 
 		canMoveCuzNotInCutscene = true;
 		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
@@ -1636,16 +1840,25 @@ public class playerMove : MonoBehaviour {
 
 		while (Vector3.Distance(player.transform.position, RM10CheckpointObjectL.transform.position) > 1f) {
 
+			player.GetComponent<Renderer> ().enabled = false;
+			playerOutline.GetComponent<Renderer> ().enabled = false;
+
+			Instantiate (playerDeathEffect, player.transform.position, player.transform.rotation);
+			playerDeathEffect.transform.position = player.transform.position;
+
 			canMoveCuzNotInCutscene = false;
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
 
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
-			transform.position = Vector3.MoveTowards(transform.position, RM10CheckpointObjectL.transform.position, 70f * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, RM10CheckpointObjectL.transform.position, 500f * Time.deltaTime);
 
 			yield return null;
 		}
+
+		player.GetComponent<Renderer> ().enabled = true;
+		playerOutline.GetComponent<Renderer> ().enabled = true;
 
 		canMoveCuzNotInCutscene = true;
 		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
@@ -1658,16 +1871,56 @@ public class playerMove : MonoBehaviour {
 
 		while (Vector3.Distance(player.transform.position, RM10CheckpointObjectR.transform.position) > 1f) {
 
+			player.GetComponent<Renderer> ().enabled = false;
+			playerOutline.GetComponent<Renderer> ().enabled = false;
+
+			Instantiate (playerDeathEffect, player.transform.position, player.transform.rotation);
+			playerDeathEffect.transform.position = player.transform.position;
+
 			canMoveCuzNotInCutscene = false;
 			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
 
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
-			transform.position = Vector3.MoveTowards(transform.position, RM10CheckpointObjectR.transform.position, 70f * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, RM10CheckpointObjectR.transform.position, 500f * Time.deltaTime);
 
 			yield return null;
 		}
+
+		player.GetComponent<Renderer> ().enabled = true;
+		playerOutline.GetComponent<Renderer> ().enabled = true;
+
+		canMoveCuzNotInCutscene = true;
+		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
+
+		player.GetComponent<Collider2D> ().enabled = true;
+		player.GetComponent<Rigidbody2D> ().gravityScale = 175f;
+	}
+
+	IEnumerator FlyToCP11L () {
+
+		while (Vector3.Distance(player.transform.position, RM11CheckpointObjectL.transform.position) > 1f) {
+
+			player.GetComponent<Renderer> ().enabled = false;
+			playerOutline.GetComponent<Renderer> ().enabled = false;
+
+			Instantiate (playerDeathEffect, player.transform.position, player.transform.rotation);
+			playerDeathEffect.transform.position = player.transform.position;
+
+			canMoveCuzNotInCutscene = false;
+			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
+
+			player.GetComponent<Collider2D> ().enabled = false;
+			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
+
+			transform.position = Vector3.MoveTowards(transform.position, RM11CheckpointObjectL.transform.position, 500 * Time.deltaTime);
+
+			yield return null;
+		}
+
+		player.GetComponent<Renderer> ().enabled = true;
+		playerOutline.GetComponent<Renderer> ().enabled = true;
 
 		canMoveCuzNotInCutscene = true;
 		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
