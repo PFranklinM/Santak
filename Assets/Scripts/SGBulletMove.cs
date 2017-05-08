@@ -48,6 +48,10 @@ public class SGBulletMove : MonoBehaviour {
 			Destroy (Bullet);
 		}
 
+		if (coll.gameObject.tag == "boss") {
+			Destroy (Bullet);
+		}
+
 		if (coll.gameObject.tag == "ground") {
 			Destroy (Bullet);
 		}

@@ -9,7 +9,7 @@ public class ARBulletMove : MonoBehaviour {
 	public GameObject Bullet;
 	public GameObject player;
 
-	Vector3 targetPos;
+//	Vector3 targetPos;
 
 	// Use this for initialization
 	void Start () {
@@ -47,6 +47,10 @@ public class ARBulletMove : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D coll){
 		if (coll.gameObject.tag == "enemy") {
+			Destroy (Bullet);
+		}
+
+		if (coll.gameObject.tag == "boss") {
 			Destroy (Bullet);
 		}
 

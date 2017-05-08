@@ -50,7 +50,7 @@ public class playerTextBoxManager : MonoBehaviour {
 
 		theText.text = textLines [currentLine];
 
-		if (textTimer >= 3f) {
+		if (textTimer >= 3.5f) {
 			currentLine += 1;
 			textTimer = 0.0f;
 		}

@@ -14,7 +14,7 @@ public class targetControl : MonoBehaviour {
 
 	public bool playerHasMG;
 
-	public bool playerCanSwitchWorlds;
+//	public bool playerCanSwitchWorlds;
 
 	float textSizeTimer;
 
@@ -76,7 +76,7 @@ public class targetControl : MonoBehaviour {
 
 		playerHasMG = true;
 
-		playerCanSwitchWorlds = true;
+//		playerCanSwitchWorlds = true;
 
 		playerGotWeaponAdvice = false;
 
@@ -121,7 +121,7 @@ public class targetControl : MonoBehaviour {
 
 		if (Input.GetMouseButton (1) && (Time.time > ROF) && AREquipped == true && canShootCuzNotInCutscene == true && playerHasMG == true) {
 
-			shotDelay = 1f;
+			shotDelay = 0.75f;
 
 			ROF = Time.time + shotDelay;
 
@@ -259,7 +259,7 @@ public class targetControl : MonoBehaviour {
 
 //World Switching Behavior
 
-		if (playerCanSwitchWorlds == true) {
+//		if (playerCanSwitchWorlds == true) {
 
 			Vector3 squareWorldPos = new Vector3 (squareWorld.transform.position.x,
 				                        squareWorld.transform.position.y,
@@ -329,14 +329,14 @@ public class targetControl : MonoBehaviour {
 			squareWorld.transform.position = squareWorldPos;
 			circleWorld.transform.position = circleWorldPos;
 
-		}
+//		}
 
-		if (playerCanSwitchWorlds == false) {
-			squareWorld.SetActive (false);
-			circleWorld.SetActive (true);
-
-			squareWorldActive = false;
-		}
+//		if (playerCanSwitchWorlds == false) {
+//			squareWorld.SetActive (false);
+//			circleWorld.SetActive (true);
+//
+//			squareWorldActive = false;
+//		}
 
 		player.transform.position = playerPos;
 

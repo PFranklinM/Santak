@@ -15,25 +15,28 @@ public class enemySpawnerBoss1 : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (spawnCounter < 1) {
 
-			GameObject Boss1Clone = (GameObject)Instantiate (Boss1);
+		if (GameObject.Find ("Player").GetComponent<playerMove> ().Boss3CheckpointR == true) {
+			if (spawnCounter < 1) {
 
-			Vector3 clonePos = new Vector3 (Boss1Clone.transform.position.x,
-				Boss1Clone.transform.position.y,
-				Boss1Clone.transform.position.z);
+				GameObject Boss1Clone = (GameObject)Instantiate (Boss1);
 
-			clonePos.x = 7000;
-			clonePos.y = 3060.5f;
+				Vector3 clonePos = new Vector3 (Boss1Clone.transform.position.x,
+					                  Boss1Clone.transform.position.y,
+					                  Boss1Clone.transform.position.z);
 
-			Boss1Clone.transform.position = clonePos;
+				clonePos.x = 7075;
+				clonePos.y = 3058.504f;
 
-			spawnCounter++;
+				Boss1Clone.transform.position = clonePos;
+
+				spawnCounter++;
+			}
 		}
 
 		if (GameObject.Find ("Player").GetComponent<playerMove> ().Boss3CheckpointL == true) {
 
-			if (GameObject.Find ("Boss(Clone)") == null) {
+			if (GameObject.Find ("Boss1(Clone)") == null) {
 				spawnCounter = 0;
 			}
 		}

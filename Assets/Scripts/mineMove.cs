@@ -61,4 +61,11 @@ public class mineMove : MonoBehaviour {
 		}
 	
 	}
+
+	void OnCollisionEnter2D(Collision2D coll){
+
+		if (coll.gameObject.tag == "deathWall") {
+			Destroy (this.gameObject);
+		}
+	}
 }

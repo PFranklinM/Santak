@@ -42,9 +42,9 @@ public class squareEnemyMove : MonoBehaviour {
 
 		Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), key1.GetComponent<Collider2D>());
 
-		Vector3 enemyPos = new Vector3 (transform.position.x,
-			transform.position.y,
-			transform.position.z);
+		Vector3 enemyPos = new Vector3 (this.transform.position.x,
+			this.transform.position.y,
+			this.transform.position.z);
 
 		if (Vector3.Distance (this.transform.position, player.transform.position) < 400f && 
 			GameObject.Find("Player").GetComponent<playerMove> ().playerInvulnerable == false) {
@@ -216,25 +216,25 @@ public class squareEnemyMove : MonoBehaviour {
 			Destroy (this.gameObject);
 		}
 
-		if (GameObject.Find ("Player").GetComponent<playerMove> ().Boss1CheckpointR == true) {
-			Destroy (this.gameObject);
-		}
+//		if (GameObject.Find ("Player").GetComponent<playerMove> ().Boss1CheckpointR == true) {
+//			Destroy (this.gameObject);
+//		}
 
 		if (GameObject.Find ("Player").GetComponent<playerMove> ().Boss2CheckpointL == true) {
 			Destroy (this.gameObject);
 		}
 
-		if (GameObject.Find ("Player").GetComponent<playerMove> ().Boss2CheckpointR == true) {
-			Destroy (this.gameObject);
-		}
+//		if (GameObject.Find ("Player").GetComponent<playerMove> ().Boss2CheckpointR == true) {
+//			Destroy (this.gameObject);
+//		}
 
 		if (GameObject.Find ("Player").GetComponent<playerMove> ().Boss3CheckpointL == true) {
 			Destroy (this.gameObject);
 		}
 
-		if (GameObject.Find ("Player").GetComponent<playerMove> ().Boss3CheckpointR == true) {
-			Destroy (this.gameObject);
-		}
+//		if (GameObject.Find ("Player").GetComponent<playerMove> ().Boss3CheckpointR == true) {
+//			Destroy (this.gameObject);
+//		}
 
 
 		if (Vector3.Distance (this.transform.position, player.transform.position) < 100f) {

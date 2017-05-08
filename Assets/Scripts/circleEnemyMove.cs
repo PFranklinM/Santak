@@ -245,7 +245,7 @@ public class circleEnemyMove : MonoBehaviour {
 
 			this.GetComponent<SpriteRenderer> ().color = Color.green;
 
-			Invoke("changeBackToWhite", 0.75f);
+			Invoke("changeBackToWhite", 0.15f);
 		}
 
 		if (coll.gameObject.tag == "SGbullet") {

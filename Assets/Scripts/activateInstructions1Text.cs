@@ -22,6 +22,10 @@ public class activateInstructions1Text : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		if (GameObject.Find ("Player").GetComponent<playerMove> ().firstPlaythrough == true) {
+			textHasPlayed = false;
+		}
+
 		if (GameObject.Find ("Player").GetComponent<playerMove> ().firstPlaythrough == false) {
 			textHasPlayed = true;
 		}
@@ -29,7 +33,8 @@ public class activateInstructions1Text : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D coll){
-		if (coll.gameObject.tag == "player" && textHasPlayed == false) {
+		if (coll.gameObject.tag == "player" && textHasPlayed == false && 
+			GameObject.Find ("Player").GetComponent<playerMove> ().firstPlaythrough == true) {
 
 			textBox.reloadScript (theText);
 			textBox.currentLine = startLine;

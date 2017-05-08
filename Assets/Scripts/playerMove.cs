@@ -164,6 +164,11 @@ public class playerMove : MonoBehaviour {
 
 	public GameObject RM11CheckpointObjectL;
 
+	public GameObject playerStart;
+
+	public GameObject boss2R;
+	public GameObject boss3R;
+
 	public GameObject playerDeathEffect;
 	public GameObject playerOutline;
 
@@ -525,127 +530,7 @@ public class playerMove : MonoBehaviour {
 			Input.GetKey (KeyCode.Return) && secondPlaythrough == true ||
 			Input.GetKey (KeyCode.Return) && thirdPlaythrough == true) {
 
-			if (RM1Checkpoint == true) {
-
-				StartCoroutine ("FlyToCP1");
-
-			}
-
-			if (RM2CheckpointL == true) {
-
-				StartCoroutine ("FlyToCP1");
-
-			}
-
-			if (RM2CheckpointR == true) {
-
-				StartCoroutine ("FlyToCP1");
-
-			}
-
-			if (RM3CheckpointL == true) {
-
-				StartCoroutine ("FlyToCP2R");
-
-			}
-
-			if (RM3CheckpointR == true) {
-
-				StartCoroutine ("FlyToCP2R");
-
-			}
-
-			if (RM4CheckpointL == true) {
-
-				StartCoroutine ("FlyToCP3R");
-
-			}
-
-			if (RM4CheckpointR == true) {
-
-				StartCoroutine ("FlyToCP3R");
-
-			}
-
-			if (RM5CheckpointL == true) {
-
-				StartCoroutine ("FlyToCP4R");
-
-			}
-
-			if (RM5CheckpointR == true) {
-
-				StartCoroutine ("FlyToCP4R");
-
-			}
-
-			if (RM6CheckpointL == true) {
-
-				StartCoroutine ("FlyToCP5R");
-
-			}
-
-			if (RM6CheckpointR == true) {
-
-				StartCoroutine ("FlyToCP5R");
-
-			}
-
-			if (RM7CheckpointL == true) {
-
-				StartCoroutine ("FlyToCP6R");
-
-			}
-
-			if (RM7CheckpointR == true) {
-
-				StartCoroutine ("FlyToCP6R");
-
-			}
-
-			if (RM8CheckpointL == true) {
-
-				StartCoroutine ("FlyToCP7R");
-
-			}
-
-			if (RM8CheckpointR == true) {
-
-				StartCoroutine ("FlyToCP7R");
-
-			}
-
-			if (RM9CheckpointL == true) {
-
-				StartCoroutine ("FlyToCP8R");
-
-			}
-
-			if (RM9CheckpointR == true) {
-
-				StartCoroutine ("FlyToCP8R");
-
-			}
-
-			if (RM10CheckpointL == true) {
-
-				StartCoroutine ("FlyToCP9R");
-
-			}
-
-			if (RM10CheckpointR == true) {
-
-				StartCoroutine ("FlyToCP9R");
-
-			}
-
-			if (RM11CheckpointL == true ||
-				Boss1CheckpointL == true || Boss1CheckpointR == true ||
-				Boss2CheckpointL == true || Boss2CheckpointR == true ||
-				Boss3CheckpointL == true || Boss3CheckpointR == true) {
-
-				StartCoroutine ("FlyToCP11L");
-			}
+			StartCoroutine ("FlyToBoss2");
 
 			playerjustDied = true;
 		}
@@ -1123,6 +1008,38 @@ public class playerMove : MonoBehaviour {
 			playerInvulnerable = true;
 		}
 
+		if (coll.gameObject.tag == "boss") {
+
+			Vector3 playerPosRN = new Vector3 (this.transform.position.x,
+				this.transform.position.y,
+				this.transform.position.z);
+
+			Vector3 enemyPosRN = new Vector3 (coll.gameObject.transform.position.x,
+				coll.gameObject.transform.position.y,
+				coll.gameObject.transform.position.z);
+
+			playerHasKey = false;
+
+			if (playerInvulnerable == false) {
+
+				if (enemyPosRN.x > playerPosRN.x) {
+					rb.velocity = new Vector3 (-1500, 750, 0);
+				}
+
+				if (enemyPosRN.x < playerPosRN.x) {
+					rb.velocity = new Vector3 (1500, 750, 0);
+				}
+
+				this.transform.position = playerPosRN;
+				coll.gameObject.transform.position = enemyPosRN;
+
+				health -= 1;
+			}
+
+			playerInvulnerable = true;
+
+		}
+
 		if (coll.gameObject.tag == "deathWall") {
 
 			Vector3 playerPosRN = new Vector3 (this.transform.position.x,
@@ -1152,8 +1069,7 @@ public class playerMove : MonoBehaviour {
 
 		if (coll.gameObject.tag == "finalKey1" && finalKey1 == false) {
 
-			playerPos.x = -40;
-			playerPos.y = 19.35f;
+			StartCoroutine ("FlyToPlayerStart");
 
 			finalKey1 = true;
 
@@ -1176,8 +1092,7 @@ public class playerMove : MonoBehaviour {
 
 		if (coll.gameObject.tag == "finalKey2" && finalKey2 == false) {
 
-			playerPos.x = -40;
-			playerPos.y = 19.35f;
+			StartCoroutine ("FlyToPlayerStart");
 
 			finalKey2 = true;
 
@@ -1204,7 +1119,7 @@ public class playerMove : MonoBehaviour {
 
 			finalKey3 = true;
 
-			GameObject.Find ("Target").GetComponent<targetControl> ().playerCanSwitchWorlds = false;
+//			GameObject.Find ("Target").GetComponent<targetControl> ().playerCanSwitchWorlds = false;
 
 			moveSpeed = 20;
 
@@ -1298,6 +1213,12 @@ public class playerMove : MonoBehaviour {
 			bossBlocker1.SetActive (true);
 		}
 
+		if (coll.gameObject.tag == "transitionEnd") {
+			bossBlocker3.SetActive (false);
+			bossBlocker2.SetActive (false);
+			bossBlocker1.SetActive (false);
+		}
+
 		if (coll.gameObject.tag == "finalDoorTrigger" && finalKey3 == true) {
 
 			playFinalDoorOpeningAnimation = true;
@@ -1308,6 +1229,37 @@ public class playerMove : MonoBehaviour {
 	}
 
 	//RESPAWN COROUTINES
+
+	IEnumerator FlyToPlayerStart () {
+
+		while (Vector3.Distance(player.transform.position, playerStart.transform.position) > 1f) {
+
+			player.GetComponent<Renderer> ().enabled = false;
+			playerOutline.GetComponent<Renderer> ().enabled = false;
+
+			Instantiate (playerDeathEffect, player.transform.position, player.transform.rotation);
+			playerDeathEffect.transform.position = player.transform.position;
+
+			canMoveCuzNotInCutscene = false;
+			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
+
+			player.GetComponent<Collider2D> ().enabled = false;
+			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
+
+			transform.position = Vector3.MoveTowards(transform.position, playerStart.transform.position, 1000f * Time.deltaTime);
+
+			yield return null;
+		}
+
+		player.GetComponent<Renderer> ().enabled = true;
+		playerOutline.GetComponent<Renderer> ().enabled = true;
+
+		canMoveCuzNotInCutscene = true;
+		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
+
+		player.GetComponent<Collider2D> ().enabled = true;
+		player.GetComponent<Rigidbody2D> ().gravityScale = 175f;
+	}
 
 	IEnumerator FlyToCP1 () {
 
@@ -1915,6 +1867,37 @@ public class playerMove : MonoBehaviour {
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
 			transform.position = Vector3.MoveTowards(transform.position, RM11CheckpointObjectL.transform.position, 500 * Time.deltaTime);
+
+			yield return null;
+		}
+
+		player.GetComponent<Renderer> ().enabled = true;
+		playerOutline.GetComponent<Renderer> ().enabled = true;
+
+		canMoveCuzNotInCutscene = true;
+		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
+
+		player.GetComponent<Collider2D> ().enabled = true;
+		player.GetComponent<Rigidbody2D> ().gravityScale = 175f;
+	}
+
+	IEnumerator FlyToBoss2 () {
+
+		while (Vector3.Distance(player.transform.position, boss2R.transform.position) > 1f) {
+
+			player.GetComponent<Renderer> ().enabled = false;
+			playerOutline.GetComponent<Renderer> ().enabled = false;
+
+			Instantiate (playerDeathEffect, player.transform.position, player.transform.rotation);
+			playerDeathEffect.transform.position = player.transform.position;
+
+			canMoveCuzNotInCutscene = false;
+			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
+
+			player.GetComponent<Collider2D> ().enabled = false;
+			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
+
+			transform.position = Vector3.MoveTowards(transform.position, boss2R.transform.position, 1000 * Time.deltaTime);
 
 			yield return null;
 		}

@@ -62,10 +62,12 @@
      <Compile Include="Assets\Scripts\activateInstructions2Text.cs" />
      <Compile Include="Assets\Scripts\activateInstructions3Text.cs" />
      <Compile Include="Assets\Scripts\activateInstructions4Text.cs" />
+     <Compile Include="Assets\Scripts\activateInstructions5Text.cs" />
      <Compile Include="Assets\Scripts\audioManager.cs" />
      <Compile Include="Assets\Scripts\backGroundScrollNoRepeat.cs" />
      <Compile Include="Assets\Scripts\backGroundScrollRepeat.cs" />
      <Compile Include="Assets\Scripts\boss1Move.cs" />
+     <Compile Include="Assets\Scripts\boss2Move.cs" />
      <Compile Include="Assets\Scripts\bossFinalMove.cs" />
      <Compile Include="Assets\Scripts\bossTextBoxManagerEnding.cs" />
      <Compile Include="Assets\Scripts\bossTextBoxManagerOpening.cs" />
@@ -79,6 +81,7 @@
      <Compile Include="Assets\Scripts\destroyExplosion.cs" />
      <Compile Include="Assets\Scripts\doorMove.cs" />
      <Compile Include="Assets\Scripts\enemySpawnerBoss1.cs" />
+     <Compile Include="Assets\Scripts\enemySpawnerBoss2.cs" />
      <Compile Include="Assets\Scripts\enemySpawnerRM10C.cs" />
      <Compile Include="Assets\Scripts\enemySpawnerRM3Circle.cs" />
      <Compile Include="Assets\Scripts\enemySpawnerRM3Square.cs" />
@@ -90,6 +93,8 @@
      <Compile Include="Assets\Scripts\hangingBoxReturnToNormal.cs" />
      <Compile Include="Assets\Scripts\ignoreBarrierCollision.cs" />
      <Compile Include="Assets\Scripts\keyBehavior.cs" />
+     <Compile Include="Assets\Scripts\lavaCircleMove.cs" />
+     <Compile Include="Assets\Scripts\lavaDestroy.cs" />
      <Compile Include="Assets\Scripts\lavaMoveH.cs" />
      <Compile Include="Assets\Scripts\lavaMoveV.cs" />
      <Compile Include="Assets\Scripts\lockedDoorMove.cs" />
@@ -162,6 +167,7 @@
      <None Include="Assets\grotto_escape_pack\license.txt" />
      <None Include="Assets\parallax-industrial-web\license.txt" />
      <None Include="Assets\Dialog\FinalBossDialog.txt" />
+     <None Include="Assets\Dialog\instructions5.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
