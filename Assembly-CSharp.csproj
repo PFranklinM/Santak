@@ -82,6 +82,7 @@
      <Compile Include="Assets\Scripts\doorMove.cs" />
      <Compile Include="Assets\Scripts\enemySpawnerBoss1.cs" />
      <Compile Include="Assets\Scripts\enemySpawnerBoss2.cs" />
+     <Compile Include="Assets\Scripts\enemySpawnerBoss3.cs" />
      <Compile Include="Assets\Scripts\enemySpawnerRM10C.cs" />
      <Compile Include="Assets\Scripts\enemySpawnerRM3Circle.cs" />
      <Compile Include="Assets\Scripts\enemySpawnerRM3Square.cs" />
@@ -95,6 +96,7 @@
      <Compile Include="Assets\Scripts\keyBehavior.cs" />
      <Compile Include="Assets\Scripts\lavaCircleMove.cs" />
      <Compile Include="Assets\Scripts\lavaDestroy.cs" />
+     <Compile Include="Assets\Scripts\lavaIgnoreCollision.cs" />
      <Compile Include="Assets\Scripts\lavaMoveH.cs" />
      <Compile Include="Assets\Scripts\lavaMoveV.cs" />
      <Compile Include="Assets\Scripts\lockedDoorMove.cs" />

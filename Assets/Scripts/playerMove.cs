@@ -172,6 +172,14 @@ public class playerMove : MonoBehaviour {
 	public GameObject playerDeathEffect;
 	public GameObject playerOutline;
 
+	public GameObject finalKeyA;
+	public GameObject finalKeyB;
+	public GameObject finalKeyC;
+
+	public GameObject emergencyKey;
+
+	public GameObject bossBlocker1Trigger;
+
 //	public GameObject BG1;
 //	public GameObject BG2;
 //	public GameObject BG3;
@@ -281,6 +289,8 @@ public class playerMove : MonoBehaviour {
 
 		Boss3CheckpointL = false;
 		Boss3CheckpointR = false;
+
+		emergencyKey.SetActive (false);
 	
 	}
 	
@@ -530,7 +540,7 @@ public class playerMove : MonoBehaviour {
 			Input.GetKey (KeyCode.Return) && secondPlaythrough == true ||
 			Input.GetKey (KeyCode.Return) && thirdPlaythrough == true) {
 
-			StartCoroutine ("FlyToBoss2");
+			StartCoroutine ("FlyToBoss3");
 
 			playerjustDied = true;
 		}
@@ -1071,11 +1081,13 @@ public class playerMove : MonoBehaviour {
 
 			StartCoroutine ("FlyToPlayerStart");
 
+			finalKeyA.SetActive (false);
+
 			finalKey1 = true;
 
 			RM1Checkpoint = true;
 
-			playerHasFlight = false;
+//			playerHasFlight = false;
 
 			firstPlaythrough = false;
 			secondPlaythrough = true;
@@ -1094,13 +1106,13 @@ public class playerMove : MonoBehaviour {
 
 			StartCoroutine ("FlyToPlayerStart");
 
+			finalKeyB.SetActive (false);
+
 			finalKey2 = true;
 
 			RM1Checkpoint = true;
 
 			playerHasDoubleJump = false;
-
-			GameObject.Find ("Target").GetComponent<targetControl> ().playerHasMG = false;
 
 			firstPlaythrough = false;
 			secondPlaythrough = false;
@@ -1119,9 +1131,19 @@ public class playerMove : MonoBehaviour {
 
 			finalKey3 = true;
 
+			finalKeyC.SetActive (false);
+
+			emergencyKey.SetActive (true);
+
+			bossBlocker1.SetActive (false);
+
+			bossBlocker1Trigger.SetActive (false);
+
 //			GameObject.Find ("Target").GetComponent<targetControl> ().playerCanSwitchWorlds = false;
 
-			moveSpeed = 20;
+			GameObject.Find ("Target").GetComponent<targetControl> ().playerHasMG = false;
+
+//			moveSpeed = 20;
 
 			firstPlaythrough = false;
 			secondPlaythrough = false;
@@ -1898,6 +1920,37 @@ public class playerMove : MonoBehaviour {
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
 			transform.position = Vector3.MoveTowards(transform.position, boss2R.transform.position, 1000 * Time.deltaTime);
+
+			yield return null;
+		}
+
+		player.GetComponent<Renderer> ().enabled = true;
+		playerOutline.GetComponent<Renderer> ().enabled = true;
+
+		canMoveCuzNotInCutscene = true;
+		GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = true;
+
+		player.GetComponent<Collider2D> ().enabled = true;
+		player.GetComponent<Rigidbody2D> ().gravityScale = 175f;
+	}
+
+	IEnumerator FlyToBoss3 () {
+
+		while (Vector3.Distance(player.transform.position, boss3R.transform.position) > 1f) {
+
+			player.GetComponent<Renderer> ().enabled = false;
+			playerOutline.GetComponent<Renderer> ().enabled = false;
+
+			Instantiate (playerDeathEffect, player.transform.position, player.transform.rotation);
+			playerDeathEffect.transform.position = player.transform.position;
+
+			canMoveCuzNotInCutscene = false;
+			GameObject.Find ("Target").GetComponent<targetControl> ().canShootCuzNotInCutscene = false;
+
+			player.GetComponent<Collider2D> ().enabled = false;
+			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
+
+			transform.position = Vector3.MoveTowards(transform.position, boss3R.transform.position, 1000 * Time.deltaTime);
 
 			yield return null;
 		}

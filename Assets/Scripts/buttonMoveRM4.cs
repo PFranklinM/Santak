@@ -62,6 +62,10 @@ public class buttonMoveRM4 : MonoBehaviour {
 		} else {
 			barrier1.SetActive (true);
 		}
+
+		if (boxOnButton == false) {
+			somethingOnButton = false;
+		}
 	
 	}
 
@@ -97,9 +101,17 @@ public class buttonMoveRM4 : MonoBehaviour {
 			boxOnButton = false;
 		}
 
-
-		if (boxOnButton == false) {
-			somethingOnButton = false;
+		if (coll.gameObject.tag == "mine") {
+			boxOnButton = false;
 		}
+
+		if (coll.gameObject.tag == "explosion") {
+			boxOnButton = false;
+		}
+
+
+//		if (boxOnButton == false) {
+//			somethingOnButton = false;
+//		}
 	}
 }

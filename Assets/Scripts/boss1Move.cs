@@ -24,8 +24,15 @@ public class boss1Move : MonoBehaviour {
 
 	bool timeToSpawnMinions;
 
+	public GameObject finalKey1;
+	public GameObject finalKey2;
+	public GameObject finalKey3;
+
 	// Use this for initialization
 	void Start () {
+
+		finalKey1 = GameObject.Find ("TriangleKey1");
+		finalKey3 = GameObject.Find ("TriangleKey3");
 
 		timeToSpawnMinions = false;
 
@@ -41,6 +48,12 @@ public class boss1Move : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+
+		if (finalKey1 != null) {
+			Physics2D.IgnoreCollision (finalKey1.GetComponent<Collider2D> (), this.GetComponent<Collider2D> ());
+		}
+		Physics2D.IgnoreCollision (finalKey3.GetComponent<Collider2D> (), this.GetComponent<Collider2D> ());
 
 		Vector3 enemyPos = new Vector3 (this.transform.position.x,
 			this.transform.position.y,
