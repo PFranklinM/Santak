@@ -178,6 +178,8 @@ public class playerMove : MonoBehaviour {
 
 	public GameObject emergencyKey;
 
+	public GameObject bossBlocker3Trigger;
+	public GameObject bossBlocker2Trigger;
 	public GameObject bossBlocker1Trigger;
 
 //	public GameObject BG1;
@@ -531,19 +533,148 @@ public class playerMove : MonoBehaviour {
 			health = 4;
 		}
 
+		if (health <= 0 && lastPlaythrough == true) {
+
+			if (RM1Checkpoint == true) {
+
+				StartCoroutine ("FlyToCP2L");
+
+			}
+
+			if (RM2CheckpointL == true) {
+
+				StartCoroutine ("FlyToCP3L");
+
+			}
+
+			if (RM2CheckpointR == true) {
+
+				StartCoroutine ("FlyToCP3L");
+
+			}
+
+			if (RM3CheckpointL == true) {
+
+				StartCoroutine ("FlyToCP4L");
+
+			}
+
+			if (RM3CheckpointR == true) {
+
+				StartCoroutine ("FlyToCP4L");
+
+			}
+
+			if (RM4CheckpointL == true) {
+
+				StartCoroutine ("FlyToCP5L");
+
+			}
+
+			if (RM4CheckpointR == true) {
+
+				StartCoroutine ("FlyToCP5L");
+
+			}
+
+			if (RM5CheckpointL == true) {
+
+				StartCoroutine ("FlyToCP6L");
+
+			}
+
+			if (RM5CheckpointR == true) {
+
+				StartCoroutine ("FlyToCP6L");
+
+			}
+
+			if (RM6CheckpointL == true) {
+
+				StartCoroutine ("FlyToCP7L");
+
+			}
+
+			if (RM6CheckpointR == true) {
+
+				StartCoroutine ("FlyToCP7L");
+
+			}
+
+			if (RM7CheckpointL == true) {
+
+				StartCoroutine ("FlyToCP8L");
+
+			}
+
+			if (RM7CheckpointR == true) {
+
+				StartCoroutine ("FlyToCP8L");
+
+			}
+
+			if (RM8CheckpointL == true) {
+
+				StartCoroutine ("FlyToCP9L");
+
+			}
+
+			if (RM8CheckpointR == true) {
+
+				StartCoroutine ("FlyToCP9L");
+
+			}
+
+			if (RM9CheckpointL == true) {
+
+				StartCoroutine ("FlyToCP10L");
+
+			}
+
+			if (RM9CheckpointR == true) {
+
+				StartCoroutine ("FlyToCP10L");
+
+			}
+
+			if (RM10CheckpointL == true) {
+
+				StartCoroutine ("FlyToCP11L");
+
+			}
+
+			if (RM10CheckpointR == true) {
+
+				StartCoroutine ("FlyToCP11L");
+
+			}
+
+			if (RM11CheckpointL == true ||
+				Boss1CheckpointL == true || Boss1CheckpointR == true ||
+				Boss2CheckpointL == true || Boss2CheckpointR == true ||
+				Boss3CheckpointL == true || Boss3CheckpointR == true) {
+
+				StartCoroutine ("FlyToCP11R");
+			}
+
+			playerjustDied = true;
+
+			health = 4;
+		}
+
 		if (healthRecovery == true) {
 
 			health = 4;
 		}
 
-		if (Input.GetKey (KeyCode.Return) && firstPlaythrough == true || 
-			Input.GetKey (KeyCode.Return) && secondPlaythrough == true ||
-			Input.GetKey (KeyCode.Return) && thirdPlaythrough == true) {
-
-			StartCoroutine ("FlyToBoss3");
-
-			playerjustDied = true;
-		}
+//		if (Input.GetKey (KeyCode.Return) && firstPlaythrough == true || 
+//			Input.GetKey (KeyCode.Return) && secondPlaythrough == true ||
+//			Input.GetKey (KeyCode.Return) && thirdPlaythrough == true) {
+//
+//			StartCoroutine ("FlyToBoss3");
+//
+//			playerjustDied = true;
+//		}
 
 		if (playerjustDied == true) {
 			playerInvulnerable = true;
@@ -1083,6 +1214,10 @@ public class playerMove : MonoBehaviour {
 
 			finalKeyA.SetActive (false);
 
+			bossBlocker3.SetActive (false);
+
+			bossBlocker3Trigger.SetActive (false);
+
 			finalKey1 = true;
 
 			RM1Checkpoint = true;
@@ -1107,6 +1242,10 @@ public class playerMove : MonoBehaviour {
 			StartCoroutine ("FlyToPlayerStart");
 
 			finalKeyB.SetActive (false);
+
+			bossBlocker2.SetActive (false);
+
+			bossBlocker2Trigger.SetActive (false);
 
 			finalKey2 = true;
 
