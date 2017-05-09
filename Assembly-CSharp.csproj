@@ -63,6 +63,8 @@
      <Compile Include="Assets\Scripts\activateInstructions3Text.cs" />
      <Compile Include="Assets\Scripts\activateInstructions4Text.cs" />
      <Compile Include="Assets\Scripts\activateInstructions5Text.cs" />
+     <Compile Include="Assets\Scripts\activateInstructions6.cs" />
+     <Compile Include="Assets\Scripts\activateInstructions7.cs" />
      <Compile Include="Assets\Scripts\audioManager.cs" />
      <Compile Include="Assets\Scripts\backGroundScrollNoRepeat.cs" />
      <Compile Include="Assets\Scripts\backGroundScrollRepeat.cs" />
@@ -153,6 +155,7 @@
      <None Include="Assets\Dialog\homeDialog.txt" />
      <None Include="Assets\Hand-Drawn\Shaders\Fill+Outline\SimpleOutline+BumpedDiffuseFill.shader" />
      <None Include="Assets\Dialog\instructions1.txt" />
+     <None Include="Assets\Dialog\instructions7.txt" />
      <None Include="Assets\Hand-Drawn\Shaders\Fill+Outline\OverdrawnOutline+GreyscaleFill.shader" />
      <None Include="Assets\Dialog\instructions2.txt" />
      <None Include="Assets\Hand-Drawn\Shaders\Outline\Outline_Simple.shader" />
@@ -166,6 +169,7 @@
      <None Include="Assets\Hand-Drawn\Shaders\Fill\Fill_Diffuse_TexturedShadow.shader" />
      <None Include="Assets\Hand-Drawn\Shaders\Fill+Outline\TexturedOutline+QuantizedTexturedFill.shader" />
      <None Include="Assets\Hand-Drawn\Shaders\Fill\Fill_MultiTextured(Alpha).shader" />
+     <None Include="Assets\Dialog\instructions6.txt" />
      <None Include="Assets\grotto_escape_pack\license.txt" />
      <None Include="Assets\parallax-industrial-web\license.txt" />
      <None Include="Assets\Dialog\FinalBossDialog.txt" />
