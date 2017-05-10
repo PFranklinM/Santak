@@ -16,12 +16,8 @@ public class playerTextBoxManager : MonoBehaviour {
 
 	public bool isActive;
 
-	float textTimer;
-
 	// Use this for initialization
 	void Start () {
-
-		textTimer = 0.0f;
 
 		if (textFile != null) {
 			textLines = (textFile.text.Split ('\n'));
@@ -46,13 +42,10 @@ public class playerTextBoxManager : MonoBehaviour {
 			return;
 		}
 
-		textTimer += Time.deltaTime;
-
 		theText.text = textLines [currentLine];
 
-		if (textTimer >= 3.5f) {
+		if (Input.GetKeyDown(KeyCode.Return)) {
 			currentLine += 1;
-			textTimer = 0.0f;
 		}
 
 		if (currentLine > endAtLine) {

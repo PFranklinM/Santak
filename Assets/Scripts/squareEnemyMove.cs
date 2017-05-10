@@ -53,7 +53,7 @@ public class squareEnemyMove : MonoBehaviour {
 
 				jumpCounter += Time.deltaTime;
 
-				if (jumpCounter > 0.15f) {
+				if (jumpCounter > 1f) {
 
 					rb.velocity = new Vector3 (-750, 1200, 0);
 
@@ -69,7 +69,7 @@ public class squareEnemyMove : MonoBehaviour {
 
 				jumpCounter += Time.deltaTime;
 
-				if (jumpCounter > 0.15f) {
+				if (jumpCounter > 1f) {
 
 					rb.velocity = new Vector3 (750, 1200, 0);
 
@@ -268,7 +268,7 @@ public class squareEnemyMove : MonoBehaviour {
 		if (coll.gameObject.tag == "ARbullet") {
 			health -= 10;
 
-			this.GetComponent<SpriteRenderer> ().color = Color.green;
+			this.GetComponent<SpriteRenderer> ().color = Color.red;
 
 			Invoke("changeBackToWhite", 0.15f);
 		}
@@ -285,7 +285,7 @@ public class squareEnemyMove : MonoBehaviour {
 
 			health -= 25;
 
-			this.GetComponent<SpriteRenderer> ().color = Color.green;
+			this.GetComponent<SpriteRenderer> ().color = Color.red;
 
 			if (bulletPos.x > enemyPos.x) {
 
@@ -312,7 +312,7 @@ public class squareEnemyMove : MonoBehaviour {
 
 			health -= 50;
 
-			this.GetComponent<SpriteRenderer> ().color = Color.green;
+			this.GetComponent<SpriteRenderer> ().color = Color.red;
 
 			if (bulletPos.x > enemyPos.x) {
 

@@ -13,7 +13,7 @@ public class lavaCircleMove : MonoBehaviour {
 
 		player = GameObject.Find("Player");
 
-		moveSpeed = -700000f;
+		moveSpeed = -400000f;
 
 		lavaCircle.GetComponent<Rigidbody2D> ().AddForce ((lavaCircle.transform.position - player.transform.position).normalized * moveSpeed * Time.fixedDeltaTime);
 	}

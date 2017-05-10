@@ -57,7 +57,7 @@ public class bossTextBoxManagerEnding : MonoBehaviour {
 
 		theText.text = textLines [currentLine];
 	
-		if (textTimer >= 2f) {
+		if (textTimer >= 5f) {
 			currentLine += 1;
 			textTimer = 0.0f;
 		}

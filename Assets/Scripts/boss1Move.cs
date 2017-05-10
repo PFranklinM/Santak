@@ -296,7 +296,7 @@ public class boss1Move : MonoBehaviour {
 			
 			health -= 10;
 
-			this.GetComponent<SpriteRenderer> ().color = Color.green;
+			this.GetComponent<SpriteRenderer> ().color = Color.red;
 
 			Invoke("changeBackToWhite", 0.15f);
 		}
@@ -305,7 +305,7 @@ public class boss1Move : MonoBehaviour {
 			
 			health -= 25;
 
-			this.GetComponent<SpriteRenderer> ().color = Color.green;
+			this.GetComponent<SpriteRenderer> ().color = Color.red;
 
 			Invoke("changeBackToWhite", 0.15f);
 		}
@@ -314,7 +314,7 @@ public class boss1Move : MonoBehaviour {
 			
 			health -= 50;
 
-			this.GetComponent<SpriteRenderer> ().color = Color.green;
+			this.GetComponent<SpriteRenderer> ().color = Color.red;
 
 			Invoke("changeBackToWhite", 0.15f);
 		}

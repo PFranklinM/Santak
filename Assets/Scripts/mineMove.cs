@@ -36,13 +36,21 @@ public class mineMove : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		Vector3 playerMove = new Vector3 (player.transform.position.x,
+			                     player.transform.position.y,
+			                     player.transform.position.z);
+
+		Vector3 mineMove = new Vector3 (mine.transform.position.x,
+			                   mine.transform.position.y,
+			                   mine.transform.position.z);
+
 		mineTimer += Time.deltaTime;
 
 		if (Input.GetMouseButtonDown(1) && GameObject.Find ("Mine(Clone)") != null) {
 
 			Instantiate (explosionEffect, mine.transform.position, mine.transform.rotation);
 
-			if (Vector3.Distance (mine.transform.position, player.transform.position) < 85) {
+			if (Vector3.Distance (mine.transform.position, player.transform.position) < 95 && Mathf.Abs(playerMove.x - mineMove.x) < 55) {
 				player.GetComponent<Rigidbody2D> ().AddForce ((player.transform.position - mine.transform.position).normalized * playerPropulsionSpeed * Time.fixedDeltaTime);
 			}
 
@@ -53,7 +61,7 @@ public class mineMove : MonoBehaviour {
 			
 			Instantiate (explosionEffect, mine.transform.position, mine.transform.rotation);
 
-			if (Vector3.Distance (mine.transform.position, player.transform.position) < 85) {
+			if (Vector3.Distance (mine.transform.position, player.transform.position) < 95 && Mathf.Abs(playerMove.x - mineMove.x) < 55) {
 				player.GetComponent<Rigidbody2D> ().AddForce ((player.transform.position - mine.transform.position).normalized * playerPropulsionSpeed * Time.fixedDeltaTime);
 			}
 
