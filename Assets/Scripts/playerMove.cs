@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class playerMove : MonoBehaviour {
 
@@ -182,6 +183,8 @@ public class playerMove : MonoBehaviour {
 	public GameObject bossBlocker2Trigger;
 	public GameObject bossBlocker1Trigger;
 
+	public GameObject X;
+
 //	public GameObject BG1;
 //	public GameObject BG2;
 //	public GameObject BG3;
@@ -196,6 +199,8 @@ public class playerMove : MonoBehaviour {
 	void Start () {
 
 		Cursor.visible = false;
+
+		X.SetActive (false);
 
 		rb = GetComponent<Rigidbody2D>();
 
@@ -1282,6 +1287,11 @@ public class playerMove : MonoBehaviour {
 
 			GameObject.Find ("Target").GetComponent<targetControl> ().playerHasMG = false;
 
+			X.SetActive (true);
+
+			GameObject.Find ("Target").GetComponent<targetControl> ().MLEquipped = true;
+			GameObject.Find ("Target").GetComponent<targetControl> ().AREquipped = false;
+
 //			moveSpeed = 20;
 
 			firstPlaythrough = false;
@@ -1383,6 +1393,10 @@ public class playerMove : MonoBehaviour {
 		if (coll.gameObject.tag == "finalDoorTrigger" && finalKey3 == true) {
 
 			playFinalDoorOpeningAnimation = true;
+		}
+
+		if (coll.gameObject.tag == "finalPortal") {
+			SceneManager.LoadSceneAsync("TriangleWorld", LoadSceneMode.Single);
 		}
 
 		player.transform.position = playerPos;
