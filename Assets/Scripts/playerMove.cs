@@ -1227,7 +1227,7 @@ public class playerMove : MonoBehaviour {
 
 			RM1Checkpoint = true;
 
-//			playerHasFlight = false;
+			playerHasFlight = false;
 
 			firstPlaythrough = false;
 			secondPlaythrough = true;
