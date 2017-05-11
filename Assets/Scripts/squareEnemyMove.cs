@@ -53,7 +53,7 @@ public class squareEnemyMove : MonoBehaviour {
 
 				jumpCounter += Time.deltaTime;
 
-				if (jumpCounter > 1f) {
+				if (jumpCounter > 0.5f) {
 
 					rb.velocity = new Vector3 (-750, 1200, 0);
 
@@ -69,7 +69,7 @@ public class squareEnemyMove : MonoBehaviour {
 
 				jumpCounter += Time.deltaTime;
 
-				if (jumpCounter > 1f) {
+				if (jumpCounter > 0.5f) {
 
 					rb.velocity = new Vector3 (750, 1200, 0);
 
