@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class targetControl : MonoBehaviour {
 
@@ -102,6 +103,11 @@ public class targetControl : MonoBehaviour {
 //		if (thePlayer.canMove == false) {
 //			return;
 //		}
+
+		if (Input.GetKeyDown (KeyCode.Escape)) {
+
+			SceneManager.LoadScene ("OpeningCinematic", LoadSceneMode.Single);
+		}
 
 		Vector3 playerPos = new Vector3 (player.transform.position.x,
 			                    player.transform.position.y,
