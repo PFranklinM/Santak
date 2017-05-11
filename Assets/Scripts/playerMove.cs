@@ -208,8 +208,6 @@ public class playerMove : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		Cursor.visible = false;
-
 		X.SetActive (false);
 
 		rb = GetComponent<Rigidbody2D>();
@@ -1263,7 +1261,7 @@ public class playerMove : MonoBehaviour {
 
 			RM1Checkpoint = true;
 
-//			playerHasFlight = false;
+			playerHasFlight = false;
 
 			firstPlaythrough = false;
 			secondPlaythrough = true;

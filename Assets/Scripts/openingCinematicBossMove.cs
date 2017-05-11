@@ -29,6 +29,8 @@ public class openingCinematicBossMove : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		Cursor.visible = false;
+
 		moveSpeed = 85;
 
 		timeToMoveRight = false;

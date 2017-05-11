@@ -63,6 +63,8 @@ public class targetControl : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		Cursor.visible = false;
+
 		textSizeTimer = 0.0f;
 
 		textMoveAmount1 = 10.0f;
