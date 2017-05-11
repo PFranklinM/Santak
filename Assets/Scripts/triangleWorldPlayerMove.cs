@@ -22,10 +22,23 @@ public class triangleWorldPlayerMove : MonoBehaviour {
 	bool facingLeft;
 	bool facingRight;
 
+	public GameObject endingBackground;
+
+	public GameObject endingText;
+
+	public GameObject playerModelFacingLeft;
+	public GameObject playerModelFacingRight;
+
+	Mesh playerMeshFacingLeft;
+	Mesh playerMeshFacingRight;
+
 	// Use this for initialization
 	void Start () {
 
 		Cursor.visible = false;
+
+		endingBackground.SetActive (false);
+		endingText.SetActive (false);
 
 		cantGoBack = false;
 		playerWasHitByBullet = false;
@@ -53,11 +66,35 @@ public class triangleWorldPlayerMove : MonoBehaviour {
 		}
 
 		if (facingLeft == true) {
-			transform.eulerAngles = new Vector3(0, 0, 0);
+//			transform.eulerAngles = new Vector3(0, 0, 0);
+
+			playerMeshFacingLeft = playerModelFacingLeft.GetComponent<MeshFilter>().sharedMesh;
+
+			player.GetComponent<MeshFilter>().mesh = playerMeshFacingLeft;
+
+			HP1.transform.eulerAngles = new Vector3(0, 0, 45);
+			HP2.transform.eulerAngles = new Vector3(0, 0, 90);
+			HP3.transform.eulerAngles = new Vector3(0, 0, 0);
+
+			HP1.transform.localPosition = new Vector3 (-0.15f, 0.11f, -2f);
+			HP2.transform.localPosition = new Vector3 (0.65f, -0.01999995f, -2f);
+			HP3.transform.localPosition = new Vector3 (0f, -0.65f, -2f);
 		}
 
 		if (facingRight == true) {
-			transform.eulerAngles = new Vector3(0, 180, 0);
+//			transform.eulerAngles = new Vector3(0, 180, 0);
+
+			playerMeshFacingRight = playerModelFacingRight.GetComponent<MeshFilter>().sharedMesh;
+
+			player.GetComponent<MeshFilter>().mesh = playerMeshFacingRight;
+
+			HP1.transform.eulerAngles = new Vector3(0, 0, -45);
+			HP2.transform.eulerAngles = new Vector3(0, 0, -90);
+			HP3.transform.eulerAngles = new Vector3(0, 0, 0);
+
+			HP1.transform.localPosition = new Vector3 (0.15f, 0.11f, -2f);
+			HP2.transform.localPosition = new Vector3 (-0.65f, 0.01999995f, -2f);
+			HP3.transform.localPosition = new Vector3 (0f, -0.65f, -2f);
 		}
 
 		Vector3 playerPos = new Vector3 (player.transform.position.x,
@@ -90,6 +127,12 @@ public class triangleWorldPlayerMove : MonoBehaviour {
 			HP1.SetActive (true);
 			HP2.SetActive (true);
 			HP3.SetActive (true);
+		}
+
+		if (health <= 0) {
+			moveSpeed = 0;
+			endingBackground.SetActive (true);
+			endingText.SetActive (true);
 		}
 
 
