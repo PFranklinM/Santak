@@ -52,7 +52,7 @@ public class bossTextBoxManagerOpening : MonoBehaviour {
 
 		theText.text = textLines [currentLine];
 
-		if (textTimer >= 2.45f) {
+		if (textTimer >= 2.5f) {
 			currentLine += 1;
 			textTimer = 0.0f;
 		}

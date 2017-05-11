@@ -24,6 +24,8 @@ public class openingCinematicBossMove : MonoBehaviour {
 	Material mat;
 	Color colorA;
 
+	float waitToStart = 0.0f;
+
 	// Use this for initialization
 	void Start () {
 
@@ -45,6 +47,14 @@ public class openingCinematicBossMove : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		waitToStart += Time.deltaTime;
+
+		if (waitToStart < 1.5f) {
+			return;
+		}
+
+
 
 		Vector3 bossMove = new Vector3 (transform.position.x,
 			                   transform.position.y,
@@ -138,6 +148,6 @@ public class openingCinematicBossMove : MonoBehaviour {
 
 	void loadMainGame() {
 
-		SceneManager.LoadSceneAsync("2.0", LoadSceneMode.Single);
+		SceneManager.LoadScene("2.0", LoadSceneMode.Single);
 	}
 }
