@@ -195,6 +195,16 @@ public class playerMove : MonoBehaviour {
 //	public GameObject BG7;
 //	public GameObject BG8;
 
+	//audio
+	public AudioSource theAudio;
+
+	public AudioClip jump;
+	public AudioClip deathFlight;
+	public AudioClip hit;
+	public AudioClip key;
+	public AudioClip finalDoorOpen;
+	public AudioClip worldSwitch;
+
 	// Use this for initialization
 	void Start () {
 
@@ -349,14 +359,21 @@ public class playerMove : MonoBehaviour {
 
 			if (jumpCounter <= 2) {
 
+				theAudio.clip = jump;
+				theAudio.Play ();
+
 				player.GetComponent<Rigidbody2D> ().AddForce (player.transform.up * 45000f);
 			}
 		}
 
 		if (Input.GetKeyDown (KeyCode.Space) && playerIsFlying == false && playerHasDoubleJump == false) {
+			
 			jumpCounter++;
 
 			if (jumpCounter <= 1) {
+
+				theAudio.clip = jump;
+				theAudio.Play ();
 
 				player.GetComponent<Rigidbody2D> ().AddForce (player.transform.up * 45000f);
 			}
@@ -698,6 +715,9 @@ public class playerMove : MonoBehaviour {
 
 		if (playFinalDoorOpeningAnimation == true) {
 
+			theAudio.clip = finalDoorOpen;
+			theAudio.Play ();
+
 			Vector3 finalDoorLeftPos = new Vector3 (finalDoorL.transform.position.x,
 				                        finalDoorL.transform.position.y,
 				                        finalDoorL.transform.position.z);
@@ -708,6 +728,10 @@ public class playerMove : MonoBehaviour {
 
 
 			if (finalDoorLeftPos.x >= -334) {
+
+				theAudio.clip = finalDoorOpen;
+				theAudio.Play ();
+
 				finalDoorLeftPos.x -= 10 * Time.deltaTime;
 			}
 
@@ -1119,6 +1143,9 @@ public class playerMove : MonoBehaviour {
 		}
 
 		if (coll.gameObject.tag == "key") {
+
+			theAudio.clip = key;
+			theAudio.Play ();
 			
 			playerHasKey = true;
 		}
@@ -1132,6 +1159,9 @@ public class playerMove : MonoBehaviour {
 			Vector3 enemyPosRN = new Vector3 (coll.gameObject.transform.position.x,
 				                     coll.gameObject.transform.position.y,
 				                     coll.gameObject.transform.position.z);
+
+			theAudio.clip = hit;
+			theAudio.Play ();
 
 			playerHasKey = false;
 
@@ -1163,6 +1193,9 @@ public class playerMove : MonoBehaviour {
 			Vector3 enemyPosRN = new Vector3 (coll.gameObject.transform.position.x,
 				coll.gameObject.transform.position.y,
 				coll.gameObject.transform.position.z);
+
+			theAudio.clip = hit;
+			theAudio.Play ();
 
 			playerHasKey = false;
 
@@ -1215,6 +1248,9 @@ public class playerMove : MonoBehaviour {
 
 		if (coll.gameObject.tag == "finalKey1" && finalKey1 == false) {
 
+			theAudio.clip = key;
+			theAudio.Play ();
+
 			StartCoroutine ("FlyToPlayerStart");
 
 			finalKeyA.SetActive (false);
@@ -1227,7 +1263,7 @@ public class playerMove : MonoBehaviour {
 
 			RM1Checkpoint = true;
 
-			playerHasFlight = false;
+//			playerHasFlight = false;
 
 			firstPlaythrough = false;
 			secondPlaythrough = true;
@@ -1243,6 +1279,9 @@ public class playerMove : MonoBehaviour {
 		} 
 
 		if (coll.gameObject.tag == "finalKey2" && finalKey2 == false) {
+
+			theAudio.clip = key;
+			theAudio.Play ();
 
 			StartCoroutine ("FlyToPlayerStart");
 
@@ -1272,6 +1311,9 @@ public class playerMove : MonoBehaviour {
 		} 
 
 		if (coll.gameObject.tag == "finalKey3" && finalKey3 == false) {
+
+			theAudio.clip = key;
+			theAudio.Play ();
 
 			finalKey3 = true;
 
@@ -1340,11 +1382,19 @@ public class playerMove : MonoBehaviour {
 		}
 
 		if (coll.gameObject.tag == "teleportToBoss3") {
+
+			theAudio.clip = worldSwitch;
+			theAudio.Play ();
+
 			playerPos.x = 6605;
 			playerPos.y = 3020;
 		}
 
 		if (coll.gameObject.tag == "teleportBack3") {
+
+			theAudio.clip = worldSwitch;
+			theAudio.Play ();
+
 			playerPos.x = 6047;
 			playerPos.y = 2079;
 		}
@@ -1355,11 +1405,19 @@ public class playerMove : MonoBehaviour {
 		}
 
 		if (coll.gameObject.tag == "teleportToBoss2") {
+
+			theAudio.clip = worldSwitch;
+			theAudio.Play ();
+
 			playerPos.x = 6605;
 			playerPos.y = 2021;
 		}
 
 		if (coll.gameObject.tag == "teleportBack2") {
+
+			theAudio.clip = worldSwitch;
+			theAudio.Play ();
+
 			playerPos.x = 6047;
 			playerPos.y = 1924;
 		}
@@ -1370,11 +1428,19 @@ public class playerMove : MonoBehaviour {
 		}
 
 		if (coll.gameObject.tag == "teleportToBoss1") {
+
+			theAudio.clip = worldSwitch;
+			theAudio.Play ();
+
 			playerPos.x = 6605;
 			playerPos.y = 1020;
 		}
 
 		if (coll.gameObject.tag == "teleportBack1") {
+
+			theAudio.clip = worldSwitch;
+			theAudio.Play ();
+
 			playerPos.x = 6047;
 			playerPos.y = 1769;
 		}
@@ -1452,6 +1518,9 @@ public class playerMove : MonoBehaviour {
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
+			theAudio.clip = deathFlight;
+			theAudio.Play ();
+
 			transform.position = Vector3.MoveTowards(transform.position, RM1CheckpointObject.transform.position, 500f * Time.deltaTime);
 
 			yield return null;
@@ -1482,6 +1551,9 @@ public class playerMove : MonoBehaviour {
 
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
+
+			theAudio.clip = deathFlight;
+			theAudio.Play ();
 
 			transform.position = Vector3.MoveTowards(transform.position, RM2CheckpointObjectL.transform.position, 500f * Time.deltaTime);
 
@@ -1514,6 +1586,9 @@ public class playerMove : MonoBehaviour {
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
+			theAudio.clip = deathFlight;
+			theAudio.Play ();
+
 			transform.position = Vector3.MoveTowards(transform.position, RM2CheckpointObjectR.transform.position, 500f * Time.deltaTime);
 
 			yield return null;
@@ -1544,6 +1619,9 @@ public class playerMove : MonoBehaviour {
 
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
+
+			theAudio.clip = deathFlight;
+			theAudio.Play ();
 
 			transform.position = Vector3.MoveTowards(transform.position, RM3CheckpointObjectL.transform.position, 500f * Time.deltaTime);
 
@@ -1576,6 +1654,9 @@ public class playerMove : MonoBehaviour {
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
+			theAudio.clip = deathFlight;
+			theAudio.Play ();
+
 			transform.position = Vector3.MoveTowards(transform.position, RM3CheckpointObjectR.transform.position, 500f * Time.deltaTime);
 
 			yield return null;
@@ -1606,6 +1687,9 @@ public class playerMove : MonoBehaviour {
 
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
+
+			theAudio.clip = deathFlight;
+			theAudio.Play ();
 
 			transform.position = Vector3.MoveTowards(transform.position, RM4CheckpointObjectL.transform.position, 500f * Time.deltaTime);
 
@@ -1638,6 +1722,9 @@ public class playerMove : MonoBehaviour {
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
+			theAudio.clip = deathFlight;
+			theAudio.Play ();
+
 			transform.position = Vector3.MoveTowards(transform.position, RM4CheckpointObjectR.transform.position, 500f * Time.deltaTime);
 
 			yield return null;
@@ -1668,6 +1755,9 @@ public class playerMove : MonoBehaviour {
 
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
+
+			theAudio.clip = deathFlight;
+			theAudio.Play ();
 
 			transform.position = Vector3.MoveTowards(transform.position, RM5CheckpointObjectL.transform.position, 500f * Time.deltaTime);
 
@@ -1700,6 +1790,9 @@ public class playerMove : MonoBehaviour {
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
+			theAudio.clip = deathFlight;
+			theAudio.Play ();
+
 			transform.position = Vector3.MoveTowards(transform.position, RM5CheckpointObjectR.transform.position, 500f * Time.deltaTime);
 
 			yield return null;
@@ -1730,6 +1823,9 @@ public class playerMove : MonoBehaviour {
 
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
+
+			theAudio.clip = deathFlight;
+			theAudio.Play ();
 
 			transform.position = Vector3.MoveTowards(transform.position, RM6CheckpointObjectL.transform.position, 500f * Time.deltaTime);
 
@@ -1762,6 +1858,9 @@ public class playerMove : MonoBehaviour {
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
+			theAudio.clip = deathFlight;
+			theAudio.Play ();
+
 			transform.position = Vector3.MoveTowards(transform.position, RM6CheckpointObjectR.transform.position, 500f * Time.deltaTime);
 
 			yield return null;
@@ -1792,6 +1891,9 @@ public class playerMove : MonoBehaviour {
 
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
+
+			theAudio.clip = deathFlight;
+			theAudio.Play ();
 
 			transform.position = Vector3.MoveTowards(transform.position, RM7CheckpointObjectL.transform.position, 500f * Time.deltaTime);
 
@@ -1824,6 +1926,9 @@ public class playerMove : MonoBehaviour {
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
+			theAudio.clip = deathFlight;
+			theAudio.Play ();
+
 			transform.position = Vector3.MoveTowards(transform.position, RM7CheckpointObjectR.transform.position, 500f * Time.deltaTime);
 
 			yield return null;
@@ -1854,6 +1959,9 @@ public class playerMove : MonoBehaviour {
 
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
+
+			theAudio.clip = deathFlight;
+			theAudio.Play ();
 
 			transform.position = Vector3.MoveTowards(transform.position, RM8CheckpointObjectL.transform.position, 500f * Time.deltaTime);
 
@@ -1886,6 +1994,9 @@ public class playerMove : MonoBehaviour {
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
+			theAudio.clip = deathFlight;
+			theAudio.Play ();
+
 			transform.position = Vector3.MoveTowards(transform.position, RM8CheckpointObjectR.transform.position, 500f * Time.deltaTime);
 
 			yield return null;
@@ -1916,6 +2027,9 @@ public class playerMove : MonoBehaviour {
 
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
+
+			theAudio.clip = deathFlight;
+			theAudio.Play ();
 
 			transform.position = Vector3.MoveTowards(transform.position, RM9CheckpointObjectL.transform.position, 500f * Time.deltaTime);
 
@@ -1948,6 +2062,9 @@ public class playerMove : MonoBehaviour {
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
+			theAudio.clip = deathFlight;
+			theAudio.Play ();
+
 			transform.position = Vector3.MoveTowards(transform.position, RM9CheckpointObjectR.transform.position, 500f * Time.deltaTime);
 
 			yield return null;
@@ -1978,6 +2095,9 @@ public class playerMove : MonoBehaviour {
 
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
+
+			theAudio.clip = deathFlight;
+			theAudio.Play ();
 
 			transform.position = Vector3.MoveTowards(transform.position, RM10CheckpointObjectL.transform.position, 500f * Time.deltaTime);
 
@@ -2010,6 +2130,9 @@ public class playerMove : MonoBehaviour {
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
+			theAudio.clip = deathFlight;
+			theAudio.Play ();
+
 			transform.position = Vector3.MoveTowards(transform.position, RM10CheckpointObjectR.transform.position, 500f * Time.deltaTime);
 
 			yield return null;
@@ -2040,6 +2163,9 @@ public class playerMove : MonoBehaviour {
 
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
+
+			theAudio.clip = deathFlight;
+			theAudio.Play ();
 
 			transform.position = Vector3.MoveTowards(transform.position, RM11CheckpointObjectL.transform.position, 500 * Time.deltaTime);
 
@@ -2072,6 +2198,9 @@ public class playerMove : MonoBehaviour {
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 
+			theAudio.clip = deathFlight;
+			theAudio.Play ();
+
 			transform.position = Vector3.MoveTowards(transform.position, boss2R.transform.position, 1000 * Time.deltaTime);
 
 			yield return null;
@@ -2102,6 +2231,9 @@ public class playerMove : MonoBehaviour {
 
 			player.GetComponent<Collider2D> ().enabled = false;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
+
+			theAudio.clip = deathFlight;
+			theAudio.Play ();
 
 			transform.position = Vector3.MoveTowards(transform.position, boss3R.transform.position, 1000 * Time.deltaTime);
 

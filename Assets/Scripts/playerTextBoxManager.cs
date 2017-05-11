@@ -16,6 +16,9 @@ public class playerTextBoxManager : MonoBehaviour {
 
 	public bool isActive;
 
+	public AudioSource theAudio;
+	public AudioClip selection;
+
 	// Use this for initialization
 	void Start () {
 
@@ -45,6 +48,10 @@ public class playerTextBoxManager : MonoBehaviour {
 		theText.text = textLines [currentLine];
 
 		if (Input.GetKeyDown(KeyCode.Return)) {
+
+			theAudio.clip = selection;
+			theAudio.Play ();
+
 			currentLine += 1;
 		}
 

@@ -129,7 +129,7 @@ public class triangleWorldPlayerMove : MonoBehaviour {
 			playerPos.y = -131;
 		}
 
-		if (playerPos.y >= 1500) {
+		if (playerPos.y >= 1490) {
 			cantGoBack = true;
 		}
 

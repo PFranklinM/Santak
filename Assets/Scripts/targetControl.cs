@@ -51,6 +51,15 @@ public class targetControl : MonoBehaviour {
 	public GameObject squareBackground;
 	public GameObject circleBackground;
 
+	//audio
+	public AudioSource theAudio;
+
+	public AudioClip MG;
+	public AudioClip SG;
+	public AudioClip ML;
+	public AudioClip selection;
+	public AudioClip worldSwitch;
+
 	// Use this for initialization
 	void Start () {
 
@@ -114,6 +123,9 @@ public class targetControl : MonoBehaviour {
 
 			GameObject bulletClone = (GameObject)Instantiate (bullet);
 
+			theAudio.clip = MG;
+			theAudio.Play ();
+
 			Physics2D.IgnoreCollision (bulletClone.GetComponent<Collider2D> (), player.GetComponent<Collider2D> ());
 
 			bulletClone.transform.position = player.transform.position;
@@ -140,6 +152,9 @@ public class targetControl : MonoBehaviour {
 			Vector3 shellPos3 = new Vector3 (shellClone3.transform.position.x,
 				                    shellClone3.transform.position.y,
 				                    shellClone3.transform.position.z);
+
+			theAudio.clip = SG;
+			theAudio.Play ();
 
 			Physics2D.IgnoreCollision (shellClone1.GetComponent<Collider2D> (), player.GetComponent<Collider2D> ());
 			Physics2D.IgnoreCollision (shellClone2.GetComponent<Collider2D> (), player.GetComponent<Collider2D> ());
@@ -172,24 +187,37 @@ public class targetControl : MonoBehaviour {
 
 			GameObject mineClone = (GameObject)Instantiate (mine);
 
+			theAudio.clip = ML;
+			theAudio.Play ();
+
 			Physics2D.IgnoreCollision (mineClone.GetComponent<Collider2D> (), player.GetComponent<Collider2D> ());
 
 			mineClone.transform.position = player.transform.position;
 
 		}
 
-		if (Input.GetAxis ("Mouse ScrollWheel") > 0 && canShootCuzNotInCutscene == true && AREquipped == false ||
-		   Input.GetKeyDown (KeyCode.Alpha1) && canShootCuzNotInCutscene == true && AREquipped == false) {
+		if (Input.GetAxis ("Mouse ScrollWheel") > 0 && canShootCuzNotInCutscene == true && AREquipped == false && playerGotWeaponAdvice == true && playerHasMG == true ||
+			Input.GetKeyDown (KeyCode.Alpha1) && canShootCuzNotInCutscene == true && AREquipped == false && playerGotWeaponAdvice == true && playerHasMG == true) {
 
 			AREquipped = true;
 			MLEquipped = false;
+
+			if (playerHasMG == true) {
+				theAudio.clip = selection;
+				theAudio.Play ();
+			}
 		}
 
-		if (Input.GetAxis ("Mouse ScrollWheel") < 0 && canShootCuzNotInCutscene == true && MLEquipped == false ||
-		   Input.GetKeyDown (KeyCode.Alpha2) && canShootCuzNotInCutscene == true && MLEquipped == false) {
+		if (Input.GetAxis ("Mouse ScrollWheel") < 0 && canShootCuzNotInCutscene == true && MLEquipped == false && playerGotWeaponAdvice == true && playerHasMG == true ||
+			Input.GetKeyDown (KeyCode.Alpha2) && canShootCuzNotInCutscene == true && MLEquipped == false && playerGotWeaponAdvice == true && playerHasMG == true) {
 
 			AREquipped = false;
 			MLEquipped = true;
+
+			if (playerHasMG == true) {
+				theAudio.clip = selection;
+				theAudio.Play ();
+			}
 		}
 
 		if (playerGotWeaponAdvice == true) {
@@ -275,6 +303,9 @@ public class targetControl : MonoBehaviour {
 			   || Input.GetKeyDown (KeyCode.RightShift) && squareWorldActive == true &&
 			   GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == false && canShootCuzNotInCutscene == true) {
 
+				theAudio.clip = worldSwitch;
+				theAudio.Play ();
+
 				circleWorld.SetActive (true);
 				squareWorld.SetActive (false);
 				squareBackground.SetActive (false);
@@ -285,7 +316,11 @@ public class targetControl : MonoBehaviour {
 			          GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == false && canShootCuzNotInCutscene == true
 			          || Input.GetKeyDown (KeyCode.RightShift) && squareWorldActive == false &&
 			          GameObject.Find ("Player").GetComponent<playerMove> ().screenTransition == false && canShootCuzNotInCutscene == true) {
-			
+
+
+				theAudio.clip = worldSwitch;
+				theAudio.Play ();
+
 				squareWorld.SetActive (true);
 				circleWorld.SetActive (false);
 				squareBackground.SetActive (true);

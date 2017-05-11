@@ -1,12 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/squareEnemyMove.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/playerMove.cs">
     <Files>
-      <File FileName="Assets/Scripts/playerMove.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/playerMove.cs" Line="319" Column="66" />
       <File FileName="Assets/Scripts/targetControl.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/playerTextBoxManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/bossTextBoxManagerEnding.cs" Line="60" Column="21" />
+      <File FileName="Assets/Scripts/bossTextBoxManagerEnding.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/squareEnemyMove.cs" Line="72" Column="30" />
+      <File FileName="Assets/Scripts/lavaMoveH.cs" Line="16" Column="81" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

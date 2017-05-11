@@ -7,8 +7,14 @@ public class lockedDoorMove : MonoBehaviour {
 
 	Vector3 originalPos;
 
+	public AudioSource theAudio;
+	public AudioClip open;
+	public AudioClip close;
+
 	// Use this for initialization
 	void Start () {
+
+		theAudio = this.GetComponent<AudioSource> ();
 
 		originalPos = new Vector3 (this.transform.position.x,
 			this.transform.position.y,
@@ -30,6 +36,9 @@ public class lockedDoorMove : MonoBehaviour {
 			if (doorIsHittable == true && 
 				GameObject.Find ("Player").GetComponent<playerMove> ().playerHasKey == true) {
 
+				theAudio.clip = open;
+				theAudio.Play ();
+
 				doorPos.y += 85f;
 				doorIsHittable = false;
 			}
@@ -44,6 +53,10 @@ public class lockedDoorMove : MonoBehaviour {
 			transform.position.z);
 
 		if (transform.position.y > originalPos.y) {
+
+			theAudio.clip = close;
+			theAudio.Play ();
+
 			doorPos.y -= 85f;
 		}
 

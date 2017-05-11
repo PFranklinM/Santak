@@ -21,6 +21,9 @@ public class circleEnemyMove : MonoBehaviour {
 
 	int health;
 
+	public AudioSource theAudio;
+	public AudioClip hit;
+
 	// Use this for initialization
 	void Start () {
 
@@ -241,6 +244,10 @@ public class circleEnemyMove : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D coll){
 
 		if (coll.gameObject.tag == "ARbullet") {
+			
+			theAudio.clip = hit;
+			theAudio.Play ();
+
 			health -= 10;
 
 			this.GetComponent<SpriteRenderer> ().color = Color.red;
@@ -249,6 +256,9 @@ public class circleEnemyMove : MonoBehaviour {
 		}
 
 		if (coll.gameObject.tag == "SGbullet") {
+
+			theAudio.clip = hit;
+			theAudio.Play ();
 
 			Vector3 bulletPos = new Vector3 (coll.gameObject.transform.position.x,
 				coll.gameObject.transform.position.y,
@@ -280,6 +290,9 @@ public class circleEnemyMove : MonoBehaviour {
 		}
 
 		if (coll.gameObject.tag == "explosion") {
+
+			theAudio.clip = hit;
+			theAudio.Play ();
 
 			Vector3 bulletPos = new Vector3 (coll.gameObject.transform.position.x,
 				coll.gameObject.transform.position.y,

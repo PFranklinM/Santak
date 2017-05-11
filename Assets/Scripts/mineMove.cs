@@ -50,7 +50,7 @@ public class mineMove : MonoBehaviour {
 
 			Instantiate (explosionEffect, mine.transform.position, mine.transform.rotation);
 
-			if (Vector3.Distance (mine.transform.position, player.transform.position) < 95 && Mathf.Abs(playerMove.x - mineMove.x) < 55) {
+			if (Vector3.Distance (mine.transform.position, player.transform.position) < 95) {
 				player.GetComponent<Rigidbody2D> ().AddForce ((player.transform.position - mine.transform.position).normalized * playerPropulsionSpeed * Time.fixedDeltaTime);
 			}
 
@@ -61,7 +61,7 @@ public class mineMove : MonoBehaviour {
 			
 			Instantiate (explosionEffect, mine.transform.position, mine.transform.rotation);
 
-			if (Vector3.Distance (mine.transform.position, player.transform.position) < 95 && Mathf.Abs(playerMove.x - mineMove.x) < 55) {
+			if (Vector3.Distance (mine.transform.position, player.transform.position) < 95) {
 				player.GetComponent<Rigidbody2D> ().AddForce ((player.transform.position - mine.transform.position).normalized * playerPropulsionSpeed * Time.fixedDeltaTime);
 			}
 

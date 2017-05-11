@@ -26,6 +26,9 @@ public class boss2Move : MonoBehaviour {
 
 	public GameObject finalKey2;
 
+	public AudioSource theAudio;
+	public AudioClip hit;
+
 	// Use this for initialization
 	void Start () {
 
@@ -262,6 +265,9 @@ public class boss2Move : MonoBehaviour {
 
 		if (coll.gameObject.tag == "ARbullet") {
 
+			theAudio.clip = hit;
+			theAudio.Play ();
+
 			health -= 10;
 
 			this.GetComponent<SpriteRenderer> ().color = Color.red;
@@ -271,6 +277,9 @@ public class boss2Move : MonoBehaviour {
 
 		if (coll.gameObject.tag == "SGbullet") {
 
+			theAudio.clip = hit;
+			theAudio.Play ();
+
 			health -= 25;
 
 			this.GetComponent<SpriteRenderer> ().color = Color.red;
@@ -279,6 +288,9 @@ public class boss2Move : MonoBehaviour {
 		}
 
 		if (coll.gameObject.tag == "explosion") {
+
+			theAudio.clip = hit;
+			theAudio.Play ();
 
 			health -= 50;
 

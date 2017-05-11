@@ -19,6 +19,9 @@ public class squareEnemyMove : MonoBehaviour {
 	public Sprite jumpingLeft;
 	public Sprite jumpingRight;
 
+	public AudioSource theAudio;
+	public AudioClip hit;
+
 	// Use this for initialization
 	void Start () {
 
@@ -266,6 +269,10 @@ public class squareEnemyMove : MonoBehaviour {
 		}
 
 		if (coll.gameObject.tag == "ARbullet") {
+
+			theAudio.clip = hit;
+			theAudio.Play ();
+
 			health -= 10;
 
 			this.GetComponent<SpriteRenderer> ().color = Color.red;
@@ -274,6 +281,9 @@ public class squareEnemyMove : MonoBehaviour {
 		}
 
 		if (coll.gameObject.tag == "SGbullet") {
+
+			theAudio.clip = hit;
+			theAudio.Play ();
 
 			Vector3 bulletPos = new Vector3 (coll.gameObject.transform.position.x,
 				coll.gameObject.transform.position.y,
@@ -301,6 +311,9 @@ public class squareEnemyMove : MonoBehaviour {
 		}
 
 		if (coll.gameObject.tag == "explosion") {
+
+			theAudio.clip = hit;
+			theAudio.Play ();
 
 			Vector3 bulletPos = new Vector3 (coll.gameObject.transform.position.x,
 				coll.gameObject.transform.position.y,

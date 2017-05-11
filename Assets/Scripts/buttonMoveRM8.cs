@@ -62,6 +62,10 @@ public class buttonMoveRM8 : MonoBehaviour {
 		} else {
 			hiddenStaircase1.SetActive (false);
 		}
+
+		if (boxOnButton == false) {
+			somethingOnButton = false;
+		}
 	
 	}
 
@@ -97,8 +101,17 @@ public class buttonMoveRM8 : MonoBehaviour {
 			boxOnButton = false;
 		}
 
-		if (boxOnButton == false) {
-			somethingOnButton = false;
+		if (coll.gameObject.tag == "mine") {
+			boxOnButton = false;
 		}
+
+		if (coll.gameObject.tag == "explosion") {
+			boxOnButton = false;
+		}
+	}
+
+	void onCollisionExit2D(Collision2D coll){
+
+		boxOnButton = false;
 	}
 }

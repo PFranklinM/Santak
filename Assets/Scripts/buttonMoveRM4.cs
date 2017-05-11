@@ -108,10 +108,10 @@ public class buttonMoveRM4 : MonoBehaviour {
 		if (coll.gameObject.tag == "explosion") {
 			boxOnButton = false;
 		}
+	}
 
+	void onCollisionExit2D(Collision2D coll){
 
-//		if (boxOnButton == false) {
-//			somethingOnButton = false;
-//		}
+		boxOnButton = false;
 	}
 }

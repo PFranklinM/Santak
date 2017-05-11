@@ -28,6 +28,10 @@ public class boss1Move : MonoBehaviour {
 	public GameObject finalKey2;
 	public GameObject finalKey3;
 
+	public AudioSource theAudio;
+
+	public AudioClip hit;
+
 	// Use this for initialization
 	void Start () {
 
@@ -293,6 +297,9 @@ public class boss1Move : MonoBehaviour {
 		}
 
 		if (coll.gameObject.tag == "ARbullet") {
+
+			theAudio.clip = hit;
+			theAudio.Play ();
 			
 			health -= 10;
 
@@ -302,6 +309,9 @@ public class boss1Move : MonoBehaviour {
 		}
 
 		if (coll.gameObject.tag == "SGbullet") {
+
+			theAudio.clip = hit;
+			theAudio.Play ();
 			
 			health -= 25;
 
@@ -311,6 +321,9 @@ public class boss1Move : MonoBehaviour {
 		}
 
 		if (coll.gameObject.tag == "explosion") {
+
+			theAudio.clip = hit;
+			theAudio.Play ();
 			
 			health -= 50;
 
