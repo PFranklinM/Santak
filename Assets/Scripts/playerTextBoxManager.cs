@@ -47,7 +47,7 @@ public class playerTextBoxManager : MonoBehaviour {
 
 		theText.text = textLines [currentLine];
 
-		if (Input.GetKeyDown(KeyCode.Return)) {
+		if (Input.GetMouseButtonDown (0)) {
 
 			theAudio.clip = selection;
 			theAudio.Play ();

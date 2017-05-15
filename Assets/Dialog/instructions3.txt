@@ -1,2 +1,1 @@
-I can press 'SHIFT' to PHASE BETWEEN WORLDS.
-I can also press 'SPACE' to JUMP & 'SPACE' again to DOUBLE JUMP.
+I can press 'SHIFT' to PHASE BETWEEN WORLDS. I can also press 'SPACE' to JUMP & 'SPACE' again to DOUBLE JUMP.

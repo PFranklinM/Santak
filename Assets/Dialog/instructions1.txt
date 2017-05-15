@@ -1,2 +1,1 @@
-I can press 'A' & 'D' to move LEFT & RIGHT.
-I can also press 'W' to FLY.
+I can press 'A' & 'D' to move LEFT & RIGHT. I can also press 'W' to FLY.
