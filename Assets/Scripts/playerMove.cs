@@ -312,6 +312,11 @@ public class playerMove : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		if (Input.GetKeyDown (KeyCode.Escape)) {
+
+			SceneManager.LoadScene ("MainMenu", LoadSceneMode.Single);
+		}
+
 //		if (canMove == false) {
 //			return;
 //		}
@@ -1261,7 +1266,7 @@ public class playerMove : MonoBehaviour {
 
 			RM1Checkpoint = true;
 
-			playerHasFlight = false;
+//			playerHasFlight = false;
 
 			firstPlaythrough = false;
 			secondPlaythrough = true;

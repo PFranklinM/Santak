@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class triangleWorldPlayerMove : MonoBehaviour {
 
@@ -63,6 +64,11 @@ public class triangleWorldPlayerMove : MonoBehaviour {
 
 		if (canMove == false) {
 			return;
+		}
+
+		if (Input.GetKeyDown (KeyCode.Escape)) {
+
+			SceneManager.LoadScene ("MainMenu", LoadSceneMode.Single);
 		}
 
 		if (facingLeft == true) {

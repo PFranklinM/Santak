@@ -104,11 +104,6 @@ public class targetControl : MonoBehaviour {
 //			return;
 //		}
 
-		if (Input.GetKeyDown (KeyCode.Escape)) {
-
-			SceneManager.LoadScene ("OpeningCinematic", LoadSceneMode.Single);
-		}
-
 		Vector3 playerPos = new Vector3 (player.transform.position.x,
 			                    player.transform.position.y,
 			                    player.transform.position.z);

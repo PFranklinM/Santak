@@ -15,10 +15,10 @@ public class restartTimeAfterTimeLimit : MonoBehaviour {
 	void Update () {
 
 		if (Input.anyKey) {
-			timestamp = Time.time + 300.0f;
+			timestamp = Time.timeSinceLevelLoad + 300.0f;
 		}
 
-		if (Time.time >= timestamp) {
+		if (Time.timeSinceLevelLoad >= timestamp) {
 			SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
 		}
 	
